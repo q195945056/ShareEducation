@@ -13,6 +13,10 @@
 		CCF95B7F235EFDCB00FACFAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF95B7D235EFDCB00FACFAD /* Main.storyboard */; };
 		CCF95B81235EFDCE00FACFAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF95B80235EFDCE00FACFAD /* Assets.xcassets */; };
 		CCF95B84235EFDCE00FACFAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF95B82235EFDCE00FACFAD /* LaunchScreen.storyboard */; };
+		CCF95B93235F015E00FACFAD /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B92235F015E00FACFAD /* HomePageViewController.swift */; };
+		CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B94235F02B800FACFAD /* SchoolTimetableViewController.swift */; };
+		CCF95B97235F02D300FACFAD /* FamousTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B96235F02D300FACFAD /* FamousTeacherViewController.swift */; };
+		CCF95B99235F02E700FACFAD /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B98235F02E700FACFAD /* MineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		CCF95B80235EFDCE00FACFAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCF95B83235EFDCE00FACFAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCF95B85235EFDCE00FACFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCF95B92235F015E00FACFAD /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		CCF95B94235F02B800FACFAD /* SchoolTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTimetableViewController.swift; sourceTree = "<group>"; };
+		CCF95B96235F02D300FACFAD /* FamousTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamousTeacherViewController.swift; sourceTree = "<group>"; };
+		CCF95B98235F02E700FACFAD /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		CCF95B76235EFDCB00FACFAD /* ShareEducation */ = {
 			isa = PBXGroup;
 			children = (
+				CCF95B8B235F00D800FACFAD /* Classes */,
 				CCF95B77235EFDCB00FACFAD /* AppDelegate.swift */,
 				CCF95B79235EFDCB00FACFAD /* SceneDelegate.swift */,
 				CCF95B7B235EFDCB00FACFAD /* ViewController.swift */,
@@ -65,6 +74,89 @@
 				CCF95B85235EFDCE00FACFAD /* Info.plist */,
 			);
 			path = ShareEducation;
+			sourceTree = "<group>";
+		};
+		CCF95B8B235F00D800FACFAD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B90235F013800FACFAD /* Homepage */,
+				CCF95B8F235F010A00FACFAD /* SchoolTimetable */,
+				CCF95B8E235F00FD00FACFAD /* FamousTeacher */,
+				CCF95B8D235F00F700FACFAD /* Mine */,
+				CCF95B8C235F00E600FACFAD /* Common */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CCF95B8C235F00E600FACFAD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CCF95B8D235F00F700FACFAD /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B9C235F035500FACFAD /* Controller */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		CCF95B8E235F00FD00FACFAD /* FamousTeacher */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B9B235F034B00FACFAD /* Controller */,
+			);
+			path = FamousTeacher;
+			sourceTree = "<group>";
+		};
+		CCF95B8F235F010A00FACFAD /* SchoolTimetable */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B9A235F034300FACFAD /* Controller */,
+			);
+			path = SchoolTimetable;
+			sourceTree = "<group>";
+		};
+		CCF95B90235F013800FACFAD /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B91235F014900FACFAD /* Controller */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		CCF95B91235F014900FACFAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B92235F015E00FACFAD /* HomePageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCF95B9A235F034300FACFAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B94235F02B800FACFAD /* SchoolTimetableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCF95B9B235F034B00FACFAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B96235F02D300FACFAD /* FamousTeacherViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCF95B9C235F035500FACFAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95B98235F02E700FACFAD /* MineViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +230,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF95B93235F015E00FACFAD /* HomePageViewController.swift in Sources */,
 				CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */,
+				CCF95B97235F02D300FACFAD /* FamousTeacherViewController.swift in Sources */,
+				CCF95B99235F02E700FACFAD /* MineViewController.swift in Sources */,
+				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
 				CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */,
 			);
@@ -287,6 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KRM5HYEDXU;
 				INFOPLIST_FILE = ShareEducation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +402,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KRM5HYEDXU;
 				INFOPLIST_FILE = ShareEducation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
