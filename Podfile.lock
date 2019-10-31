@@ -1,0 +1,39 @@
+PODS:
+  - Alamofire (4.9.0)
+  - Kingfisher (5.8.3):
+    - Kingfisher/Core (= 5.8.3)
+  - Kingfisher/Core (5.8.3)
+  - LLCycleScrollView (1.6.0):
+    - Kingfisher
+  - Segmentio (4.1)
+  - SnapKit (5.0.1)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
+  - LLCycleScrollView
+  - Segmentio
+  - SnapKit
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - LLCycleScrollView
+    - Segmentio
+    - SnapKit
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Kingfisher: b7e4cb65ff24c264bd2a1284b75b974d907afd94
+  LLCycleScrollView: a08f666671f9fd1a205df9defebc3c217d59abc8
+  Segmentio: ab29def64e1bff6e6e9b97671788a99bed3f1d9f
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: d5b27f8947cd32fa368c7e78355229afc005898c
+
+COCOAPODS: 1.8.4

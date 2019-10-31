@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55D15AAF20EE9A762F62D938 /* Pods_ShareEducation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ABD045D700378177E0FD56 /* Pods_ShareEducation.framework */; };
+		CCB3D9C0235FEDDC008E31AE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9BF235FEDDC008E31AE /* LoginViewController.swift */; };
+		CCB3D9C2235FEDEF008E31AE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C1235FEDEF008E31AE /* RegisterViewController.swift */; };
+		CCB3D9C4235FEE4B008E31AE /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C3235FEE4B008E31AE /* CourseViewController.swift */; };
+		CCB3D9C6235FEE67008E31AE /* TeacherSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C5235FEE67008E31AE /* TeacherSearchViewController.swift */; };
+		CCB3D9C8235FEE8A008E31AE /* TeacherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C7235FEE8A008E31AE /* TeacherDetailViewController.swift */; };
+		CCB3D9CA235FEF4B008E31AE /* CustomServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C9235FEF4B008E31AE /* CustomServiceViewController.swift */; };
+		CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */; };
+		CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CD235FEF7B008E31AE /* MyCoursesViewController.swift */; };
+		CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CF235FEF90008E31AE /* MyFavoriteViewController.swift */; };
+		CCB3D9D3235FEFB6008E31AE /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D2235FEFB6008E31AE /* PlayerViewController.swift */; };
+		CCB3D9D5235FEFFD008E31AE /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D4235FEFFD008E31AE /* PaymentViewController.swift */; };
+		CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */; };
+		CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */; };
 		CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B77235EFDCB00FACFAD /* AppDelegate.swift */; };
 		CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B79235EFDCB00FACFAD /* SceneDelegate.swift */; };
 		CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B7B235EFDCB00FACFAD /* ViewController.swift */; };
@@ -20,6 +34,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareEducation.release.xcconfig"; path = "Target Support Files/Pods-ShareEducation/Pods-ShareEducation.release.xcconfig"; sourceTree = "<group>"; };
+		CCB3D9BF235FEDDC008E31AE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CCB3D9C1235FEDEF008E31AE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CCB3D9C3235FEE4B008E31AE /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		CCB3D9C5235FEE67008E31AE /* TeacherSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSearchViewController.swift; sourceTree = "<group>"; };
+		CCB3D9C7235FEE8A008E31AE /* TeacherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherDetailViewController.swift; sourceTree = "<group>"; };
+		CCB3D9C9235FEF4B008E31AE /* CustomServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomServiceViewController.swift; sourceTree = "<group>"; };
+		CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		CCB3D9CD235FEF7B008E31AE /* MyCoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController.swift; sourceTree = "<group>"; };
+		CCB3D9CF235FEF90008E31AE /* MyFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteViewController.swift; sourceTree = "<group>"; };
+		CCB3D9D2235FEFB6008E31AE /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		CCB3D9D4235FEFFD008E31AE /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSettingViewController.swift; sourceTree = "<group>"; };
+		CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCarViewController.swift; sourceTree = "<group>"; };
 		CCF95B74235EFDCB00FACFAD /* ShareEducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareEducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF95B77235EFDCB00FACFAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF95B79235EFDCB00FACFAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +60,8 @@
 		CCF95B94235F02B800FACFAD /* SchoolTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTimetableViewController.swift; sourceTree = "<group>"; };
 		CCF95B96235F02D300FACFAD /* FamousTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamousTeacherViewController.swift; sourceTree = "<group>"; };
 		CCF95B98235F02E700FACFAD /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		F0ABD045D700378177E0FD56 /* Pods_ShareEducation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareEducation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F229B415CD46AC344FAB7417 /* Pods-ShareEducation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareEducation.debug.xcconfig"; path = "Target Support Files/Pods-ShareEducation/Pods-ShareEducation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +69,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D15AAF20EE9A762F62D938 /* Pods_ShareEducation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A2CD48977914E5A0F9524D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F229B415CD46AC344FAB7417 /* Pods-ShareEducation.debug.xcconfig */,
+				65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8BFDA98B1FEC3E6F61474F11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0ABD045D700378177E0FD56 /* Pods_ShareEducation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCB3D9D1235FEFA7008E31AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCB3D9D2235FEFB6008E31AE /* PlayerViewController.swift */,
+				CCB3D9D4235FEFFD008E31AE /* PaymentViewController.swift */,
+				CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */,
+				CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		CCF95B6B235EFDCA00FACFAD = {
 			isa = PBXGroup;
 			children = (
 				CCF95B76235EFDCB00FACFAD /* ShareEducation */,
 				CCF95B75235EFDCB00FACFAD /* Products */,
+				7A2CD48977914E5A0F9524D2 /* Pods */,
+				8BFDA98B1FEC3E6F61474F11 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +153,7 @@
 		CCF95B8C235F00E600FACFAD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CCB3D9D1235FEFA7008E31AE /* Controller */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -139,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF95B94235F02B800FACFAD /* SchoolTimetableViewController.swift */,
+				CCB3D9C3235FEE4B008E31AE /* CourseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -147,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				CCF95B96235F02D300FACFAD /* FamousTeacherViewController.swift */,
+				CCB3D9C5235FEE67008E31AE /* TeacherSearchViewController.swift */,
+				CCB3D9C7235FEE8A008E31AE /* TeacherDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,6 +221,12 @@
 			isa = PBXGroup;
 			children = (
 				CCF95B98235F02E700FACFAD /* MineViewController.swift */,
+				CCB3D9BF235FEDDC008E31AE /* LoginViewController.swift */,
+				CCB3D9C1235FEDEF008E31AE /* RegisterViewController.swift */,
+				CCB3D9C9235FEF4B008E31AE /* CustomServiceViewController.swift */,
+				CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */,
+				CCB3D9CD235FEF7B008E31AE /* MyCoursesViewController.swift */,
+				CCB3D9CF235FEF90008E31AE /* MyFavoriteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -166,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCF95B88235EFDCE00FACFAD /* Build configuration list for PBXNativeTarget "ShareEducation" */;
 			buildPhases = (
+				667DE8D54DD77DE17269A099 /* [CP] Check Pods Manifest.lock */,
 				CCF95B70235EFDCB00FACFAD /* Sources */,
 				CCF95B71235EFDCB00FACFAD /* Frameworks */,
 				CCF95B72235EFDCB00FACFAD /* Resources */,
+				CC559B277B75F64959BF4A8A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,18 +299,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		667DE8D54DD77DE17269A099 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShareEducation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC559B277B75F64959BF4A8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShareEducation/Pods-ShareEducation-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShareEducation/Pods-ShareEducation-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShareEducation/Pods-ShareEducation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CCF95B70235EFDCB00FACFAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB3D9C2235FEDEF008E31AE /* RegisterViewController.swift in Sources */,
+				CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */,
 				CCF95B93235F015E00FACFAD /* HomePageViewController.swift in Sources */,
+				CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */,
+				CCB3D9C8235FEE8A008E31AE /* TeacherDetailViewController.swift in Sources */,
+				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
 				CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */,
+				CCB3D9C4235FEE4B008E31AE /* CourseViewController.swift in Sources */,
+				CCB3D9D5235FEFFD008E31AE /* PaymentViewController.swift in Sources */,
+				CCB3D9CA235FEF4B008E31AE /* CustomServiceViewController.swift in Sources */,
 				CCF95B97235F02D300FACFAD /* FamousTeacherViewController.swift in Sources */,
+				CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */,
+				CCB3D9C6235FEE67008E31AE /* TeacherSearchViewController.swift in Sources */,
 				CCF95B99235F02E700FACFAD /* MineViewController.swift in Sources */,
+				CCB3D9C0235FEDDC008E31AE /* LoginViewController.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
+				CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */,
 				CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */,
+				CCB3D9D3235FEFB6008E31AE /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +507,7 @@
 		};
 		CCF95B89235EFDCE00FACFAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F229B415CD46AC344FAB7417 /* Pods-ShareEducation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -397,6 +527,7 @@
 		};
 		CCF95B8A235EFDCE00FACFAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
