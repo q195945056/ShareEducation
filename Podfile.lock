@@ -1,39 +1,42 @@
 PODS:
   - Alamofire (4.9.0)
+  - BetterSegmentedControl (1.2.1)
+  - Jelly (2.2.2)
   - Kingfisher (5.8.3):
     - Kingfisher/Core (= 5.8.3)
   - Kingfisher/Core (5.8.3)
-  - LLCycleScrollView (1.6.0):
-    - Kingfisher
-  - Segmentio (4.1)
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.0)
+  - TYCyclePagerView (1.2.0)
 
 DEPENDENCIES:
   - Alamofire
+  - BetterSegmentedControl (~> 1.2)
+  - Jelly
   - Kingfisher
-  - LLCycleScrollView
-  - Segmentio
   - SnapKit
   - SwiftyJSON
+  - TYCyclePagerView
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - BetterSegmentedControl
+    - Jelly
     - Kingfisher
-    - LLCycleScrollView
-    - Segmentio
     - SnapKit
     - SwiftyJSON
+    - TYCyclePagerView
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  BetterSegmentedControl: b27bddbdff29b6cae988678d6cd106858986cd03
+  Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   Kingfisher: b7e4cb65ff24c264bd2a1284b75b974d907afd94
-  LLCycleScrollView: a08f666671f9fd1a205df9defebc3c217d59abc8
-  Segmentio: ab29def64e1bff6e6e9b97671788a99bed3f1d9f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  TYCyclePagerView: 2b051dade0615c70784aa34f40c646feeddb7344
 
-PODFILE CHECKSUM: d5b27f8947cd32fa368c7e78355229afc005898c
+PODFILE CHECKSUM: ec4a09a30aa3a2517e78bf6bf7096bcfd5318956
 
 COCOAPODS: 1.8.4

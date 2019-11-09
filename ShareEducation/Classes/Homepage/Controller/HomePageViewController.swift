@@ -7,18 +7,39 @@
 //
 
 import UIKit
+import BetterSegmentedControl
+import SnapKit
 
 class HomePageViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView?
-
+    @IBOutlet weak var segmentedControl: BetterSegmentedControl!
+    
+    lazy var pageViewController: UIPageViewController = {
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        pageViewController.scrollView?.isScrollEnabled = false
+        return pageViewController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        _setupUI()
     }
     
+    private func _setupUI() -> Void {
+        segmentedControl.segments = LabelSegment.segments(withTitles: ["全部", "语文", "数学", "英语", "物理", "化学", "政治"],
+                                                          normalFont: .systemFont(ofSize: 13),
+                                                          normalTextColor: UIColor(red: 51, green: 51, blue: 51),
+                                                          selectedFont: .systemFont(ofSize: 18, weight: .medium),
+                                                          selectedTextColor: UIColor(red: 233, green: 76, blue: 28))
+        view.addSubview(pageViewController.view)
+        pageViewController.view.snp.makeConstraints { (make) in
+            make.top.equalTo(segmentedControl.snp.bottom)
+            make.leading.trailing.bottom.equalTo(view)
+        }
+    pageViewController.setViewControllers([HomeContentViewController()], direction: .forward, animated: false)
+    }
 
     /*
     // MARK: - Navigation
@@ -32,21 +53,4 @@ class HomePageViewController: UIViewController {
 
 }
 
-extension HomePageViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        let text = "第\(indexPath.row)行"
-        cell.textLabel?.text = text
-        return cell!
-    }
-}
 
-extension HomePageViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}

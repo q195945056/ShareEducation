@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="odZ-Y2-mzr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3oA-mz-Gna">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,37 +33,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-bT-tQ6">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvK-pH-WbI" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ROT-Wb-58l" id="RgS-ri-vPw"/>
-                                    <outlet property="delegate" destination="ROT-Wb-58l" id="Z0M-0n-hfq"/>
-                                </connections>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="N4W-lq-6sY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                        <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBorderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="WcN-Na-xLe" firstAttribute="trailing" secondItem="RiI-bT-tQ6" secondAttribute="trailing" id="Hgd-3F-mUV"/>
-                            <constraint firstItem="RiI-bT-tQ6" firstAttribute="top" secondItem="WcN-Na-xLe" secondAttribute="top" id="KAi-xt-QQS"/>
-                            <constraint firstItem="RiI-bT-tQ6" firstAttribute="leading" secondItem="WcN-Na-xLe" secondAttribute="leading" id="Suh-45-y4i"/>
-                            <constraint firstItem="WcN-Na-xLe" firstAttribute="bottom" secondItem="RiI-bT-tQ6" secondAttribute="bottom" id="iBD-wL-BWq"/>
+                            <constraint firstItem="pvK-pH-WbI" firstAttribute="leading" secondItem="WcN-Na-xLe" secondAttribute="leading" id="N5I-Ev-7j0"/>
+                            <constraint firstItem="WcN-Na-xLe" firstAttribute="trailing" secondItem="pvK-pH-WbI" secondAttribute="trailing" id="eVK-aa-3eE"/>
+                            <constraint firstItem="pvK-pH-WbI" firstAttribute="top" secondItem="WcN-Na-xLe" secondAttribute="top" id="hqw-rM-Ka1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WcN-Na-xLe"/>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="8Fq-pO-b97"/>
                     <connections>
-                        <outlet property="tableView" destination="RiI-bT-tQ6" id="664-qc-Yo4"/>
+                        <outlet property="segmentedControl" destination="pvK-pH-WbI" id="Wpf-UM-CmK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJ8-it-B4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600" y="-1254"/>
+            <point key="canvasLocation" x="1600.0000000000002" y="-1254.2410714285713"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="UM4-eZ-rUr">
+            <objects>
+                <navigationController id="3oA-mz-Gna" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1PI-uo-tVh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="odZ-Y2-mzr" kind="relationship" relationship="rootViewController" id="UtV-M5-JGW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sX4-ib-O1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1014" y="-261"/>
+        </scene>
+        <!--Main Tabbar Controller-->
         <scene sceneID="wbM-l7-m3N">
             <objects>
-                <tabBarController id="odZ-Y2-mzr" sceneMemberID="viewController">
+                <tabBarController id="odZ-Y2-mzr" customClass="MainTabbarController" customModule="ShareEducation" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TFg-Yc-T6y"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TVT-7M-jYg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

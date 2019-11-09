@@ -3,11 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		55D15AAF20EE9A762F62D938 /* Pods_ShareEducation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ABD045D700378177E0FD56 /* Pods_ShareEducation.framework */; };
+		CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */; };
+		CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FD27A2376742C00FC803D /* MainTabbarController.swift */; };
+		CC98781E2376BFC1004F8F8E /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */; };
+		CC9878212376CA4F004F8F8E /* HomeBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9878202376CA4F004F8F8E /* HomeBannerCell.swift */; };
+		CC9878232376D188004F8F8E /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9878222376D188004F8F8E /* HomeContentViewController.swift */; };
+		CC9878252376DAE7004F8F8E /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9878242376DAE7004F8F8E /* UIPageViewController+ScrollView.swift */; };
+		CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9878262376EBC9004F8F8E /* HomeSectionTitleView.swift */; };
 		CCB3D9C0235FEDDC008E31AE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9BF235FEDDC008E31AE /* LoginViewController.swift */; };
 		CCB3D9C2235FEDEF008E31AE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C1235FEDEF008E31AE /* RegisterViewController.swift */; };
 		CCB3D9C4235FEE4B008E31AE /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C3235FEE4B008E31AE /* CourseViewController.swift */; };
@@ -35,6 +42,13 @@
 
 /* Begin PBXFileReference section */
 		65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareEducation.release.xcconfig"; path = "Target Support Files/Pods-ShareEducation/Pods-ShareEducation.release.xcconfig"; sourceTree = "<group>"; };
+		CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLSegmentedControl.swift; sourceTree = "<group>"; };
+		CC4FD27A2376742C00FC803D /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
+		CC9878202376CA4F004F8F8E /* HomeBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCell.swift; sourceTree = "<group>"; };
+		CC9878222376D188004F8F8E /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
+		CC9878242376DAE7004F8F8E /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		CC9878262376EBC9004F8F8E /* HomeSectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionTitleView.swift; sourceTree = "<group>"; };
 		CCB3D9BF235FEDDC008E31AE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CCB3D9C1235FEDEF008E31AE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CCB3D9C3235FEE4B008E31AE /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +96,6 @@
 				F229B415CD46AC344FAB7417 /* Pods-ShareEducation.debug.xcconfig */,
 				65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -94,6 +107,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC0DC48E236EF54D000D9B80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC98781C2376BFAE004F8F8E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */,
+				CC9878242376DAE7004F8F8E /* UIPageViewController+ScrollView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CC98781F2376CA36004F8F8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC9878202376CA4F004F8F8E /* HomeBannerCell.swift */,
+				CC9878262376EBC9004F8F8E /* HomeSectionTitleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CCB3D9D1235FEFA7008E31AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +140,7 @@
 				CCB3D9D4235FEFFD008E31AE /* PaymentViewController.swift */,
 				CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */,
 				CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */,
+				CC4FD27A2376742C00FC803D /* MainTabbarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +193,8 @@
 		CCF95B8C235F00E600FACFAD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CC98781C2376BFAE004F8F8E /* Extensions */,
+				CC0DC48E236EF54D000D9B80 /* View */,
 				CCB3D9D1235FEFA7008E31AE /* Controller */,
 			);
 			path = Common;
@@ -185,6 +227,7 @@
 		CCF95B90235F013800FACFAD /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
+				CC98781F2376CA36004F8F8E /* View */,
 				CCF95B91235F014900FACFAD /* Controller */,
 			);
 			path = Homepage;
@@ -194,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF95B92235F015E00FACFAD /* HomePageViewController.swift */,
+				CC9878222376D188004F8F8E /* HomeContentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -351,16 +395,23 @@
 				CCF95B93235F015E00FACFAD /* HomePageViewController.swift in Sources */,
 				CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */,
 				CCB3D9C8235FEE8A008E31AE /* TeacherDetailViewController.swift in Sources */,
+				CC98781E2376BFC1004F8F8E /* UIColor+RGB.swift in Sources */,
 				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
+				CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */,
 				CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */,
 				CCB3D9C4235FEE4B008E31AE /* CourseViewController.swift in Sources */,
 				CCB3D9D5235FEFFD008E31AE /* PaymentViewController.swift in Sources */,
 				CCB3D9CA235FEF4B008E31AE /* CustomServiceViewController.swift in Sources */,
 				CCF95B97235F02D300FACFAD /* FamousTeacherViewController.swift in Sources */,
 				CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */,
+				CC9878212376CA4F004F8F8E /* HomeBannerCell.swift in Sources */,
 				CCB3D9C6235FEE67008E31AE /* TeacherSearchViewController.swift in Sources */,
+				CC9878232376D188004F8F8E /* HomeContentViewController.swift in Sources */,
+				CC9878252376DAE7004F8F8E /* UIPageViewController+ScrollView.swift in Sources */,
 				CCF95B99235F02E700FACFAD /* MineViewController.swift in Sources */,
 				CCB3D9C0235FEDDC008E31AE /* LoginViewController.swift in Sources */,
+				CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */,
+				CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
 				CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */,
