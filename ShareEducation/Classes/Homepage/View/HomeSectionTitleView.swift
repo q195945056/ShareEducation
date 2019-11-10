@@ -10,9 +10,7 @@ import UIKit
 import SnapKit
 
 class HomeSetionTitleView: UITableViewHeaderFooterView {
-    
-    public static let reuseIdentifier = "HomeSetionTitleView"
-    
+        
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textColor = UIColor(red: 51, green: 51, blue: 51)

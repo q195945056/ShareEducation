@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		55D15AAF20EE9A762F62D938 /* Pods_ShareEducation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ABD045D700378177E0FD56 /* Pods_ShareEducation.framework */; };
+		CC017DE12377B10F00BF22DC /* HomeTeacherTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DE02377B10F00BF22DC /* HomeTeacherTableCell.swift */; };
+		CC017DE32377B1A600BF22DC /* Cell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DE22377B1A600BF22DC /* Cell+ReuseIdentifier.swift */; };
+		CC017DE52377BCDD00BF22DC /* HomeTeacherCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DE42377BCDD00BF22DC /* HomeTeacherCollectionCell.swift */; };
+		CC017DE72377D23700BF22DC /* TeacherScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DE62377D23700BF22DC /* TeacherScoreView.swift */; };
+		CC017DF12377D3AA00BF22DC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC017DEC2377D3AA00BF22DC /* Media.xcassets */; };
+		CC017DF22377D3AA00BF22DC /* StarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DED2377D3AA00BF22DC /* StarType.swift */; };
+		CC017DF32377D3AA00BF22DC /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DEF2377D3AA00BF22DC /* StarRateView.swift */; };
+		CC017DF623781B9A00BF22DC /* HomeClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DF523781B9A00BF22DC /* HomeClassCell.swift */; };
 		CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */; };
 		CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FD27A2376742C00FC803D /* MainTabbarController.swift */; };
 		CC98781E2376BFC1004F8F8E /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */; };
@@ -42,6 +50,14 @@
 
 /* Begin PBXFileReference section */
 		65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareEducation.release.xcconfig"; path = "Target Support Files/Pods-ShareEducation/Pods-ShareEducation.release.xcconfig"; sourceTree = "<group>"; };
+		CC017DE02377B10F00BF22DC /* HomeTeacherTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTeacherTableCell.swift; sourceTree = "<group>"; };
+		CC017DE22377B1A600BF22DC /* Cell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		CC017DE42377BCDD00BF22DC /* HomeTeacherCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTeacherCollectionCell.swift; sourceTree = "<group>"; };
+		CC017DE62377D23700BF22DC /* TeacherScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherScoreView.swift; sourceTree = "<group>"; };
+		CC017DEC2377D3AA00BF22DC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		CC017DED2377D3AA00BF22DC /* StarType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarType.swift; sourceTree = "<group>"; };
+		CC017DEF2377D3AA00BF22DC /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
+		CC017DF523781B9A00BF22DC /* HomeClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClassCell.swift; sourceTree = "<group>"; };
 		CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLSegmentedControl.swift; sourceTree = "<group>"; };
 		CC4FD27A2376742C00FC803D /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
@@ -107,10 +123,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC017DE82377D38500BF22DC /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				CC017DEB2377D3AA00BF22DC /* StarRateView */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		CC017DEB2377D3AA00BF22DC /* StarRateView */ = {
+			isa = PBXGroup;
+			children = (
+				CC017DEC2377D3AA00BF22DC /* Media.xcassets */,
+				CC017DED2377D3AA00BF22DC /* StarType.swift */,
+				CC017DEF2377D3AA00BF22DC /* StarRateView.swift */,
+			);
+			path = StarRateView;
+			sourceTree = "<group>";
+		};
 		CC0DC48E236EF54D000D9B80 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */,
+				CC017DE62377D23700BF22DC /* TeacherScoreView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +155,7 @@
 			children = (
 				CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */,
 				CC9878242376DAE7004F8F8E /* UIPageViewController+ScrollView.swift */,
+				CC017DE22377B1A600BF22DC /* Cell+ReuseIdentifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -129,6 +165,9 @@
 			children = (
 				CC9878202376CA4F004F8F8E /* HomeBannerCell.swift */,
 				CC9878262376EBC9004F8F8E /* HomeSectionTitleView.swift */,
+				CC017DE02377B10F00BF22DC /* HomeTeacherTableCell.swift */,
+				CC017DE42377BCDD00BF22DC /* HomeTeacherCollectionCell.swift */,
+				CC017DF523781B9A00BF22DC /* HomeClassCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +205,7 @@
 		CCF95B76235EFDCB00FACFAD /* ShareEducation */ = {
 			isa = PBXGroup;
 			children = (
+				CC017DE82377D38500BF22DC /* Vendor */,
 				CCF95B8B235F00D800FACFAD /* Classes */,
 				CCF95B77235EFDCB00FACFAD /* AppDelegate.swift */,
 				CCF95B79235EFDCB00FACFAD /* SceneDelegate.swift */,
@@ -337,6 +377,7 @@
 			files = (
 				CCF95B84235EFDCE00FACFAD /* LaunchScreen.storyboard in Resources */,
 				CCF95B81235EFDCE00FACFAD /* Assets.xcassets in Resources */,
+				CC017DF12377D3AA00BF22DC /* Media.xcassets in Resources */,
 				CCF95B7F235EFDCB00FACFAD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,9 +432,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB3D9C2235FEDEF008E31AE /* RegisterViewController.swift in Sources */,
+				CC017DE12377B10F00BF22DC /* HomeTeacherTableCell.swift in Sources */,
 				CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */,
 				CCF95B93235F015E00FACFAD /* HomePageViewController.swift in Sources */,
 				CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */,
+				CC017DF22377D3AA00BF22DC /* StarType.swift in Sources */,
 				CCB3D9C8235FEE8A008E31AE /* TeacherDetailViewController.swift in Sources */,
 				CC98781E2376BFC1004F8F8E /* UIColor+RGB.swift in Sources */,
 				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
@@ -409,12 +452,17 @@
 				CC9878232376D188004F8F8E /* HomeContentViewController.swift in Sources */,
 				CC9878252376DAE7004F8F8E /* UIPageViewController+ScrollView.swift in Sources */,
 				CCF95B99235F02E700FACFAD /* MineViewController.swift in Sources */,
+				CC017DE32377B1A600BF22DC /* Cell+ReuseIdentifier.swift in Sources */,
 				CCB3D9C0235FEDDC008E31AE /* LoginViewController.swift in Sources */,
+				CC017DF623781B9A00BF22DC /* HomeClassCell.swift in Sources */,
 				CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */,
+				CC017DF32377D3AA00BF22DC /* StarRateView.swift in Sources */,
 				CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
 				CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */,
+				CC017DE52377BCDD00BF22DC /* HomeTeacherCollectionCell.swift in Sources */,
+				CC017DE72377D23700BF22DC /* TeacherScoreView.swift in Sources */,
 				CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */,
 				CCB3D9D3235FEFB6008E31AE /* PlayerViewController.swift in Sources */,
 			);

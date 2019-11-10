@@ -16,6 +16,7 @@ target 'ShareEducation' do
   pod 'BetterSegmentedControl', '~> 1.2'#SegmentedControl
   pod 'Jelly'
   pod 'TYCyclePagerView'
+  pod 'Then'
 
 end
 

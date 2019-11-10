@@ -16,9 +16,7 @@ class HomeBannerCell: UICollectionViewCell {
         result.layer.masksToBounds = true
         return result
     }()
-    
-    public static let reuseIdentifier = "HomeBannerCell"
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         _commonInit()

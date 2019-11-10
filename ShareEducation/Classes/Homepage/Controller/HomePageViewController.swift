@@ -38,7 +38,11 @@ class HomePageViewController: UIViewController {
             make.top.equalTo(segmentedControl.snp.bottom)
             make.leading.trailing.bottom.equalTo(view)
         }
-    pageViewController.setViewControllers([HomeContentViewController()], direction: .forward, animated: false)
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "HomeContentViewController")
+        if let viewController = viewController {
+            pageViewController.setViewControllers([viewController], direction: .forward, animated: false)
+        }
     }
 
     /*

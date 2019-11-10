@@ -9,25 +9,15 @@
 import UIKit
 import TYCyclePagerView
 import SnapKit
+import Then
 
 class HomeContentViewController: UIViewController {
     
-    lazy var tableView: UITableView = {
-        var tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.backgroundColor = UIColor(red: 254, green: 254, blue: 254)
-        tableView.sectionHeaderHeight = 50
-        tableView.separatorStyle = .none
-        tableView.register(HomeSetionTitleView.self, forHeaderFooterViewReuseIdentifier: HomeSetionTitleView.reuseIdentifier)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.dataSource = self
-        tableView.delegate = self
-        return tableView
-    }()
+    @IBOutlet var tableView: UITableView!
     
     lazy var bannerDatas = [UIColor]()
     
-    lazy var pagerView: TYCyclePagerView = {
-        let pagerView = TYCyclePagerView()
+    lazy var pagerView: TYCyclePagerView = TYCyclePagerView().then { pagerView in
         let bannerCellWidth = UIScreen.main.bounds.width - 26
         let bannerCellHeight = bannerCellWidth * 140 / 349
         pagerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: bannerCellHeight + 25)
@@ -36,8 +26,7 @@ class HomeContentViewController: UIViewController {
         pagerView.dataSource = self
         pagerView.delegate = self
         pagerView.register(HomeBannerCell.classForCoder(), forCellWithReuseIdentifier: HomeBannerCell.reuseIdentifier)
-        return pagerView
-    }()
+    }
     
 // MARK: - Life Cycle
     
@@ -52,6 +41,8 @@ class HomeContentViewController: UIViewController {
 // MARK: - Private Methods
     
     func _setupUI() -> Void {
+        tableView.sectionHeaderHeight = 50
+        tableView.register(HomeSetionTitleView.self, forHeaderFooterViewReuseIdentifier: HomeSetionTitleView.reuseIdentifier)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
@@ -106,14 +97,26 @@ extension HomeContentViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        } else {
+            return 10
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        let text = "第\(indexPath.row)行"
-        cell.textLabel?.text = text
-        return cell!
+        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeTeacherTableCell.reuseIdentifier, for: indexPath) as! HomeTeacherTableCell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeClassCell.reuseIdentifier, for: indexPath) as! HomeClassCell
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -124,6 +127,15 @@ extension HomeContentViewController: UITableViewDataSource {
 }
 
 extension HomeContentViewController: UITableViewDelegate {
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+//            return HomeTeacherTableCell.cellHeight
+//        } else {
+//            return HomeTeacherTableCell.cellHeight
+//        }
+//    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
