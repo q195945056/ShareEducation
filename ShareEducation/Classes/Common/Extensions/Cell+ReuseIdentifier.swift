@@ -14,7 +14,7 @@ extension UITableViewCell: ReusableView {}
 extension UICollectionViewCell: ReusableView {}
 extension UITableViewHeaderFooterView: ReusableView {}
 
-extension ReusableView where Self: UIView {
+extension ReusableView  {
     static var reuseIdentifier: String {
         String(describing: self)
     }    
