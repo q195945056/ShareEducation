@@ -11,7 +11,7 @@ import TYCyclePagerView
 import SnapKit
 import Then
 
-class HomeContentViewController: UIViewController {
+class HomeContentViewController: BaseContentViewController {
     
     @IBOutlet var tableView: UITableView!
     

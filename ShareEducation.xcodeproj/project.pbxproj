@@ -38,6 +38,21 @@
 		CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */; };
 		CCBF46C8237FAD670030AFC1 /* GradeCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */; };
 		CCBF46CA237FC20A0030AFC1 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46C9237FC20A0030AFC1 /* CustomNavigationBar.swift */; };
+		CCBF46D5237FFAB00030AFC1 /* CalendarFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46CC237FFAAF0030AFC1 /* CalendarFlowLayout.swift */; };
+		CCBF46D6237FFAB00030AFC1 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46CD237FFAAF0030AFC1 /* CalendarHeaderView.swift */; };
+		CCBF46D7237FFAB00030AFC1 /* CalendarView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46CE237FFAAF0030AFC1 /* CalendarView+Extensions.swift */; };
+		CCBF46D8237FFAB00030AFC1 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46CF237FFAAF0030AFC1 /* CalendarDayCell.swift */; };
+		CCBF46D9237FFAB00030AFC1 /* CalendarView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46D0237FFAAF0030AFC1 /* CalendarView+Style.swift */; };
+		CCBF46DA237FFAB00030AFC1 /* CalendarView+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46D1237FFAAF0030AFC1 /* CalendarView+Delegate.swift */; };
+		CCBF46DB237FFAB00030AFC1 /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46D2237FFAAF0030AFC1 /* EventsManager.swift */; };
+		CCBF46DC237FFAB00030AFC1 /* CalendarView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46D3237FFAAF0030AFC1 /* CalendarView+DataSource.swift */; };
+		CCBF46DD237FFAB00030AFC1 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46D4237FFAAF0030AFC1 /* CalendarView.swift */; };
+		CCBF46DF237FFC700030AFC1 /* BaseRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46DE237FFC700030AFC1 /* BaseRootViewController.swift */; };
+		CCBF46E1237FFFCC0030AFC1 /* BaseContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46E0237FFFCC0030AFC1 /* BaseContentViewController.swift */; };
+		CCBF46E323800BF20030AFC1 /* CourseContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46E223800BF20030AFC1 /* CourseContentViewController.swift */; };
+		CCBF46E5238017190030AFC1 /* MonthCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46E4238017190030AFC1 /* MonthCalendarView.swift */; };
+		CCBF46E7238017B90030AFC1 /* UILabel+QuickUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46E6238017B90030AFC1 /* UILabel+QuickUI.swift */; };
+		CCBF46E9238018C40030AFC1 /* UIButton+QuickUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46E8238018C40030AFC1 /* UIButton+QuickUI.swift */; };
 		CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC4F0FA237BF1FE00FD11D9 /* UIScreen+Bounds.swift */; };
 		CCC4F0FD237BF4BA00FD11D9 /* GradeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */; };
 		CCD1BC65237C06D800F52069 /* SEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1BC64237C06D800F52069 /* SEService.swift */; };
@@ -86,6 +101,21 @@
 		CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCarViewController.swift; sourceTree = "<group>"; };
 		CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionHeader.swift; sourceTree = "<group>"; };
 		CCBF46C9237FC20A0030AFC1 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		CCBF46CC237FFAAF0030AFC1 /* CalendarFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFlowLayout.swift; sourceTree = "<group>"; };
+		CCBF46CD237FFAAF0030AFC1 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
+		CCBF46CE237FFAAF0030AFC1 /* CalendarView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Extensions.swift"; sourceTree = "<group>"; };
+		CCBF46CF237FFAAF0030AFC1 /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
+		CCBF46D0237FFAAF0030AFC1 /* CalendarView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Style.swift"; sourceTree = "<group>"; };
+		CCBF46D1237FFAAF0030AFC1 /* CalendarView+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Delegate.swift"; sourceTree = "<group>"; };
+		CCBF46D2237FFAAF0030AFC1 /* EventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; };
+		CCBF46D3237FFAAF0030AFC1 /* CalendarView+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+DataSource.swift"; sourceTree = "<group>"; };
+		CCBF46D4237FFAAF0030AFC1 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		CCBF46DE237FFC700030AFC1 /* BaseRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRootViewController.swift; sourceTree = "<group>"; };
+		CCBF46E0237FFFCC0030AFC1 /* BaseContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContentViewController.swift; sourceTree = "<group>"; };
+		CCBF46E223800BF20030AFC1 /* CourseContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseContentViewController.swift; sourceTree = "<group>"; };
+		CCBF46E4238017190030AFC1 /* MonthCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarView.swift; sourceTree = "<group>"; };
+		CCBF46E6238017B90030AFC1 /* UILabel+QuickUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+QuickUI.swift"; sourceTree = "<group>"; };
+		CCBF46E8238018C40030AFC1 /* UIButton+QuickUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+QuickUI.swift"; sourceTree = "<group>"; };
 		CCC4F0FA237BF1FE00FD11D9 /* UIScreen+Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Bounds.swift"; sourceTree = "<group>"; };
 		CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionCell.swift; sourceTree = "<group>"; };
 		CCD1BC64237C06D800F52069 /* SEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEService.swift; sourceTree = "<group>"; };
@@ -138,6 +168,7 @@
 		CC017DE82377D38500BF22DC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CCBF46CB237FFAAF0030AFC1 /* CalendarView */,
 				CC017DEB2377D3AA00BF22DC /* StarRateView */,
 			);
 			path = Vendor;
@@ -161,6 +192,7 @@
 				CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */,
 				CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */,
 				CCBF46C9237FC20A0030AFC1 /* CustomNavigationBar.swift */,
+				CCBF46E4238017190030AFC1 /* MonthCalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +205,8 @@
 				CC017DE22377B1A600BF22DC /* Cell+ReuseIdentifier.swift */,
 				CCC4F0FA237BF1FE00FD11D9 /* UIScreen+Bounds.swift */,
 				CCD1BC66237C195800F52069 /* Bundle+Info.swift */,
+				CCBF46E6238017B90030AFC1 /* UILabel+QuickUI.swift */,
+				CCBF46E8238018C40030AFC1 /* UIButton+QuickUI.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -197,8 +231,26 @@
 				CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */,
 				CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */,
 				CC4FD27A2376742C00FC803D /* MainTabbarController.swift */,
+				CCBF46DE237FFC700030AFC1 /* BaseRootViewController.swift */,
+				CCBF46E0237FFFCC0030AFC1 /* BaseContentViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCBF46CB237FFAAF0030AFC1 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				CCBF46CC237FFAAF0030AFC1 /* CalendarFlowLayout.swift */,
+				CCBF46CD237FFAAF0030AFC1 /* CalendarHeaderView.swift */,
+				CCBF46CE237FFAAF0030AFC1 /* CalendarView+Extensions.swift */,
+				CCBF46CF237FFAAF0030AFC1 /* CalendarDayCell.swift */,
+				CCBF46D0237FFAAF0030AFC1 /* CalendarView+Style.swift */,
+				CCBF46D1237FFAAF0030AFC1 /* CalendarView+Delegate.swift */,
+				CCBF46D2237FFAAF0030AFC1 /* EventsManager.swift */,
+				CCBF46D3237FFAAF0030AFC1 /* CalendarView+DataSource.swift */,
+				CCBF46D4237FFAAF0030AFC1 /* CalendarView.swift */,
+			);
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 		CCC4F0FE237BFC6300FD11D9 /* HTTPAPI */ = {
@@ -312,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF95B94235F02B800FACFAD /* SchoolTimetableViewController.swift */,
+				CCBF46E223800BF20030AFC1 /* CourseContentViewController.swift */,
 				CCB3D9C3235FEE4B008E31AE /* CourseViewController.swift */,
 			);
 			path = Controller;
@@ -458,20 +511,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB3D9C2235FEDEF008E31AE /* RegisterViewController.swift in Sources */,
+				CCBF46E323800BF20030AFC1 /* CourseContentViewController.swift in Sources */,
 				CC017DE12377B10F00BF22DC /* HomeTeacherTableCell.swift in Sources */,
 				CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */,
 				CCF95B93235F015E00FACFAD /* HomePageViewController.swift in Sources */,
 				CCBF46CA237FC20A0030AFC1 /* CustomNavigationBar.swift in Sources */,
+				CCBF46DA237FFAB00030AFC1 /* CalendarView+Delegate.swift in Sources */,
 				CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */,
 				CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */,
 				CC017DF22377D3AA00BF22DC /* StarType.swift in Sources */,
+				CCBF46D5237FFAB00030AFC1 /* CalendarFlowLayout.swift in Sources */,
 				CCB3D9C8235FEE8A008E31AE /* TeacherDetailViewController.swift in Sources */,
 				CC98781E2376BFC1004F8F8E /* UIColor+RGB.swift in Sources */,
+				CCBF46E9238018C40030AFC1 /* UIButton+QuickUI.swift in Sources */,
+				CCBF46D9237FFAB00030AFC1 /* CalendarView+Style.swift in Sources */,
 				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
+				CCBF46D8237FFAB00030AFC1 /* CalendarDayCell.swift in Sources */,
 				CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */,
 				CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */,
 				CCB3D9C4235FEE4B008E31AE /* CourseViewController.swift in Sources */,
 				CCB3D9D5235FEFFD008E31AE /* PaymentViewController.swift in Sources */,
+				CCBF46DC237FFAB00030AFC1 /* CalendarView+DataSource.swift in Sources */,
 				CCB3D9CA235FEF4B008E31AE /* CustomServiceViewController.swift in Sources */,
 				CCF95B97235F02D300FACFAD /* FamousTeacherViewController.swift in Sources */,
 				CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */,
@@ -481,21 +541,29 @@
 				CC9878232376D188004F8F8E /* HomeContentViewController.swift in Sources */,
 				CC9878252376DAE7004F8F8E /* UIPageViewController+ScrollView.swift in Sources */,
 				CCF95B99235F02E700FACFAD /* MineViewController.swift in Sources */,
+				CCBF46D7237FFAB00030AFC1 /* CalendarView+Extensions.swift in Sources */,
 				CC017DE32377B1A600BF22DC /* Cell+ReuseIdentifier.swift in Sources */,
 				CCB3D9C0235FEDDC008E31AE /* LoginViewController.swift in Sources */,
 				CC017DF623781B9A00BF22DC /* HomeClassCell.swift in Sources */,
 				CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */,
+				CCBF46DB237FFAB00030AFC1 /* EventsManager.swift in Sources */,
 				CCBF46C8237FAD670030AFC1 /* GradeCollectionHeader.swift in Sources */,
 				CC017DF32377D3AA00BF22DC /* StarRateView.swift in Sources */,
+				CCBF46E1237FFFCC0030AFC1 /* BaseContentViewController.swift in Sources */,
 				CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
+				CCBF46E5238017190030AFC1 /* MonthCalendarView.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
 				CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */,
 				CC017DE52377BCDD00BF22DC /* HomeTeacherCollectionCell.swift in Sources */,
 				CCD1BC67237C195800F52069 /* Bundle+Info.swift in Sources */,
+				CCBF46DF237FFC700030AFC1 /* BaseRootViewController.swift in Sources */,
+				CCBF46DD237FFAB00030AFC1 /* CalendarView.swift in Sources */,
+				CCBF46D6237FFAB00030AFC1 /* CalendarHeaderView.swift in Sources */,
 				CC017DE72377D23700BF22DC /* TeacherScoreView.swift in Sources */,
 				CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */,
 				CCB3D9D3235FEFB6008E31AE /* PlayerViewController.swift in Sources */,
+				CCBF46E7238017B90030AFC1 /* UILabel+QuickUI.swift in Sources */,
 				CCC4F0FD237BF4BA00FD11D9 /* GradeCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
