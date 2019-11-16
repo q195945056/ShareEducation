@@ -28,7 +28,7 @@ class HomeContentViewController: UIViewController {
         pagerView.register(HomeBannerCell.classForCoder(), forCellWithReuseIdentifier: HomeBannerCell.reuseIdentifier)
     }
     
-// MARK: - Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +38,12 @@ class HomeContentViewController: UIViewController {
         _loadData()
     }
     
-// MARK: - Private Methods
+
+    
+    // MARK: - Private Methods
     
     func _setupUI() -> Void {
+        
         tableView.sectionHeaderHeight = 50
         tableView.register(HomeSetionTitleView.self, forHeaderFooterViewReuseIdentifier: HomeSetionTitleView.reuseIdentifier)
         view.addSubview(tableView)

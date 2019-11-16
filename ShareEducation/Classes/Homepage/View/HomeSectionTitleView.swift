@@ -19,7 +19,7 @@ class HomeSetionTitleView: UITableViewHeaderFooterView {
     }()
     
     lazy var indicatorImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: ""))
+        let imageView = UIImageView(image: UIImage(named: "icon_more_home"))
         return imageView
     }()
     

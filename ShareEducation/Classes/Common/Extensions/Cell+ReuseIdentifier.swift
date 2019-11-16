@@ -13,6 +13,7 @@ protocol ReusableView: class {}
 extension UITableViewCell: ReusableView {}
 extension UICollectionViewCell: ReusableView {}
 extension UITableViewHeaderFooterView: ReusableView {}
+extension UICollectionReusableView: ReusableView {}
 
 extension ReusableView  {
     static var reuseIdentifier: String {

@@ -13,7 +13,7 @@ class HomeTeacherCollectionCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var levelLabel: UILabel!
-    @IBOutlet var starRateView: StarRateView!
+    @IBOutlet var starRateView: UIImageView!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var schoolNameLabel: UILabel!

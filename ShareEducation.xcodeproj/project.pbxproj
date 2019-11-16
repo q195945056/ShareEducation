@@ -36,6 +36,8 @@
 		CCB3D9D5235FEFFD008E31AE /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D4235FEFFD008E31AE /* PaymentViewController.swift */; };
 		CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */; };
 		CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */; };
+		CCBF46C8237FAD670030AFC1 /* GradeCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */; };
+		CCBF46CA237FC20A0030AFC1 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46C9237FC20A0030AFC1 /* CustomNavigationBar.swift */; };
 		CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC4F0FA237BF1FE00FD11D9 /* UIScreen+Bounds.swift */; };
 		CCC4F0FD237BF4BA00FD11D9 /* GradeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */; };
 		CCD1BC65237C06D800F52069 /* SEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1BC64237C06D800F52069 /* SEService.swift */; };
@@ -82,6 +84,8 @@
 		CCB3D9D4235FEFFD008E31AE /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSettingViewController.swift; sourceTree = "<group>"; };
 		CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCarViewController.swift; sourceTree = "<group>"; };
+		CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionHeader.swift; sourceTree = "<group>"; };
+		CCBF46C9237FC20A0030AFC1 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		CCC4F0FA237BF1FE00FD11D9 /* UIScreen+Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Bounds.swift"; sourceTree = "<group>"; };
 		CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionCell.swift; sourceTree = "<group>"; };
 		CCD1BC64237C06D800F52069 /* SEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEService.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */,
 				CC017DE62377D23700BF22DC /* TeacherScoreView.swift */,
 				CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */,
+				CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */,
+				CCBF46C9237FC20A0030AFC1 /* CustomNavigationBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				CC017DE12377B10F00BF22DC /* HomeTeacherTableCell.swift in Sources */,
 				CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */,
 				CCF95B93235F015E00FACFAD /* HomePageViewController.swift in Sources */,
+				CCBF46CA237FC20A0030AFC1 /* CustomNavigationBar.swift in Sources */,
 				CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */,
 				CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */,
 				CC017DF22377D3AA00BF22DC /* StarType.swift in Sources */,
@@ -478,6 +485,7 @@
 				CCB3D9C0235FEDDC008E31AE /* LoginViewController.swift in Sources */,
 				CC017DF623781B9A00BF22DC /* HomeClassCell.swift in Sources */,
 				CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */,
+				CCBF46C8237FAD670030AFC1 /* GradeCollectionHeader.swift in Sources */,
 				CC017DF32377D3AA00BF22DC /* StarRateView.swift in Sources */,
 				CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,

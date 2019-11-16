@@ -11,6 +11,7 @@ import UIKit
 class GradeCollectionCell: UICollectionViewCell {
     lazy var titleLabel = UILabel().then { (label) in
         label.font = .systemFont(ofSize: 13)
+        label.textColor = .textColor
     }
     
     override init(frame: CGRect) {
@@ -24,7 +25,9 @@ class GradeCollectionCell: UICollectionViewCell {
     }
     
     private func commonInit() {
-        layer.cornerRadius = 17.5
+        contentView.backgroundColor = .f5f5f5
+
+        layer.cornerRadius = 14
         layer.masksToBounds = true
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
@@ -35,11 +38,11 @@ class GradeCollectionCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                backgroundColor = .systemPink
+                contentView.backgroundColor = .fcece8
                 titleLabel.textColor = .red
             } else {
-                backgroundColor = UIColor(red: 253, green: 253, blue: 253)
-                titleLabel.textColor = UIColor(red: 51, green: 51, blue: 51)
+                contentView.backgroundColor = .f5f5f5
+                titleLabel.textColor = .textColor
             }
         }
     }
