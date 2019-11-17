@@ -17,7 +17,11 @@
 		CC017DF32377D3AA00BF22DC /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DEF2377D3AA00BF22DC /* StarRateView.swift */; };
 		CC017DF623781B9A00BF22DC /* HomeClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DF523781B9A00BF22DC /* HomeClassCell.swift */; };
 		CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */; };
+		CC4361082381194F00AF796C /* CourseSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4361072381194F00AF796C /* CourseSectionHeaderView.swift */; };
+		CC43610A23811F1600AF796C /* CourseClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43610923811F1600AF796C /* CourseClassCell.swift */; };
+		CC43610C2381239600AF796C /* ClassBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43610B2381239600AF796C /* ClassBaseCell.swift */; };
 		CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FD27A2376742C00FC803D /* MainTabbarController.swift */; };
+		CC828FA4238133A8005CEA06 /* MineTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC828FA3238133A8005CEA06 /* MineTableHeaderView.swift */; };
 		CC98781E2376BFC1004F8F8E /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */; };
 		CC9878212376CA4F004F8F8E /* HomeBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9878202376CA4F004F8F8E /* HomeBannerCell.swift */; };
 		CC9878232376D188004F8F8E /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9878222376D188004F8F8E /* HomeContentViewController.swift */; };
@@ -80,7 +84,11 @@
 		CC017DEF2377D3AA00BF22DC /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		CC017DF523781B9A00BF22DC /* HomeClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClassCell.swift; sourceTree = "<group>"; };
 		CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLSegmentedControl.swift; sourceTree = "<group>"; };
+		CC4361072381194F00AF796C /* CourseSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSectionHeaderView.swift; sourceTree = "<group>"; };
+		CC43610923811F1600AF796C /* CourseClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseClassCell.swift; sourceTree = "<group>"; };
+		CC43610B2381239600AF796C /* ClassBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassBaseCell.swift; sourceTree = "<group>"; };
 		CC4FD27A2376742C00FC803D /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		CC828FA3238133A8005CEA06 /* MineTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableHeaderView.swift; sourceTree = "<group>"; };
 		CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		CC9878202376CA4F004F8F8E /* HomeBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCell.swift; sourceTree = "<group>"; };
 		CC9878222376D188004F8F8E /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +201,24 @@
 				CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */,
 				CCBF46C9237FC20A0030AFC1 /* CustomNavigationBar.swift */,
 				CCBF46E4238017190030AFC1 /* MonthCalendarView.swift */,
+				CC43610B2381239600AF796C /* ClassBaseCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC4361062381192800AF796C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC4361072381194F00AF796C /* CourseSectionHeaderView.swift */,
+				CC43610923811F1600AF796C /* CourseClassCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC828FA223813384005CEA06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC828FA3238133A8005CEA06 /* MineTableHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +347,7 @@
 		CCF95B8D235F00F700FACFAD /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				CC828FA223813384005CEA06 /* View */,
 				CCF95B9C235F035500FACFAD /* Controller */,
 			);
 			path = Mine;
@@ -337,6 +364,7 @@
 		CCF95B8F235F010A00FACFAD /* SchoolTimetable */ = {
 			isa = PBXGroup;
 			children = (
+				CC4361062381192800AF796C /* View */,
 				CCF95B9A235F034300FACFAD /* Controller */,
 			);
 			path = SchoolTimetable;
@@ -520,6 +548,7 @@
 				CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */,
 				CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */,
 				CC017DF22377D3AA00BF22DC /* StarType.swift in Sources */,
+				CC4361082381194F00AF796C /* CourseSectionHeaderView.swift in Sources */,
 				CCBF46D5237FFAB00030AFC1 /* CalendarFlowLayout.swift in Sources */,
 				CCB3D9C8235FEE8A008E31AE /* TeacherDetailViewController.swift in Sources */,
 				CC98781E2376BFC1004F8F8E /* UIColor+RGB.swift in Sources */,
@@ -548,17 +577,20 @@
 				CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */,
 				CCBF46DB237FFAB00030AFC1 /* EventsManager.swift in Sources */,
 				CCBF46C8237FAD670030AFC1 /* GradeCollectionHeader.swift in Sources */,
+				CC43610C2381239600AF796C /* ClassBaseCell.swift in Sources */,
 				CC017DF32377D3AA00BF22DC /* StarRateView.swift in Sources */,
 				CCBF46E1237FFFCC0030AFC1 /* BaseContentViewController.swift in Sources */,
 				CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
 				CCBF46E5238017190030AFC1 /* MonthCalendarView.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
+				CC828FA4238133A8005CEA06 /* MineTableHeaderView.swift in Sources */,
 				CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */,
 				CC017DE52377BCDD00BF22DC /* HomeTeacherCollectionCell.swift in Sources */,
 				CCD1BC67237C195800F52069 /* Bundle+Info.swift in Sources */,
 				CCBF46DF237FFC700030AFC1 /* BaseRootViewController.swift in Sources */,
 				CCBF46DD237FFAB00030AFC1 /* CalendarView.swift in Sources */,
+				CC43610A23811F1600AF796C /* CourseClassCell.swift in Sources */,
 				CCBF46D6237FFAB00030AFC1 /* CalendarHeaderView.swift in Sources */,
 				CC017DE72377D23700BF22DC /* TeacherScoreView.swift in Sources */,
 				CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */,

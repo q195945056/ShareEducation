@@ -2,8 +2,8 @@
 //  TeacherDetailViewController.swift
 //  ShareEducation
 //
-//  Created by 严明俊 on 2019/10/23.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Created by yanmingjun on 2019/10/23.
+//  Copyright © 2019 yanmingjun. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  GradeCollectionCell.swift
 //  ShareEducation
 //
-//  Created by 严明俊 on 2019/11/13.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Created by yanmingjun on 2019/11/13.
+//  Copyright © 2019 yanmingjun. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import UIKit
 class GradeCollectionCell: UICollectionViewCell {
     lazy var titleLabel = UILabel().then { (label) in
         label.font = .systemFont(ofSize: 13)
-        label.textColor = .textColor
+        label.textColor = .darkTextColor
     }
     
     override init(frame: CGRect) {
@@ -42,7 +42,7 @@ class GradeCollectionCell: UICollectionViewCell {
                 titleLabel.textColor = .red
             } else {
                 contentView.backgroundColor = .f5f5f5
-                titleLabel.textColor = .textColor
+                titleLabel.textColor = .darkTextColor
             }
         }
     }

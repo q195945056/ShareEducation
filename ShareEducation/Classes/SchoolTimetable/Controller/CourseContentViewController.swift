@@ -3,7 +3,7 @@
 //  ShareEducation
 //
 //  Created by yanmingjun on 2019/11/16.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Copyright © 2019 yanmingjun. All rights reserved.
 //
 
 import UIKit
@@ -14,13 +14,16 @@ class CourseContentViewController: BaseContentViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(CourseSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: CourseSectionHeaderView.reuseIdentifier)
+        tableView.register(CourseClassCell.self, forCellReuseIdentifier: CourseClassCell.reuseIdentifier)
         return tableView
     }()
     
-    let monthHeaderView = MonthCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 290))
-    
+    lazy var monthHeaderView = MonthCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 290))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +41,26 @@ class CourseContentViewController: BaseContentViewController {
 }
 
 extension CourseContentViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: CourseClassCell.reuseIdentifier, for: indexPath) as! CourseClassCell
+        cell.setupData()
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 33
+    }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CourseSectionHeaderView.reuseIdentifier) as! CourseSectionHeaderView
+        headerView.courseCount = 12
+        return headerView
+    }
 }
 
 extension CourseContentViewController: UITableViewDelegate {

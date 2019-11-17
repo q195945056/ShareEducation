@@ -3,7 +3,7 @@
 //  ShareEducation
 //
 //  Created by yanmingjun on 2019/11/16.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Copyright © 2019 yanmingjun. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class CustomNavigationBar: UIView {
     // MARK: - Property
     let gradeLabel = UILabel().then { (label) in
         label.font = .systemFont(ofSize: 13, weight: .bold)
-        label.textColor = .textColor
+        label.textColor = .darkTextColor
         label.text = "年级"
     }
     

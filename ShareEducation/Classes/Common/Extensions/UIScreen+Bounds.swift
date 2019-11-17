@@ -2,11 +2,15 @@
 //  UIScreen+Bounds.swift
 //  ShareEducation
 //
-//  Created by 严明俊 on 2019/11/13.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Created by yanmingjun on 2019/11/13.
+//  Copyright © 2019 yanmingjun. All rights reserved.
 //
 
 import UIKit
+
+let onePixelWidth = 1 / UIScreen.main.scale
+
+let actualStatusBarHeight = UIApplication.shared.statusBarFrame.height
 
 extension UIScreen {
     static var width: Double {

@@ -3,7 +3,7 @@
 //  ShareEducation
 //
 //  Created by yanmingjun on 2019/11/10.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Copyright © 2019 yanmingjun. All rights reserved.
 //
 
 import UIKit

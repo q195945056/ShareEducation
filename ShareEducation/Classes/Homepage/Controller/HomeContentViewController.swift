@@ -3,7 +3,7 @@
 //  ShareEducation
 //
 //  Created by yanmingjun on 2019/11/9.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Copyright © 2019 yanmingjun. All rights reserved.
 //
 
 import UIKit
@@ -43,9 +43,9 @@ class HomeContentViewController: BaseContentViewController {
     // MARK: - Private Methods
     
     func _setupUI() -> Void {
-        
         tableView.sectionHeaderHeight = 50
         tableView.register(HomeSetionTitleView.self, forHeaderFooterViewReuseIdentifier: HomeSetionTitleView.reuseIdentifier)
+        tableView.register(HomeClassCell.self, forCellReuseIdentifier: HomeClassCell.reuseIdentifier)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
@@ -114,6 +114,7 @@ extension HomeContentViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: HomeClassCell.reuseIdentifier, for: indexPath) as! HomeClassCell
+            cell.setupData()
             return cell
         }
     }

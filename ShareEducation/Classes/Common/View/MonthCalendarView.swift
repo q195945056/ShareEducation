@@ -3,7 +3,7 @@
 //  ShareEducation
 //
 //  Created by yanmingjun on 2019/11/16.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Copyright © 2019 yanmingjun. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ class MonthCalendarView: UIView {
     
     // MARK: - Property
     
-    let monthLabel = UILabel(font: .systemFont(ofSize: 18, weight: .bold), textColor: .textColor)
+    let monthLabel = UILabel(font: .systemFont(ofSize: 18, weight: .bold), textColor: .darkTextColor)
     
     lazy var previousButton = UIButton(image: UIImage(named: "icon_date_left"), target: self, selector: #selector(onPreviousButtonPressed(sender:)))
     
@@ -25,7 +25,7 @@ class MonthCalendarView: UIView {
         style.headerHeight = 33
         style.weekdaysHeight = 13
         style.weekdaysFont = .systemFont(ofSize: 14)
-        style.weekdaysTextColor = .textColor
+        style.weekdaysTextColor = .darkTextColor
         style.weekdaysBottomMargin = 0
         style.headerBackgroundColor = .fff7e9
         style.weekdaysBackgroundColor = .fff7e9
@@ -34,14 +34,14 @@ class MonthCalendarView: UIView {
         style.cellColorDefault         = UIColor.clear
         style.cellColorToday           = .clear
         
-        style.cellTextColorDefault     = .textColor
+        style.cellTextColorDefault     = .darkTextColor
         style.cellSelectedTextColor    = .white
         style.cellSelectedColor        = .e64919
         style.cellSelectedBorderColor  = .ff4d00
         style.cellSelectedBorderWidth  = 1
         style.cellTextColorToday       = .e64919
         style.cellBorderColorToday     = .e64919
-        style.cellColorOutOfRange      = .textColor
+        style.cellColorOutOfRange      = .darkTextColor
             
         style.firstWeekday             = .monday
         
@@ -118,11 +118,11 @@ class MonthCalendarView: UIView {
     // MARK: - Actions
     
     @objc func onPreviousButtonPressed(sender: AnyObject?) {
-        
+        calendarView.goToPreviousMonth()
     }
     
     @objc func onNextButtonPressed(sender: AnyObject?) {
-        
+        calendarView.goToNextMonth()
     }
     
 }
