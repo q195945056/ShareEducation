@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya_ObjectMapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,16 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        serviceProvider.request(.initData) { result in
+//        serviceProvider.request(.initData) { result in
+//            do {
+//                let response = try result.get()
+//                let initData = try response.mapObject(InitData.self)
+//                ShareData.shared.gradetypes = initData.gradetypes
+//                print(initData)
+//            } catch {
+//                
+//            }
+//        }
+        
+        serviceProvider.request(.sendSMS(phone: "15330501673")) { result in
             do {
                 let response = try result.get()
-                print(response)
+                let string = String(data:response.data, encoding: .utf8)
+                print(string)
             } catch {
                 
             }
         }
-        
-        
         
         return true
     }

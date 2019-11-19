@@ -10,14 +10,13 @@ target 'ShareEducation' do
   # Pods for ShareEducation
   
   pod 'SnapKit'#Autolayout
-  pod 'Moya', '~> 14.0.0-beta.5'#网络请求
   pod 'Kingfisher'#加载网络图片
   pod 'SwiftyJSON'#json串解析
   pod 'BetterSegmentedControl'#SegmentedControl
   pod 'Jelly'
   pod 'TYCyclePagerView'
   pod 'Then'
-  pod 'ObjectMapper'
+  pod 'Moya-ObjectMapper'
 
 end
 

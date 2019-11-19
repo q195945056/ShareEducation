@@ -1,15 +1,22 @@
 PODS:
-  - Alamofire (5.0.0-rc.3)
+  - Alamofire (4.9.1)
   - BetterSegmentedControl (1.3.0)
   - Jelly (2.2.2)
-  - Kingfisher (5.9.0):
-    - Kingfisher/Core (= 5.9.0)
-  - Kingfisher/Core (5.9.0)
-  - Moya (14.0.0-beta.5):
-    - Moya/Core (= 14.0.0-beta.5)
-  - Moya/Core (14.0.0-beta.5):
-    - Alamofire (= 5.0.0-rc.3)
+  - Kingfisher (5.10.0):
+    - Kingfisher/Core (= 5.10.0)
+  - Kingfisher/Core (5.10.0)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya-ObjectMapper (2.8):
+    - Moya-ObjectMapper/Core (= 2.8)
+  - Moya-ObjectMapper/Core (2.8):
+    - Moya (~> 12.0)
+    - ObjectMapper (~> 3.4)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
   - ObjectMapper (3.5.1)
+  - Result (4.1.0)
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.0)
   - Then (2.6.0)
@@ -19,8 +26,7 @@ DEPENDENCIES:
   - BetterSegmentedControl
   - Jelly
   - Kingfisher
-  - Moya (~> 14.0.0-beta.5)
-  - ObjectMapper
+  - Moya-ObjectMapper
   - SnapKit
   - SwiftyJSON
   - Then
@@ -33,24 +39,28 @@ SPEC REPOS:
     - Jelly
     - Kingfisher
     - Moya
+    - Moya-ObjectMapper
     - ObjectMapper
+    - Result
     - SnapKit
     - SwiftyJSON
     - Then
     - TYCyclePagerView
 
 SPEC CHECKSUMS:
-  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BetterSegmentedControl: 85d1b0343a09603b098884d527f550dfc8e6cdd9
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
-  Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
-  Moya: 2c16c3fe92eda302070213452281b59198f946d8
+  Kingfisher: 0bf6eae7c2193f15719915fecb7c2c1c03855f3d
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
   TYCyclePagerView: 2b051dade0615c70784aa34f40c646feeddb7344
 
-PODFILE CHECKSUM: 3ea56f80b226ceb8f67990106b644d80d9076409
+PODFILE CHECKSUM: 255489e2aa35c97bf7b0b42fb581da5cc36cfb2d
 
 COCOAPODS: 1.8.4

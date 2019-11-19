@@ -13,9 +13,9 @@ import BetterSegmentedControl
 class BaseRootViewController: UIViewController {
     
     // MARK: - Property
-    var customNavigationBar: CustomNavigationBar = CustomNavigationBar(type: .normal)
+    lazy var customNavigationBar: CustomNavigationBar = CustomNavigationBar(type: .normal)
     
-    let segmentedControl: BetterSegmentedControl = BetterSegmentedControl().then {
+    lazy var segmentedControl: BetterSegmentedControl = BetterSegmentedControl().then {
         $0.indicatorViewBackgroundColor = .white
         $0.segments = LabelSegment.segments(withTitles: ["全部", "语文", "数学", "英语", "物理", "化学", "政治"],
         normalFont: .systemFont(ofSize: 13),
@@ -38,6 +38,11 @@ class BaseRootViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupUI()
+    
+        NotificationCenter.default.addObserver(forName: ShareSetting.gradeDidChangeNotification, object: nil, queue: nil) { (notification) in
+            let grade = notification.object as! Grade
+            self.customNavigationBar.gradeLabel.text = grade.name
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +52,8 @@ class BaseRootViewController: UIViewController {
     }
     
     func setupUI() -> Void {
+        customNavigationBar.gradeLabel.text = ShareSetting.shared.grade?.name ?? "年级"
+
         view.addSubview(customNavigationBar)
         view.addSubview(segmentedControl)
         view.addSubview(pageViewController.view)

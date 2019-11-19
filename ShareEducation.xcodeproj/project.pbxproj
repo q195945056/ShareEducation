@@ -61,6 +61,9 @@
 		CCC4F0FD237BF4BA00FD11D9 /* GradeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */; };
 		CCD1BC65237C06D800F52069 /* SEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1BC64237C06D800F52069 /* SEService.swift */; };
 		CCD1BC67237C195800F52069 /* Bundle+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1BC66237C195800F52069 /* Bundle+Info.swift */; };
+		CCE4FCA52382886C00E21139 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA42382886C00E21139 /* CommonData.swift */; };
+		CCE4FCA72382969A00E21139 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA62382969A00E21139 /* ShareData.swift */; };
+		CCE4FCAA23829D0100E21139 /* ShareSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA923829D0100E21139 /* ShareSetting.swift */; };
 		CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B77235EFDCB00FACFAD /* AppDelegate.swift */; };
 		CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B79235EFDCB00FACFAD /* SceneDelegate.swift */; };
 		CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B7B235EFDCB00FACFAD /* ViewController.swift */; };
@@ -128,6 +131,9 @@
 		CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionCell.swift; sourceTree = "<group>"; };
 		CCD1BC64237C06D800F52069 /* SEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEService.swift; sourceTree = "<group>"; };
 		CCD1BC66237C195800F52069 /* Bundle+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Info.swift"; sourceTree = "<group>"; };
+		CCE4FCA42382886C00E21139 /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
+		CCE4FCA62382969A00E21139 /* ShareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
+		CCE4FCA923829D0100E21139 /* ShareSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSetting.swift; sourceTree = "<group>"; };
 		CCF95B74235EFDCB00FACFAD /* ShareEducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareEducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF95B77235EFDCB00FACFAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF95B79235EFDCB00FACFAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -283,8 +289,18 @@
 			isa = PBXGroup;
 			children = (
 				CCD1BC64237C06D800F52069 /* SEService.swift */,
+				CCE4FCA42382886C00E21139 /* CommonData.swift */,
 			);
 			path = HTTPAPI;
+			sourceTree = "<group>";
+		};
+		CCE4FCA823829C4A00E21139 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCE4FCA62382969A00E21139 /* ShareData.swift */,
+				CCE4FCA923829D0100E21139 /* ShareSetting.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CCF95B6B235EFDCA00FACFAD = {
@@ -336,6 +352,7 @@
 		CCF95B8C235F00E600FACFAD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CCE4FCA823829C4A00E21139 /* Model */,
 				CCC4F0FE237BFC6300FD11D9 /* HTTPAPI */,
 				CC98781C2376BFAE004F8F8E /* Extensions */,
 				CC0DC48E236EF54D000D9B80 /* View */,
@@ -546,8 +563,10 @@
 				CCBF46CA237FC20A0030AFC1 /* CustomNavigationBar.swift in Sources */,
 				CCBF46DA237FFAB00030AFC1 /* CalendarView+Delegate.swift in Sources */,
 				CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */,
+				CCE4FCA72382969A00E21139 /* ShareData.swift in Sources */,
 				CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */,
 				CC017DF22377D3AA00BF22DC /* StarType.swift in Sources */,
+				CCE4FCA52382886C00E21139 /* CommonData.swift in Sources */,
 				CC4361082381194F00AF796C /* CourseSectionHeaderView.swift in Sources */,
 				CCBF46D5237FFAB00030AFC1 /* CalendarFlowLayout.swift in Sources */,
 				CCB3D9C8235FEE8A008E31AE /* TeacherDetailViewController.swift in Sources */,
@@ -564,6 +583,7 @@
 				CCB3D9CA235FEF4B008E31AE /* CustomServiceViewController.swift in Sources */,
 				CCF95B97235F02D300FACFAD /* FamousTeacherViewController.swift in Sources */,
 				CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */,
+				CCE4FCAA23829D0100E21139 /* ShareSetting.swift in Sources */,
 				CC9878212376CA4F004F8F8E /* HomeBannerCell.swift in Sources */,
 				CCD1BC65237C06D800F52069 /* SEService.swift in Sources */,
 				CCB3D9C6235FEE67008E31AE /* TeacherSearchViewController.swift in Sources */,

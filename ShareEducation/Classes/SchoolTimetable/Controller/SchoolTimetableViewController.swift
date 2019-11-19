@@ -21,7 +21,6 @@ class SchoolTimetableViewController: BaseRootViewController {
             naviBar
         }
         set {
-            super.customNavigationBar = CustomNavigationBar(type: .segment)
         }
     }
 

@@ -74,81 +74,38 @@ class GradeSettingViewController: UIViewController {
 
 extension GradeSettingViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return ShareData.shared.gradetypes?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 6
-        } else if section == 1 {
-            return 3
-        } else {
-            return 3
-        }
+        let gradeType = ShareData.shared.gradetypes?[section]
+        return gradeType?.grades.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GradeCollectionCell.reuseIdentifier, for: indexPath) as! GradeCollectionCell
-        if indexPath.section == 0 {
-            switch indexPath.item {
-            case 0:
-                cell.titleLabel.text = "一年级"
-            case 1:
-                cell.titleLabel.text = "二年级"
-            case 2:
-                cell.titleLabel.text = "三年级"
-            case 3:
-                cell.titleLabel.text = "四年级"
-            case 4:
-                cell.titleLabel.text = "五年级"
-            case 5:
-                cell.titleLabel.text = "六年级"
-            default: break
-            }
-        } else if indexPath.section == 1 {
-            switch indexPath.item {
-            case 0:
-                cell.titleLabel.text = "七年级"
-            case 1:
-                cell.titleLabel.text = "八年级"
-            case 2:
-                cell.titleLabel.text = "九年级"
-            default: break
-            }
-        } else {
-            switch indexPath.item {
-            case 0:
-                cell.titleLabel.text = "高一"
-            case 1:
-                cell.titleLabel.text = "高二"
-            case 2:
-                cell.titleLabel.text = "高三"
-            default: break
-            }
-        }
-         return cell
+        let gradeType = ShareData.shared.gradetypes?[indexPath.section]
+        let grade = gradeType?.grades[indexPath.row]
+        cell.titleLabel.text = grade?.name
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GradeCollectionHeader.reuseIdentifier, for: indexPath) as! GradeCollectionHeader
-        
-        switch indexPath.section {
-        case 0:
-            headerView.titleLabel.text = "小学阶段"
-        case 1:
-            headerView.titleLabel.text = "初中阶段"
-        case 2:
-            headerView.titleLabel.text = "高中阶段"
-        default:
-            headerView.titleLabel.text = ""
-        }
-        
+        let gradeType = ShareData.shared.gradetypes?[indexPath.section]
+        headerView.titleLabel.text = gradeType?.name
         return headerView
     }
 }
 
 extension GradeSettingViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let gradeType = ShareData.shared.gradetypes?[indexPath.section]
+        let grade = gradeType?.grades[indexPath.row]
+        ShareSetting.shared.grade = grade
+        
+        dismiss(animated: true)
+    }
 }
 
 extension GradeSettingViewController: UICollectionViewDelegateFlowLayout {
