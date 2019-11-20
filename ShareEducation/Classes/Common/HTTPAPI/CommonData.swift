@@ -26,7 +26,14 @@ struct Course: Mappable {
     var id: Int!
     var name: String!
     
+    static let `default` = Course(id: 0, name: "全部")
+    
     init?(map: Map) {
+    }
+    
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
     }
     
     mutating func mapping(map: Map) {
@@ -39,7 +46,14 @@ struct Grade: Mappable {
     var id: Int!
     var name: String!
     
+    static let `default` = Grade(id: 0, name: "全部")
+    
     init?(map: Map) {
+    }
+    
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
     }
     
     mutating func mapping(map: Map) {

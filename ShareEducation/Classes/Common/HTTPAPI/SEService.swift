@@ -18,7 +18,7 @@ enum SEService {
     case getCourseList(type: String?, dateType: String, date: String, name: String?, token: String?, offset: String, rows:String, areaid: String?, courseid: String?, gradeid: String?)
     case getCourseDetail(name: String?, token: String?, id: String)
     case courseBuy(name: String, token: String, id: String)
-    case getTeacherTopList(name: String?, token: String?, rows: String, areaid: String?, courseid: String?, gradeid: String?)
+    case getTeacherTopList(name: String? = nil, token: String? = nil, rows: String, areaid: String, courseid: String, gradeid: String)
     case getTeacherList(name: String?, token: String?, offset: String, rows: String, areaid: String?, courseid: String?, gradeid: String?)
     case getTeacherDetail(name: String?, token: String?, id: String)
 }
@@ -73,6 +73,18 @@ extension SEService: TargetType {
             return .requestParameters(parameters: ["m.phone": phone], encoding: URLEncoding.queryString)
         case .getCourseList(let type, let dateType, let date, let name, let token, let offset, let rows, let areaid, let courseid, let gradeid):
             var parameters = [String : Any]()
+            #if DEBUG
+            parameters["c.type"] = "1"
+            parameters["c.datetype"] = "1"
+            parameters["c.date"] = "2019-10"
+            parameters["m.name"] = "wtongxue"
+            parameters["m.token"] = "umzzVZ"
+            parameters["offset"] = "0"
+            parameters["rows"] = "3"
+            parameters["m.areaid"] = "0"
+            parameters["m.courseid"] = "0"
+            parameters["m.gradeid"] = "0"
+            #else
             parameters["c.type"] = type
             parameters["c.datetype"] = dateType
             parameters["c.date"] = date
@@ -83,6 +95,7 @@ extension SEService: TargetType {
             parameters["m.areaid"] = areaid ?? "0"
             parameters["m.courseid"] = courseid ?? "0"
             parameters["m.gradeid"] = gradeid ?? "0"
+            #endif
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getCourseDetail(let name, let token, let id):
             var parameters = [String : Any]()
@@ -101,9 +114,9 @@ extension SEService: TargetType {
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["rows"] = rows
-            parameters["m.areaid"] = areaid ?? "0"
-            parameters["m.courseid"] = courseid ?? "0"
-            parameters["m.gradeid"] = gradeid ?? "0"
+            parameters["m.areaid"] = areaid
+            parameters["m.courseid"] = courseid
+            parameters["m.gradeid"] = gradeid
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getTeacherList(let name, let token, let offset, let rows, let areaid, let courseid, let gradeid):
             var parameters = [String : Any]()

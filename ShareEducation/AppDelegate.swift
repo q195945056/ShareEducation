@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya_ObjectMapper
+import SwiftDate
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,16 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        serviceProvider.request(.initData) { result in
-//            do {
-//                let response = try result.get()
-//                let initData = try response.mapObject(InitData.self)
-//                ShareData.shared.gradetypes = initData.gradetypes
+        serviceProvider.request(.initData) { result in
+            do {
+                let response = try result.get()
+                let initData = try response.mapObject(InitData.self)
+                ShareData.shared.gradetypes = initData.gradetypes
 //                print(initData)
-//            } catch {
-//                
-//            }
-//        }
+            } catch {
+                
+            }
+        }
         
         serviceProvider.request(.sendSMS(phone: "15330501673")) { result in
             do {

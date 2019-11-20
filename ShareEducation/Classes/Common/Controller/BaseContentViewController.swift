@@ -9,10 +9,11 @@
 import UIKit
 
 class BaseContentViewController: UIViewController {
-    var grade: String?
-    var course: String?
+    var grade: Grade = Grade(id: 0, name: "全部")
     
-    init(grade: String?, course: String?) {
+    var course: Course = Course(id: 0, name: "全部")
+    
+    init(grade: Grade, course: Course) {
         self.grade = grade
         self.course = course
         super.init(nibName: nil, bundle: nil)

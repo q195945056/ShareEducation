@@ -10,6 +10,7 @@ import UIKit
 import TYCyclePagerView
 import SnapKit
 import Then
+import SwiftDate
 
 class HomeContentViewController: BaseContentViewController {
     
@@ -28,6 +29,9 @@ class HomeContentViewController: BaseContentViewController {
         pagerView.register(HomeBannerCell.classForCoder(), forCellWithReuseIdentifier: HomeBannerCell.reuseIdentifier)
     }
     
+    var courseList = [CourseItem]()
+    
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -35,7 +39,7 @@ class HomeContentViewController: BaseContentViewController {
         
         _setupUI()
         
-        _loadData()
+        loadData()
     }
     
 
@@ -43,7 +47,6 @@ class HomeContentViewController: BaseContentViewController {
     // MARK: - Private Methods
     
     func _setupUI() -> Void {
-        tableView.sectionHeaderHeight = 50
         tableView.register(HomeSetionTitleView.self, forHeaderFooterViewReuseIdentifier: HomeSetionTitleView.reuseIdentifier)
         tableView.register(HomeClassCell.self, forCellReuseIdentifier: HomeClassCell.reuseIdentifier)
         view.addSubview(tableView)
@@ -53,13 +56,34 @@ class HomeContentViewController: BaseContentViewController {
         tableView.tableHeaderView = pagerView
     }
 
-    func _loadData() {
+    private func loadData() {
         var i = 0
         while i < 5 {
             self.bannerDatas.append(UIColor(red: CGFloat(arc4random()%255)/255.0, green: CGFloat(arc4random()%255)/255.0, blue: CGFloat(arc4random()%255)/255.0, alpha: 1))
             i += 1
         }
         self.pagerView.reloadData()
+                
+        serviceProvider.request(.getTeacherTopList(name: nil, token: nil, rows: "10", areaid: "0", courseid: String(course.id), gradeid: String(grade.id))) { result in
+            do {
+                let response = try result.get().mapObject(ListResult<Teacher>.self)
+                print(response)
+            } catch {
+                            
+            }
+        }
+        
+        
+        serviceProvider.request(.getCourseList(type: "1", dateType: "3", date: Date().toFormat("yyyy-MM-dd"), name: nil, token: nil, offset: "0", rows: "20", areaid: "0", courseid: "0", gradeid: "0")) { (result) in
+            do {
+                let response = try result.get().mapObject(ListResult<CourseItem>.self)
+                self.courseList.append(contentsOf: response.data)
+                self.tableView.reloadData()
+                print(response)
+            } catch {
+                            
+            }
+        }
     }
 }
 
@@ -103,7 +127,7 @@ extension HomeContentViewController: UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 10
+            return courseList.count
         }
     }
     
@@ -114,7 +138,10 @@ extension HomeContentViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: HomeClassCell.reuseIdentifier, for: indexPath) as! HomeClassCell
-            cell.setupData()
+            
+            let course = courseList[indexPath.row]
+            cell.course = course
+            
             return cell
         }
     }

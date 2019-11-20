@@ -17,7 +17,8 @@ target 'ShareEducation' do
   pod 'TYCyclePagerView'
   pod 'Then'
   pod 'Moya-ObjectMapper'
-
+  pod 'SwiftDate'
+  
 end
 
 post_install do |pi|

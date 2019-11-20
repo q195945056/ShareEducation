@@ -26,8 +26,10 @@ class HomePageViewController: BaseRootViewController {
         
     }
     
-    override func contentViewController() -> BaseContentViewController?  {
+    override func contentViewController(grade: Grade = .default, course: Course = .default) -> BaseContentViewController?  {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "HomeContentViewController") as? BaseContentViewController
+        viewController?.grade = grade
+        viewController?.course = course
         return viewController
     }
     

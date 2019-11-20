@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CourseClassCell: ClassBaseCell {
+class CourseClassCell: CourseBaseCell {
     
     override func commonInit() {
         super.commonInit()

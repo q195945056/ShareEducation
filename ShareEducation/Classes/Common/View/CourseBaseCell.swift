@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Kingfisher
+import SwiftDate
 
-
-class ClassBaseCell: UITableViewCell {
+class CourseBaseCell: UITableViewCell {
     lazy var timeImageView = UIImageView(image: UIImage(named: "icon_clock"))
     lazy var timeLabel = UILabel(font: .systemFont(ofSize: 13), textColor: .e64919)
     lazy var courseBackgroundImageView = UIImageView(image: UIImage(named: "tag_class"))
@@ -24,6 +25,12 @@ class ClassBaseCell: UITableViewCell {
     lazy var contentBgView = UIView()
     lazy var backgroundImageView = UIImageView()
     
+    var course: CourseItem? {
+        didSet {
+            updateUI()
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
@@ -37,7 +44,22 @@ class ClassBaseCell: UITableViewCell {
     
     // MARK: - Private Methods
     
+    func updateUI() {
+        if let course = course {
+            courseLabel.text = course.course
+            let startTime = course.startTime?.toFormat("MM月dd日 EE HH:mm", locale: Locales.chinese)
+            let endTime = course.endTime?.toFormat("HH:mm")
+            if let startTime = startTime, let endTime = endTime {
+                timeLabel.text = "\(startTime)-\(endTime)"
+            }
+            classNameLabel.text = course.name
+            teacherInfoLabel.text = "\(course.trueName!)  \(course.schoolName!)"
+//            headImageView.kf.setImage(with: URL(string: course.i))
+        }
+    }
+    
     func commonInit() {
+        selectionStyle = .none
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         contentView.addSubview(contentBgView)

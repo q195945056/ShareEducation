@@ -22,6 +22,7 @@ class BaseRootViewController: UIViewController {
         normalTextColor: UIColor(red: 51, green: 51, blue: 51),
         selectedFont: .systemFont(ofSize: 18, weight: .medium),
         selectedTextColor: UIColor(red: 233, green: 76, blue: 28))
+        $0.addTarget(self, action: #selector(onSegmentedControlValueChanged(sender:)), for: .valueChanged)
     }
     
     lazy var pageViewController: UIPageViewController = {
@@ -31,7 +32,7 @@ class BaseRootViewController: UIViewController {
     }()
     
     var animator: Animator?
-
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,9 +81,10 @@ class BaseRootViewController: UIViewController {
         customNavigationBar.gradeButton.addTarget(self, action: #selector(onGradeButtonPressed(sender:)), for: .touchUpInside)
         customNavigationBar.historyButton.addTarget(self, action: #selector(onHistoryButtonPressed(sender:)), for: .touchUpInside)
         customNavigationBar.locationButton.addTarget(self, action: #selector(onLocationButtonPressed(sender:)), for: .touchUpInside)
+        
     }
     
-    func contentViewController() -> BaseContentViewController?  {
+    func contentViewController(grade: Grade = .default, course: Course = .default) -> BaseContentViewController?  {
         return nil
     }
     
@@ -106,6 +108,10 @@ class BaseRootViewController: UIViewController {
     
     @objc func onLocationButtonPressed(sender: AnyObject) {
          
+    }
+    
+    @objc func onSegmentedControlValueChanged(sender: BetterSegmentedControl) {
+    
     }
     
 }
