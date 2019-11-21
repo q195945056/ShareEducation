@@ -18,6 +18,8 @@ target 'ShareEducation' do
   pod 'Then'
   pod 'Moya-ObjectMapper'
   pod 'SwiftDate'
+  pod 'IQKeyboardManagerSwift'
+  pod 'MJRefresh'
   
 end
 

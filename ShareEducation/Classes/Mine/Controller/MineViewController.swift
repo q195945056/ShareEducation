@@ -48,7 +48,8 @@ class MineViewController: UIViewController {
         }
         tableView.tableHeaderView = tableHeaderView
         tableHeaderView.loginHandler = {
-            
+            let loginViewController = LoginViewController.defalt
+            self.present(loginViewController, animated: true, completion: nil)
         }
     }
     
