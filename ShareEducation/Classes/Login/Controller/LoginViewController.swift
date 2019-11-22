@@ -135,6 +135,7 @@ class LoginViewController: UIViewController {
             return
         }
         
+        currentController?.willMove(toParent: nil)
         currentController?.view.removeFromSuperview()
         currentController?.removeFromParent()
         
@@ -142,6 +143,7 @@ class LoginViewController: UIViewController {
         currentController = BaseLoginViewController.controllerWithLoginType(type: loginType)
         addChild(currentController!)
         view.addSubview(currentController!.view)
+        currentController?.didMove(toParent: self)
         currentController?.view.snp.makeConstraints({ (make) in
             make.top.equalTo(passwordLoginButton.superview!.snp.bottom)
             make.leading.trailing.bottom.equalTo(view)
