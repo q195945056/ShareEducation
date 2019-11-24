@@ -16,6 +16,11 @@ struct Area: Mappable {
     init?(map: Map) {
     }
     
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
+    
     mutating func mapping(map: Map) {
         id      <- map["id"]
         name    <- map["name"]

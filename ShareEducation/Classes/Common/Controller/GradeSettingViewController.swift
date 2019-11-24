@@ -34,6 +34,8 @@ class GradeSettingViewController: UIViewController {
         collectionView.register(GradeCollectionCell.self, forCellWithReuseIdentifier: GradeCollectionCell.reuseIdentifier)
         return collectionView
     }()
+    
+    var didSelectGrade: ((Grade) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +104,9 @@ extension GradeSettingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let gradeType = ShareData.shared.gradetypes?[indexPath.section]
         let grade = gradeType?.grades[indexPath.row]
+        if let didSelectGrade = didSelectGrade {
+            didSelectGrade(grade!)
+        }
         ShareSetting.shared.grade = grade
         
         dismiss(animated: true)

@@ -32,7 +32,6 @@
 		CC97B3BA238669A900F1BFE9 /* PasswordLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97B3B9238669A900F1BFE9 /* PasswordLoginViewController.swift */; };
 		CC97B3BE238678BD00F1BFE9 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97B3BD238678BD00F1BFE9 /* Optional.swift */; };
 		CC97B3C023867D1C00F1BFE9 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97B3BF23867D1C00F1BFE9 /* String+MD5.swift */; };
-		CC97B3C2238681EB00F1BFE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97B3C1238681EB00F1BFE9 /* RegisterViewController.swift */; };
 		CC97B3C52386870A00F1BFE9 /* ValidateCodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97B3C32386870A00F1BFE9 /* ValidateCodeLoginViewController.swift */; };
 		CC97B3C62386870A00F1BFE9 /* ValidateCodeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC97B3C42386870A00F1BFE9 /* ValidateCodeLoginViewController.xib */; };
 		CC98781E2376BFC1004F8F8E /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */; };
@@ -75,6 +74,12 @@
 		CCE4FCA52382886C00E21139 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA42382886C00E21139 /* CommonData.swift */; };
 		CCE4FCA72382969A00E21139 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA62382969A00E21139 /* ShareData.swift */; };
 		CCE4FCAA23829D0100E21139 /* ShareSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA923829D0100E21139 /* ShareSetting.swift */; };
+		CCF38993238A4FDD00F84678 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF38991238A4FDD00F84678 /* RegisterViewController.swift */; };
+		CCF38994238A4FDD00F84678 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF38992238A4FDD00F84678 /* RegisterViewController.xib */; };
+		CCF38997238A778400F84678 /* AreaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF38995238A778400F84678 /* AreaSettingViewController.swift */; };
+		CCF38998238A778400F84678 /* AreaSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF38996238A778400F84678 /* AreaSettingViewController.xib */; };
+		CCF3899B238A8A0D00F84678 /* FindPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF38999238A8A0D00F84678 /* FindPwdViewController.swift */; };
+		CCF3899C238A8A0D00F84678 /* FindPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF3899A238A8A0D00F84678 /* FindPwdViewController.xib */; };
 		CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B77235EFDCB00FACFAD /* AppDelegate.swift */; };
 		CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B79235EFDCB00FACFAD /* SceneDelegate.swift */; };
 		CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF95B7B235EFDCB00FACFAD /* ViewController.swift */; };
@@ -113,7 +118,6 @@
 		CC97B3B9238669A900F1BFE9 /* PasswordLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLoginViewController.swift; sourceTree = "<group>"; };
 		CC97B3BD238678BD00F1BFE9 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		CC97B3BF23867D1C00F1BFE9 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
-		CC97B3C1238681EB00F1BFE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CC97B3C32386870A00F1BFE9 /* ValidateCodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateCodeLoginViewController.swift; sourceTree = "<group>"; };
 		CC97B3C42386870A00F1BFE9 /* ValidateCodeLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ValidateCodeLoginViewController.xib; sourceTree = "<group>"; };
 		CC98781D2376BFC1004F8F8E /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
@@ -156,6 +160,12 @@
 		CCE4FCA42382886C00E21139 /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		CCE4FCA62382969A00E21139 /* ShareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
 		CCE4FCA923829D0100E21139 /* ShareSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSetting.swift; sourceTree = "<group>"; };
+		CCF38991238A4FDD00F84678 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CCF38992238A4FDD00F84678 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		CCF38995238A778400F84678 /* AreaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaSettingViewController.swift; sourceTree = "<group>"; };
+		CCF38996238A778400F84678 /* AreaSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaSettingViewController.xib; sourceTree = "<group>"; };
+		CCF38999238A8A0D00F84678 /* FindPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwdViewController.swift; sourceTree = "<group>"; };
+		CCF3899A238A8A0D00F84678 /* FindPwdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindPwdViewController.xib; sourceTree = "<group>"; };
 		CCF95B74235EFDCB00FACFAD /* ShareEducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareEducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF95B77235EFDCB00FACFAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF95B79235EFDCB00FACFAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -276,7 +286,10 @@
 				CC97B3B9238669A900F1BFE9 /* PasswordLoginViewController.swift */,
 				CC97B3C32386870A00F1BFE9 /* ValidateCodeLoginViewController.swift */,
 				CC97B3C42386870A00F1BFE9 /* ValidateCodeLoginViewController.xib */,
-				CC97B3C1238681EB00F1BFE9 /* RegisterViewController.swift */,
+				CCF38991238A4FDD00F84678 /* RegisterViewController.swift */,
+				CCF38992238A4FDD00F84678 /* RegisterViewController.xib */,
+				CCF38999238A8A0D00F84678 /* FindPwdViewController.swift */,
+				CCF3899A238A8A0D00F84678 /* FindPwdViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -319,6 +332,8 @@
 				CC4FD27A2376742C00FC803D /* MainTabbarController.swift */,
 				CCBF46DE237FFC700030AFC1 /* BaseRootViewController.swift */,
 				CCBF46E0237FFFCC0030AFC1 /* BaseContentViewController.swift */,
+				CCF38995238A778400F84678 /* AreaSettingViewController.swift */,
+				CCF38996238A778400F84678 /* AreaSettingViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -561,8 +576,11 @@
 				CCF95B81235EFDCE00FACFAD /* Assets.xcassets in Resources */,
 				CC017DF12377D3AA00BF22DC /* Media.xcassets in Resources */,
 				CCF95B7F235EFDCB00FACFAD /* Main.storyboard in Resources */,
+				CCF3899C238A8A0D00F84678 /* FindPwdViewController.xib in Resources */,
 				CC97B3B2238651FE00F1BFE9 /* province.plist in Resources */,
 				CC97B3C62386870A00F1BFE9 /* ValidateCodeLoginViewController.xib in Resources */,
+				CCF38994238A4FDD00F84678 /* RegisterViewController.xib in Resources */,
+				CCF38998238A778400F84678 /* AreaSettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,7 +633,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC97B3C2238681EB00F1BFE9 /* RegisterViewController.swift in Sources */,
 				CCBF46E323800BF20030AFC1 /* CourseContentViewController.swift in Sources */,
 				CC97B3BE238678BD00F1BFE9 /* Optional.swift in Sources */,
 				CC017DE12377B10F00BF22DC /* HomeTeacherTableCell.swift in Sources */,
@@ -640,6 +657,7 @@
 				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
 				CCBF46D8237FFAB00030AFC1 /* CalendarDayCell.swift in Sources */,
 				CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */,
+				CCF38997238A778400F84678 /* AreaSettingViewController.swift in Sources */,
 				CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */,
 				CCB3D9C4235FEE4B008E31AE /* CourseViewController.swift in Sources */,
 				CCB3D9D5235FEFFD008E31AE /* PaymentViewController.swift in Sources */,
@@ -667,10 +685,12 @@
 				CC017DF32377D3AA00BF22DC /* StarRateView.swift in Sources */,
 				CCBF46E1237FFFCC0030AFC1 /* BaseContentViewController.swift in Sources */,
 				CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */,
+				CCF38993238A4FDD00F84678 /* RegisterViewController.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
 				CCBF46E5238017190030AFC1 /* MonthCalendarView.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
 				CC828FA4238133A8005CEA06 /* MineTableHeaderView.swift in Sources */,
+				CCF3899B238A8A0D00F84678 /* FindPwdViewController.swift in Sources */,
 				CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */,
 				CC017DE52377BCDD00BF22DC /* HomeTeacherCollectionCell.swift in Sources */,
 				CCD1BC67237C195800F52069 /* Bundle+Info.swift in Sources */,

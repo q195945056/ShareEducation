@@ -133,6 +133,8 @@ class PasswordLoginViewController: BaseLoginViewController {
     }
     
     @objc func onForgetPwdButtonPressed(sender: Any) {
+        let controller = FindPwdViewController()
+        navigationController?.pushViewController(controller, animated: true)
         
     }
 
