@@ -67,6 +67,8 @@
 		CCBF46E5238017190030AFC1 /* MonthCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46E4238017190030AFC1 /* MonthCalendarView.swift */; };
 		CCBF46E7238017B90030AFC1 /* UILabel+QuickUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46E6238017B90030AFC1 /* UILabel+QuickUI.swift */; };
 		CCBF46E9238018C40030AFC1 /* UIButton+QuickUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46E8238018C40030AFC1 /* UIButton+QuickUI.swift */; };
+		CCC154E4238B9BA7005F29CC /* PixelWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC154E3238B9BA7005F29CC /* PixelWidth.swift */; };
+		CCC154E6238BA449005F29CC /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC154E5238BA449005F29CC /* String+Size.swift */; };
 		CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC4F0FA237BF1FE00FD11D9 /* UIScreen+Bounds.swift */; };
 		CCC4F0FD237BF4BA00FD11D9 /* GradeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */; };
 		CCD1BC65237C06D800F52069 /* SEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1BC64237C06D800F52069 /* SEService.swift */; };
@@ -153,6 +155,8 @@
 		CCBF46E4238017190030AFC1 /* MonthCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarView.swift; sourceTree = "<group>"; };
 		CCBF46E6238017B90030AFC1 /* UILabel+QuickUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+QuickUI.swift"; sourceTree = "<group>"; };
 		CCBF46E8238018C40030AFC1 /* UIButton+QuickUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+QuickUI.swift"; sourceTree = "<group>"; };
+		CCC154E3238B9BA7005F29CC /* PixelWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelWidth.swift; sourceTree = "<group>"; };
+		CCC154E5238BA449005F29CC /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
 		CCC4F0FA237BF1FE00FD11D9 /* UIScreen+Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Bounds.swift"; sourceTree = "<group>"; };
 		CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionCell.swift; sourceTree = "<group>"; };
 		CCD1BC64237C06D800F52069 /* SEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEService.swift; sourceTree = "<group>"; };
@@ -306,6 +310,8 @@
 				CCBF46E8238018C40030AFC1 /* UIButton+QuickUI.swift */,
 				CC97B3BD238678BD00F1BFE9 /* Optional.swift */,
 				CC97B3BF23867D1C00F1BFE9 /* String+MD5.swift */,
+				CCC154E3238B9BA7005F29CC /* PixelWidth.swift */,
+				CCC154E5238BA449005F29CC /* String+Size.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -656,6 +662,7 @@
 				CCBF46D9237FFAB00030AFC1 /* CalendarView+Style.swift in Sources */,
 				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
 				CCBF46D8237FFAB00030AFC1 /* CalendarDayCell.swift in Sources */,
+				CCC154E4238B9BA7005F29CC /* PixelWidth.swift in Sources */,
 				CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */,
 				CCF38997238A778400F84678 /* AreaSettingViewController.swift in Sources */,
 				CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */,
@@ -701,6 +708,7 @@
 				CC017DE72377D23700BF22DC /* TeacherScoreView.swift in Sources */,
 				CCF95B7A235EFDCB00FACFAD /* SceneDelegate.swift in Sources */,
 				CCB3D9D3235FEFB6008E31AE /* PlayerViewController.swift in Sources */,
+				CCC154E6238BA449005F29CC /* String+Size.swift in Sources */,
 				CCBF46E7238017B90030AFC1 /* UILabel+QuickUI.swift in Sources */,
 				CC97B3BA238669A900F1BFE9 /* PasswordLoginViewController.swift in Sources */,
 				CC97B3B623865CD300F1BFE9 /* LoginViewController.swift in Sources */,

@@ -15,13 +15,7 @@ class BaseRootViewController: UIViewController {
     // MARK: - Property
     lazy var customNavigationBar: CustomNavigationBar = CustomNavigationBar(type: .normal)
     
-    lazy var segmentedControl: BetterSegmentedControl = BetterSegmentedControl().then {
-        $0.indicatorViewBackgroundColor = .white
-        $0.segments = LabelSegment.segments(withTitles: ["全部", "语文", "数学", "英语", "物理", "化学", "政治"],
-        normalFont: .systemFont(ofSize: 13),
-        normalTextColor: UIColor(red: 51, green: 51, blue: 51),
-        selectedFont: .systemFont(ofSize: 18, weight: .medium),
-        selectedTextColor: UIColor(red: 233, green: 76, blue: 28))
+    lazy var segmentedControl: YLSegmentedControl = YLSegmentedControl(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 44),items: ["全部", "语文", "数学", "英语", "物理", "化学", "政治"]).then {
         $0.addTarget(self, action: #selector(onSegmentedControlValueChanged(sender:)), for: .valueChanged)
     }
     
@@ -110,7 +104,7 @@ class BaseRootViewController: UIViewController {
          
     }
     
-    @objc func onSegmentedControlValueChanged(sender: BetterSegmentedControl) {
+    @objc func onSegmentedControlValueChanged(sender: YLSegmentedControl) {
     
     }
     

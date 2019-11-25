@@ -8,8 +8,6 @@
 
 import UIKit
 
-let onePixelWidth = 1 / UIScreen.main.scale
-
 let actualStatusBarHeight = UIApplication.shared.statusBarFrame.height
 
 extension UIScreen {
