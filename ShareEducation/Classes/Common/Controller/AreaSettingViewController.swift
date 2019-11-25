@@ -40,6 +40,7 @@ class AreaSettingViewController: UIViewController {
     
     var didSelectArea: ((Area) -> Void)?
 
+    var showAllArea = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

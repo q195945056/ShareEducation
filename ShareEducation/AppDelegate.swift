@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let response = try result.get()
                 let initData = try response.mapObject(InitData.self)
                 ShareData.shared.gradetypes = initData.gradetypes
+                ShareData.shared.areas = initData.areas
 //                print(initData)
             } catch {
                 

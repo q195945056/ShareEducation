@@ -12,4 +12,7 @@ class ShareData {
     static let shared = ShareData()
     var gradetypes: [GradeType]?
     
+    var areas: [String: [Area]]?
+
+    
 }
