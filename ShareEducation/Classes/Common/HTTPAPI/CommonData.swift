@@ -9,9 +9,11 @@
 import Foundation
 import ObjectMapper
 
-struct Area: Mappable {
+struct Area: Mappable, Codable {
     var id: Int!
     var name: String!
+    
+    static let `default` = Area(id: 0, name: "全部")
     
     init?(map: Map) {
     }
@@ -27,7 +29,7 @@ struct Area: Mappable {
     }
 }
 
-struct Course: Mappable {
+struct Course: Mappable, Codable {
     var id: Int!
     var name: String!
     
@@ -47,7 +49,7 @@ struct Course: Mappable {
     }
 }
 
-struct Grade: Mappable {
+struct Grade: Mappable, Codable {
     var id: Int!
     var name: String!
     
@@ -67,7 +69,7 @@ struct Grade: Mappable {
     }
 }
 
-struct Resource: Mappable {
+struct Resource: Mappable, Codable {
     var id: Int!
     var img: String!
     var linkUrl: String!
@@ -86,7 +88,7 @@ struct Resource: Mappable {
     }
 }
 
-struct GradeType: Mappable {
+struct GradeType: Mappable, Codable {
     var id: Int!
     var name: String!
     var grades: [Grade]!
@@ -101,13 +103,13 @@ struct GradeType: Mappable {
     }
 }
 
-struct Resourcetype: Mappable {
+struct Resourcetype: Mappable, Codable {
     var id: Int!
     var name: String!
     var resources: [Resource]!
     var type: RType!
     
-    enum RType: Int {
+    enum RType: Int, Codable {
         case splash = 1
         case banner = 2
     }

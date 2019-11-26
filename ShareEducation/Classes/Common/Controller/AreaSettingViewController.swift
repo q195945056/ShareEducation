@@ -26,7 +26,7 @@ class AreaSettingViewController: UIViewController {
         let cityPath = Bundle.main.path(forResource: "city", ofType: "plist")
         let plistData = FileManager.default.contents(atPath: cityPath!)!
         do {
-            var propertyListFormat =  PropertyListSerialization.PropertyListFormat.xml //Format of the Property List.
+            var propertyListFormat = PropertyListSerialization.PropertyListFormat.xml //Format of the Property List.
             let cityMap = try PropertyListSerialization.propertyList(from: plistData, options: .mutableContainersAndLeaves, format: &propertyListFormat) as? [String: [[String: String]]]
             return cityMap
         } catch  {

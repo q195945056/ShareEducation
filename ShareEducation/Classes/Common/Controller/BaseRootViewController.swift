@@ -17,6 +17,9 @@ class BaseRootViewController: UIViewController {
     
     lazy var segmentedControl: YLSegmentedControl = YLSegmentedControl(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 44),items: ["全部", "语文", "数学", "英语", "物理", "化学", "政治"]).then {
         $0.addTarget(self, action: #selector(onSegmentedControlValueChanged(sender:)), for: .valueChanged)
+        $0.contentInset = UIEdgeInsets(top: 0, left: 13, bottom: 0, right: 13)
+        $0.showIndicator = true
+        $0.widthOption = .custom(value: 37)
     }
     
     lazy var pageViewController: UIPageViewController = {
@@ -47,7 +50,7 @@ class BaseRootViewController: UIViewController {
     }
     
     func setupUI() -> Void {
-        customNavigationBar.gradeLabel.text = ShareSetting.shared.grade?.name ?? "年级"
+        customNavigationBar.gradeLabel.text = ShareSetting.shared.grade.name
 
         view.addSubview(customNavigationBar)
         view.addSubview(segmentedControl)
@@ -78,7 +81,7 @@ class BaseRootViewController: UIViewController {
         
     }
     
-    func contentViewController(grade: Grade = .default, course: Course = .default) -> BaseContentViewController?  {
+    func contentViewController(course: Course = .default) -> BaseContentViewController?  {
         return nil
     }
     

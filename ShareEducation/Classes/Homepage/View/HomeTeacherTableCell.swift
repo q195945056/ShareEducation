@@ -13,6 +13,14 @@ class HomeTeacherTableCell: UITableViewCell {
     static let cellHeight: CGFloat = 215
     @IBOutlet var collectionView: UICollectionView!
     
+    var teachers = [Teacher]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
+    var didSelectTeacher: ((Teacher) -> Void)?
+    
     // MARK: - Life Cycle
 
     override func awakeFromNib() {
@@ -29,17 +37,25 @@ class HomeTeacherTableCell: UITableViewCell {
 
 extension HomeTeacherTableCell: UICollectionViewDataSource {
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return teachers.count
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeTeacherCollectionCell.reuseIdentifier, for: indexPath) as! HomeTeacherCollectionCell
-        
+        cell.teacher = teachers[indexPath.item]
+        cell.ranking = indexPath.item + 1
         return cell
     }
 }
 
 extension HomeTeacherTableCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let teacher = teachers[indexPath.item]
+        if let didSelectTeacher = didSelectTeacher {
+            didSelectTeacher(teacher)
+        }
+    }
 }
 
 extension HomeTeacherTableCell: UICollectionViewDelegateFlowLayout {

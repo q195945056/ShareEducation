@@ -159,6 +159,9 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag_NO1" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-qH-aAn">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
+                                                                            </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
@@ -166,8 +169,10 @@
                                                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OsX-fv-fDU" secondAttribute="trailing" constant="20" symbolic="YES" id="1x6-ia-0yj"/>
                                                                             <constraint firstItem="OsX-fv-fDU" firstAttribute="centerY" secondItem="jLI-SM-0KO" secondAttribute="centerY" id="3tX-B4-7Pq"/>
                                                                             <constraint firstAttribute="bottom" secondItem="J23-aP-Tdr" secondAttribute="bottom" constant="10" id="7DZ-We-ByQ"/>
+                                                                            <constraint firstItem="AhY-qH-aAn" firstAttribute="leading" secondItem="AON-H7-SlN" secondAttribute="leading" id="Crx-b6-NWx"/>
                                                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JtS-yu-w7g" secondAttribute="trailing" constant="20" symbolic="YES" id="JQ4-Zb-Isl"/>
                                                                             <constraint firstItem="lBN-Tt-3x3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J23-aP-Tdr" secondAttribute="trailing" constant="8" symbolic="YES" id="R07-VV-XU9"/>
+                                                                            <constraint firstItem="AhY-qH-aAn" firstAttribute="top" secondItem="AON-H7-SlN" secondAttribute="top" id="S8B-qi-fy2"/>
                                                                             <constraint firstItem="IxH-u8-kUQ" firstAttribute="top" secondItem="AON-H7-SlN" secondAttribute="top" id="UZI-mD-3zM"/>
                                                                             <constraint firstAttribute="bottom" secondItem="lBN-Tt-3x3" secondAttribute="bottom" constant="10" id="VVT-CP-Y8j"/>
                                                                             <constraint firstItem="JtS-yu-w7g" firstAttribute="leading" secondItem="4sl-SO-1c5" secondAttribute="trailing" constant="10" id="ZSl-mf-oPf"/>
@@ -209,8 +214,10 @@
                                                                 <outlet property="imageView" destination="IxH-u8-kUQ" id="1ha-hT-Tc7"/>
                                                                 <outlet property="levelLabel" destination="JtS-yu-w7g" id="MGh-Je-71m"/>
                                                                 <outlet property="nameLabel" destination="4sl-SO-1c5" id="HoR-be-ZTg"/>
+                                                                <outlet property="rankingImageView" destination="AhY-qH-aAn" id="iIF-h2-Abl"/>
                                                                 <outlet property="schoolNameLabel" destination="0Hb-k0-ihU" id="gHL-Ib-DEg"/>
                                                                 <outlet property="scoreLabel" destination="OsX-fv-fDU" id="76c-Jw-1Gj"/>
+                                                                <outlet property="starRateView" destination="jLI-SM-0KO" id="sXI-JO-pyT"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -401,5 +408,6 @@
         <image name="icon_menu03" width="21" height="21"/>
         <image name="icon_menu04" width="21" height="21"/>
         <image name="start1" width="68.5" height="10"/>
+        <image name="tag_NO1" width="41" height="41"/>
     </resources>
 </document>

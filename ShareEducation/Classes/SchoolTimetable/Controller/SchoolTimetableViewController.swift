@@ -30,8 +30,8 @@ class SchoolTimetableViewController: BaseRootViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func contentViewController(grade: Grade = .default, course: Course = .default) -> BaseContentViewController? {
-        return CourseContentViewController(grade: grade, course: course)
+    override func contentViewController(course: Course = .default) -> BaseContentViewController? {
+        return CourseContentViewController(course: course)
     }
     
 

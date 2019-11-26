@@ -20,6 +20,8 @@ class Teacher: Mappable {
     var playCount: Int?
     var teachingAge: Int?
     var pic: String?
+    var city: String?
+    var schoolName: String?
     
     required init?(map: Map) {
          
@@ -36,5 +38,7 @@ class Teacher: Mappable {
         playCount <- map["playcount"]
         teachingAge <- map["teachingage"]
         pic <- map["pic"]
+        city <- map["city"]
+        schoolName <- map["schoolname"]
     }
 }

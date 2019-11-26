@@ -15,9 +15,7 @@ import SwiftDate
 class HomeContentViewController: BaseContentViewController {
     
     @IBOutlet var tableView: UITableView!
-    
-    lazy var bannerDatas = [UIColor]()
-    
+        
     lazy var pagerView: TYCyclePagerView = TYCyclePagerView().then { pagerView in
         let bannerCellWidth = UIScreen.main.bounds.width - 26
         let bannerCellHeight = bannerCellWidth * 140 / 349
@@ -31,6 +29,16 @@ class HomeContentViewController: BaseContentViewController {
     
     var courseList = [CourseItem]()
     
+    var techerList = [Teacher]()
+    
+    lazy var teacherListCell: HomeTeacherTableCell = {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: HomeTeacherTableCell.reuseIdentifier, for: IndexPath(row: 0, section: 0)) as! HomeTeacherTableCell
+        cell.didSelectTeacher = { teacher in
+            let controller = TeacherDetailViewController()
+            mainNavigationController.pushViewController(controller, animated: true)
+        }
+        return cell
+    }()
     
     // MARK: - Life Cycle
     
@@ -38,8 +46,7 @@ class HomeContentViewController: BaseContentViewController {
         super.viewDidLoad()
         
         _setupUI()
-        
-        loadData()
+        refreshData()
     }
     
 
@@ -53,20 +60,25 @@ class HomeContentViewController: BaseContentViewController {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
-        tableView.tableHeaderView = pagerView
+        reloadBannerUI()
     }
-
-    private func loadData() {
-        var i = 0
-        while i < 5 {
-            self.bannerDatas.append(UIColor(red: CGFloat(arc4random()%255)/255.0, green: CGFloat(arc4random()%255)/255.0, blue: CGFloat(arc4random()%255)/255.0, alpha: 1))
-            i += 1
+    
+    func reloadBannerUI() {
+        let bannerResouces = ShareData.shared.bannerResources
+        if let _ = bannerResouces {
+            tableView.tableHeaderView = pagerView
+            pagerView.reloadData()
+        } else {
+            tableView.tableHeaderView = nil
         }
-        self.pagerView.reloadData()
-                
+    }
+    
+    private func refreshData() {
+        let grade = ShareSetting.shared.grade
         serviceProvider.request(.getTeacherTopList(name: nil, token: nil, rows: "10", areaid: "0", courseid: String(course.id), gradeid: String(grade.id))) { result in
             do {
                 let response = try result.get().mapObject(ListResult<Teacher>.self)
+                self.teacherListCell.teachers = response.data
                 print(response)
             } catch {
                             
@@ -92,13 +104,23 @@ extension HomeContentViewController: TYCyclePagerViewDelegate, TYCyclePagerViewD
     // MARK: TYCyclePagerViewDataSource
     
     func numberOfItems(in pageView: TYCyclePagerView) -> Int {
-        return self.bannerDatas.count
+        let bannerDatas = ShareData.shared.bannerResources
+        return bannerDatas?.count ?? 0
     }
     
     func pagerView(_ pagerView: TYCyclePagerView, cellForItemAt index: Int) -> UICollectionViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: HomeBannerCell.reuseIdentifier, for: index) as! HomeBannerCell
-        cell.imageView.backgroundColor = self.bannerDatas[index]
+        
+        let resource = ShareData.shared.bannerResources![index]
+        cell.imageView.kf.setImage(with: URL(string: resource.img.fullURLString))
         return cell
+    }
+    
+    func pagerView(_ pageView: TYCyclePagerView, didSelectedItemCell cell: UICollectionViewCell, at index: Int) {
+        let resource = ShareData.shared.bannerResources![index]
+        let urlString = resource.linkUrl
+        let controller = WebViewController(url: urlString!)
+        mainNavigationController.pushViewController(controller, animated: true)
     }
     
     func layout(for pageView: TYCyclePagerView) -> TYCyclePagerViewLayout {
@@ -132,10 +154,9 @@ extension HomeContentViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: HomeTeacherTableCell.reuseIdentifier, for: indexPath) as! HomeTeacherTableCell
-            return cell
+            tableView.dequeueReusableCell(withIdentifier: HomeTeacherTableCell.reuseIdentifier)
+            return teacherListCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: HomeClassCell.reuseIdentifier, for: indexPath) as! HomeClassCell
             

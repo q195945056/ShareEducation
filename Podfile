@@ -20,6 +20,7 @@ target 'ShareEducation' do
   pod 'SwiftDate'
   pod 'IQKeyboardManagerSwift'
   pod 'MJRefresh'
+  pod 'Cache'
   
 end
 

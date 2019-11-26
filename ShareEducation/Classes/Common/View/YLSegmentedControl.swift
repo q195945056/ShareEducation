@@ -17,6 +17,44 @@ class YLSegmentedTitleCell: UICollectionViewCell {
         return label
     }()
     
+    var indicatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .e64919
+        view.isHidden = true
+        view.layer.cornerRadius = 1
+        return view
+    }()
+    
+    var aligment: YLSegmentedControl.VerticalAligment = .custom(bottomInset: 13) {
+        didSet {
+            switch aligment {
+            case .center:
+                titleLabel.snp.remakeConstraints { (make) in
+                    make.center.equalTo(contentView)
+                }
+            case .bottom:
+                titleLabel.snp.remakeConstraints { (make) in
+                    make.centerX.bottom.equalTo(contentView)
+                }
+            case .custom(let bottomInset):
+                titleLabel.snp.remakeConstraints { (make) in
+                    make.centerX.equalTo(contentView)
+                    make.bottom.equalTo(contentView).offset(-bottomInset)
+                }
+            }
+        }
+    }
+    
+    var showIndicator = false {
+        didSet {
+            if showIndicator && isSelected {
+                indicatorView.isHidden = false
+            } else {
+                indicatorView.isHidden = true
+            }
+        }
+    }
+    
     var selectedSegmentTintColor: UIColor = .e64919 {
         didSet {
             if isSelected {
@@ -30,9 +68,11 @@ class YLSegmentedTitleCell: UICollectionViewCell {
             if isSelected {
                 titleLabel.font = .systemFont(ofSize: 18, weight: .medium)
                 titleLabel.textColor = selectedSegmentTintColor
+                indicatorView.isHidden = !showIndicator
             } else {
                 titleLabel.font = .systemFont(ofSize: 13, weight: .medium)
                 titleLabel.textColor = .darkTextColor
+                indicatorView.isHidden = true
             }
         }
     }
@@ -53,17 +93,20 @@ class YLSegmentedTitleCell: UICollectionViewCell {
             make.leading.trailing.equalTo(contentView)
             make.bottom.equalTo(contentView).offset(-13)
         }
+        
+        contentView.addSubview(indicatorView)
+        indicatorView.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalTo(contentView)
+            make.height.equalTo(2)
+        }
     }
 }
 
-class YLSegmentedControl: UIControl {
+@IBDesignable class YLSegmentedControl: UIControl {
     
     var items: [String]? {
         didSet {
-            collectionView.reloadData()
-            if let count = items?.count, count > 0 {
-                collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
-            }
+            reloadData()
         }
     }
     
@@ -83,12 +126,12 @@ class YLSegmentedControl: UIControl {
         }
     }
     
-    var selectedSegmentTintColor: UIColor = .e64919
+    @IBInspectable var selectedSegmentTintColor: UIColor = .e64919
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 13, bottom: 0, right: 13)
+        layout.sectionInset = contentInset
         layout.minimumLineSpacing = 15
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         collectionView.register(YLSegmentedTitleCell.self, forCellWithReuseIdentifier: YLSegmentedTitleCell.reuseIdentifier)
@@ -97,6 +140,37 @@ class YLSegmentedControl: UIControl {
         collectionView.delegate = self
         return collectionView
     }()
+    
+    @IBInspectable var contentInset: UIEdgeInsets = .zero {
+        didSet {
+            reloadData()
+        }
+    }
+    
+    enum VerticalAligment {
+        case center
+        case bottom
+        case custom(bottomInset: Double)
+    }
+    
+    var aligment: VerticalAligment = .custom(bottomInset: 13)
+    
+    enum WidthOption {
+        case flexible
+        case custom(value: CGFloat)
+    }
+    
+    var widthOption: WidthOption = .flexible {
+        didSet {
+            reloadData()
+        }
+    }
+    
+    @IBInspectable var showIndicator: Bool = false {
+        didSet {
+            reloadData()
+        }
+    }    
     
     init(frame: CGRect, items: [String]) {
         self.items = items
@@ -119,6 +193,16 @@ class YLSegmentedControl: UIControl {
             collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
         }
     }
+    
+    private func reloadData() {
+        let indexPath = collectionView.indexPathsForSelectedItems?.first
+        collectionView.reloadData()
+        if let indexPath = indexPath {
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+        } else if let count = items?.count, count > 0 {
+            collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
+        }
+    }
 }
 
 extension YLSegmentedControl: UICollectionViewDataSource {
@@ -130,8 +214,11 @@ extension YLSegmentedControl: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YLSegmentedTitleCell.reuseIdentifier, for: indexPath) as! YLSegmentedTitleCell
         cell.selectedSegmentTintColor = selectedSegmentTintColor
         cell.titleLabel.text = items?[indexPath.item]
+        cell.aligment = aligment
+        cell.showIndicator = showIndicator
         return cell
-    }    
+    }
+    
 }
 
 extension YLSegmentedControl: UICollectionViewDelegate {
@@ -140,14 +227,42 @@ extension YLSegmentedControl: UICollectionViewDelegate {
             selectedSegmentIndex = indexPath.item
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return contentInset
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        switch widthOption {
+        case .flexible:
+            return 15
+        case .custom(let value):
+            if let count = items?.count, count > 1 {
+                let spacing = (frame.width - contentInset.left - contentInset.right - value * CGFloat(count)) / CGFloat(count - 1)
+                return spacing
+            } else {
+                return 0
+            }
+        }
+    }
+    
 }
 
 extension YLSegmentedControl: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let title = items?[indexPath.item] else {
-            return .zero
+        var width: CGFloat = 0
+        switch widthOption {
+        case .flexible:
+            if let title = items?[indexPath.item] {
+                let size = title.size(font: .systemFont(ofSize: 18, weight: .medium))
+                width = size.width
+            }
+        case .custom(let value):
+            width = value
         }
-        let size = title.size(font: .systemFont(ofSize: 18, weight: .medium))
-        return CGSize(width: size.width, height: frame.height)
+        
+        return CGSize(width: width, height: frame.height)
     }
+    
+    
 }

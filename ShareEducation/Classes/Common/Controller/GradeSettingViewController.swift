@@ -107,7 +107,7 @@ extension GradeSettingViewController: UICollectionViewDelegate {
         if let didSelectGrade = didSelectGrade {
             didSelectGrade(grade!)
         }
-        ShareSetting.shared.grade = grade
+        ShareSetting.shared.grade = grade!
         
         dismiss(animated: true)
     }
