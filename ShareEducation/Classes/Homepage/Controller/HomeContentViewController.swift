@@ -35,6 +35,7 @@ class HomeContentViewController: BaseContentViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: HomeTeacherTableCell.reuseIdentifier, for: IndexPath(row: 0, section: 0)) as! HomeTeacherTableCell
         cell.didSelectTeacher = { teacher in
             let controller = TeacherDetailViewController()
+            controller.teacher = teacher
             mainNavigationController.pushViewController(controller, animated: true)
         }
         return cell
@@ -79,7 +80,6 @@ class HomeContentViewController: BaseContentViewController {
             do {
                 let response = try result.get().mapObject(ListResult<Teacher>.self)
                 self.teacherListCell.teachers = response.data
-                print(response)
             } catch {
                             
             }

@@ -21,6 +21,7 @@ target 'ShareEducation' do
   pod 'IQKeyboardManagerSwift'
   pod 'MJRefresh'
   pod 'Cache'
+  pod 'SwiftyJSON'
   
 end
 

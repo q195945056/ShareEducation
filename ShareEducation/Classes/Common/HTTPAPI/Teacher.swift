@@ -22,6 +22,8 @@ class Teacher: Mappable {
     var pic: String?
     var city: String?
     var schoolName: String?
+    var totletime: Int?
+    
     
     required init?(map: Map) {
          
@@ -41,4 +43,8 @@ class Teacher: Mappable {
         city <- map["city"]
         schoolName <- map["schoolname"]
     }
+    
+//    func <#name#>(<#parameters#>) -> <#return type#> {
+//        <#function body#>
+//    }
 }

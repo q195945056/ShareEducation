@@ -9,7 +9,6 @@
 import UIKit
 
 class TeacherDetailViewController: UIViewController {
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .white
@@ -20,6 +19,12 @@ class TeacherDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "TeacherDetailSegmentedCell", bundle: nil), forCellReuseIdentifier: TeacherDetailSegmentedCell.reuseIdentifier)
         return tableView
     }()
+    
+    var teacher: Teacher! {
+        didSet {
+            self.infoCell.teacher = teacher
+        }
+    }
     
     lazy var infoCell: TeacherDetailInfoCell = {
         let cell = tableView.dequeueReusableCell(withIdentifier: TeacherDetailInfoCell.reuseIdentifier) as! TeacherDetailInfoCell
@@ -38,6 +43,7 @@ class TeacherDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setupUI()
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +56,17 @@ class TeacherDetailViewController: UIViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
+        }
+    }
+    
+    func loadData() {
+        serviceProvider.request(.getTeacherDetail(name: nil, token: nil, id: String(teacher.mid))) { (result) in
+            do {
+                let response = try result.get().mapJSON() as? [String : Any]
+                let data = response?["data"]
+                
+                
+            } catch { }
         }
     }
 
