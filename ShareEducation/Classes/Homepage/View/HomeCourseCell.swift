@@ -8,12 +8,13 @@
 
 import UIKit
 
-class HomeClassCell: CourseBaseCell {
+class HomeCourseCell: CourseBaseCell {
     
     override func commonInit() {
         super.commonInit()
         timeImageView.isHidden = true
         backgroundImageView.image = UIImage(named: "bg_class")
+        timeLabel.textColor = .black
     }
     
     override func setupConstraints() {
@@ -73,6 +74,8 @@ class HomeClassCell: CourseBaseCell {
         subscribeButton.snp.makeConstraints { (make) in
             make.centerY.equalTo(countLabel)
             make.trailing.equalTo(contentBgView).offset(-11)
+            make.width.equalTo(79)
+            make.height.equalTo(28)
         }
     }
 }

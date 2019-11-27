@@ -53,8 +53,13 @@ class CourseBaseCell: UITableViewCell {
                 timeLabel.text = "\(startTime)-\(endTime)"
             }
             classNameLabel.text = course.name
-            teacherInfoLabel.text = "\(course.trueName!)  \(course.schoolName!)"
-//            headImageView.kf.setImage(with: URL(string: course.i))
+            if let name = course.trueName, let schoolName = course.schoolName {
+                teacherInfoLabel.text = "\(name)  \(schoolName)"
+            } else {
+                teacherInfoLabel.text = nil
+            }
+            headImageView.kf.setImage(with: URL(string: course.pic ?? ""))
+            countLabel.text = String(course.buyCount ?? 0) + "人已预约"
         }
     }
     

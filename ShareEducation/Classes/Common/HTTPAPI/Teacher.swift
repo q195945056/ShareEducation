@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import SwiftyJSON
 
 class Teacher: Mappable {
     var mid: Int!
@@ -23,7 +24,6 @@ class Teacher: Mappable {
     var city: String?
     var schoolName: String?
     var totletime: Int?
-    
     
     required init?(map: Map) {
          
@@ -44,7 +44,7 @@ class Teacher: Mappable {
         schoolName <- map["schoolname"]
     }
     
-//    func <#name#>(<#parameters#>) -> <#return type#> {
-//        <#function body#>
-//    }
+    func load(extraData: JSON) {
+        totletime = extraData["totletime"].int
+    }
 }

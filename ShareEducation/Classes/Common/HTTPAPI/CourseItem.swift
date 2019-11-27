@@ -13,12 +13,16 @@ class CourseItem: Mappable {
     var name: String!
     var startTime: Date?
     var endTime: Date?
-    var trueName: String!
+    var trueName: String?
     var grade: String!
     var course: String!
-    var schoolName: String!
-    var price: Int!
+    var schoolName: String?
+    var price: Int?
     var buystate: BuyState!
+    var buyCount: Int?
+    var unitIds: Int?
+    var state: PlayState?
+    var pic: String?
     
     required init?(map: Map) {
     }
@@ -28,18 +32,40 @@ class CourseItem: Mappable {
         name <- map["name"]
         let dateTransform = CustomDateFormatTransform(formatString: "yyyy-MM-dd HH:mm")
         startTime <- (map["starttime"], dateTransform)
+        if startTime == nil {
+            startTime <- (map["startTime"], dateTransform)
+        }
         endTime <- (map["endtime"], dateTransform)
+        if endTime == nil {
+            endTime <- (map["endTime"], dateTransform)
+        }
         trueName <- map["truename"]
         grade <- map["grade"]
         course <- map["course"]
         schoolName <- map["schoolname"]
         price <- map["Price"]
+        if price == nil {
+            price <- map["price"]
+        }
         buystate <- map["buystate"]
+        buyCount <- map["buycount"]
+        unitIds <- map["unitids"]
+        state <- map["state"]
+        pic <- map["pic"]
     }
 }
 
-enum BuyState: Int {
-    case free = 1
-    case buy = 2
-    case notBuy = 3
+extension CourseItem {
+    enum BuyState: Int {
+        case free = 1
+        case buy = 2
+        case notBuy = 3
+    }
+    
+    enum PlayState: Int {
+        case notLiving = 1
+        case living = 2
+        case record = 3
+    }
 }
+

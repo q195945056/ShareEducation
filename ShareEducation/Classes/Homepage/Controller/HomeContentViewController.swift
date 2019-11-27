@@ -56,7 +56,7 @@ class HomeContentViewController: BaseContentViewController {
     
     func _setupUI() -> Void {
         tableView.register(HomeSetionTitleView.self, forHeaderFooterViewReuseIdentifier: HomeSetionTitleView.reuseIdentifier)
-        tableView.register(HomeClassCell.self, forCellReuseIdentifier: HomeClassCell.reuseIdentifier)
+        tableView.register(HomeCourseCell.self, forCellReuseIdentifier: HomeCourseCell.reuseIdentifier)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
@@ -158,7 +158,7 @@ extension HomeContentViewController: UITableViewDataSource {
             tableView.dequeueReusableCell(withIdentifier: HomeTeacherTableCell.reuseIdentifier)
             return teacherListCell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: HomeClassCell.reuseIdentifier, for: indexPath) as! HomeClassCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeCourseCell.reuseIdentifier, for: indexPath) as! HomeCourseCell
             
             let course = courseList[indexPath.row]
             cell.course = course

@@ -21,6 +21,9 @@ enum SEService {
     case getTeacherTopList(name: String? = nil, token: String? = nil, rows: String, areaid: String, courseid: String, gradeid: String)
     case getTeacherList(name: String?, token: String?, offset: String, rows: String, areaid: String?, courseid: String?, gradeid: String?)
     case getTeacherDetail(name: String?, token: String?, id: String)
+    case collectTeacher(name: String?, token: String?, id: String, oper: String)
+    case playCourse(name: String?, token: String?, id: String)
+    case collectCourse(name: String?, token: String?, id: String, star: String, oper: String)
 }
 
 extension SEService: TargetType {
@@ -49,6 +52,12 @@ extension SEService: TargetType {
             return "/education/api/teacher_list.action"
         case .getTeacherDetail:
             return "/education/api/teacher_detail.action"
+        case .collectTeacher:
+            return "/education/api/teacher_collect.action"
+        case .playCourse:
+            return "/education/api/course_play.action"
+        case .collectCourse:
+            return "/education/api/course_collectc.action"
         }
     }
     
@@ -133,6 +142,27 @@ extension SEService: TargetType {
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["t.mid"] = id
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .collectTeacher(let name, let token, let id, let oper):
+            var parameters = [String : Any]()
+            parameters["m.name"] = name
+            parameters["m.token"] = token
+            parameters["t.id"] = id
+            parameters["t.oper"] = oper
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .playCourse(let name, let token, let id):
+            var parameters = [String : Any]()
+            parameters["m.name"] = name
+            parameters["m.token"] = token
+            parameters["t.id"] = id
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .collectCourse(let name, let token, let id, let star, let oper):
+            var parameters = [String : Any]()
+            parameters["m.name"] = name
+            parameters["m.token"] = token
+            parameters["t.id"] = id
+            parameters["c.star"] = star
+            parameters["t.oper"] = oper
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
         
