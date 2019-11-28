@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseDetailTeacherCell" id="KGk-i7-Jjw" customClass="CourseDetailTeacherCell" customModule="ShareEducation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授课老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBV-JX-wxt">
+                        <rect key="frame" x="13" y="14" width="70" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QWg-0g-K21">
+                        <rect key="frame" x="13" y="47" width="40" height="40"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="zDH-AK-kFT"/>
+                            <constraint firstAttribute="height" constant="40" id="zkE-z5-Vqj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丽琴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orL-t6-A7L">
+                        <rect key="frame" x="64" y="58.5" width="29" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_date_right" translatesAutoresizingMaskIntoConstraints="NO" id="Wfk-cL-skc">
+                        <rect key="frame" x="103" y="61.5" width="6" height="11"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="orL-t6-A7L" firstAttribute="leading" secondItem="QWg-0g-K21" secondAttribute="trailing" constant="11" id="0Vz-0C-zTO"/>
+                    <constraint firstItem="wBV-JX-wxt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="1hf-av-Ygp"/>
+                    <constraint firstAttribute="bottom" secondItem="QWg-0g-K21" secondAttribute="bottom" constant="18" id="5Dq-Cw-TQ3"/>
+                    <constraint firstItem="QWg-0g-K21" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="47" id="E8z-Gw-2hW"/>
+                    <constraint firstItem="QWg-0g-K21" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="F9J-0o-I7h"/>
+                    <constraint firstItem="Wfk-cL-skc" firstAttribute="leading" secondItem="orL-t6-A7L" secondAttribute="trailing" constant="10" id="Jdc-qp-4jJ"/>
+                    <constraint firstItem="Wfk-cL-skc" firstAttribute="centerY" secondItem="orL-t6-A7L" secondAttribute="centerY" id="ked-go-QtV"/>
+                    <constraint firstItem="orL-t6-A7L" firstAttribute="centerY" secondItem="QWg-0g-K21" secondAttribute="centerY" id="naa-1z-Wx1"/>
+                    <constraint firstItem="wBV-JX-wxt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="xfc-RI-FBd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="-29.710144927536234" y="47.879464285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_date_right" width="6" height="11"/>
+    </resources>
+</document>

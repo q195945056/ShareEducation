@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseDetailDescptionCell" rowHeight="236" id="KGk-i7-Jjw" customClass="CourseDetailDescptionCell" customModule="ShareEducation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="236"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="236"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="课程详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqB-zb-2Yg">
+                        <rect key="frame" x="14" y="16" width="69.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本课程是专为1-6年级小学生研发的英语词汇语法能力短期集训课程，专项攻坚词汇记忆和语法技巧两大重难点。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZ1-hm-rXa">
+                        <rect key="frame" x="14" y="56.5" width="347" height="50.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL1-4h-bJO">
+                        <rect key="frame" x="14" y="135" width="13" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.90196078430000004" green="0.28627450980000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMK-h5-p6C">
+                        <rect key="frame" x="13" y="174" width="166.5" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="AMK-h5-p6C" secondAttribute="height" multiplier="83:20" id="pMt-K0-51z"/>
+                        </constraints>
+                        <state key="normal" image="button_see"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="700" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67A-TZ-fgK">
+                        <rect key="frame" x="27" y="129" width="30" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.90196078430000004" green="0.28627450980000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk2-nh-LDK">
+                        <rect key="frame" x="195.5" y="174" width="166.5" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Bk2-nh-LDK" secondAttribute="height" multiplier="83:20" id="r3P-9G-PfI"/>
+                        </constraints>
+                        <state key="normal" image="button_see2"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="xZ1-hm-rXa" secondAttribute="trailing" constant="14" id="10h-d2-max"/>
+                    <constraint firstItem="xZ1-hm-rXa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="7L3-li-JPx"/>
+                    <constraint firstItem="67A-TZ-fgK" firstAttribute="top" secondItem="xZ1-hm-rXa" secondAttribute="bottom" constant="22" id="9h4-l5-JgV"/>
+                    <constraint firstItem="AqB-zb-2Yg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="HHt-Do-HEJ"/>
+                    <constraint firstAttribute="bottom" secondItem="AMK-h5-p6C" secondAttribute="bottom" constant="22" id="NOH-Wn-vc2"/>
+                    <constraint firstItem="AMK-h5-p6C" firstAttribute="top" secondItem="eL1-4h-bJO" secondAttribute="bottom" constant="24" id="OL0-kv-gkp"/>
+                    <constraint firstItem="eL1-4h-bJO" firstAttribute="leading" secondItem="xZ1-hm-rXa" secondAttribute="leading" id="PTv-6C-mNP"/>
+                    <constraint firstItem="Bk2-nh-LDK" firstAttribute="top" secondItem="AMK-h5-p6C" secondAttribute="top" id="UuZ-I3-jGy"/>
+                    <constraint firstItem="Bk2-nh-LDK" firstAttribute="leading" secondItem="AMK-h5-p6C" secondAttribute="trailing" constant="16" id="caK-gH-BYf"/>
+                    <constraint firstItem="67A-TZ-fgK" firstAttribute="leading" secondItem="eL1-4h-bJO" secondAttribute="trailing" id="dHU-Kr-SVi"/>
+                    <constraint firstItem="xZ1-hm-rXa" firstAttribute="top" secondItem="AqB-zb-2Yg" secondAttribute="bottom" constant="20" id="ey6-tT-okk"/>
+                    <constraint firstItem="Bk2-nh-LDK" firstAttribute="width" secondItem="AMK-h5-p6C" secondAttribute="width" id="fDd-CJ-RQ6"/>
+                    <constraint firstItem="AqB-zb-2Yg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="pKP-Qk-7gV"/>
+                    <constraint firstItem="AMK-h5-p6C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="q1B-je-hyu"/>
+                    <constraint firstItem="67A-TZ-fgK" firstAttribute="bottom" secondItem="eL1-4h-bJO" secondAttribute="bottom" id="uBR-yK-zdZ"/>
+                    <constraint firstAttribute="trailing" secondItem="Bk2-nh-LDK" secondAttribute="trailing" constant="13" id="ulp-ss-XnE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="buyButton" destination="Bk2-nh-LDK" id="73y-Cb-FBN"/>
+            </connections>
+            <point key="canvasLocation" x="-21.014492753623191" y="77.008928571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="button_see" width="166" height="40"/>
+        <image name="button_see2" width="166" height="40"/>
+    </resources>
+</document>

@@ -50,8 +50,6 @@ class HomeContentViewController: BaseContentViewController {
         refreshData()
     }
     
-
-    
     // MARK: - Private Methods
     
     func _setupUI() -> Void {
@@ -84,7 +82,6 @@ class HomeContentViewController: BaseContentViewController {
                             
             }
         }
-        
         
         serviceProvider.request(.getCourseList(type: "1", dateType: "3", date: Date().toFormat("yyyy-MM-dd"), name: nil, token: nil, offset: "0", rows: "20", areaid: "0", courseid: "0", gradeid: "0")) { (result) in
             do {
@@ -180,15 +177,12 @@ extension HomeContentViewController: UITableViewDataSource {
 
 extension HomeContentViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-//            return HomeTeacherTableCell.cellHeight
-//        } else {
-//            return HomeTeacherTableCell.cellHeight
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 1 {
+            let course = courseList[indexPath.row]
+            let controller = CourseDetailViewController()
+            mainNavigationController.pushViewController(controller, animated: true)
+        }
     }
 }
