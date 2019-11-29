@@ -1,5 +1,5 @@
 //
-//  PaymentViewController.swift
+//  SelectCourseViewController.swift
 //  ShareEducation
 //
 //  Created by 严明俊 on 2019/11/29.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PaymentViewController: UIViewController {
+class SelectCourseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
