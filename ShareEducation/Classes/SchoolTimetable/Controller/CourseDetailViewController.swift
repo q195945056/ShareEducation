@@ -57,6 +57,10 @@ class CourseDetailViewController: UIViewController {
     
     @objc func onBuyButtonPressed(sender: Any) {
         let controller = CourseSbscribeAlertViewController()
+        controller.confirmHandler = {
+            let vc = SelectCourseViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         let size = PresentationSize(width: .fullscreen, height: .custom(value: 365))
         let marginGuards = UIEdgeInsets(top: 0, left: 47 + onePixelWidth, bottom: 0, right: 47 + onePixelWidth)
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 10, backgroundStyle: .dimmed(alpha: 0.8))
@@ -130,7 +134,6 @@ extension CourseDetailViewController: UITableViewDataSource {
         } else {
             return nil
         }
-
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

@@ -85,15 +85,6 @@ class CourseBaseCell: UITableViewCell {
         
     }
     
-    func setupData() {
-        courseLabel.text = "物理"
-        classNameLabel.text = "【秋】初一大科学直播创新班（全国版）"
-        timeLabel.text = "10月7日 周六 08:30-09:30"
-        teacherInfoLabel.text = "何小英  特级教师  北京大学附属一小"
-        countLabel.text = "2095人已预约"
-        subscribeButton.setTitle("立即预约", for: .normal)
-    }
-    
     // MARK: - Actions
     
     @objc func onSubscribeButtonPressed(sender: AnyObject) {

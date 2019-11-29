@@ -9,16 +9,19 @@
 import UIKit
 
 class PaymentPayTypeCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    
+    @IBOutlet var iconImageView: UIImageView!
+    
+    @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet var selectIndicatorImageView: UIImageView!
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if selected {
+            selectIndicatorImageView.image = UIImage(named: "icon_sel")
+        } else {
+            selectIndicatorImageView.image = UIImage(named: "icon_sel2")
+        }
     }
-    
 }

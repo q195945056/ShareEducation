@@ -78,6 +78,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                     <state key="normal" title="确定预约" backgroundImage="button_01"/>
+                    <connections>
+                        <action selector="onSubscribeButtonPressedWithSender:" destination="-1" eventType="touchUpInside" id="8hQ-WC-B7h"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10月07日-12月28日 每周六 18:20-20:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHX-kL-hJ4">
                     <rect key="frame" x="11" y="98.5" width="258" height="14.5"/>

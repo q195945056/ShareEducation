@@ -9,6 +9,8 @@
 import UIKit
 
 class CourseSbscribeAlertViewController: UIViewController {
+    
+    var confirmHandler: (() -> Void)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +18,9 @@ class CourseSbscribeAlertViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func onSubscribeButtonPressed(sender: Any) {
+        dismiss(animated: true, completion: confirmHandler)
+    }
 
     /*
     // MARK: - Navigation
