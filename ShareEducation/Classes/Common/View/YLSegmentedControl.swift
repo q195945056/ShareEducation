@@ -172,7 +172,7 @@ class YLSegmentedTitleCell: UICollectionViewCell {
         }
     }    
     
-    init(frame: CGRect, items: [String]) {
+    init(frame: CGRect, items: [String]?) {
         self.items = items
         super.init(frame: frame)
         commonInit()

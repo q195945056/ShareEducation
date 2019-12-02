@@ -87,16 +87,8 @@ class CourseSelectCell: CourseBaseCell {
     override func updateUI() {
         super.updateUI()
         
-        teacherInfoLabel.text = course?.trueName
+        teacherInfoLabel.text = course?.teacherName
         priceLabel.text = String(course?.price ?? 0)
-        
-        #if DEBUG
-        classNameLabel.text = "【秋（下）】初一数学直播勤学班（全国北师）"
-        timeLabel.text = "10月07日-12月28日 每周六 18:20-20:30"
-        headImageView.backgroundColor = .red
-        teacherInfoLabel.text = "丽琴"
-        priceLabel.text = "799"
-        #endif
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

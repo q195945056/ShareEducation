@@ -22,6 +22,7 @@ target 'ShareEducation' do
   pod 'MJRefresh'
   pod 'Cache'
   pod 'SwiftyJSON'
+  pod 'PKHUD'
   
 end
 

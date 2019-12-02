@@ -10,6 +10,8 @@ import UIKit
 
 class SelectCourseViewController: UIViewController {
     
+    var course: CourseItem!
+    
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var selectIndicatorImageView: UIImageView!
@@ -19,12 +21,21 @@ class SelectCourseViewController: UIViewController {
     @IBOutlet var buyButton: UIButton!
     
     @IBOutlet var bottomView: UIView!
+    
+    var courses: [CourseItem]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     func setupUI() {
@@ -34,7 +45,17 @@ class SelectCourseViewController: UIViewController {
         bottomView.layer.shadowOffset = .zero
         bottomView.layer.shadowRadius = 1
         tableView.register(CourseSelectCell.self, forCellReuseIdentifier: CourseSelectCell.reuseIdentifier)
-        
+    }
+    
+    func loadData() {
+        let user = User.shared
+        let name = user.name!
+        let token = user.token!
+        serviceProvider.request(.courseBuy(name: name, token: token, id: String(course.id))) { result in
+            let response = try? result.get().mapObject(ListResult<CourseItem>.self)
+            self.courses = response?.data
+            self.tableView.reloadData()
+        }
     }
     
     
@@ -57,12 +78,13 @@ class SelectCourseViewController: UIViewController {
 
 extension SelectCourseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return courses?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CourseSelectCell.reuseIdentifier, for: indexPath) as! CourseSelectCell
-        cell.course = nil
+        let course = courses![indexPath.row]
+        cell.course = course
         return cell
     }
     

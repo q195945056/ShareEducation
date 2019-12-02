@@ -46,6 +46,12 @@ class ShareData: Codable {
             }
         }
     }
+    
+    func postNotification() {
+        courses!.insert(Course.default, at: 0)
+        areas!["不限"] = [Area.default]
+        NotificationCenter.default.post(name: ShareData.shareDataDidUpdateNotification , object: nil)
+    }
 
     
     func saveOnDisk() throws {
@@ -54,6 +60,48 @@ class ShareData: Codable {
         try! diskStorage.setObject(self, forKey: "ShareData")
     }
     
+    func findGrade(by gradeID: Int) -> Grade {
+        if let gradeTypes = gradetypes {
+            for gradeType in gradeTypes {
+                for grade in gradeType.grades {
+                    if grade.id == gradeID {
+                        return grade
+                    }
+                }
+            }
+        }
+        
+        return Grade.default
+    }
     
+    func findArea(by areaID: Int) -> Area {
+        if let areas = areas {
+            for (_, value) in areas {
+                for area in value {
+                    if area.id == areaID {
+                        return area
+                    }
+                }
+            }
+        }
+        return Area.default
+    }
     
+    func findArea(by name: String) -> Area {
+        if let areas = areas {
+            for (_, value) in areas {
+                for area in value {
+                    if area.name == name {
+                        return area
+                    }
+                }
+            }
+        }
+        return Area.default
+    }
+    
+}
+
+extension ShareData {
+    static let shareDataDidUpdateNotification = Notification.Name(rawValue: "shareDataDidUpdateNotification")
 }

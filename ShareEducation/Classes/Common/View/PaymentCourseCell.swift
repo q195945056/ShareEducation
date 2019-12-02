@@ -75,7 +75,7 @@ class PaymentCourseCell: CourseBaseCell {
     override func updateUI() {
         super.updateUI()
         
-        teacherInfoLabel.text = course?.trueName
+        teacherInfoLabel.text = course?.teacherName
         priceLabel.text = String(course?.price ?? 0)
         
         #if DEBUG

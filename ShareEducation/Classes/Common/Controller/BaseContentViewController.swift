@@ -13,9 +13,28 @@ class BaseContentViewController: UIViewController {
     init(course: Course) {
         self.course = course
         super.init(nibName: nil, bundle: nil)
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        commonInit()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func commonInit() {
+        NotificationCenter.default.addObserver(self, selector: #selector(gradeDidChange(_:)), name: ShareSetting.gradeDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(areaDidChange(_:)), name: ShareSetting.areaDidChangeNotification, object: nil)
+    }
+    
+    @objc func gradeDidChange(_ notification: Notification) {
+        
+    }
+    
+    @objc func areaDidChange(_ notification: Notification) {
+        
     }
 }

@@ -13,7 +13,7 @@ struct Area: Mappable, Codable {
     var id: Int!
     var name: String!
     
-    static let `default` = Area(id: 0, name: "全部")
+    static let `default` = Area(id: 0, name: "不限")
     
     init?(map: Map) {
     }
@@ -66,6 +66,12 @@ struct Grade: Mappable, Codable {
     mutating func mapping(map: Map) {
         id      <- map["id"]
         name    <- map["name"]
+    }
+}
+
+extension Grade: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 

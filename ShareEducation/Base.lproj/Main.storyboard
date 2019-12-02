@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="683" y="-1254"/>
         </scene>
-        <!--首页-->
+        <!--Home Page View Controller-->
         <scene sceneID="CHe-PX-HIs">
             <objects>
                 <viewController id="ROT-Wb-58l" customClass="HomePageViewController" customModule="ShareEducation" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="WcN-Na-xLe"/>
                     </view>
-                    <navigationItem key="navigationItem" title="首页" id="8Fq-pO-b97"/>
+                    <navigationItem key="navigationItem" id="8Fq-pO-b97"/>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJ8-it-B4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -284,7 +284,9 @@
         <scene sceneID="wbM-l7-m3N">
             <objects>
                 <tabBarController id="odZ-Y2-mzr" customClass="MainTabbarController" customModule="ShareEducation" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="TFg-Yc-T6y"/>
+                    <navigationItem key="navigationItem" id="TFg-Yc-T6y">
+                        <barButtonItem key="backBarButtonItem" title=" " id="N3k-rC-qJn"/>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="TVT-7M-jYg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -11,6 +11,8 @@ import SnapKit
 
 class GradeSettingViewController: UIViewController {
     
+    var isRegister = false
+    
     let titleLabel: UILabel = UILabel.init().then { (label) in
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .darkTextColor
@@ -21,10 +23,10 @@ class GradeSettingViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.headerReferenceSize = CGSize(width: view.frame.width, height: 15)
         layout.sectionInset = UIEdgeInsets(top: 15, left: 19, bottom: 25, right: 19)
-        let horizontalSpacing = 15.0
+        let horizontalSpacing: CGFloat = 15.0
         let verticalSpacing = 12.0
         let width = ((UIScreen.width - 108) - 2 * horizontalSpacing) / 3
-        let height = 28.0
+        let height: CGFloat = 28.0
         layout.itemSize = CGSize(width: width, height: height)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
@@ -59,6 +61,24 @@ class GradeSettingViewController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(27)
             make.leading.trailing.equalTo(view)
             make.bottom.equalTo(view)
+        }
+        
+        if !isRegister {
+            
+            var indexPath: IndexPath?
+            if let gradetypes = ShareData.shared.gradetypes {
+                for (section, gradeType) in gradetypes.enumerated() {
+                    for (item, grade) in gradeType.grades.enumerated() {
+                        if grade == ShareSetting.shared.grade {
+                            indexPath = IndexPath(item: item, section: section)
+                        }
+                    }
+                }
+            }
+            
+            if let indexPath = indexPath {
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+            }
         }
     }
 

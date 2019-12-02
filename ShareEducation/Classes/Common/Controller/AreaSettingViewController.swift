@@ -10,7 +10,9 @@ import UIKit
 
 class AreaSettingViewController: UIViewController {
     
-    lazy var provinceList: [[String: String]]? = {
+    var isRegister = false
+    
+    lazy var provinceList: [[String: String]]! = {
         let provincePath = Bundle.main.path(forResource: "province", ofType: "plist")
         let plistData = FileManager.default.contents(atPath: provincePath!)!
         do {
@@ -22,7 +24,7 @@ class AreaSettingViewController: UIViewController {
         }
     }()
     
-    lazy var cityMap: [String: [[String: String]]]? = {
+    lazy var cityMap: [String: [[String: String]]]! = {
         let cityPath = Bundle.main.path(forResource: "city", ofType: "plist")
         let plistData = FileManager.default.contents(atPath: cityPath!)!
         do {
@@ -36,6 +38,10 @@ class AreaSettingViewController: UIViewController {
     
     var cityList: [[String: String]]?
     
+    var provinces: [String] = [String]()
+    
+    var cities: [String] = [String]()
+    
     @IBOutlet var pickerView: UIPickerView!
     
     var didSelectArea: ((Area) -> Void)?
@@ -47,18 +53,36 @@ class AreaSettingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        initData()
+        
         pickerView(pickerView, didSelectRow: 0, inComponent: 0)
+    }
+    
+    func initData() {
+        if isRegister {
+            provinces = provinceList!.map{ $0["name"]! }
+            let provinceDic = provinceList.first
+            let provinceCode = provinceDic!["id"]
+            cities = (cityMap[provinceCode!])!.map{ $0["name"]! }
+        } else {
+            provinces = (ShareData.shared.areas?.keys.sorted())!
+            let key = provinces.first!
+            cities = ((ShareData.shared.areas?[key])?.map{ $0.name })!
+        }
     }
     
     // MARK: - Actions
     
     @IBAction func onDoneButtonPressed(sender: Any) {
         let index = pickerView.selectedRow(inComponent: 1)
-        let cityDic = cityList?[index]
-        let cityName = cityDic?["name"]
-        
-        let area = Area(id: 0, name: cityName!)
-        self.didSelectArea?(area)
+        let cityName = cities[index]
+    
+        let area = ShareData.shared.findArea(by: cityName)
+        if isRegister {
+            self.didSelectArea?(area)
+        } else {
+            ShareSetting.shared.area = area
+        }
         dismiss(animated: true)
     }
 
@@ -82,9 +106,9 @@ extension AreaSettingViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
-            return provinceList?.count ?? 0
+            return provinces.count
         } else {
-            return cityList?.count ?? 0
+            return cities.count
         }
     }
 }
@@ -92,13 +116,9 @@ extension AreaSettingViewController: UIPickerViewDataSource {
 extension AreaSettingViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
-            let provinceDic = provinceList?[row]
-            let provinceName = provinceDic?["name"]
-            return provinceName
+            return provinces[row]
         } else {
-            let cityDic = cityList?[row]
-            let cityName = cityDic?["name"]
-            return cityName
+            return cities[row]
         }
     }
     
@@ -107,11 +127,17 @@ extension AreaSettingViewController: UIPickerViewDelegate {
             guard let provinceList = provinceList, let cityMap = cityMap else {
                 return
             }
-            let provinceDic = provinceList[row]
-            let provinceCode = provinceDic["id"]
-            let array = cityMap[provinceCode!]
             
-            cityList = array
+            if isRegister {
+                let provinceDic = provinceList[row]
+                let provinceCode = provinceDic["id"]
+                let array = cityMap[provinceCode!]
+                
+                cities = (array?.map{ $0["name"]! })!
+            } else {
+                let key = provinces[row]
+                cities = ((ShareData.shared.areas?[key])?.map{ $0.name })!
+            }
             pickerView.reloadComponent(1)
         }
     }

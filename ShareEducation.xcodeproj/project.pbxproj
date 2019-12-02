@@ -14,6 +14,21 @@
 		CC017DE72377D23700BF22DC /* TeacherScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DE62377D23700BF22DC /* TeacherScoreView.swift */; };
 		CC017DF623781B9A00BF22DC /* HomeCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DF523781B9A00BF22DC /* HomeCourseCell.swift */; };
 		CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */; };
+		CC1F87592394AE7D003F9D7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F87582394AE7D003F9D7F /* User.swift */; };
+		CC1F87712394D487003F9D7F /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87662394D441003F9D7F /* IJKMediaFramework.framework */; };
+		CC1F87732394D498003F9D7F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87722394D498003F9D7F /* AudioToolbox.framework */; };
+		CC1F87752394D49E003F9D7F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87742394D49E003F9D7F /* AVFoundation.framework */; };
+		CC1F87772394D4A5003F9D7F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87762394D4A5003F9D7F /* CoreGraphics.framework */; };
+		CC1F87792394D4AB003F9D7F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87782394D4AB003F9D7F /* CoreMedia.framework */; };
+		CC1F877B2394D4B2003F9D7F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F877A2394D4B2003F9D7F /* CoreVideo.framework */; };
+		CC1F877D2394D4BB003F9D7F /* libbz2.1.0.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F877C2394D4BB003F9D7F /* libbz2.1.0.5.tbd */; };
+		CC1F877F2394D4C4003F9D7F /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F877E2394D4C4003F9D7F /* libz.1.2.8.tbd */; };
+		CC1F87812394D4CC003F9D7F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87802394D4CC003F9D7F /* MediaPlayer.framework */; };
+		CC1F87832394D4D3003F9D7F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87822394D4D3003F9D7F /* MobileCoreServices.framework */; };
+		CC1F87852394D4DB003F9D7F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87842394D4DB003F9D7F /* OpenGLES.framework */; };
+		CC1F87872394D4E1003F9D7F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87862394D4E1003F9D7F /* QuartzCore.framework */; };
+		CC1F87892394D4E7003F9D7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87882394D4E7003F9D7F /* UIKit.framework */; };
+		CC1F878B2394D4EF003F9D7F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F878A2394D4EF003F9D7F /* VideoToolbox.framework */; };
 		CC2D7ADE238500D500D9FD92 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7ADD238500D500D9FD92 /* Teacher.swift */; };
 		CC2D7AE0238528C500D9FD92 /* ListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7ADF238528C500D9FD92 /* ListResult.swift */; };
 		CC2D7AE223852FB200D9FD92 /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7AE123852FB200D9FD92 /* CourseItem.swift */; };
@@ -137,6 +152,37 @@
 		CCF9B17223910B880065E420 /* PaymentSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9B17123910B880065E420 /* PaymentSectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CC1F87652394D441003F9D7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E654EA8A1B6B27E600B0F2D0;
+			remoteInfo = IJKMediaFramework;
+		};
+		CC1F87672394D441003F9D7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5450B0431E63EA4300568494;
+			remoteInfo = IJKMediaFrameworkWithSSL;
+		};
+		CC1F87692394D441003F9D7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E654EA941B6B27E600B0F2D0;
+			remoteInfo = IJKMediaFrameworkTests;
+		};
+		CC1F876C2394D478003F9D7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E654EA891B6B27E600B0F2D0;
+			remoteInfo = IJKMediaFramework;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareEducation.release.xcconfig"; path = "Target Support Files/Pods-ShareEducation/Pods-ShareEducation.release.xcconfig"; sourceTree = "<group>"; };
 		CC017DE02377B10F00BF22DC /* HomeTeacherTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTeacherTableCell.swift; sourceTree = "<group>"; };
@@ -145,6 +191,21 @@
 		CC017DE62377D23700BF22DC /* TeacherScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherScoreView.swift; sourceTree = "<group>"; };
 		CC017DF523781B9A00BF22DC /* HomeCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCourseCell.swift; sourceTree = "<group>"; };
 		CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLSegmentedControl.swift; sourceTree = "<group>"; };
+		CC1F87582394AE7D003F9D7F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../../../ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
+		CC1F87722394D498003F9D7F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CC1F87742394D49E003F9D7F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CC1F87762394D4A5003F9D7F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CC1F87782394D4AB003F9D7F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CC1F877A2394D4B2003F9D7F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CC1F877C2394D4BB003F9D7F /* libbz2.1.0.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.5.tbd; path = usr/lib/libbz2.1.0.5.tbd; sourceTree = SDKROOT; };
+		CC1F877E2394D4C4003F9D7F /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		CC1F87802394D4CC003F9D7F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CC1F87822394D4D3003F9D7F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CC1F87842394D4DB003F9D7F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CC1F87862394D4E1003F9D7F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC1F87882394D4E7003F9D7F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CC1F878A2394D4EF003F9D7F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		CC2D7ADD238500D500D9FD92 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		CC2D7ADF238528C500D9FD92 /* ListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResult.swift; sourceTree = "<group>"; };
 		CC2D7AE123852FB200D9FD92 /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
@@ -278,6 +339,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC1F878B2394D4EF003F9D7F /* VideoToolbox.framework in Frameworks */,
+				CC1F87892394D4E7003F9D7F /* UIKit.framework in Frameworks */,
+				CC1F87872394D4E1003F9D7F /* QuartzCore.framework in Frameworks */,
+				CC1F87852394D4DB003F9D7F /* OpenGLES.framework in Frameworks */,
+				CC1F87832394D4D3003F9D7F /* MobileCoreServices.framework in Frameworks */,
+				CC1F87812394D4CC003F9D7F /* MediaPlayer.framework in Frameworks */,
+				CC1F877F2394D4C4003F9D7F /* libz.1.2.8.tbd in Frameworks */,
+				CC1F877D2394D4BB003F9D7F /* libbz2.1.0.5.tbd in Frameworks */,
+				CC1F877B2394D4B2003F9D7F /* CoreVideo.framework in Frameworks */,
+				CC1F87792394D4AB003F9D7F /* CoreMedia.framework in Frameworks */,
+				CC1F87772394D4A5003F9D7F /* CoreGraphics.framework in Frameworks */,
+				CC1F87752394D49E003F9D7F /* AVFoundation.framework in Frameworks */,
+				CC1F87732394D498003F9D7F /* AudioToolbox.framework in Frameworks */,
+				CC1F87712394D487003F9D7F /* IJKMediaFramework.framework in Frameworks */,
 				55D15AAF20EE9A762F62D938 /* Pods_ShareEducation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +372,19 @@
 		8BFDA98B1FEC3E6F61474F11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC1F878A2394D4EF003F9D7F /* VideoToolbox.framework */,
+				CC1F87882394D4E7003F9D7F /* UIKit.framework */,
+				CC1F87862394D4E1003F9D7F /* QuartzCore.framework */,
+				CC1F87842394D4DB003F9D7F /* OpenGLES.framework */,
+				CC1F87822394D4D3003F9D7F /* MobileCoreServices.framework */,
+				CC1F87802394D4CC003F9D7F /* MediaPlayer.framework */,
+				CC1F877E2394D4C4003F9D7F /* libz.1.2.8.tbd */,
+				CC1F877C2394D4BB003F9D7F /* libbz2.1.0.5.tbd */,
+				CC1F877A2394D4B2003F9D7F /* CoreVideo.framework */,
+				CC1F87782394D4AB003F9D7F /* CoreMedia.framework */,
+				CC1F87762394D4A5003F9D7F /* CoreGraphics.framework */,
+				CC1F87742394D49E003F9D7F /* AVFoundation.framework */,
+				CC1F87722394D498003F9D7F /* AudioToolbox.framework */,
 				F0ABD045D700378177E0FD56 /* Pods_ShareEducation.framework */,
 			);
 			name = Frameworks;
@@ -305,6 +393,7 @@
 		CC017DE82377D38500BF22DC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */,
 				CCBF46CB237FFAAF0030AFC1 /* CalendarView */,
 			);
 			path = Vendor;
@@ -332,6 +421,24 @@
 				CCF9B17123910B880065E420 /* PaymentSectionHeaderView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CC1F87572394AE69003F9D7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC1F87582394AE7D003F9D7F /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC1F87602394D441003F9D7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC1F87662394D441003F9D7F /* IJKMediaFramework.framework */,
+				CC1F87682394D441003F9D7F /* IJKMediaFrameworkWithSSL.framework */,
+				CC1F876A2394D441003F9D7F /* IJKMediaFrameworkTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CC4361062381192800AF796C /* View */ = {
@@ -395,6 +502,7 @@
 		CC97B3B323865CA600F1BFE9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CC1F87572394AE69003F9D7F /* Model */,
 				CC97B3B423865CAD00F1BFE9 /* Controller */,
 			);
 			path = Login;
@@ -664,6 +772,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CC1F876D2394D478003F9D7F /* PBXTargetDependency */,
 			);
 			name = ShareEducation;
 			productName = ShareEducation;
@@ -696,12 +805,42 @@
 			mainGroup = CCF95B6B235EFDCA00FACFAD;
 			productRefGroup = CCF95B75235EFDCB00FACFAD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CC1F87602394D441003F9D7F /* Products */;
+					ProjectRef = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CCF95B73235EFDCB00FACFAD /* ShareEducation */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CC1F87662394D441003F9D7F /* IJKMediaFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IJKMediaFramework.framework;
+			remoteRef = CC1F87652394D441003F9D7F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CC1F87682394D441003F9D7F /* IJKMediaFrameworkWithSSL.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IJKMediaFrameworkWithSSL.framework;
+			remoteRef = CC1F87672394D441003F9D7F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CC1F876A2394D441003F9D7F /* IJKMediaFrameworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = IJKMediaFrameworkTests.xctest;
+			remoteRef = CC1F87692394D441003F9D7F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CCF95B72235EFDCB00FACFAD /* Resources */ = {
@@ -816,6 +955,7 @@
 				CCBF46D9237FFAB00030AFC1 /* CalendarView+Style.swift in Sources */,
 				CCF9B15A2390B32A0065E420 /* SelectCourseViewController.swift in Sources */,
 				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
+				CC1F87592394AE7D003F9D7F /* User.swift in Sources */,
 				CCDDA1EA238FB06400C28497 /* CourseDetailUnitDescriptionCell.swift in Sources */,
 				CCBF46D8237FFAB00030AFC1 /* CalendarDayCell.swift in Sources */,
 				CC8AA8BE238CFCA5009F94D6 /* TeacherDetailViewController.swift in Sources */,
@@ -891,6 +1031,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CC1F876D2394D478003F9D7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IJKMediaFramework;
+			targetProxy = CC1F876C2394D478003F9D7F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CCF95B7D235EFDCB00FACFAD /* Main.storyboard */ = {

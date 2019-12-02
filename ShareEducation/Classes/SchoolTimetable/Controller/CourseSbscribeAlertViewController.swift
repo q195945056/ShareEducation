@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import SwiftDate
 
 class CourseSbscribeAlertViewController: UIViewController {
+    
+    var course: CourseItem!
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var headImageView: UIImageView!
+    @IBOutlet var teacherNameLabel: UILabel!
     
     var confirmHandler: (() -> Void)!
 
@@ -16,6 +24,19 @@ class CourseSbscribeAlertViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupUI()
+    }
+    
+    func setupUI() {
+        titleLabel.text = course.name
+        let startTime = course.startTime?.toFormat("MM月dd日 EE HH:mm", locale: Locales.chinese)
+        let endTime = course.endTime?.toFormat("HH:mm")
+        if let startTime = startTime, let endTime = endTime {
+            timeLabel.text = "\(startTime)-\(endTime)"
+        }
+        headImageView.kf.setImage(with: URL(string: course.pic ?? ""))
+        teacherNameLabel.text = course.teacherName
+        
     }
 
     @IBAction func onSubscribeButtonPressed(sender: Any) {

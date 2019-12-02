@@ -10,6 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CourseSbscribeAlertViewController" customModule="ShareEducation" customModuleProvider="target">
             <connections>
+                <outlet property="headImageView" destination="jhX-Bm-Tdl" id="mt7-9c-7t2"/>
+                <outlet property="teacherNameLabel" destination="U8b-3j-Mci" id="VY0-e3-bhq"/>
+                <outlet property="timeLabel" destination="CHX-kL-hJ4" id="EFs-88-CiD"/>
+                <outlet property="titleLabel" destination="Lbw-z1-cAX" id="2pD-oP-AD7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

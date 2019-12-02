@@ -22,10 +22,11 @@ class MineViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = 50
         return tableView
     }()
     
-    lazy var tableHeaderView = MineTableHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 350))
+    lazy var tableHeaderView = MineTableHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: MineTableHeaderView.height))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +48,40 @@ class MineViewController: UIViewController {
             make.edges.equalTo(view)
         }
         tableView.tableHeaderView = tableHeaderView
-        tableHeaderView.loginHandler = {
-            let loginViewController = LoginViewController.defalt
-            self.present(loginViewController, animated: true, completion: nil)
-        }
-        
+        tableHeaderView.loginControl.addTarget(self, action: #selector(onLoginButtonPressed(_:)), for: .touchUpInside)
+        tableHeaderView.settingButton.addTarget(self, action: #selector(onSettingButtonPressed(_:)), for: .touchUpInside)
+        tableHeaderView.courseControl.addTarget(self, action: #selector(onMyCourseButtonPressed(_:)), for: .touchUpInside)
+        tableHeaderView.collectionControl.addTarget(self, action: #selector(onMyCollectionButtonPressed(_:)), for: .touchUpInside)
+        tableHeaderView.infoButton.addTarget(self, action: #selector(onUserInfoButtonPressed(_:)), for: .touchUpInside)
+        tableHeaderView.inviteButton.addTarget(self, action: #selector(onInviteButtonPressed(_:)), for: .touchUpInside)
         tableView.register(UINib(nibName: "MineTableCell", bundle: nil), forCellReuseIdentifier: MineTableCell.reuseIdentifier)
+    }
+    
+    // MARK: - Actions
+    
+    @objc func onLoginButtonPressed(_ sender: Any) {
+        let loginViewController = LoginViewController.defalt
+        self.present(loginViewController, animated: true, completion: nil)
+    }
+    
+    @objc func onSettingButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @objc func onMyCourseButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @objc func onMyCollectionButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @objc func onUserInfoButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @objc func onInviteButtonPressed(_ sender: Any) {
+        
     }
     
     /*

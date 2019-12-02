@@ -13,7 +13,9 @@ class CourseItem: Mappable {
     var name: String!
     var startTime: Date?
     var endTime: Date?
-    var trueName: String?
+    var teacherName: String?
+    var teacherPic: String?
+    var teacherTitle: String?
     var grade: String!
     var course: String!
     var schoolName: String?
@@ -39,7 +41,9 @@ class CourseItem: Mappable {
         if endTime == nil {
             endTime <- (map["endTime"], dateTransform)
         }
-        trueName <- map["truename"]
+        teacherName <- map["truename"]
+        teacherPic <- map["teacherpic"]
+        teacherTitle <- map["title"]
         grade <- map["grade"]
         course <- map["course"]
         schoolName <- map["schoolname"]

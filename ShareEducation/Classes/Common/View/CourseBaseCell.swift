@@ -25,6 +25,8 @@ class CourseBaseCell: UITableViewCell {
     lazy var contentBgView = UIView()
     lazy var backgroundImageView = UIImageView()
     
+    var buyHandler: ((_ course: CourseItem?) -> Void)?
+    
     var course: CourseItem? {
         didSet {
             updateUI()
@@ -53,13 +55,21 @@ class CourseBaseCell: UITableViewCell {
                 timeLabel.text = "\(startTime)-\(endTime)"
             }
             classNameLabel.text = course.name
-            if let name = course.trueName, let schoolName = course.schoolName {
-                teacherInfoLabel.text = "\(name)  \(schoolName)"
+            if let teacherName = course.teacherName, let schoolName = course.schoolName {
+                teacherInfoLabel.text = "\(teacherName)  \(schoolName)"
             } else {
                 teacherInfoLabel.text = nil
             }
             headImageView.kf.setImage(with: URL(string: course.pic ?? ""))
             countLabel.text = String(course.buyCount ?? 0) + "人已预约"
+            switch course.buystate {
+            case .free, .notBuy:
+                subscribeButton.isEnabled = true
+            case .buy:
+                subscribeButton.isEnabled = false
+            default:
+                break
+            }
         }
     }
     
@@ -78,6 +88,12 @@ class CourseBaseCell: UITableViewCell {
         contentBgView.addSubview(teacherInfoLabel)
         contentBgView.addSubview(countLabel)
         contentBgView.addSubview(subscribeButton)
+        subscribeButton.setTitle("立即预约", for: .normal)
+        subscribeButton.setTitle("已预约", for: .disabled)
+        subscribeButton.setTitleColor(.white, for: .normal)
+        subscribeButton.setTitleColor(.e64919, for: .disabled)
+        subscribeButton.setBackgroundImage(UIImage(named: "button01"), for: .normal)
+        subscribeButton.setBackgroundImage(UIImage(named: "button02"), for: .disabled)
         setupConstraints()
     }
     
@@ -88,6 +104,8 @@ class CourseBaseCell: UITableViewCell {
     // MARK: - Actions
     
     @objc func onSubscribeButtonPressed(sender: AnyObject) {
-        
+        if let buyHandler = buyHandler {
+            buyHandler(course)
+        }
     }
 }

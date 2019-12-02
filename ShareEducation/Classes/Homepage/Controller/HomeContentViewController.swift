@@ -11,10 +11,20 @@ import TYCyclePagerView
 import SnapKit
 import Then
 import SwiftDate
+import MJRefresh
+import Jelly
 
 class HomeContentViewController: BaseContentViewController {
     
+    var animator: Animator?
+    
     @IBOutlet var tableView: UITableView!
+    
+    override var course: Course {
+        didSet {
+            refreshData()
+        }
+    }
         
     lazy var pagerView: TYCyclePagerView = TYCyclePagerView().then { pagerView in
         let bannerCellWidth = UIScreen.main.bounds.width - 26
@@ -46,23 +56,40 @@ class HomeContentViewController: BaseContentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _setupUI()
+        setupUI()
         refreshData()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Private Methods
     
-    func _setupUI() -> Void {
+    override func gradeDidChange(_ notification: Notification) {
+        refreshData()
+    }
+    
+    override func areaDidChange(_ notification: Notification) {
+        refreshData()
+    }
+    
+    func setupUI() -> Void {
         tableView.register(HomeSetionTitleView.self, forHeaderFooterViewReuseIdentifier: HomeSetionTitleView.reuseIdentifier)
         tableView.register(HomeCourseCell.self, forCellReuseIdentifier: HomeCourseCell.reuseIdentifier)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
+        tableView.mj_header = MJRefreshStateHeader{ self.refreshData() }
+        tableView.mj_footer = MJRefreshAutoFooter{
+            self.loadCourseData(offset: self.courseList.count)
+        }
         reloadBannerUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadBannerUI), name: ShareData.shareDataDidUpdateNotification, object: nil)
     }
     
-    func reloadBannerUI() {
+    @objc func reloadBannerUI() {
         let bannerResouces = ShareData.shared.bannerResources
         if let _ = bannerResouces {
             tableView.tableHeaderView = pagerView
@@ -72,27 +99,63 @@ class HomeContentViewController: BaseContentViewController {
         }
     }
     
+    func loadCourseData(offset: Int) {
+        let grade = ShareSetting.shared.grade
+        let area = ShareSetting.shared.area
+        let user = User.shared
+        
+        let name = String(user.userInfo?.id ?? 0)
+        let token = user.userInfo?.token
+        let areaID: String = String(area.id)
+        let courseID: String = String(course.id)
+        let gradeID: String = String(grade.id)
+        
+        let offsetString = String(offset)
+        serviceProvider.request(.getCourseList(type: "1", dateType: "3", date: Date().toFormat("yyyy-MM-dd"), name: name, token: token, offset: offsetString, rows: "20", areaid: areaID, courseid: courseID, gradeid: gradeID)) { (result) in
+            do {
+                let response = try result.get().mapObject(ListResult<CourseItem>.self)
+                if offset == 0 {
+                    self.courseList = response.data
+                } else {
+                    self.courseList.append(contentsOf: response.data)
+                }
+                self.tableView.reloadData()
+                if self.tableView.mj_header!.isRefreshing {
+                    self.tableView.mj_header?.endRefreshing()
+                }
+                if self.courseList.count >= response.total! {
+                    self.tableView.mj_footer?.endRefreshingWithNoMoreData()
+                } else {
+                    self.tableView.mj_footer?.resetNoMoreData()
+                }
+            } catch {
+                            
+            }
+        }
+    }
+    
     private func refreshData() {
         let grade = ShareSetting.shared.grade
-        serviceProvider.request(.getTeacherTopList(name: nil, token: nil, rows: "10", areaid: "0", courseid: String(course.id), gradeid: String(grade.id))) { result in
+        let area = ShareSetting.shared.area
+        let user = User.shared
+        
+        let name: String? = nil
+        let token = user.userInfo?.token
+        let areaID: String = String(area.id)
+        let courseID: String = String(course.id)
+        let gradeID: String = String(grade.id)
+        
+        serviceProvider.request(.getTeacherTopList(name: name, token: token, rows: "10", areaid: areaID, courseid: courseID, gradeid: gradeID)) { result in
             do {
                 let response = try result.get().mapObject(ListResult<Teacher>.self)
                 self.teacherListCell.teachers = response.data
+                self.tableView.reloadData()
             } catch {
                             
             }
         }
         
-        serviceProvider.request(.getCourseList(type: "1", dateType: "3", date: Date().toFormat("yyyy-MM-dd"), name: nil, token: nil, offset: "0", rows: "20", areaid: "0", courseid: "0", gradeid: "0")) { (result) in
-            do {
-                let response = try result.get().mapObject(ListResult<CourseItem>.self)
-                self.courseList.append(contentsOf: response.data)
-                self.tableView.reloadData()
-                print(response)
-            } catch {
-                            
-            }
-        }
+        loadCourseData(offset: 0)
     }
 }
 
@@ -159,6 +222,23 @@ extension HomeContentViewController: UITableViewDataSource {
             
             let course = courseList[indexPath.row]
             cell.course = course
+            cell.buyHandler = { course in
+                let controller = CourseSbscribeAlertViewController()
+                controller.course = course
+                controller.confirmHandler = {
+                    let vc = SelectCourseViewController()
+                    vc.course = course
+                    mainNavigationController.pushViewController(vc, animated: true)
+                }
+                let size = PresentationSize(width: .fullscreen, height: .custom(value: 365))
+                let marginGuards = UIEdgeInsets(top: 0, left: 47 + onePixelWidth, bottom: 0, right: 47 + onePixelWidth)
+                let uiConfiguration = PresentationUIConfiguration(cornerRadius: 10, backgroundStyle: .dimmed(alpha: 0.8))
+                let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
+                let animator = Animator(presentation: presentation)
+                animator.prepare(presentedViewController: controller)
+                self.animator = animator
+                mainNavigationController.present(controller, animated: true)
+            }
             
             return cell
         }
@@ -176,7 +256,6 @@ extension HomeContentViewController: UITableViewDataSource {
 }
 
 extension HomeContentViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {

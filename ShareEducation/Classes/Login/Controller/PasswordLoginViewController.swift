@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import PKHUD
 
 class PasswordLoginViewController: BaseLoginViewController {
     
@@ -108,12 +110,19 @@ class PasswordLoginViewController: BaseLoginViewController {
     // MARK: - Actions
     
     override func login() {
+        HUD.show(.progress)
         serviceProvider.request(.login(name: accountField.text, password: passwordField.text?.md5String, type: "1", phone: nil, msgCode: nil)) { (result) in
             do {
-                let dic = try result.get().mapJSON()
-                print(dic)
+                let json = try JSON(data: result.get().data)
+                let status = json["result"].int
+                if let status = status, status == 1 {
+                    User.shared.setup(json: json)
+                    HUD.flash(.success, delay: 1)
+                } else {
+                    HUD.flash(.error, delay: 1)
+                }
             } catch {
-                
+                HUD.flash(.labeledError(title: "错误", subtitle: error.localizedDescription), delay: 1)
             }
         }
     }

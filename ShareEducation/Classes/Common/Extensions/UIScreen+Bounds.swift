@@ -11,12 +11,12 @@ import UIKit
 let actualStatusBarHeight = UIApplication.shared.statusBarFrame.height
 
 extension UIScreen {
-    static var width: Double {
-        return Double(main.bounds.width)
+    static var width: CGFloat {
+        return main.bounds.width
     }
     
-    static var height: Double {
-        return Double(main.bounds.height)
+    static var height: CGFloat {
+        return main.bounds.height
     }
 }
 
