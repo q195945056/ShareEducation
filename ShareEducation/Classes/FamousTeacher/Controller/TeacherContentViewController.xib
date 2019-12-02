@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TeacherContentViewController" customModule="ShareEducation" customModuleProvider="target">
+            <connections>
+                <outlet property="sortSegmentedControl" destination="YXL-wA-Hvt" id="G9B-9K-KEg"/>
+                <outlet property="tableView" destination="mN1-vd-Ih7" id="Sv0-ya-ojS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXL-wA-Hvt" customClass="YLSegmentedControl" customModule="ShareEducation" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="efB-1V-wjB"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mN1-vd-Ih7">
+                    <rect key="frame" x="0.0" y="44" width="414" height="764"/>
+                    <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="291-SB-oDQ"/>
+                        <outlet property="delegate" destination="-1" id="cPv-GT-eWm"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YXL-wA-Hvt" secondAttribute="trailing" id="4hV-q3-erc"/>
+                <constraint firstAttribute="bottom" secondItem="mN1-vd-Ih7" secondAttribute="bottom" id="4or-eS-nYi"/>
+                <constraint firstItem="YXL-wA-Hvt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="I8C-6b-mte"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mN1-vd-Ih7" secondAttribute="trailing" id="VHW-e9-bPU"/>
+                <constraint firstItem="YXL-wA-Hvt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YcT-rj-kNP"/>
+                <constraint firstItem="mN1-vd-Ih7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ill-8s-0u5"/>
+                <constraint firstItem="mN1-vd-Ih7" firstAttribute="top" secondItem="YXL-wA-Hvt" secondAttribute="bottom" id="y4d-4E-lLH"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="125"/>
+        </view>
+    </objects>
+</document>

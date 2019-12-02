@@ -25,7 +25,7 @@ class MineViewController: UIViewController {
         return tableView
     }()
     
-    lazy var tableHeaderView = MineTableHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 290))
+    lazy var tableHeaderView = MineTableHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 350))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,8 @@ class MineViewController: UIViewController {
             let loginViewController = LoginViewController.defalt
             self.present(loginViewController, animated: true, completion: nil)
         }
+        
+        tableView.register(UINib(nibName: "MineTableCell", bundle: nil), forCellReuseIdentifier: MineTableCell.reuseIdentifier)
     }
     
     /*
@@ -67,13 +69,46 @@ class MineViewController: UIViewController {
 
 extension MineViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if section == 0 {
+            return 2
+        } else {
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CourseClassCell.reuseIdentifier, for: indexPath) as! CourseClassCell
-//        cell.setupData()
+        let cell = tableView.dequeueReusableCell(withIdentifier: MineTableCell.reuseIdentifier, for: indexPath) as! MineTableCell
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                cell.iconImageView.image = UIImage(named: "icon_my01")
+                cell.titleLabel.text = "优惠券"
+                cell.descLabel.isHidden = true
+            } else if indexPath.row == 1 {
+                cell.iconImageView.image = UIImage(named: "icon_my02")
+                cell.titleLabel.text = "最新活动"
+                cell.descLabel.isHidden = true
+            }
+        } else {
+            if indexPath.row == 0 {
+                cell.iconImageView.image = UIImage(named: "icon_my03")
+                cell.titleLabel.text = "消息中心"
+                cell.descLabel.isHidden = true
+            } else if indexPath.row == 1 {
+                cell.iconImageView.image = UIImage(named: "icon_my04")
+                cell.titleLabel.text = "我的客服"
+                cell.descLabel.isHidden = false
+            } else {
+                cell.iconImageView.image = UIImage(named: "icon_my05")
+                cell.titleLabel.text = "意见反馈"
+                cell.descLabel.isHidden = true
+            }
+        }
+        
         return cell
     }
     
@@ -87,5 +122,7 @@ extension MineViewController: UITableViewDataSource {
 }
 
 extension MineViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

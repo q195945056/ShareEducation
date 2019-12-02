@@ -16,6 +16,11 @@ class FamousTeacherViewController: BaseRootViewController{
 
         // Do any additional setup after loading the view.
     }
+    
+    override func contentViewController(course: Course = .default) -> BaseContentViewController?  {
+        let viewController = TeacherContentViewController(course: course)
+        return viewController
+    }
         
 
     // MARK: - Actions
