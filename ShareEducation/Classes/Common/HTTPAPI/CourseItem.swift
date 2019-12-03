@@ -7,6 +7,8 @@
 //
 
 import ObjectMapper
+import SwiftyJSON
+import Moya
 
 class CourseItem: Mappable {
     var id: Int!
@@ -26,6 +28,14 @@ class CourseItem: Mappable {
     var state: PlayState?
     var pic: String?
     
+    
+    //课程详情
+    var depict: String?
+    var isCollect: Bool?
+    var units: [CourseUnit]?
+    var unitDepict: String?
+    var unitID: Int?
+        
     required init?(map: Map) {
     }
     
@@ -70,6 +80,49 @@ extension CourseItem {
         case notLiving = 1
         case living = 2
         case record = 3
+    }
+    
+    func setup(with detail: JSON) {
+        let data = detail["data"]
+        let unitcourses = data["unitcourses"]
+        let mapper = Mapper<CourseUnit>()
+        units = mapper.mapArray(JSONObject: unitcourses.object)
+        units?.forEach({ (unit) in
+            unit.state = state
+        })
+        isCollect = data["collectc"].boolValue
+        unitID = data["unitid"].int
+        if let value = data["buystate"].int {
+            buystate = BuyState(rawValue: value)
+        }
+        if let value = data["price"].int {
+            price = value
+        }
+        if let value = data["state"].int {
+            state = PlayState(rawValue: value)
+        }
+    }
+    
+    
+    func collect(star: Bool, oper: Bool, completion:((_ success: Bool) -> Void)? = nil) {
+        let user = User.shared
+        guard user.isLogin else {
+            return
+        }
+        serviceProvider.request(.collectCourse(name: user.name!, token: user.token, id: id, star: star, oper: oper)) { result in
+            let json = try? JSON(data: result.get().data)
+            let status = json!["result"].int
+            if let status = status, status == 1 {
+                self.isCollect = oper
+                if let completion = completion {
+                    completion(true)
+                }
+            } else {
+                if let completion = completion {
+                    completion(false)
+                }
+            }
+        }
     }
 }
 

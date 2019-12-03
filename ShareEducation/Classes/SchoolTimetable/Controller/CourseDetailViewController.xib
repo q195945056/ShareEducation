@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CourseDetailViewController" customModule="ShareEducation" customModuleProvider="target">
             <connections>
                 <outlet property="bottomView" destination="8Al-qa-Wej" id="1uu-Tf-5qT"/>
+                <outlet property="buyButton" destination="rhE-UM-27Q" id="a61-VT-6TS"/>
+                <outlet property="collectButton" destination="giP-Ae-ekR" id="zGL-1E-uj6"/>
                 <outlet property="tableView" destination="6dd-NP-8uq" id="VnZ-c3-jXw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -37,6 +39,10 @@
                             <state key="normal" title="收藏" image="icon_love">
                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             </state>
+                            <state key="selected" image="icon_loved"/>
+                            <connections>
+                                <action selector="onCollectButtonPressed:" destination="-1" eventType="touchUpInside" id="Fgi-5s-kLd"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-UM-27Q">
                             <rect key="frame" x="91" y="5" width="309.5" height="40"/>
@@ -45,6 +51,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                             <state key="normal" title="立即购买" backgroundImage="button_01"/>
+                            <connections>
+                                <action selector="onBuyButtonPressedWithSender:" destination="-1" eventType="touchUpInside" id="cwS-5j-gfg"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,5 +84,6 @@
     <resources>
         <image name="button_01" width="40" height="40"/>
         <image name="icon_love" width="18" height="16"/>
+        <image name="icon_loved" width="18" height="16"/>
     </resources>
 </document>

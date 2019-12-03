@@ -9,6 +9,20 @@
 import UIKit
 
 class CourseDetailUnitDescriptionCell: UITableViewCell {
+    
+    @IBOutlet var descriptionLabel: UILabel!
+
+    var course: CourseItem? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    func updateUI() {
+        if let course = course {
+            descriptionLabel.text = course.unitDepict
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -31,10 +31,15 @@ class CourseUnitTitleView: UITableViewHeaderFooterView {
     }
     
     func commonInit() {
-        backgroundColor = .white
+        let view = UIView()
+        view.backgroundColor = .white
+        contentView.addSubview(view)
+        view.snp.makeConstraints { (make) in
+            make.edges.equalTo(contentView)
+        }
         let label = UILabel(font: .systemFont(ofSize: 17, weight: .heavy), textColor: .darkTextColor)
         label.text = "单元课程"
-        contentView.addSubview(label)
+        view.addSubview(label)
         label.snp.makeConstraints { (make) in
             make.leading.equalTo(contentView).offset(14)
             make.top.equalTo(contentView).offset(13 + onePixelWidth)

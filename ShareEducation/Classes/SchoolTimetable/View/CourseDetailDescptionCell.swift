@@ -12,6 +12,24 @@ class CourseDetailDescptionCell: UITableViewCell {
     
     @IBOutlet var buyButton: UIButton!
     
+    @IBOutlet var descriptionLabel: UILabel!
+    
+    @IBOutlet var priceLabel: UILabel!
+    
+    @IBOutlet var watchButton: UIButton!
+    
+    var course: CourseItem? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    func updateUI() {
+        if let course = course {
+            descriptionLabel.text = course.depict
+            priceLabel.text = String(course.price ?? 0)
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

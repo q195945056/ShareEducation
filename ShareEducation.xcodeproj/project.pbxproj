@@ -77,7 +77,6 @@
 		CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */; };
 		CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CD235FEF7B008E31AE /* MyCoursesViewController.swift */; };
 		CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CF235FEF90008E31AE /* MyFavoriteViewController.swift */; };
-		CCB3D9D3235FEFB6008E31AE /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D2235FEFB6008E31AE /* PlayerViewController.swift */; };
 		CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */; };
 		CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */; };
 		CCBF46C8237FAD670030AFC1 /* GradeCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */; };
@@ -150,6 +149,13 @@
 		CCF9B16E2390F9DD0065E420 /* PaymentPayTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9B16C2390F9DD0065E420 /* PaymentPayTypeCell.swift */; };
 		CCF9B16F2390F9DD0065E420 /* PaymentPayTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF9B16D2390F9DD0065E420 /* PaymentPayTypeCell.xib */; };
 		CCF9B17223910B880065E420 /* PaymentSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9B17123910B880065E420 /* PaymentSectionHeaderView.swift */; };
+		CCFFF280239608D600E1E4B0 /* CourseUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFFF27F239608D600E1E4B0 /* CourseUnit.swift */; };
+		CCFFF28A23964CC900E1E4B0 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFFF28823964CC900E1E4B0 /* PlayerViewController.swift */; };
+		CCFFF28B23964CC900E1E4B0 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFFF28923964CC900E1E4B0 /* PlayerViewController.xib */; };
+		CCFFF28F23964FC400E1E4B0 /* CoursePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFFF28D23964FC400E1E4B0 /* CoursePlayViewController.swift */; };
+		CCFFF29023964FC400E1E4B0 /* CoursePlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFFF28E23964FC400E1E4B0 /* CoursePlayViewController.xib */; };
+		CCFFF29423966FD500E1E4B0 /* CourseUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFFF29223966FD500E1E4B0 /* CourseUnitViewController.swift */; };
+		CCFFF29523966FD500E1E4B0 /* CourseUnitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFFF29323966FD500E1E4B0 /* CourseUnitViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,7 +260,6 @@
 		CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		CCB3D9CD235FEF7B008E31AE /* MyCoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController.swift; sourceTree = "<group>"; };
 		CCB3D9CF235FEF90008E31AE /* MyFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteViewController.swift; sourceTree = "<group>"; };
-		CCB3D9D2235FEFB6008E31AE /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSettingViewController.swift; sourceTree = "<group>"; };
 		CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCarViewController.swift; sourceTree = "<group>"; };
 		CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionHeader.swift; sourceTree = "<group>"; };
@@ -330,6 +335,13 @@
 		CCF9B16C2390F9DD0065E420 /* PaymentPayTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPayTypeCell.swift; sourceTree = "<group>"; };
 		CCF9B16D2390F9DD0065E420 /* PaymentPayTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentPayTypeCell.xib; sourceTree = "<group>"; };
 		CCF9B17123910B880065E420 /* PaymentSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSectionHeaderView.swift; sourceTree = "<group>"; };
+		CCFFF27F239608D600E1E4B0 /* CourseUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseUnit.swift; sourceTree = "<group>"; };
+		CCFFF28823964CC900E1E4B0 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		CCFFF28923964CC900E1E4B0 /* PlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		CCFFF28D23964FC400E1E4B0 /* CoursePlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePlayViewController.swift; sourceTree = "<group>"; };
+		CCFFF28E23964FC400E1E4B0 /* CoursePlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoursePlayViewController.xib; sourceTree = "<group>"; };
+		CCFFF29223966FD500E1E4B0 /* CourseUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseUnitViewController.swift; sourceTree = "<group>"; };
+		CCFFF29323966FD500E1E4B0 /* CourseUnitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseUnitViewController.xib; sourceTree = "<group>"; };
 		F0ABD045D700378177E0FD56 /* Pods_ShareEducation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareEducation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F229B415CD46AC344FAB7417 /* Pods-ShareEducation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareEducation.debug.xcconfig"; path = "Target Support Files/Pods-ShareEducation/Pods-ShareEducation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -559,7 +571,6 @@
 		CCB3D9D1235FEFA7008E31AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CCB3D9D2235FEFB6008E31AE /* PlayerViewController.swift */,
 				CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */,
 				CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */,
 				CC4FD27A2376742C00FC803D /* MainTabbarController.swift */,
@@ -600,6 +611,7 @@
 				CC2D7ADF238528C500D9FD92 /* ListResult.swift */,
 				CC2D7ADD238500D500D9FD92 /* Teacher.swift */,
 				CC2D7AE123852FB200D9FD92 /* CourseItem.swift */,
+				CCFFF27F239608D600E1E4B0 /* CourseUnit.swift */,
 				CC993FFA238E7CD10036F8EA /* Comment.swift */,
 			);
 			path = HTTPAPI;
@@ -652,6 +664,7 @@
 		CCF95B8B235F00D800FACFAD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CCFFF28423964CA800E1E4B0 /* Player */,
 				CC97B3B323865CA600F1BFE9 /* Login */,
 				CCF95B90235F013800FACFAD /* Homepage */,
 				CCF95B8F235F010A00FACFAD /* SchoolTimetable */,
@@ -726,8 +739,12 @@
 				CCBF46E223800BF20030AFC1 /* CourseContentViewController.swift */,
 				CCDDA1D0238FA26600C28497 /* CourseDetailViewController.swift */,
 				CCDDA1D1238FA26600C28497 /* CourseDetailViewController.xib */,
+				CCFFF29223966FD500E1E4B0 /* CourseUnitViewController.swift */,
+				CCFFF29323966FD500E1E4B0 /* CourseUnitViewController.xib */,
 				CCDDA1EF238FD24300C28497 /* CourseSbscribeAlertViewController.swift */,
 				CCDDA1F0238FD24300C28497 /* CourseSbscribeAlertViewController.xib */,
+				CCFFF28D23964FC400E1E4B0 /* CoursePlayViewController.swift */,
+				CCFFF28E23964FC400E1E4B0 /* CoursePlayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -754,6 +771,31 @@
 				CCB3D9CF235FEF90008E31AE /* MyFavoriteViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCFFF28423964CA800E1E4B0 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				CCFFF28C23964CCE00E1E4B0 /* View */,
+				CCFFF28723964CAF00E1E4B0 /* Controller */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		CCFFF28723964CAF00E1E4B0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCFFF28823964CC900E1E4B0 /* PlayerViewController.swift */,
+				CCFFF28923964CC900E1E4B0 /* PlayerViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCFFF28C23964CCE00E1E4B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -864,6 +906,7 @@
 				CCDDA1D3238FA26600C28497 /* CourseDetailViewController.xib in Resources */,
 				CC8AA8C8238D32E8009F94D6 /* TeacherDetailSegmentedCell.xib in Resources */,
 				CC34105A2393D2CE00ABA7A5 /* TeacherContentViewController.xib in Resources */,
+				CCFFF28B23964CC900E1E4B0 /* PlayerViewController.xib in Resources */,
 				CCDDA1D7238FA34000C28497 /* CourseDetailCoverCell.xib in Resources */,
 				CC8AA8C4238D14A1009F94D6 /* TeacherDetailInfoCell.xib in Resources */,
 				CC3410622393DC4C00ABA7A5 /* MineTableCell.xib in Resources */,
@@ -873,8 +916,10 @@
 				CC34105E2393D4CC00ABA7A5 /* TeacherHomeCell.xib in Resources */,
 				CCF9B15B2390B32A0065E420 /* SelectCourseViewController.xib in Resources */,
 				CCF38994238A4FDD00F84678 /* RegisterViewController.xib in Resources */,
+				CCFFF29023964FC400E1E4B0 /* CoursePlayViewController.xib in Resources */,
 				CCF38998238A778400F84678 /* AreaSettingViewController.xib in Resources */,
 				CC993FF7238E78180036F8EA /* TeacherDetailCommentCell.xib in Resources */,
+				CCFFF29523966FD500E1E4B0 /* CourseUnitViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +999,7 @@
 				CCBF46E9238018C40030AFC1 /* UIButton+QuickUI.swift in Sources */,
 				CCBF46D9237FFAB00030AFC1 /* CalendarView+Style.swift in Sources */,
 				CCF9B15A2390B32A0065E420 /* SelectCourseViewController.swift in Sources */,
+				CCFFF28F23964FC400E1E4B0 /* CoursePlayViewController.swift in Sources */,
 				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
 				CC1F87592394AE7D003F9D7F /* User.swift in Sources */,
 				CCDDA1EA238FB06400C28497 /* CourseDetailUnitDescriptionCell.swift in Sources */,
@@ -993,6 +1039,7 @@
 				CCBF46DB237FFAB00030AFC1 /* EventsManager.swift in Sources */,
 				CCBF46C8237FAD670030AFC1 /* GradeCollectionHeader.swift in Sources */,
 				CC43610C2381239600AF796C /* CourseBaseCell.swift in Sources */,
+				CCFFF28A23964CC900E1E4B0 /* PlayerViewController.swift in Sources */,
 				CCF9B16E2390F9DD0065E420 /* PaymentPayTypeCell.swift in Sources */,
 				CCBF46E1237FFFCC0030AFC1 /* BaseContentViewController.swift in Sources */,
 				CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */,
@@ -1000,6 +1047,7 @@
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
 				CC8AA8C3238D14A1009F94D6 /* TeacherDetailInfoCell.swift in Sources */,
 				CCBF46E5238017190030AFC1 /* MonthCalendarView.swift in Sources */,
+				CCFFF280239608D600E1E4B0 /* CourseUnit.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
 				CC828FA4238133A8005CEA06 /* MineTableHeaderView.swift in Sources */,
 				CC993FF6238E78180036F8EA /* TeacherDetailCommentCell.swift in Sources */,
@@ -1013,10 +1061,10 @@
 				CCBF46DD237FFAB00030AFC1 /* CalendarView.swift in Sources */,
 				CC43610A23811F1600AF796C /* CourseClassCell.swift in Sources */,
 				CC8AA8B8238CD63F009F94D6 /* WebViewController.swift in Sources */,
+				CCFFF29423966FD500E1E4B0 /* CourseUnitViewController.swift in Sources */,
 				CC3410612393DC4C00ABA7A5 /* MineTableCell.swift in Sources */,
 				CCBF46D6237FFAB00030AFC1 /* CalendarHeaderView.swift in Sources */,
 				CC017DE72377D23700BF22DC /* TeacherScoreView.swift in Sources */,
-				CCB3D9D3235FEFB6008E31AE /* PlayerViewController.swift in Sources */,
 				CCC154E6238BA449005F29CC /* String+Size.swift in Sources */,
 				CCBF46E7238017B90030AFC1 /* UILabel+QuickUI.swift in Sources */,
 				CC993FFB238E7CD10036F8EA /* Comment.swift in Sources */,

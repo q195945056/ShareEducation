@@ -9,6 +9,25 @@
 import UIKit
 
 class CourseDetailTeacherCell: UITableViewCell {
+    
+    @IBOutlet var headImageView: UIImageView!
+    
+    @IBOutlet var nameLabel: UILabel!
+    
+    var course: CourseItem? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    func updateUI() {
+        if let course = course {
+            if let pic = course.teacherPic {
+                headImageView.kf.setImage(with: URL(string: pic))
+            }
+            nameLabel.text = course.teacherName
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

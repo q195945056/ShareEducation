@@ -10,6 +10,8 @@ import UIKit
 
 class CourseContentViewController: BaseContentViewController {
     
+    var playType: CoursePlayType = .living
+    
     // MARK: - Property
     
     lazy var tableView: UITableView = {
@@ -48,6 +50,7 @@ extension CourseContentViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CourseClassCell.reuseIdentifier, for: indexPath) as! CourseClassCell
+//        cell.course 
 //        cell.setupData()
         return cell
     }

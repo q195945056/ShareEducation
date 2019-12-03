@@ -36,7 +36,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="WcN-Na-xLe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8Fq-pO-b97"/>
+                    <navigationItem key="navigationItem" id="8Fq-pO-b97">
+                        <barButtonItem key="backBarButtonItem" title=" " id="9A8-2f-dt3"/>
+                    </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJ8-it-B4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

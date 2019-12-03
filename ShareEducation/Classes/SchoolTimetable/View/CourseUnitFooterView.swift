@@ -17,6 +17,12 @@ class CourseUnitFooterView: UITableViewHeaderFooterView {
         // Drawing code
     }
     */
+    
+    var count = 12 {
+        didSet {
+            viewAllButton.setTitle("查看全部\(count)次课", for: .normal)
+        }
+    }
 
     static var height: CGFloat = 67 + onePixelWidth
     

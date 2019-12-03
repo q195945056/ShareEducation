@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseDetailUnitCell" id="KGk-i7-Jjw" customClass="CourseDetailUnitCell" customModule="ShareEducation" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CourseDetailUnitCell" id="KGk-i7-Jjw" customClass="CourseDetailUnitCell" customModule="ShareEducation" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -88,6 +88,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="rankingLabel" destination="8Fr-2F-rYX" id="giX-RI-3ef"/>
+                <outlet property="statusLable" destination="y57-zF-wdK" id="Dqh-14-6br"/>
+                <outlet property="timeLabel" destination="HM2-lr-QDY" id="5di-iL-8e6"/>
+                <outlet property="titleLabel" destination="mBT-aN-nnp" id="2sr-88-tPV"/>
+            </connections>
             <point key="canvasLocation" x="131.15942028985509" y="153.01339285714286"/>
         </tableViewCell>
     </objects>

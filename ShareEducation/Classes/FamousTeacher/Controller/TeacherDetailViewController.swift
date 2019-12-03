@@ -83,11 +83,11 @@ class TeacherDetailViewController: UIViewController {
     }
     
     func loadData() {
-        serviceProvider.request(.getTeacherDetail(name: nil, token: nil, id: String(teacher.mid))) { (result) in
+        serviceProvider.request(.getTeacherDetail(name: nil, token: nil, id: teacher.mid)) { (result) in
             let json = try? JSON(data: result.get().data)
             if let json = json {
                 let data = json["data"]
-                self.teacher.load(extraData: data)
+                self.teacher.setup(extraData: data)
                 self.infoCell.teacher = self.teacher
                 
                 let mapper = Mapper<CourseItem>()

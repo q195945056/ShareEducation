@@ -17,7 +17,7 @@ class Teacher: Mappable {
     var university: String?
     var title: String?
     var score: Int?
-    var collect: Bool?
+    var isCollect: Bool?
     var playCount: Int?
     var teachingAge: Int?
     var pic: String?
@@ -36,15 +36,39 @@ class Teacher: Mappable {
         university <- map["university"]
         title <- map["title"]
         score <- map["score"]
-        collect <- map["collect"]
+        isCollect <- map["collect"]
         playCount <- map["playcount"]
         teachingAge <- map["teachingage"]
         pic <- map["pic"]
         city <- map["city"]
         schoolName <- map["schoolname"]
+        
+        #if DEBUG
+        score = 5
+        playCount = 123
+        #endif
+    }
+}
+
+extension Teacher {
+    func setup(extraData: JSON) {
+        totletime = extraData["totletime"].int
     }
     
-    func load(extraData: JSON) {
-        totletime = extraData["totletime"].int
+    func collect(oper: Bool, completion: @escaping (_ success: Bool) -> Void) {
+        let user = User.shared
+        guard user.isLogin else {
+            return
+        }
+        serviceProvider.request(.collectTeacher(name: user.name!, token: user.token!, id: mid, oper: oper)) { result in
+            let json = try? JSON(data: result.get().data)
+            let status = json!["result"].int
+            if let status = status, status == 1 {
+                self.isCollect = oper
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
     }
 }

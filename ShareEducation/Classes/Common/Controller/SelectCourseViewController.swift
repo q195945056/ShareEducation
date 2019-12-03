@@ -51,7 +51,7 @@ class SelectCourseViewController: UIViewController {
         let user = User.shared
         let name = user.name!
         let token = user.token!
-        serviceProvider.request(.courseBuy(name: name, token: token, id: String(course.id))) { result in
+        serviceProvider.request(.courseBuy(name: name, token: token, id: course.id)) { result in
             let response = try? result.get().mapObject(ListResult<CourseItem>.self)
             self.courses = response?.data
             self.tableView.reloadData()

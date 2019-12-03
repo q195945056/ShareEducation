@@ -104,14 +104,10 @@ class HomeContentViewController: BaseContentViewController {
         let area = ShareSetting.shared.area
         let user = User.shared
         
-        let name = String(user.userInfo?.id ?? 0)
+        let name = user.name
         let token = user.userInfo?.token
-        let areaID: String = String(area.id)
-        let courseID: String = String(course.id)
-        let gradeID: String = String(grade.id)
         
-        let offsetString = String(offset)
-        serviceProvider.request(.getCourseList(type: "1", dateType: "3", date: Date().toFormat("yyyy-MM-dd"), name: name, token: token, offset: offsetString, rows: "20", areaid: areaID, courseid: courseID, gradeid: gradeID)) { (result) in
+        serviceProvider.request(.getCourseList(type: .living, dateType: "3", date: Date().toFormat("yyyy-MM-dd"), name: name, token: token, offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id)) { (result) in
             do {
                 let response = try result.get().mapObject(ListResult<CourseItem>.self)
                 if offset == 0 {
@@ -141,11 +137,8 @@ class HomeContentViewController: BaseContentViewController {
         
         let name: String? = nil
         let token = user.userInfo?.token
-        let areaID: String = String(area.id)
-        let courseID: String = String(course.id)
-        let gradeID: String = String(grade.id)
         
-        serviceProvider.request(.getTeacherTopList(name: name, token: token, rows: "10", areaid: areaID, courseid: courseID, gradeid: gradeID)) { result in
+        serviceProvider.request(.getTeacherTopList(name: name, token: token, rows: 10, areaid: area.id, courseid: course.id, gradeid: grade.id)) { result in
             do {
                 let response = try result.get().mapObject(ListResult<Teacher>.self)
                 self.teacherListCell.teachers = response.data
@@ -261,6 +254,7 @@ extension HomeContentViewController: UITableViewDelegate {
         if indexPath.section == 1 {
             let course = courseList[indexPath.row]
             let controller = CourseDetailViewController()
+            controller.course = course
             mainNavigationController.pushViewController(controller, animated: true)
         }
     }

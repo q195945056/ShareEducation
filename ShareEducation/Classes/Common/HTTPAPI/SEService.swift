@@ -11,19 +11,24 @@ import Moya
 
 let serviceProvider = MoyaProvider<SEService>()
 
+enum CoursePlayType: Int {
+    case living = 1
+    case record = 2
+}
+
 enum SEService {
     case initData
     case login(name: String?, password: String?, type: String?, phone: String?, msgCode: String?)
     case sendSMS(phone: String)
-    case getCourseList(type: String?, dateType: String, date: String, name: String?, token: String?, offset: String, rows:String, areaid: String?, courseid: String?, gradeid: String?)
-    case getCourseDetail(name: String?, token: String?, id: String)
-    case courseBuy(name: String, token: String, id: String)
-    case getTeacherTopList(name: String? = nil, token: String? = nil, rows: String, areaid: String, courseid: String, gradeid: String)
-    case getTeacherList(name: String?, token: String?, offset: String, rows: String, areaid: String?, courseid: String?, gradeid: String?)
-    case getTeacherDetail(name: String?, token: String?, id: String)
-    case collectTeacher(name: String?, token: String?, id: String, oper: String)
+    case getCourseList(type: CoursePlayType, dateType: String, date: String, name: String?, token: String?, offset: Int, rows:Int, areaid: Int, courseid: Int, gradeid: Int)
+    case getCourseDetail(name: String?, token: String?, id: Int)
+    case courseBuy(name: String, token: String, id: Int)
+    case getTeacherTopList(name: String? = nil, token: String? = nil, rows: Int, areaid: Int, courseid: Int, gradeid: Int)
+    case getTeacherList(name: String?, token: String?, offset: Int, rows: Int, areaid: Int, courseid: Int, gradeid: Int, sort: Int = 0)
+    case getTeacherDetail(name: String?, token: String?, id: Int)
+    case collectTeacher(name: String?, token: String?, id: Int, oper: Bool)
     case playCourse(name: String?, token: String?, id: String)
-    case collectCourse(name: String?, token: String?, id: String, star: String, oper: String)
+    case collectCourse(name: String?, token: String?, id: Int, star: Bool, oper: Bool)
 }
 
 extension SEService: TargetType {
@@ -94,7 +99,7 @@ extension SEService: TargetType {
             parameters["m.courseid"] = "0"
             parameters["m.gradeid"] = "0"
             #else
-            parameters["c.type"] = type
+            parameters["c.type"] = type.rawValue
             parameters["c.datetype"] = dateType
             parameters["c.date"] = date
             parameters["m.name"] = name
@@ -127,15 +132,16 @@ extension SEService: TargetType {
             parameters["m.courseid"] = courseid
             parameters["m.gradeid"] = gradeid
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .getTeacherList(let name, let token, let offset, let rows, let areaid, let courseid, let gradeid):
+        case .getTeacherList(let name, let token, let offset, let rows, let areaid, let courseid, let gradeid, let sort):
             var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["offset"] = offset
             parameters["rows"] = rows
-            parameters["m.areaid"] = areaid ?? "0"
-            parameters["m.courseid"] = courseid ?? "0"
-            parameters["m.gradeid"] = gradeid ?? "0"
+            parameters["m.areaid"] = areaid
+            parameters["m.courseid"] = courseid
+            parameters["m.gradeid"] = gradeid
+            parameters["m.sort"] = sort
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getTeacherDetail(let name, let token, let id):
             var parameters = [String : Any]()
@@ -148,7 +154,7 @@ extension SEService: TargetType {
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["t.id"] = id
-            parameters["t.oper"] = oper
+            parameters["t.oper"] = oper ? 1 : 0
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .playCourse(let name, let token, let id):
             var parameters = [String : Any]()
@@ -161,8 +167,8 @@ extension SEService: TargetType {
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["t.id"] = id
-            parameters["c.star"] = star
-            parameters["t.oper"] = oper
+            parameters["c.star"] = star ? 1 : 0
+            parameters["t.oper"] = oper ? 1 : 0
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }

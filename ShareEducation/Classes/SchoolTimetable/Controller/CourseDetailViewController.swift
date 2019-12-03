@@ -8,6 +8,7 @@
 
 import UIKit
 import Jelly
+import SwiftyJSON
 
 class CourseDetailViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class CourseDetailViewController: UIViewController {
     
     @IBOutlet var buyButton: UIButton!
     
+    var course: CourseItem!
+    
     var animator: Animator?
 
     override func viewDidLoad() {
@@ -28,6 +31,7 @@ class CourseDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupUI()
+        loadCourseDetailData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +41,17 @@ class CourseDetailViewController: UIViewController {
     }
 
     // MARK: - Private Methods
+    
+    func loadCourseDetailData() {
+        serviceProvider.request(.getCourseDetail(name: nil, token: nil, id: course.id)) { result in
+            let json = try? JSON(result.get().mapJSON())
+            if let json = json {
+                self.course.setup(with: json)
+                self.collectButton.isSelected = self.course.isCollect!
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     fileprivate func setupUI() {
         navigationItem.title = "课程介绍"
@@ -55,10 +70,12 @@ class CourseDetailViewController: UIViewController {
     
     // MARK: - Actions
     
-    @objc func onBuyButtonPressed(sender: Any) {
+    @IBAction func onBuyButtonPressed(sender: Any) {
         let controller = CourseSbscribeAlertViewController()
+        controller.course = course
         controller.confirmHandler = {
             let vc = SelectCourseViewController()
+            vc.course = self.course
             self.navigationController?.pushViewController(vc, animated: true)
         }
         let size = PresentationSize(width: .fullscreen, height: .custom(value: 365))
@@ -69,6 +86,28 @@ class CourseDetailViewController: UIViewController {
         animator.prepare(presentedViewController: controller)
         self.animator = animator
         present(controller, animated: true)
+    }
+    
+    @IBAction func onCollectButtonPressed(_ sender: Any) {
+        let user = User.shared
+        if user.isLogin {
+            course.collect(star: false, oper: !course.isCollect!) { result in
+                if result {
+                    self.collectButton.isSelected = self.course.isCollect!
+                }
+            }
+        }
+    }
+    
+    @objc func onWatchButtonPressed(_ sender: UIButton) {
+        let controller = CoursePlayViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc func onAllUnitButtonPressed(_ sender: UIButton) {
+        let controller = CourseUnitViewController()
+        controller.units = course.units!
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     /*
@@ -90,7 +129,9 @@ extension CourseDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 3 {
-            return 3
+            var count = course.units?.count ?? 0
+            count = min(count, 3)
+            return count
         } else {
             return 1
         }
@@ -100,19 +141,27 @@ extension CourseDetailViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: CourseDetailCoverCell.reuseIdentifier, for: indexPath) as! CourseDetailCoverCell
+            cell.course = course
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: CourseDetailDescptionCell.reuseIdentifier, for: indexPath) as! CourseDetailDescptionCell
             cell.buyButton.addTarget(self, action: #selector(onBuyButtonPressed(sender:)), for: .touchUpInside)
+            cell.watchButton.addTarget(self, action: #selector(onWatchButtonPressed(_:)), for: .touchUpInside)
+            cell.course = course
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: CourseDetailTeacherCell.reuseIdentifier, for: indexPath) as! CourseDetailTeacherCell
+            cell.course = course
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: CourseDetailUnitCell.reuseIdentifier, for: indexPath) as! CourseDetailUnitCell
+            let unit = course.units![indexPath.row]
+            cell.unit = unit
+            cell.rankingLabel.text = String(indexPath.row + 1)
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: CourseDetailUnitDescriptionCell.reuseIdentifier, for: indexPath) as! CourseDetailUnitDescriptionCell
+            cell.course = course
             return cell
         default:
             return UITableViewCell()
@@ -139,21 +188,24 @@ extension CourseDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         var result: CGFloat = 8
         if section == 3 {
-            result += CourseUnitFooterView.height
+            let count = course.units?.count ?? 0
+            if count > 3 {
+                result += CourseUnitFooterView.height
+            }
         }
         return result
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 3 {
-            let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CourseUnitFooterView.reuseIdentifier)
-            return footerView
-        } else {
-            return nil
+            let count = course.units?.count ?? 0
+            if count > 3 {
+                let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CourseUnitFooterView.reuseIdentifier) as! CourseUnitFooterView
+                footerView.count = count
+                footerView.viewAllButton.addTarget(self, action: #selector(onAllUnitButtonPressed(_:)), for: .touchUpInside)
+                return footerView
+            }
         }
+        return nil
     }
-}
-
-extension CourseDetailViewController: UITableViewDelegate {
-    
 }
