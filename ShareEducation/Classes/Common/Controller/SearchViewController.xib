@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="ShareEducation" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="xz5-19-red" id="76N-sH-ast"/>
+                <outlet property="emptyView" destination="m9F-di-H6p" id="Trb-4C-Qa7"/>
+                <outlet property="searchTextFiled" destination="InK-nH-tbQ" id="p6E-kO-PUe"/>
+                <outlet property="tableView" destination="kM2-ti-46A" id="DVY-gH-SJu"/>
+                <outlet property="titleView" destination="V3U-hB-wDy" id="syu-64-tyF"/>
+                <outlet property="titleWidthConstraint" destination="UhH-Q7-YOd" id="Vlo-gC-HVf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xz5-19-red">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="5Mm-6S-Gv4">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="100" height="35"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="13.5" minY="14.5" maxX="13.5" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="V3F-Mj-9hY"/>
+                        <outlet property="delegate" destination="-1" id="6fV-6p-1pk"/>
+                    </connections>
+                </collectionView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9F-di-H6p">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_search" translatesAutoresizingMaskIntoConstraints="NO" id="ec9-Q9-KwB">
+                            <rect key="frame" x="96" y="129.5" width="222" height="145"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry ! 没有相符的内容." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBm-Vj-GZb">
+                            <rect key="frame" x="130.5" y="296" width="153" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="iBm-Vj-GZb" firstAttribute="top" secondItem="ec9-Q9-KwB" secondAttribute="bottom" constant="21.5" id="4Fh-YT-w7F"/>
+                        <constraint firstItem="iBm-Vj-GZb" firstAttribute="centerX" secondItem="m9F-di-H6p" secondAttribute="centerX" id="5la-GQ-ORO"/>
+                        <constraint firstItem="ec9-Q9-KwB" firstAttribute="centerY" secondItem="m9F-di-H6p" secondAttribute="centerY" multiplier="0.5" id="JPC-ib-ZEo"/>
+                        <constraint firstItem="ec9-Q9-KwB" firstAttribute="centerX" secondItem="m9F-di-H6p" secondAttribute="centerX" id="dHV-VZ-htC"/>
+                    </constraints>
+                </view>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kM2-ti-46A">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="PF6-tq-cfj"/>
+                        <outlet property="delegate" destination="-1" id="92t-Nf-RSg"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="m9F-di-H6p" firstAttribute="trailing" secondItem="xz5-19-red" secondAttribute="trailing" id="4Ce-sm-X8A"/>
+                <constraint firstItem="xz5-19-red" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4in-3x-HYp"/>
+                <constraint firstItem="m9F-di-H6p" firstAttribute="leading" secondItem="xz5-19-red" secondAttribute="leading" id="Lt6-j7-A6n"/>
+                <constraint firstAttribute="trailing" secondItem="xz5-19-red" secondAttribute="trailing" id="RLq-Od-QUu"/>
+                <constraint firstItem="kM2-ti-46A" firstAttribute="bottom" secondItem="xz5-19-red" secondAttribute="bottom" id="T0k-RL-tJH"/>
+                <constraint firstAttribute="bottom" secondItem="xz5-19-red" secondAttribute="bottom" id="VWc-Bb-am1"/>
+                <constraint firstItem="kM2-ti-46A" firstAttribute="leading" secondItem="xz5-19-red" secondAttribute="leading" id="dTw-49-nqz"/>
+                <constraint firstItem="m9F-di-H6p" firstAttribute="top" secondItem="xz5-19-red" secondAttribute="top" id="l6c-RC-etJ"/>
+                <constraint firstItem="xz5-19-red" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v1T-gw-ojC"/>
+                <constraint firstItem="kM2-ti-46A" firstAttribute="top" secondItem="xz5-19-red" secondAttribute="top" id="vfK-zS-zQX"/>
+                <constraint firstItem="kM2-ti-46A" firstAttribute="trailing" secondItem="xz5-19-red" secondAttribute="trailing" id="wsr-iC-qlG"/>
+                <constraint firstItem="m9F-di-H6p" firstAttribute="bottom" secondItem="xz5-19-red" secondAttribute="bottom" id="xCi-pU-g1G"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="133" y="154"/>
+        </view>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3U-hB-wDy">
+            <rect key="frame" x="0.0" y="0.0" width="265" height="30"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search" translatesAutoresizingMaskIntoConstraints="NO" id="FWI-Gp-O0G">
+                    <rect key="frame" x="9" y="9.5" width="11" height="11"/>
+                </imageView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索老师/课程/学科/学校" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="InK-nH-tbQ">
+                    <rect key="frame" x="26" y="0.0" width="224" height="30"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                    <connections>
+                        <action selector="onEditingDidChange:" destination="-1" eventType="editingChanged" id="C7D-UT-aHy"/>
+                        <action selector="onSearchButtonPressed:" destination="-1" eventType="editingDidEndOnExit" id="xHu-sR-PFY"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="InK-nH-tbQ" firstAttribute="leading" secondItem="FWI-Gp-O0G" secondAttribute="trailing" constant="6" id="9DZ-0q-XKE"/>
+                <constraint firstAttribute="bottom" secondItem="InK-nH-tbQ" secondAttribute="bottom" id="JMD-Vg-gZr"/>
+                <constraint firstAttribute="width" constant="265" id="UhH-Q7-YOd"/>
+                <constraint firstAttribute="height" constant="30" id="Ydj-mP-eSn"/>
+                <constraint firstItem="FWI-Gp-O0G" firstAttribute="leading" secondItem="V3U-hB-wDy" secondAttribute="leading" constant="9" id="cce-7d-5Yc"/>
+                <constraint firstAttribute="trailing" secondItem="InK-nH-tbQ" secondAttribute="trailing" constant="15" id="h97-uu-Z3f"/>
+                <constraint firstItem="InK-nH-tbQ" firstAttribute="top" secondItem="V3U-hB-wDy" secondAttribute="top" id="u0K-cp-xmi"/>
+                <constraint firstItem="FWI-Gp-O0G" firstAttribute="centerY" secondItem="V3U-hB-wDy" secondAttribute="centerY" id="yHM-QD-G6r"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="lZY-lI-fDj"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="118" y="-157"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_search" width="11" height="11"/>
+        <image name="img_search" width="222" height="145"/>
+    </resources>
+</document>

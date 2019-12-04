@@ -88,7 +88,7 @@ class BaseRootViewController: UIViewController {
         customNavigationBar.gradeButton.addTarget(self, action: #selector(onGradeButtonPressed(sender:)), for: .touchUpInside)
         customNavigationBar.historyButton.addTarget(self, action: #selector(onHistoryButtonPressed(sender:)), for: .touchUpInside)
         customNavigationBar.locationButton.addTarget(self, action: #selector(onLocationButtonPressed(sender:)), for: .touchUpInside)
-        
+        customNavigationBar.searchButton.addTarget(self, action: #selector(onSearchButtonPressed(_:)), for: .touchUpInside)
     }
     
     func contentViewController(course: Course = .default) -> BaseContentViewController?  {
@@ -111,6 +111,11 @@ class BaseRootViewController: UIViewController {
         animator.prepare(presentedViewController: controller)
         self.animator = animator
         present(controller, animated: true)
+    }
+    
+    @objc func onSearchButtonPressed(_ sender: Any) {
+        let controller = SearchViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
     }
     
     @objc func onHistoryButtonPressed(sender: AnyObject) {
