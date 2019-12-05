@@ -153,5 +153,42 @@ extension MineViewController: UITableViewDataSource {
 extension MineViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                enterCouponListPage()
+            } else if indexPath.row == 1 {
+                enterActivityListPage()
+            }
+        } else {
+            if indexPath.row == 0 {
+                enterMessageListPage()
+            } else if indexPath.row == 1 {
+                enterCustomServicePage()
+            } else {
+                
+            }
+        }
+    }
+}
+
+extension MineViewController {
+    func enterCouponListPage() {
+        let controller = CouponListViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
+    }
+    
+    func enterActivityListPage() {
+        let controller = ActivityListViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
+    }
+    
+    func enterMessageListPage() {
+        let controller = MessageListViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
+    }
+    
+    func enterCustomServicePage() {
+        let controller = CustomerServiceViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
     }
 }
