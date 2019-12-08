@@ -9,7 +9,6 @@
 import UIKit
 import Moya_ObjectMapper
 import SwiftDate
-import IQKeyboardManagerSwift
 import Moya
 
 let mainNavigationController: UINavigationController = {

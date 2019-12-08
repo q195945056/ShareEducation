@@ -55,6 +55,7 @@ class MineViewController: UIViewController {
         tableHeaderView.infoButton.addTarget(self, action: #selector(onUserInfoButtonPressed(_:)), for: .touchUpInside)
         tableHeaderView.inviteButton.addTarget(self, action: #selector(onInviteButtonPressed(_:)), for: .touchUpInside)
         tableView.register(UINib(nibName: "MineTableCell", bundle: nil), forCellReuseIdentifier: MineTableCell.reuseIdentifier)
+        tableView.register(SeparatorLineFooterView.self, forHeaderFooterViewReuseIdentifier: SeparatorLineFooterView.reuseIdentifier)
     }
     
     // MARK: - Actions
@@ -65,7 +66,8 @@ class MineViewController: UIViewController {
     }
     
     @objc func onSettingButtonPressed(_ sender: Any) {
-        
+        let controller = SettingViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
     }
     
     @objc func onMyCourseButtonPressed(_ sender: Any) {
@@ -73,11 +75,13 @@ class MineViewController: UIViewController {
     }
     
     @objc func onMyCollectionButtonPressed(_ sender: Any) {
-        
+        let controller = MyCollectionViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
     }
     
     @objc func onUserInfoButtonPressed(_ sender: Any) {
-        
+        let controller = EditUserinfoViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
     }
     
     @objc func onInviteButtonPressed(_ sender: Any) {
@@ -142,11 +146,28 @@ extension MineViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 33
+        if section == 0 {
+            return 20
+        } else {
+            return onePixelWidth
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SeparatorLineFooterView.reuseIdentifier) as! SeparatorLineFooterView
+            return footerView
+        } else {
+            return nil
+        }
     }
 }
 
@@ -165,7 +186,7 @@ extension MineViewController: UITableViewDelegate {
             } else if indexPath.row == 1 {
                 enterCustomServicePage()
             } else {
-                
+                enterFeedbackPage()
             }
         }
     }
@@ -189,6 +210,11 @@ extension MineViewController {
     
     func enterCustomServicePage() {
         let controller = CustomerServiceViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
+    }
+    
+    func enterFeedbackPage() {
+        let controller = FeedbackViewController()
         mainNavigationController.pushViewController(controller, animated: true)
     }
 }

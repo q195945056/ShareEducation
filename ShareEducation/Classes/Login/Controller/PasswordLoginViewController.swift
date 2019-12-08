@@ -118,6 +118,7 @@ class PasswordLoginViewController: BaseLoginViewController {
                 if let status = status, status == 1 {
                     User.shared.setup(json: json)
                     HUD.flash(.success, delay: 1)
+                    self.dismiss(animated: true, completion: nil)
                 } else {
                     HUD.flash(.error, delay: 1)
                 }
@@ -144,7 +145,6 @@ class PasswordLoginViewController: BaseLoginViewController {
     @objc func onForgetPwdButtonPressed(sender: Any) {
         let controller = FindPwdViewController()
         navigationController?.pushViewController(controller, animated: true)
-        
     }
 
     /*

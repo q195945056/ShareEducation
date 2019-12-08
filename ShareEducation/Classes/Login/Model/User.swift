@@ -61,6 +61,11 @@ class User: Codable {
             try diskStorage.removeObject(forKey: "User")
         }
     }
+    
+    func logout() {
+        userInfo = nil
+        isLogin = false
+    }
 }
 
 extension User {

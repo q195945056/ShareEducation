@@ -32,6 +32,23 @@
 		CC2D7ADE238500D500D9FD92 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7ADD238500D500D9FD92 /* Teacher.swift */; };
 		CC2D7AE0238528C500D9FD92 /* ListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7ADF238528C500D9FD92 /* ListResult.swift */; };
 		CC2D7AE223852FB200D9FD92 /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7AE123852FB200D9FD92 /* CourseItem.swift */; };
+		CC30AD00239CD99C00A0DF20 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30ACFE239CD99C00A0DF20 /* SettingViewController.swift */; };
+		CC30AD01239CD99C00A0DF20 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30ACFF239CD99C00A0DF20 /* SettingViewController.xib */; };
+		CC30AD06239CDAFB00A0DF20 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD04239CDAFB00A0DF20 /* SettingCell.swift */; };
+		CC30AD07239CDAFB00A0DF20 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30AD05239CDAFB00A0DF20 /* SettingCell.xib */; };
+		CC30AD09239CDC3600A0DF20 /* SeparatorLineFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD08239CDC3600A0DF20 /* SeparatorLineFooterView.swift */; };
+		CC30AD0C239CE47700A0DF20 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD0A239CE47700A0DF20 /* AboutViewController.swift */; };
+		CC30AD0D239CE47700A0DF20 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30AD0B239CE47700A0DF20 /* AboutViewController.xib */; };
+		CC30AD10239CE87900A0DF20 /* AccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD0E239CE87900A0DF20 /* AccountSafeViewController.swift */; };
+		CC30AD11239CE87900A0DF20 /* AccountSafeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30AD0F239CE87900A0DF20 /* AccountSafeViewController.xib */; };
+		CC30AD14239CEAD900A0DF20 /* EditUserinfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD12239CEAD900A0DF20 /* EditUserinfoViewController.swift */; };
+		CC30AD15239CEAD900A0DF20 /* EditUserinfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30AD13239CEAD900A0DF20 /* EditUserinfoViewController.xib */; };
+		CC30AD19239CEB0600A0DF20 /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD17239CEB0600A0DF20 /* UserInfoCell.swift */; };
+		CC30AD1A239CEB0600A0DF20 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30AD18239CEB0600A0DF20 /* UserInfoCell.xib */; };
+		CC30AD1D239CF92400A0DF20 /* MyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD1B239CF92400A0DF20 /* MyCollectionViewController.swift */; };
+		CC30AD1E239CF92400A0DF20 /* MyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30AD1C239CF92400A0DF20 /* MyCollectionViewController.xib */; };
+		CC30AD21239CFA3600A0DF20 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD1F239CFA3600A0DF20 /* CommentViewController.swift */; };
+		CC30AD22239CFA3600A0DF20 /* CommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30AD20239CFA3600A0DF20 /* CommentViewController.xib */; };
 		CC3410592393D2CE00ABA7A5 /* TeacherContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3410572393D2CE00ABA7A5 /* TeacherContentViewController.swift */; };
 		CC34105A2393D2CE00ABA7A5 /* TeacherContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC3410582393D2CE00ABA7A5 /* TeacherContentViewController.xib */; };
 		CC34105D2393D4CC00ABA7A5 /* TeacherHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC34105B2393D4CC00ABA7A5 /* TeacherHomeCell.swift */; };
@@ -239,6 +256,23 @@
 		CC2D7ADD238500D500D9FD92 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		CC2D7ADF238528C500D9FD92 /* ListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResult.swift; sourceTree = "<group>"; };
 		CC2D7AE123852FB200D9FD92 /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
+		CC30ACFE239CD99C00A0DF20 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CC30ACFF239CD99C00A0DF20 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		CC30AD04239CDAFB00A0DF20 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		CC30AD05239CDAFB00A0DF20 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		CC30AD08239CDC3600A0DF20 /* SeparatorLineFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLineFooterView.swift; sourceTree = "<group>"; };
+		CC30AD0A239CE47700A0DF20 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		CC30AD0B239CE47700A0DF20 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		CC30AD0E239CE87900A0DF20 /* AccountSafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSafeViewController.swift; sourceTree = "<group>"; };
+		CC30AD0F239CE87900A0DF20 /* AccountSafeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSafeViewController.xib; sourceTree = "<group>"; };
+		CC30AD12239CEAD900A0DF20 /* EditUserinfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserinfoViewController.swift; sourceTree = "<group>"; };
+		CC30AD13239CEAD900A0DF20 /* EditUserinfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserinfoViewController.xib; sourceTree = "<group>"; };
+		CC30AD17239CEB0600A0DF20 /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
+		CC30AD18239CEB0600A0DF20 /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
+		CC30AD1B239CF92400A0DF20 /* MyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewController.swift; sourceTree = "<group>"; };
+		CC30AD1C239CF92400A0DF20 /* MyCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewController.xib; sourceTree = "<group>"; };
+		CC30AD1F239CFA3600A0DF20 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		CC30AD20239CFA3600A0DF20 /* CommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewController.xib; sourceTree = "<group>"; };
 		CC3410572393D2CE00ABA7A5 /* TeacherContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherContentViewController.swift; sourceTree = "<group>"; };
 		CC3410582393D2CE00ABA7A5 /* TeacherContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherContentViewController.xib; sourceTree = "<group>"; };
 		CC34105B2393D4CC00ABA7A5 /* TeacherHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherHomeCell.swift; sourceTree = "<group>"; };
@@ -505,6 +539,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CC30AD16239CEAE300A0DF20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC30AD17239CEB0600A0DF20 /* UserInfoCell.swift */,
+				CC30AD18239CEB0600A0DF20 /* UserInfoCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CC4361062381192800AF796C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +583,9 @@
 				CCAC6B3E2398FE5500D26A2C /* MessageCell.xib */,
 				CCAC6B49239904A500D26A2C /* QuestionCell.swift */,
 				CCAC6B4A239904A500D26A2C /* QuestionCell.xib */,
+				CC30AD04239CDAFB00A0DF20 /* SettingCell.swift */,
+				CC30AD05239CDAFB00A0DF20 /* SettingCell.xib */,
+				CC30AD08239CDC3600A0DF20 /* SeparatorLineFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -574,6 +620,7 @@
 		CC97B3B323865CA600F1BFE9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CC30AD16239CEAE300A0DF20 /* View */,
 				CC1F87572394AE69003F9D7F /* Model */,
 				CC97B3B423865CAD00F1BFE9 /* Controller */,
 			);
@@ -592,6 +639,8 @@
 				CCF38992238A4FDD00F84678 /* RegisterViewController.xib */,
 				CCF38999238A8A0D00F84678 /* FindPwdViewController.swift */,
 				CCF3899A238A8A0D00F84678 /* FindPwdViewController.xib */,
+				CC30AD12239CEAD900A0DF20 /* EditUserinfoViewController.swift */,
+				CC30AD13239CEAD900A0DF20 /* EditUserinfoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -816,6 +865,8 @@
 				CCDDA1F0238FD24300C28497 /* CourseSbscribeAlertViewController.xib */,
 				CCFFF28D23964FC400E1E4B0 /* CoursePlayViewController.swift */,
 				CCFFF28E23964FC400E1E4B0 /* CoursePlayViewController.xib */,
+				CC30AD1F239CFA3600A0DF20 /* CommentViewController.swift */,
+				CC30AD20239CFA3600A0DF20 /* CommentViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -849,6 +900,14 @@
 				CCAC6B462399024B00D26A2C /* CustomerServiceViewController.xib */,
 				CCE1EF62239B891600DA98EA /* FeedbackViewController.swift */,
 				CCE1EF63239B891600DA98EA /* FeedbackViewController.xib */,
+				CC30ACFE239CD99C00A0DF20 /* SettingViewController.swift */,
+				CC30ACFF239CD99C00A0DF20 /* SettingViewController.xib */,
+				CC30AD0A239CE47700A0DF20 /* AboutViewController.swift */,
+				CC30AD0B239CE47700A0DF20 /* AboutViewController.xib */,
+				CC30AD0E239CE87900A0DF20 /* AccountSafeViewController.swift */,
+				CC30AD0F239CE87900A0DF20 /* AccountSafeViewController.xib */,
+				CC30AD1B239CF92400A0DF20 /* MyCollectionViewController.swift */,
+				CC30AD1C239CF92400A0DF20 /* MyCollectionViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -972,10 +1031,12 @@
 				CCF95B84235EFDCE00FACFAD /* LaunchScreen.storyboard in Resources */,
 				CCAC6B4C239904A500D26A2C /* QuestionCell.xib in Resources */,
 				CCDDA1E5238FACE800C28497 /* CourseDetailUnitCell.xib in Resources */,
+				CC30AD22239CFA3600A0DF20 /* CommentViewController.xib in Resources */,
 				CCDDA1EB238FB06400C28497 /* CourseDetailUnitDescriptionCell.xib in Resources */,
 				CC568DA52397BCB90016115B /* CouponCell.xib in Resources */,
 				CCDDA1F2238FD24300C28497 /* CourseSbscribeAlertViewController.xib in Resources */,
 				CC97B3B0238651F900F1BFE9 /* city.plist in Resources */,
+				CC30AD01239CD99C00A0DF20 /* SettingViewController.xib in Resources */,
 				CCF95B81235EFDCE00FACFAD /* Assets.xcassets in Resources */,
 				CC568DA12397BB580016115B /* ActivityCell.xib in Resources */,
 				CCDDA1DF238FA98E00C28497 /* CourseDetailTeacherCell.xib in Resources */,
@@ -983,11 +1044,14 @@
 				CCF9B16B2390F9AE0065E420 /* PaymentPriceDetailCell.xib in Resources */,
 				CC568D9D2397AFEF0016115B /* SearchHotCell.xib in Resources */,
 				CC993FFF238E808A0036F8EA /* TeacherDetailDescriptionCell.xib in Resources */,
+				CC30AD15239CEAD900A0DF20 /* EditUserinfoViewController.xib in Resources */,
 				CCF9B1672390F9880065E420 /* PaymentCouponCell.xib in Resources */,
+				CC30AD1A239CEB0600A0DF20 /* UserInfoCell.xib in Resources */,
 				CCAC6B3B2398FB2D00D26A2C /* ActivityListViewController.xib in Resources */,
 				CCF95B7F235EFDCB00FACFAD /* Main.storyboard in Resources */,
 				CCAC6B402398FE5500D26A2C /* MessageCell.xib in Resources */,
 				CC568D992397AF5E0016115B /* SearchHeaderView.xib in Resources */,
+				CC30AD11239CE87900A0DF20 /* AccountSafeViewController.xib in Resources */,
 				CCF9B1632390EB2E0065E420 /* PaymentViewController.xib in Resources */,
 				CCAC6B482399024B00D26A2C /* CustomerServiceViewController.xib in Resources */,
 				CCF3899C238A8A0D00F84678 /* FindPwdViewController.xib in Resources */,
@@ -999,6 +1063,7 @@
 				CC8AA8C4238D14A1009F94D6 /* TeacherDetailInfoCell.xib in Resources */,
 				CC3410622393DC4C00ABA7A5 /* MineTableCell.xib in Resources */,
 				CC97B3B2238651FE00F1BFE9 /* province.plist in Resources */,
+				CC30AD07239CDAFB00A0DF20 /* SettingCell.xib in Resources */,
 				CCDDA1DB238FA69300C28497 /* CourseDetailDescptionCell.xib in Resources */,
 				CCAC6B3C2398FCDD00D26A2C /* CouponListViewController.xib in Resources */,
 				CCAC6B442399007E00D26A2C /* MessageListViewController.xib in Resources */,
@@ -1008,9 +1073,11 @@
 				CCF9B15B2390B32A0065E420 /* SelectCourseViewController.xib in Resources */,
 				CCF38994238A4FDD00F84678 /* RegisterViewController.xib in Resources */,
 				CCFFF29023964FC400E1E4B0 /* CoursePlayViewController.xib in Resources */,
+				CC30AD1E239CF92400A0DF20 /* MyCollectionViewController.xib in Resources */,
 				CCF38998238A778400F84678 /* AreaSettingViewController.xib in Resources */,
 				CC993FF7238E78180036F8EA /* TeacherDetailCommentCell.xib in Resources */,
 				CC568D7323977B4C0016115B /* SearchViewController.xib in Resources */,
+				CC30AD0D239CE47700A0DF20 /* AboutViewController.xib in Resources */,
 				CCFFF29523966FD500E1E4B0 /* CourseUnitViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1068,6 +1135,7 @@
 				CCBF46E323800BF20030AFC1 /* CourseContentViewController.swift in Sources */,
 				CC97B3BE238678BD00F1BFE9 /* Optional.swift in Sources */,
 				CC3410592393D2CE00ABA7A5 /* TeacherContentViewController.swift in Sources */,
+				CC30AD19239CEB0600A0DF20 /* UserInfoCell.swift in Sources */,
 				CCAC6B3A2398FB2D00D26A2C /* ActivityListViewController.swift in Sources */,
 				CC017DE12377B10F00BF22DC /* HomeTeacherTableCell.swift in Sources */,
 				CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */,
@@ -1080,6 +1148,7 @@
 				CCE4FCA72382969A00E21139 /* ShareData.swift in Sources */,
 				CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */,
 				CC8AA8C7238D32E8009F94D6 /* TeacherDetailSegmentedCell.swift in Sources */,
+				CC30AD1D239CF92400A0DF20 /* MyCollectionViewController.swift in Sources */,
 				CCDDA1E1238FAB4500C28497 /* CourseUnitTitleView.swift in Sources */,
 				CCAC6B3F2398FE5500D26A2C /* MessageCell.swift in Sources */,
 				CCE4FCA52382886C00E21139 /* CommonData.swift in Sources */,
@@ -1101,6 +1170,7 @@
 				CC8AA8BE238CFCA5009F94D6 /* TeacherDetailViewController.swift in Sources */,
 				CCC154E4238B9BA7005F29CC /* PixelWidth.swift in Sources */,
 				CC568D7223977B4C0016115B /* SearchViewController.swift in Sources */,
+				CC30AD10239CE87900A0DF20 /* AccountSafeViewController.swift in Sources */,
 				CC993FF9238E7ABA0036F8EA /* StarRatingView.swift in Sources */,
 				CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */,
 				CCF38997238A778400F84678 /* AreaSettingViewController.swift in Sources */,
@@ -1125,6 +1195,7 @@
 				CCF9B1662390F9880065E420 /* PaymentCouponCell.swift in Sources */,
 				CC2D7ADE238500D500D9FD92 /* Teacher.swift in Sources */,
 				CC9878252376DAE7004F8F8E /* UIPageViewController+ScrollView.swift in Sources */,
+				CC30AD09239CDC3600A0DF20 /* SeparatorLineFooterView.swift in Sources */,
 				CCF95B99235F02E700FACFAD /* MineViewController.swift in Sources */,
 				CC8AA8B6238CD247009F94D6 /* String+URLPrefix.swift in Sources */,
 				CCF9B16A2390F9AE0065E420 /* PaymentPriceDetailCell.swift in Sources */,
@@ -1144,6 +1215,7 @@
 				CCF38993238A4FDD00F84678 /* RegisterViewController.swift in Sources */,
 				CCE1EF64239B891600DA98EA /* FeedbackViewController.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
+				CC30AD21239CFA3600A0DF20 /* CommentViewController.swift in Sources */,
 				CC8AA8C3238D14A1009F94D6 /* TeacherDetailInfoCell.swift in Sources */,
 				CCBF46E5238017190030AFC1 /* MonthCalendarView.swift in Sources */,
 				CCFFF280239608D600E1E4B0 /* CourseUnit.swift in Sources */,
@@ -1151,16 +1223,20 @@
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
 				CC568D9C2397AFEF0016115B /* SearchHotCell.swift in Sources */,
 				CC828FA4238133A8005CEA06 /* MineTableHeaderView.swift in Sources */,
+				CC30AD00239CD99C00A0DF20 /* SettingViewController.swift in Sources */,
 				CC993FF6238E78180036F8EA /* TeacherDetailCommentCell.swift in Sources */,
 				CCAC6B4B239904A500D26A2C /* QuestionCell.swift in Sources */,
 				CCF3899B238A8A0D00F84678 /* FindPwdViewController.swift in Sources */,
 				CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */,
+				CC30AD14239CEAD900A0DF20 /* EditUserinfoViewController.swift in Sources */,
 				CC017DE52377BCDD00BF22DC /* HomeTeacherCollectionCell.swift in Sources */,
+				CC30AD0C239CE47700A0DF20 /* AboutViewController.swift in Sources */,
 				CCDDA1DA238FA69300C28497 /* CourseDetailDescptionCell.swift in Sources */,
 				CC568DA42397BCB90016115B /* CouponCell.swift in Sources */,
 				CCD1BC67237C195800F52069 /* Bundle+Info.swift in Sources */,
 				CCDDA1DE238FA98E00C28497 /* CourseDetailTeacherCell.swift in Sources */,
 				CCBF46DF237FFC700030AFC1 /* BaseRootViewController.swift in Sources */,
+				CC30AD06239CDAFB00A0DF20 /* SettingCell.swift in Sources */,
 				CCBF46DD237FFAB00030AFC1 /* CalendarView.swift in Sources */,
 				CC43610A23811F1600AF796C /* CourseClassCell.swift in Sources */,
 				CC8AA8B8238CD63F009F94D6 /* WebViewController.swift in Sources */,

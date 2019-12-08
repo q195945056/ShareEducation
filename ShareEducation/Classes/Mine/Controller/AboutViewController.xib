@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="ShareEducation" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="fcc-8Z-H53">
+                    <rect key="frame" x="171" y="50" width="72" height="72"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名师来啦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8Y-Px-Xfb">
+                    <rect key="frame" x="158" y="132" width="98" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号：1.0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxR-Gg-CRs">
+                    <rect key="frame" x="170" y="170" width="74" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="官方QQ: 123456789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhl-Nb-6JW">
+                    <rect key="frame" x="13" y="228" width="143.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ群号: 12345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnX-zL-T5B">
+                    <rect key="frame" x="13" y="266" width="134" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家长QQ群: 1233466666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euv-cQ-9Rv">
+                    <rect key="frame" x="13" y="304" width="169.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客服电话: 40001313" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7XT-Dc-jkR">
+                    <rect key="frame" x="13" y="342" width="141" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司版权所有@2019-2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0K-b9-P8B">
+                    <rect key="frame" x="126.5" y="743" width="161.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FxR-Gg-CRs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0ra-UC-Gd9"/>
+                <constraint firstItem="euv-cQ-9Rv" firstAttribute="top" secondItem="bnX-zL-T5B" secondAttribute="bottom" constant="20" id="4Lw-8l-VF7"/>
+                <constraint firstItem="X8Y-Px-Xfb" firstAttribute="top" secondItem="fcc-8Z-H53" secondAttribute="bottom" constant="10" id="BiJ-MN-cI4"/>
+                <constraint firstItem="F0K-b9-P8B" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IhK-3S-cqF"/>
+                <constraint firstItem="bnX-zL-T5B" firstAttribute="top" secondItem="rhl-Nb-6JW" secondAttribute="bottom" constant="20" id="Jct-YG-FEf"/>
+                <constraint firstItem="X8Y-Px-Xfb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="La0-pr-8Rf"/>
+                <constraint firstItem="FxR-Gg-CRs" firstAttribute="top" secondItem="X8Y-Px-Xfb" secondAttribute="bottom" constant="9" id="MnO-KP-cF3"/>
+                <constraint firstItem="fcc-8Z-H53" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="SLz-bn-deg"/>
+                <constraint firstItem="fcc-8Z-H53" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WFa-B2-IOU"/>
+                <constraint firstItem="rhl-Nb-6JW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="228" id="dpU-z1-foD"/>
+                <constraint firstItem="euv-cQ-9Rv" firstAttribute="leading" secondItem="rhl-Nb-6JW" secondAttribute="leading" id="fGY-VE-qqV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="F0K-b9-P8B" secondAttribute="bottom" constant="15" id="iJe-Ds-nj8"/>
+                <constraint firstItem="7XT-Dc-jkR" firstAttribute="leading" secondItem="rhl-Nb-6JW" secondAttribute="leading" id="qQX-bo-F5I"/>
+                <constraint firstItem="rhl-Nb-6JW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="13" id="tfH-Qi-OfY"/>
+                <constraint firstItem="bnX-zL-T5B" firstAttribute="leading" secondItem="rhl-Nb-6JW" secondAttribute="leading" id="v7c-8e-1p9"/>
+                <constraint firstItem="7XT-Dc-jkR" firstAttribute="top" secondItem="euv-cQ-9Rv" secondAttribute="bottom" constant="20" id="yeG-kn-t46"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo" width="72" height="72"/>
+    </resources>
+</document>

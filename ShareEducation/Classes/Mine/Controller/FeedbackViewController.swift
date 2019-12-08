@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import RSKPlaceholderTextView
+import IQKeyboardManagerSwift
 
 class FeedbackViewController: UIViewController {
     
-    @IBOutlet var textView: UITextView!
+    @IBOutlet var textView: RSKPlaceholderTextView!
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -22,10 +24,38 @@ class FeedbackViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        IQKeyboardManager.shared.enable = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        IQKeyboardManager.shared.enable = false
+    }
+    
+    
+    // MARK: - Private
+    
     func setupUI() {
-         
+        navigationItem.title = "意见反馈"
+        var  tempView = textView.superview
+        tempView!.layer.cornerRadius = 10
+        tempView!.layer.borderColor = UIColor.e5e5e5.cgColor
+        tempView!.layer.borderWidth = onePixelWidth
+        
+        tempView = contactField.superview
+        tempView!.layer.cornerRadius = 5
+        tempView!.layer.borderColor = UIColor.e5e5e5.cgColor
+        tempView!.layer.borderWidth = onePixelWidth
+        
+        textView.placeholder = "请简要描述你的问题与意见，请不要超过200个字符。"
     }
 
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Jelly
 
 class CoursePlayViewController: UIViewController {
     
@@ -15,6 +16,18 @@ class CoursePlayViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     lazy var playerController = PlayerViewController()
+    
+    lazy var commentItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "icon_share2")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action:#selector(onCommentButtonPressed(_:)))
+        return barButtonItem
+    }()
+    
+    lazy var shareItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "icon_share")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action:#selector(onShareButtonPressed(_:)))
+        return barButtonItem
+    }()
+    
+    var animator: Animator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +45,24 @@ class CoursePlayViewController: UIViewController {
         playerController.view.snp.makeConstraints { (make) in
             make.edges.equalTo(playerContainerView)
         }
+        navigationItem.rightBarButtonItems = [shareItem, commentItem]
     }
 
+    @objc func onShareButtonPressed(_ sender: Any) {
+        
+    }
 
-    
+    @objc func onCommentButtonPressed(_ sender: Any) {
+        let controller = CommentViewController()
+        let size = PresentationSize(width: .fullscreen, height: .fullscreen)
+        let marginGuards = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        let uiConfiguration = PresentationUIConfiguration(cornerRadius: 0, backgroundStyle: .dimmed(alpha: 0.8))
+        let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
+        let animator = Animator(presentation: presentation)
+        animator.prepare(presentedViewController: controller)
+        self.animator = animator
+        present(controller, animated: true)
+    }
     
     /*
     // MARK: - Navigation

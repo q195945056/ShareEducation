@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController" customModule="ShareEducation" customModuleProvider="target">
+            <connections>
+                <outlet property="footerView" destination="BGH-WM-02z" id="KAb-bO-X5x"/>
+                <outlet property="tableView" destination="7me-bb-ChC" id="MFs-ui-9sg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7me-bb-ChC">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="o6P-0Z-fQJ"/>
+                        <outlet property="delegate" destination="-1" id="7yE-XA-YQq"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7me-bb-ChC" secondAttribute="bottom" id="2PF-1A-rHy"/>
+                <constraint firstItem="7me-bb-ChC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VEZ-cV-rm4"/>
+                <constraint firstAttribute="trailing" secondItem="7me-bb-ChC" secondAttribute="trailing" id="YNg-Gf-mNo"/>
+                <constraint firstItem="7me-bb-ChC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uQe-uu-fJZ"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="97"/>
+        </view>
+        <view contentMode="scaleToFill" id="BGH-WM-02z">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvt-Hd-Q2Q">
+                    <rect key="frame" x="53" y="75" width="269" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="yR8-04-t92"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <state key="normal" title="退出登录" backgroundImage="button_01"/>
+                    <connections>
+                        <action selector="onLogoutButtonPressed:" destination="-1" eventType="touchUpInside" id="3Lv-LG-bUd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="dub-GG-cat" firstAttribute="trailing" secondItem="Xvt-Hd-Q2Q" secondAttribute="trailing" constant="53" id="frx-zD-9vi"/>
+                <constraint firstItem="Xvt-Hd-Q2Q" firstAttribute="top" secondItem="BGH-WM-02z" secondAttribute="top" constant="75" id="mkC-Mf-eVr"/>
+                <constraint firstItem="Xvt-Hd-Q2Q" firstAttribute="leading" secondItem="dub-GG-cat" secondAttribute="leading" constant="53" id="ttC-3h-bzI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="dub-GG-cat"/>
+            <point key="canvasLocation" x="91" y="-284"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="button_01" width="40" height="40"/>
+    </resources>
+</document>
