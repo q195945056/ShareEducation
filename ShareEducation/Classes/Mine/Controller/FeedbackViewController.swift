@@ -1,19 +1,31 @@
 //
-//  FeedViewController.swift
+//  FeedbackViewController.swift
 //  ShareEducation
 //
-//  Created by 严明俊 on 2019/12/5.
+//  Created by yanmingjun on 2019/12/7.
 //  Copyright © 2019 严明俊. All rights reserved.
 //
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class FeedbackViewController: UIViewController {
+    
+    @IBOutlet var textView: UITextView!
+    
+    @IBOutlet var collectionView: UICollectionView!
+    
+    @IBOutlet var contactField: UITextField!
+    
+    @IBOutlet var confirmButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func setupUI() {
+         
     }
 
 

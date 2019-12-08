@@ -23,6 +23,7 @@ target 'ShareEducation' do
   pod 'Cache'
   pod 'SwiftyJSON'
   pod 'PKHUD'
+  pod 'RSKPlaceholderTextView'
   
 end
 
