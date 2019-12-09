@@ -10,6 +10,7 @@ import UIKit
 import Moya_ObjectMapper
 import SwiftDate
 import Moya
+import IQKeyboardManagerSwift
 
 let mainNavigationController: UINavigationController = {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -23,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.enable = true
         
         let navigationBar = UINavigationBar.appearance()
         navigationBar.setBackgroundImage(UIImage(), for: .default)

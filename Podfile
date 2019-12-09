@@ -18,7 +18,7 @@ target 'ShareEducation' do
   pod 'Then'
   pod 'Moya-ObjectMapper'
   pod 'SwiftDate'
-  pod 'IQKeyboardManagerSwift', '6.5.2'
+  pod 'IQKeyboardManagerSwift'
   pod 'MJRefresh'
   pod 'Cache'
   pod 'SwiftyJSON'

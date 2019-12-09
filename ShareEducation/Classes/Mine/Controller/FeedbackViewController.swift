@@ -8,7 +8,6 @@
 
 import UIKit
 import RSKPlaceholderTextView
-import IQKeyboardManagerSwift
 
 class FeedbackViewController: UIViewController {
     
@@ -31,13 +30,11 @@ class FeedbackViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-        IQKeyboardManager.shared.enable = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        IQKeyboardManager.shared.enable = false
     }
     
     
