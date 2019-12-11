@@ -190,6 +190,7 @@
 		CCF9B16E2390F9DD0065E420 /* PaymentPayTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9B16C2390F9DD0065E420 /* PaymentPayTypeCell.swift */; };
 		CCF9B16F2390F9DD0065E420 /* PaymentPayTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF9B16D2390F9DD0065E420 /* PaymentPayTypeCell.xib */; };
 		CCF9B17223910B880065E420 /* PaymentSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9B17123910B880065E420 /* PaymentSectionHeaderView.swift */; };
+		CCFCF9BD23A0FF5A00EBAF6E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFCF9BC23A0FF5A00EBAF6E /* R.generated.swift */; };
 		CCFFF280239608D600E1E4B0 /* CourseUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFFF27F239608D600E1E4B0 /* CourseUnit.swift */; };
 		CCFFF28A23964CC900E1E4B0 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFFF28823964CC900E1E4B0 /* PlayerViewController.swift */; };
 		CCFFF28B23964CC900E1E4B0 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFFF28923964CC900E1E4B0 /* PlayerViewController.xib */; };
@@ -417,6 +418,7 @@
 		CCF9B16C2390F9DD0065E420 /* PaymentPayTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPayTypeCell.swift; sourceTree = "<group>"; };
 		CCF9B16D2390F9DD0065E420 /* PaymentPayTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentPayTypeCell.xib; sourceTree = "<group>"; };
 		CCF9B17123910B880065E420 /* PaymentSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSectionHeaderView.swift; sourceTree = "<group>"; };
+		CCFCF9BC23A0FF5A00EBAF6E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		CCFFF27F239608D600E1E4B0 /* CourseUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseUnit.swift; sourceTree = "<group>"; };
 		CCFFF28823964CC900E1E4B0 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		CCFFF28923964CC900E1E4B0 /* PlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 		CC97B3AE238651EA00F1BFE9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				CCFCF9BC23A0FF5A00EBAF6E /* R.generated.swift */,
 				CC97B3B1238651FE00F1BFE9 /* province.plist */,
 				CC97B3AF238651F900F1BFE9 /* city.plist */,
 			);
@@ -945,6 +948,7 @@
 			buildConfigurationList = CCF95B88235EFDCE00FACFAD /* Build configuration list for PBXNativeTarget "ShareEducation" */;
 			buildPhases = (
 				667DE8D54DD77DE17269A099 /* [CP] Check Pods Manifest.lock */,
+				CCFCF9BB23A0FED300EBAF6E /* ShellScript */,
 				CCF95B70235EFDCB00FACFAD /* Sources */,
 				CCF95B71235EFDCB00FACFAD /* Frameworks */,
 				CCF95B72235EFDCB00FACFAD /* Resources */,
@@ -1124,6 +1128,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShareEducation/Pods-ShareEducation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CCFCF9BB23A0FED300EBAF6E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1133,6 +1156,7 @@
 			files = (
 				CCDDA1D6238FA34000C28497 /* CourseDetailCoverCell.swift in Sources */,
 				CCBF46E323800BF20030AFC1 /* CourseContentViewController.swift in Sources */,
+				CCFCF9BD23A0FF5A00EBAF6E /* R.generated.swift in Sources */,
 				CC97B3BE238678BD00F1BFE9 /* Optional.swift in Sources */,
 				CC3410592393D2CE00ABA7A5 /* TeacherContentViewController.swift in Sources */,
 				CC30AD19239CEB0600A0DF20 /* UserInfoCell.swift in Sources */,

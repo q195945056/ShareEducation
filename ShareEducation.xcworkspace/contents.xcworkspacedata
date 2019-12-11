@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/yanmingjun/Documents/Github/ShareEducation/ShareEducation/Classes/Mine/Controller/CouponListViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/yanmingjun/Documents/Github/ShareEducation/ShareEducation/Classes/Mine/Controller/CouponListViewController.xib">
-   </FileRef>
-   <FileRef
       location = "group:ShareEducation.xcodeproj">
    </FileRef>
    <FileRef
