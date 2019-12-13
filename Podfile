@@ -25,6 +25,7 @@ target 'ShareEducation' do
   pod 'PKHUD'
   pod 'RSKPlaceholderTextView'
   pod 'R.swift'
+  pod 'ijkplayer'
   
 end
 
