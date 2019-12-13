@@ -34,16 +34,16 @@ class TeacherHomeCell: UITableViewCell {
             if let pic = teacher.pic {
                 headImageView.kf.setImage(with: URL(string: pic))
             }
-            nameLabel.text = teacher.trueName
-            starRateView.score = teacher.score!
+            nameLabel.text = teacher.truename
+            starRateView.score = teacher.score ?? 5
             scoreLabel.text = String(teacher.score!)
-            schoolNameLabel.text = teacher.schoolName
+            schoolNameLabel.text = teacher.schoolname
             titleLabel.text = teacher.title
             courseLabel.text = ""
-            teachAgeLabel.text = "\(teacher.teachingAge!)年教龄"
+            teachAgeLabel.text = "\(teacher.teachingage!)年教龄"
             rankingLabel.text = "排名第\(12)位"
-            videoPlayCountLabel.text = "视频播放\(teacher.playCount!)次"
-            collectButton.isSelected = teacher.isCollect ?? false
+            videoPlayCountLabel.text = "视频播放\(teacher.playcount!)次"
+            collectButton.isSelected = teacher.collect ?? false
         }
     }
 
@@ -71,9 +71,9 @@ class TeacherHomeCell: UITableViewCell {
     }
     
     @IBAction func onCollectButtonPressed(_ sender: UIButton) {
-        teacher?.collect(oper: !teacher!.isCollect!) { result in
+        teacher?.collect(oper: !teacher!.collect!) { result in
             if result {
-                self.collectButton.isSelected = self.teacher!.isCollect!
+                self.collectButton.isSelected = self.teacher!.collect!
             }
         }
     }

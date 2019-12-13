@@ -8,15 +8,9 @@
 
 import ObjectMapper
 
-struct Comment: Mappable {
+struct Comment {
     var id: Int!
     var name: String!
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        
-    }
 }
+
+extension Comment: AutoMappable {}

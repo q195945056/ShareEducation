@@ -46,15 +46,15 @@ class TeacherDetailInfoCell: UITableViewCell {
         if let urlString = urlString {
             headImageView.kf.setImage(with: URL(string: urlString))
         }
-        nameLabel.text = teacher?.trueName
+        nameLabel.text = teacher?.truename
         starRateImageView.image = UIImage(named: "start\(teacher?.score ?? 1)")
         scoreLabel.text = String(teacher?.score ?? 1)
         schoolNameLabel.text = teacher?.university
         titleLabel.text = teacher?.title
-        teachAgeLabel.text = "\(teacher?.teachingAge ?? 1)年教龄"
+        teachAgeLabel.text = "\(teacher?.teachingage ?? 1)年教龄"
         rankingLabel.text = "第\(12)位"
         teachTimeLabel.text = String(teacher?.totletime ?? 0) + "分钟"
-        playCountLabel.text = String(teacher?.playCount ?? 0) + "次"
+        playCountLabel.text = String(teacher?.playcount ?? 0) + "次"
     }
     
 }

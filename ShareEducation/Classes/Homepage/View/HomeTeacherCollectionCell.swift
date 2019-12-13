@@ -45,12 +45,12 @@ class HomeTeacherCollectionCell: UICollectionViewCell {
         if let urlString = urlString {
             imageView.kf.setImage(with: URL(string: urlString))
         }
-        nameLabel.text = teacher?.trueName
+        nameLabel.text = teacher?.truename
         levelLabel.text = teacher?.title
         starRateView.image = UIImage(named: "start\(teacher?.score ?? 1)")
         scoreLabel.text = String(teacher?.score ?? 1)
         addressLabel.text = teacher?.city
         schoolNameLabel.text = teacher?.university
-        ageLabel.text = "\(teacher?.teachingAge ?? 1)年教龄"
+        ageLabel.text = "\(teacher?.teachingage ?? 1)年教龄"
     }
 }

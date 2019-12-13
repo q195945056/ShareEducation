@@ -17,6 +17,19 @@ extension Area: Mappable {
     }
 }
 
+// MARK: - Comment
+extension Comment: Mappable {
+
+    init?(map: Map) {
+        self.init()
+    }
+
+    mutating func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+    }
+}
+
 // MARK: - Course
 extension Course: Mappable {
 
@@ -116,6 +129,30 @@ extension Resourcetype: Mappable {
         name <- map["name"]
         resources <- map["resources"]
         type <- map["type"]
+    }
+}
+
+// MARK: - Teacher
+extension Teacher: Mappable {
+
+    convenience init?(map: Map) {
+        self.init()
+    }
+
+    func mapping(map: Map) {
+        mid <- map["mid"]
+        name <- map["name"]
+        truename <- map["truename"]
+        university <- map["university"]
+        title <- map["title"]
+        score <- map["score"]
+        collect <- map["collect"]
+        playcount <- map["playcount"]
+        teachingage <- map["teachingage"]
+        pic <- map["pic"]
+        city <- map["city"]
+        schoolname <- map["schoolname"]
+        totletime <- map["totletime"]
     }
 }
 

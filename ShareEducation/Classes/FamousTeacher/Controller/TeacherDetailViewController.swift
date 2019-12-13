@@ -93,8 +93,8 @@ class TeacherDetailViewController: UIViewController {
                 let mapper = Mapper<CourseItem>()
                 let courses = mapper.mapArray(JSONObject: json["data1"].arrayObject)
                 courses?.forEach({ course in
-                    course.teacherName = self.teacher.trueName
-                    course.schoolName = self.teacher.schoolName
+                    course.teacherName = self.teacher.truename
+                    course.schoolName = self.teacher.schoolname
                     course.pic = self.teacher.pic
                 })
                 self.courses = courses;
