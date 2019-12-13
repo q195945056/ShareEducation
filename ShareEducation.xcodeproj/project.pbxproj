@@ -15,7 +15,6 @@
 		CC017DF623781B9A00BF22DC /* HomeCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DF523781B9A00BF22DC /* HomeCourseCell.swift */; };
 		CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */; };
 		CC1F87592394AE7D003F9D7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F87582394AE7D003F9D7F /* User.swift */; };
-		CC1F87712394D487003F9D7F /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87662394D441003F9D7F /* IJKMediaFramework.framework */; };
 		CC1F87732394D498003F9D7F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87722394D498003F9D7F /* AudioToolbox.framework */; };
 		CC1F87752394D49E003F9D7F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87742394D49E003F9D7F /* AVFoundation.framework */; };
 		CC1F87772394D4A5003F9D7F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87762394D4A5003F9D7F /* CoreGraphics.framework */; };
@@ -200,37 +199,6 @@
 		CCFFF29523966FD500E1E4B0 /* CourseUnitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFFF29323966FD500E1E4B0 /* CourseUnitViewController.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CC1F87652394D441003F9D7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E654EA8A1B6B27E600B0F2D0;
-			remoteInfo = IJKMediaFramework;
-		};
-		CC1F87672394D441003F9D7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5450B0431E63EA4300568494;
-			remoteInfo = IJKMediaFrameworkWithSSL;
-		};
-		CC1F87692394D441003F9D7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E654EA941B6B27E600B0F2D0;
-			remoteInfo = IJKMediaFrameworkTests;
-		};
-		CC1F876C2394D478003F9D7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E654EA891B6B27E600B0F2D0;
-			remoteInfo = IJKMediaFramework;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareEducation.release.xcconfig"; path = "Target Support Files/Pods-ShareEducation/Pods-ShareEducation.release.xcconfig"; sourceTree = "<group>"; };
 		CC017DE02377B10F00BF22DC /* HomeTeacherTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTeacherTableCell.swift; sourceTree = "<group>"; };
@@ -240,7 +208,6 @@
 		CC017DF523781B9A00BF22DC /* HomeCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCourseCell.swift; sourceTree = "<group>"; };
 		CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLSegmentedControl.swift; sourceTree = "<group>"; };
 		CC1F87582394AE7D003F9D7F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../../../ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
 		CC1F87722394D498003F9D7F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CC1F87742394D49E003F9D7F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CC1F87762394D4A5003F9D7F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -448,7 +415,6 @@
 				CC1F87772394D4A5003F9D7F /* CoreGraphics.framework in Frameworks */,
 				CC1F87752394D49E003F9D7F /* AVFoundation.framework in Frameworks */,
 				CC1F87732394D498003F9D7F /* AudioToolbox.framework in Frameworks */,
-				CC1F87712394D487003F9D7F /* IJKMediaFramework.framework in Frameworks */,
 				55D15AAF20EE9A762F62D938 /* Pods_ShareEducation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,7 +455,6 @@
 		CC017DE82377D38500BF22DC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */,
 				CCBF46CB237FFAAF0030AFC1 /* CalendarView */,
 			);
 			path = Vendor;
@@ -529,16 +494,6 @@
 				CC1F87582394AE7D003F9D7F /* User.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CC1F87602394D441003F9D7F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CC1F87662394D441003F9D7F /* IJKMediaFramework.framework */,
-				CC1F87682394D441003F9D7F /* IJKMediaFrameworkWithSSL.framework */,
-				CC1F876A2394D441003F9D7F /* IJKMediaFrameworkTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CC30AD16239CEAE300A0DF20 /* View */ = {
@@ -957,7 +912,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CC1F876D2394D478003F9D7F /* PBXTargetDependency */,
 			);
 			name = ShareEducation;
 			productName = ShareEducation;
@@ -990,42 +944,12 @@
 			mainGroup = CCF95B6B235EFDCA00FACFAD;
 			productRefGroup = CCF95B75235EFDCB00FACFAD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CC1F87602394D441003F9D7F /* Products */;
-					ProjectRef = CC1F875F2394D441003F9D7F /* IJKMediaPlayer.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				CCF95B73235EFDCB00FACFAD /* ShareEducation */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		CC1F87662394D441003F9D7F /* IJKMediaFramework.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = IJKMediaFramework.framework;
-			remoteRef = CC1F87652394D441003F9D7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CC1F87682394D441003F9D7F /* IJKMediaFrameworkWithSSL.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = IJKMediaFrameworkWithSSL.framework;
-			remoteRef = CC1F87672394D441003F9D7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CC1F876A2394D441003F9D7F /* IJKMediaFrameworkTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = IJKMediaFrameworkTests.xctest;
-			remoteRef = CC1F87692394D441003F9D7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CCF95B72235EFDCB00FACFAD /* Resources */ = {
@@ -1283,14 +1207,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CC1F876D2394D478003F9D7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IJKMediaFramework;
-			targetProxy = CC1F876C2394D478003F9D7F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CCF95B7D235EFDCB00FACFAD /* Main.storyboard */ = {
