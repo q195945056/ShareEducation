@@ -74,6 +74,20 @@ extension InitData: Mappable {
     }
 }
 
+// MARK: - ListResult
+extension ListResult: Mappable {
+
+    convenience init?(map: Map) {
+        self.init()
+    }
+
+    func mapping(map: Map) {
+        data <- map["data"]
+        result <- map["result"]
+        total <- map["total"]
+    }
+}
+
 // MARK: - Resource
 extension Resource: Mappable {
 

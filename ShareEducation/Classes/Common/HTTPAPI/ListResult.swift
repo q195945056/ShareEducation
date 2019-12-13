@@ -8,19 +8,10 @@
 
 import ObjectMapper
 
-class ListResult<T: Mappable>: Mappable {
+final class ListResult<T: Mappable> {
     var data: [T]!
     var result: Int!
     var total: Int?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        data <- map["data"]
-        result <- map["result"]
-        total <- map["total"]
-    }
-
 }
+
+extension ListResult: AutoMappable {}
