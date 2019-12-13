@@ -26,6 +26,7 @@ target 'ShareEducation' do
   pod 'RSKPlaceholderTextView'
   pod 'R.swift'
   pod 'ijkplayer'
+  pod 'Sourcery'
   
 end
 

@@ -27,6 +27,7 @@ PODS:
   - Result (4.1.0)
   - RSKPlaceholderTextView (5.0.2)
   - SnapKit (5.0.1)
+  - Sourcery (0.17.0)
   - SwiftDate (6.1.0)
   - SwiftyJSON (5.0.0)
   - Then (2.6.0)
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - R.swift
   - RSKPlaceholderTextView
   - SnapKit
+  - Sourcery
   - SwiftDate
   - SwiftyJSON
   - Then
@@ -69,6 +71,7 @@ SPEC REPOS:
     - Result
     - RSKPlaceholderTextView
     - SnapKit
+    - Sourcery
     - SwiftDate
     - SwiftyJSON
     - Then
@@ -92,11 +95,12 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RSKPlaceholderTextView: df72ca93edfac185b98f51cb85e445f54ce8a163
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
   TYCyclePagerView: 2b051dade0615c70784aa34f40c646feeddb7344
 
-PODFILE CHECKSUM: a410f486a12739ee05ae07863b884773fba046b5
+PODFILE CHECKSUM: 6509f0fe06babe4bf48fd71972d6c749eb69ca80
 
 COCOAPODS: 1.8.4

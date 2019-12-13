@@ -28,6 +28,11 @@
 		CC1F87872394D4E1003F9D7F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87862394D4E1003F9D7F /* QuartzCore.framework */; };
 		CC1F87892394D4E7003F9D7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87882394D4E7003F9D7F /* UIKit.framework */; };
 		CC1F878B2394D4EF003F9D7F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F878A2394D4EF003F9D7F /* VideoToolbox.framework */; };
+		CC2B9F2923A392D5006C815E /* AutoEquatable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = CC2B9F2523A392D5006C815E /* AutoEquatable.stencil */; };
+		CC2B9F2A23A392D5006C815E /* AutoMappable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = CC2B9F2623A392D5006C815E /* AutoMappable.stencil */; };
+		CC2B9F2C23A392DE006C815E /* config.sourcery.yml in Resources */ = {isa = PBXBuildFile; fileRef = CC2B9F2B23A392DD006C815E /* config.sourcery.yml */; };
+		CC2B9F2F23A393D0006C815E /* AutoMappable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B9F2E23A393D0006C815E /* AutoMappable.generated.swift */; };
+		CC2B9F3123A39427006C815E /* AutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B9F3023A39427006C815E /* AutoEquatable.generated.swift */; };
 		CC2D7ADE238500D500D9FD92 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7ADD238500D500D9FD92 /* Teacher.swift */; };
 		CC2D7AE0238528C500D9FD92 /* ListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7ADF238528C500D9FD92 /* ListResult.swift */; };
 		CC2D7AE223852FB200D9FD92 /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7AE123852FB200D9FD92 /* CourseItem.swift */; };
@@ -221,6 +226,11 @@
 		CC1F87862394D4E1003F9D7F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CC1F87882394D4E7003F9D7F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CC1F878A2394D4EF003F9D7F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		CC2B9F2523A392D5006C815E /* AutoEquatable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoEquatable.stencil; sourceTree = "<group>"; };
+		CC2B9F2623A392D5006C815E /* AutoMappable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoMappable.stencil; sourceTree = "<group>"; };
+		CC2B9F2B23A392DD006C815E /* config.sourcery.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = config.sourcery.yml; sourceTree = SOURCE_ROOT; };
+		CC2B9F2E23A393D0006C815E /* AutoMappable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMappable.generated.swift; sourceTree = "<group>"; };
+		CC2B9F3023A39427006C815E /* AutoEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEquatable.generated.swift; sourceTree = "<group>"; };
 		CC2D7ADD238500D500D9FD92 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		CC2D7ADF238528C500D9FD92 /* ListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResult.swift; sourceTree = "<group>"; };
 		CC2D7AE123852FB200D9FD92 /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
@@ -496,6 +506,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CC2B9F2023A392D5006C815E /* Sourcery */ = {
+			isa = PBXGroup;
+			children = (
+				CC2B9F2B23A392DD006C815E /* config.sourcery.yml */,
+				CC2B9F2123A392D5006C815E /* Generated */,
+				CC2B9F2423A392D5006C815E /* Stencil */,
+			);
+			path = Sourcery;
+			sourceTree = "<group>";
+		};
+		CC2B9F2123A392D5006C815E /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				CC2B9F2E23A393D0006C815E /* AutoMappable.generated.swift */,
+				CC2B9F3023A39427006C815E /* AutoEquatable.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		CC2B9F2423A392D5006C815E /* Stencil */ = {
+			isa = PBXGroup;
+			children = (
+				CC2B9F2523A392D5006C815E /* AutoEquatable.stencil */,
+				CC2B9F2623A392D5006C815E /* AutoMappable.stencil */,
+			);
+			path = Stencil;
+			sourceTree = "<group>";
+		};
 		CC30AD16239CEAE300A0DF20 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,6 +762,7 @@
 		CCF95B76235EFDCB00FACFAD /* ShareEducation */ = {
 			isa = PBXGroup;
 			children = (
+				CC2B9F2023A392D5006C815E /* Sourcery */,
 				CC017DE82377D38500BF22DC /* Vendor */,
 				CCF95B8B235F00D800FACFAD /* Classes */,
 				CC97B3AE238651EA00F1BFE9 /* Resource */,
@@ -903,7 +942,8 @@
 			buildConfigurationList = CCF95B88235EFDCE00FACFAD /* Build configuration list for PBXNativeTarget "ShareEducation" */;
 			buildPhases = (
 				667DE8D54DD77DE17269A099 /* [CP] Check Pods Manifest.lock */,
-				CCFCF9BB23A0FED300EBAF6E /* ShellScript */,
+				CC2B9F2D23A392F3006C815E /* ShellScript */,
+				CCFCF9BB23A0FED300EBAF6E /* R.Swift Script */,
 				CCF95B70235EFDCB00FACFAD /* Sources */,
 				CCF95B71235EFDCB00FACFAD /* Frameworks */,
 				CCF95B72235EFDCB00FACFAD /* Resources */,
@@ -985,6 +1025,7 @@
 				CCF3899C238A8A0D00F84678 /* FindPwdViewController.xib in Resources */,
 				CCDDA1D3238FA26600C28497 /* CourseDetailViewController.xib in Resources */,
 				CC8AA8C8238D32E8009F94D6 /* TeacherDetailSegmentedCell.xib in Resources */,
+				CC2B9F2A23A392D5006C815E /* AutoMappable.stencil in Resources */,
 				CC34105A2393D2CE00ABA7A5 /* TeacherContentViewController.xib in Resources */,
 				CCFFF28B23964CC900E1E4B0 /* PlayerViewController.xib in Resources */,
 				CCDDA1D7238FA34000C28497 /* CourseDetailCoverCell.xib in Resources */,
@@ -1002,10 +1043,12 @@
 				CCF38994238A4FDD00F84678 /* RegisterViewController.xib in Resources */,
 				CCFFF29023964FC400E1E4B0 /* CoursePlayViewController.xib in Resources */,
 				CC30AD1E239CF92400A0DF20 /* MyCollectionViewController.xib in Resources */,
+				CC2B9F2C23A392DE006C815E /* config.sourcery.yml in Resources */,
 				CCF38998238A778400F84678 /* AreaSettingViewController.xib in Resources */,
 				CC993FF7238E78180036F8EA /* TeacherDetailCommentCell.xib in Resources */,
 				CC568D7323977B4C0016115B /* SearchViewController.xib in Resources */,
 				CC30AD0D239CE47700A0DF20 /* AboutViewController.xib in Resources */,
+				CC2B9F2923A392D5006C815E /* AutoEquatable.stencil in Resources */,
 				CCFFF29523966FD500E1E4B0 /* CourseUnitViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1035,6 +1078,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CC2B9F2D23A392F3006C815E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$PODS_ROOT/Sourcery/bin/sourcery --config $SRCROOT/config.sourcery.yml\n";
+		};
 		CC559B277B75F64959BF4A8A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1052,7 +1112,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShareEducation/Pods-ShareEducation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCFCF9BB23A0FED300EBAF6E /* ShellScript */ = {
+		CCFCF9BB23A0FED300EBAF6E /* R.Swift Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1062,6 +1122,7 @@
 			inputPaths = (
 				"$TEMP_DIR/rswift-lastrun",
 			);
+			name = "R.Swift Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1079,6 +1140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCDDA1D6238FA34000C28497 /* CourseDetailCoverCell.swift in Sources */,
+				CC2B9F3123A39427006C815E /* AutoEquatable.generated.swift in Sources */,
 				CCBF46E323800BF20030AFC1 /* CourseContentViewController.swift in Sources */,
 				CCFCF9BD23A0FF5A00EBAF6E /* R.generated.swift in Sources */,
 				CC97B3BE238678BD00F1BFE9 /* Optional.swift in Sources */,
@@ -1095,6 +1157,7 @@
 				CCDDA1F1238FD24300C28497 /* CourseSbscribeAlertViewController.swift in Sources */,
 				CCE4FCA72382969A00E21139 /* ShareData.swift in Sources */,
 				CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */,
+				CC2B9F2F23A393D0006C815E /* AutoMappable.generated.swift in Sources */,
 				CC8AA8C7238D32E8009F94D6 /* TeacherDetailSegmentedCell.swift in Sources */,
 				CC30AD1D239CF92400A0DF20 /* MyCollectionViewController.swift in Sources */,
 				CCDDA1E1238FAB4500C28497 /* CourseUnitTitleView.swift in Sources */,

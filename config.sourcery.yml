@@ -1,0 +1,6 @@
+sources:
+  - ShareEducation
+templates:
+  - ShareEducation/Sourcery/Stencil
+output:
+  ShareEducation/Sourcery/generated

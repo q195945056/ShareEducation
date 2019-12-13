@@ -114,16 +114,40 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.file` struct is generated, and contains static references to 2 files.
+  /// This `R.file` struct is generated, and contains static references to 5 files.
   struct file {
+    /// Resource file `AutoEquatable.stencil`.
+    static let autoEquatableStencil = Rswift.FileResource(bundle: R.hostingBundle, name: "AutoEquatable", pathExtension: "stencil")
+    /// Resource file `AutoMappable.stencil`.
+    static let autoMappableStencil = Rswift.FileResource(bundle: R.hostingBundle, name: "AutoMappable", pathExtension: "stencil")
     /// Resource file `city.plist`.
     static let cityPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "city", pathExtension: "plist")
+    /// Resource file `config.sourcery.yml`.
+    static let configSourceryYml = Rswift.FileResource(bundle: R.hostingBundle, name: "config.sourcery", pathExtension: "yml")
     /// Resource file `province.plist`.
     static let provincePlist = Rswift.FileResource(bundle: R.hostingBundle, name: "province", pathExtension: "plist")
+
+    /// `bundle.url(forResource: "AutoEquatable", withExtension: "stencil")`
+    static func autoEquatableStencil(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.autoEquatableStencil
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "AutoMappable", withExtension: "stencil")`
+    static func autoMappableStencil(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.autoMappableStencil
+      return fileResource.bundle.url(forResource: fileResource)
+    }
 
     /// `bundle.url(forResource: "city", withExtension: "plist")`
     static func cityPlist(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.cityPlist
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "config.sourcery", withExtension: "yml")`
+    static func configSourceryYml(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.configSourceryYml
       return fileResource.bundle.url(forResource: fileResource)
     }
 
