@@ -25,7 +25,14 @@ class CourseContentViewController: BaseContentViewController {
         return tableView
     }()
     
-    lazy var monthHeaderView = MonthCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 290))
+    lazy var monthHeaderView: MonthCalendarView = {
+        let monthHeaderView = MonthCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 290))
+        monthHeaderView.clipsToBounds = true
+        monthHeaderView.heightChangeHandler = {
+            self.tableView.tableHeaderView = monthHeaderView
+        }
+        return monthHeaderView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
