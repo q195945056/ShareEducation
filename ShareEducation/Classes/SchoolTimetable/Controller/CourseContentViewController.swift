@@ -12,6 +12,8 @@ class CourseContentViewController: BaseContentViewController {
     
     var playType: CoursePlayType = .living
     
+    var calendarType: CalendarViewController.CalendarType = .month
+    
     // MARK: - Property
     
     lazy var tableView: UITableView = {
@@ -26,7 +28,7 @@ class CourseContentViewController: BaseContentViewController {
     }()
     
     lazy var monthHeaderView: MonthCalendarView = {
-        let monthHeaderView = MonthCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 290))
+        let monthHeaderView = MonthCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 0))
         monthHeaderView.clipsToBounds = true
         monthHeaderView.heightChangeHandler = {
             self.tableView.tableHeaderView = monthHeaderView
@@ -34,18 +36,44 @@ class CourseContentViewController: BaseContentViewController {
         return monthHeaderView
     }()
     
+    lazy var weekHeaderView: WeekCalendarView = {
+        let weeekHeaderView = WeekCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 0))
+        weeekHeaderView.clipsToBounds = true
+        return weeekHeaderView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    fileprivate func refreshCalendarUI() {
+        if calendarType == .month {
+            tableView.tableHeaderView = monthHeaderView
+        } else {
+            tableView.tableHeaderView = weekHeaderView
+        }
+    }
+    
     func setupUI() {
         view.addSubview(tableView)
-        tableView.tableHeaderView = monthHeaderView
+        refreshCalendarUI()
         
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
+    }
+    
+    // MARK: - Actions
+    @objc func onChangeCalendarTypeButtonPressed(_ sender: Any) {
+        switch calendarType {
+        case .month:
+            calendarType = .week
+        case .week:
+            calendarType = .month
+        }
+        refreshCalendarUI()
+        tableView.reloadData()
     }
 }
 
@@ -69,8 +97,17 @@ extension CourseContentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CourseSectionHeaderView.reuseIdentifier) as! CourseSectionHeaderView
         headerView.courseCount = 12
+        headerView.changeButton.addTarget(self, action: #selector(onChangeCalendarTypeButtonPressed(_:)), for: .touchUpInside)
+        switch calendarType {
+        case .month:
+            headerView.changeButton.setTitle("本周课程", for: .normal)
+        case .week:
+            headerView.changeButton.setTitle("当月课程", for: .normal)
+        }
         return headerView
     }
+    
+    
 }
 
 extension CourseContentViewController: UITableViewDelegate {

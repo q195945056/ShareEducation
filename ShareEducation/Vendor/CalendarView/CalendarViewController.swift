@@ -9,34 +9,67 @@
 import UIKit
 import SwiftDate
 
-class MonthViewController: UIViewController {
+class CalendarViewController: UIViewController {
     
-    var month: Date {
+    enum CalendarType {
+        case month
+        case week
+    }
+    
+    var type: CalendarType = .month
+    
+    var date: Date {
         didSet {
             updateData()
         }
     }
     
+    var nextDate: Date {
+        var dateComponents = DateComponents()
+        switch type {
+        case .month:
+            dateComponents.month = 1
+        case .week:
+            dateComponents.day = 7
+        }
+        return date + dateComponents
+    }
+    
+    var previousDate: Date {
+        var dateComponents = DateComponents()
+        switch type {
+        case .month:
+            dateComponents.month = 1
+        case .week:
+            dateComponents.day = 7
+        }
+        return date - dateComponents
+    }
+    
     var size: CGSize {
         get {
-            let rowCount = days.count / 7
-            let itemWidth = (collectionView.frame.width - 26 - 29 * 6) / 7
+            var rowCount = 1
+            if type == .month {
+                rowCount = days.count / 7
+            }
+            let itemWidth = (view.frame.width - 26 - 29 * 6) / 7
             let itemHeight = itemWidth + 8
             let height = CGFloat(rowCount) * itemHeight + (CGFloat(rowCount) - 1) * 10
-            return CGSize(width: view.bounds.width, height: height.ylCeil + 40)
+            return CGSize(width: view.bounds.width, height: height.ylCeil + 40 + 8)
         }
     }
     
     var days = [Date]()
     
-    init(month: Date) {
-        self.month = month
+    init(type: CalendarType = .month, date: Date) {
+        self.type = type
+        self.date = date
         super.init(nibName: nil, bundle: nil)
         updateData()
     }
     
     required init?(coder: NSCoder) {
-        month = Date()
+        date = Date()
         super.init(coder: coder)
         updateData()
     }
@@ -67,20 +100,32 @@ class MonthViewController: UIViewController {
     }
     
     func updateData() {
-        let firstDayInMonth = month.dateAt(.startOfMonth)
-        let firstDayInWeek = firstDayInMonth.dateAt(.startOfWeek)
-        let weekday = firstDayInMonth.weekday
-        let previousMonthDayCount = (weekday + 7 - firstDayInWeek.weekday) % 7
-        let dayCountInMonth = month.monthDays
-        print(dayCountInMonth)
-        let rowCount = (previousMonthDayCount + dayCountInMonth) / 7 + ((previousMonthDayCount + dayCountInMonth) % 7 > 0 ? 1 : 0)
-        let dayCount = rowCount * 7
-        for i in 0...dayCount {
-            var dateComponents = DateComponents()
-            dateComponents.day = i
-            let date = firstDayInWeek + dateComponents
-            days.append(date)
+        switch type {
+        case .month:
+            let firstDayInMonth = date.dateAt(.startOfMonth)
+            let firstDayInWeek = firstDayInMonth.dateAt(.startOfWeek)
+            let weekday = firstDayInMonth.weekday
+            let previousMonthDayCount = (weekday + 7 - firstDayInWeek.weekday) % 7
+            let dayCountInMonth = date.monthDays
+            print(dayCountInMonth)
+            let rowCount = (previousMonthDayCount + dayCountInMonth) / 7 + ((previousMonthDayCount + dayCountInMonth) % 7 > 0 ? 1 : 0)
+            let dayCount = rowCount * 7
+            for i in 0...dayCount {
+                var dateComponents = DateComponents()
+                dateComponents.day = i
+                let date = firstDayInWeek + dateComponents
+                days.append(date)
+            }
+        case .week:
+            let firstDayInWeek = date.dateAt(.startOfWeek)
+            for i in 0...7 {
+                var dateComponents = DateComponents()
+                dateComponents.day = i
+                let date = firstDayInWeek + dateComponents
+                days.append(date)
+            }
         }
+        
         collectionView.reloadData()
     }
     
@@ -110,7 +155,7 @@ class MonthViewController: UIViewController {
 
 }
 
-extension MonthViewController: UICollectionViewDataSource {
+extension CalendarViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return days.count
     }
@@ -119,20 +164,21 @@ extension MonthViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarDayCell", for: indexPath) as! CalendarDayCell
         let date = days[indexPath.item]
         cell.date = days[indexPath.item]
-        cell.isHidden = date.month != month.month
-
+        if type == .month {
+            cell.isHidden = date.month != date.month
+        }
         return cell
     }
 }
 
-extension MonthViewController: UICollectionViewDelegate {
+extension CalendarViewController: UICollectionViewDelegate {
     
 }
 
-extension MonthViewController: UICollectionViewDelegateFlowLayout {
+extension CalendarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 26 - 29 * 6) / 7
         let height = width + 8
-        return CGSize(width: floor(width), height: height)
+        return CGSize(width: width.ylFloor, height: height.ylCeil)
     }
 }

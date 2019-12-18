@@ -44,6 +44,7 @@ class TeacherContentViewController: BaseContentViewController {
         sortSegmentedControl.widthOption = .custom(value: 40)
         sortSegmentedControl.contentInset = UIEdgeInsets(top: 0, left: 47, bottom: 0, right: 47)
         sortSegmentedControl.showIndicator = true
+        sortSegmentedControl.rightIndicatorImage = R.image.icon_paixu3()
     }
     
     func refreshData() {

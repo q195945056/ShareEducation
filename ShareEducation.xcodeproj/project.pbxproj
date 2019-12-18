@@ -15,7 +15,7 @@
 		CC017DF623781B9A00BF22DC /* HomeCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017DF523781B9A00BF22DC /* HomeCourseCell.swift */; };
 		CC07D2A023A76E1E00C86B5E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07D29C23A76E1E00C86B5E /* CalendarView.swift */; };
 		CC07D2A123A76E1E00C86B5E /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07D29D23A76E1E00C86B5E /* CalendarDayCell.swift */; };
-		CC07D2A223A76E1E00C86B5E /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07D29E23A76E1E00C86B5E /* MonthViewController.swift */; };
+		CC07D2A223A76E1E00C86B5E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07D29E23A76E1E00C86B5E /* CalendarViewController.swift */; };
 		CC07D2A323A76E1E00C86B5E /* WeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07D29F23A76E1E00C86B5E /* WeekHeaderView.swift */; };
 		CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */; };
 		CC1F87592394AE7D003F9D7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F87582394AE7D003F9D7F /* User.swift */; };
@@ -67,6 +67,8 @@
 		CC4361082381194F00AF796C /* CourseSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4361072381194F00AF796C /* CourseSectionHeaderView.swift */; };
 		CC43610A23811F1600AF796C /* CourseClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43610923811F1600AF796C /* CourseClassCell.swift */; };
 		CC43610C2381239600AF796C /* CourseBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43610B2381239600AF796C /* CourseBaseCell.swift */; };
+		CC49AC2A23AA07E100E900B5 /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC49AC2923AA07E100E900B5 /* WeekCalendarView.swift */; };
+		CC49AC2C23AA244000E900B5 /* UIButton+Hiitest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC49AC2B23AA244000E900B5 /* UIButton+Hiitest.swift */; };
 		CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FD27A2376742C00FC803D /* MainTabbarController.swift */; };
 		CC568D7223977B4C0016115B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC568D7023977B4C0016115B /* SearchViewController.swift */; };
 		CC568D7323977B4C0016115B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC568D7123977B4C0016115B /* SearchViewController.xib */; };
@@ -209,7 +211,7 @@
 		CC017DF523781B9A00BF22DC /* HomeCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCourseCell.swift; sourceTree = "<group>"; };
 		CC07D29C23A76E1E00C86B5E /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		CC07D29D23A76E1E00C86B5E /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
-		CC07D29E23A76E1E00C86B5E /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
+		CC07D29E23A76E1E00C86B5E /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		CC07D29F23A76E1E00C86B5E /* WeekHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekHeaderView.swift; sourceTree = "<group>"; };
 		CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLSegmentedControl.swift; sourceTree = "<group>"; };
 		CC1F87582394AE7D003F9D7F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -261,6 +263,8 @@
 		CC4361072381194F00AF796C /* CourseSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSectionHeaderView.swift; sourceTree = "<group>"; };
 		CC43610923811F1600AF796C /* CourseClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseClassCell.swift; sourceTree = "<group>"; };
 		CC43610B2381239600AF796C /* CourseBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseBaseCell.swift; sourceTree = "<group>"; };
+		CC49AC2923AA07E100E900B5 /* WeekCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
+		CC49AC2B23AA244000E900B5 /* UIButton+Hiitest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Hiitest.swift"; sourceTree = "<group>"; };
 		CC4FD27A2376742C00FC803D /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		CC568D7023977B4C0016115B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CC568D7123977B4C0016115B /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -471,7 +475,6 @@
 				CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */,
 				CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */,
 				CCBF46C9237FC20A0030AFC1 /* CustomNavigationBar.swift */,
-				CCBF46E4238017190030AFC1 /* MonthCalendarView.swift */,
 				CC43610B2381239600AF796C /* CourseBaseCell.swift */,
 				CC8AA8B3238CCC87009F94D6 /* SplashView.swift */,
 				CCF9B15C2390B68D0065E420 /* CourseSelectCell.swift */,
@@ -547,6 +550,8 @@
 		CC4361062381192800AF796C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CCBF46E4238017190030AFC1 /* MonthCalendarView.swift */,
+				CC49AC2923AA07E100E900B5 /* WeekCalendarView.swift */,
 				CC4361072381194F00AF796C /* CourseSectionHeaderView.swift */,
 				CC43610923811F1600AF796C /* CourseClassCell.swift */,
 				CCDDA1D4238FA34000C28497 /* CourseDetailCoverCell.swift */,
@@ -652,6 +657,7 @@
 				CCD1BC66237C195800F52069 /* Bundle+Info.swift */,
 				CCBF46E6238017B90030AFC1 /* UILabel+QuickUI.swift */,
 				CCBF46E8238018C40030AFC1 /* UIButton+QuickUI.swift */,
+				CC49AC2B23AA244000E900B5 /* UIButton+Hiitest.swift */,
 				CC97B3BD238678BD00F1BFE9 /* Optional.swift */,
 				CC97B3BF23867D1C00F1BFE9 /* String+MD5.swift */,
 				CCC154E3238B9BA7005F29CC /* PixelWidth.swift */,
@@ -708,7 +714,7 @@
 			children = (
 				CC07D29D23A76E1E00C86B5E /* CalendarDayCell.swift */,
 				CC07D29C23A76E1E00C86B5E /* CalendarView.swift */,
-				CC07D29E23A76E1E00C86B5E /* MonthViewController.swift */,
+				CC07D29E23A76E1E00C86B5E /* CalendarViewController.swift */,
 				CC07D29F23A76E1E00C86B5E /* WeekHeaderView.swift */,
 			);
 			path = CalendarView;
@@ -1137,6 +1143,7 @@
 			files = (
 				CCDDA1D6238FA34000C28497 /* CourseDetailCoverCell.swift in Sources */,
 				CC2B9F3123A39427006C815E /* AutoEquatable.generated.swift in Sources */,
+				CC49AC2A23AA07E100E900B5 /* WeekCalendarView.swift in Sources */,
 				CCBF46E323800BF20030AFC1 /* CourseContentViewController.swift in Sources */,
 				CCFCF9BD23A0FF5A00EBAF6E /* R.generated.swift in Sources */,
 				CC97B3BE238678BD00F1BFE9 /* Optional.swift in Sources */,
@@ -1154,6 +1161,7 @@
 				CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */,
 				CC2B9F2F23A393D0006C815E /* AutoMappable.generated.swift in Sources */,
 				CC8AA8C7238D32E8009F94D6 /* TeacherDetailSegmentedCell.swift in Sources */,
+				CC49AC2C23AA244000E900B5 /* UIButton+Hiitest.swift in Sources */,
 				CC30AD1D239CF92400A0DF20 /* MyCollectionViewController.swift in Sources */,
 				CCDDA1E1238FAB4500C28497 /* CourseUnitTitleView.swift in Sources */,
 				CCAC6B3F2398FE5500D26A2C /* MessageCell.swift in Sources */,
@@ -1196,7 +1204,7 @@
 				CC9878232376D188004F8F8E /* HomeContentViewController.swift in Sources */,
 				CC97B3B82386696C00F1BFE9 /* BaseLoginViewController.swift in Sources */,
 				CC97B3C023867D1C00F1BFE9 /* String+MD5.swift in Sources */,
-				CC07D2A223A76E1E00C86B5E /* MonthViewController.swift in Sources */,
+				CC07D2A223A76E1E00C86B5E /* CalendarViewController.swift in Sources */,
 				CCF9B1662390F9880065E420 /* PaymentCouponCell.swift in Sources */,
 				CC2D7ADE238500D500D9FD92 /* Teacher.swift in Sources */,
 				CC9878252376DAE7004F8F8E /* UIPageViewController+ScrollView.swift in Sources */,

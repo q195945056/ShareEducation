@@ -15,10 +15,12 @@ protocol CalendarViewDataSource {
 
 protocol CalendarViewDelegate: AnyObject {
     func calendarView(_ calendarView: CalendarView, heightWillChangeTo height: CGFloat)
+    func calendarView(_ calendarView: CalendarView, didChangeToMonth month: Date)
 }
 
 extension CalendarViewDelegate {
     func calendarView(_ calendarView: CalendarView, heightWillChangeTo height: CGFloat) {}
+    func calendarView(_ calendarView: CalendarView, didChangeToMonth month: Date) {}
 }
 
 class CalendarView: UIView {
@@ -38,9 +40,12 @@ class CalendarView: UIView {
         return controller
     }()
     
+    var type: CalendarViewController.CalendarType = .month
+    
     weak var delegate: CalendarViewDelegate?
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, type: CalendarViewController.CalendarType = .month) {
+        self.type = type
         super.init(frame: frame)
         commonInit()
     }
@@ -57,41 +62,55 @@ class CalendarView: UIView {
             make.leading.top.trailing.equalTo(self)
             make.height.equalTo(500)
         }
-        let controller = MonthViewController(month: Date())
+        let controller = CalendarViewController(type: type, date: Date())
+        controller.view.frame = CGRect(x: 0, y: 0, width: UIScreen.width - 26, height: 0)
         height = controller.size.height
         invalidateIntrinsicContentSize()
-        pageViewController.setViewControllers([controller], direction: .forward, animated: false, completion: nil)
+        pageViewController.setViewControllers([controller], direction: .forward, animated: false) { _ in
+            self.notifyDelegateMonthChange()
+        }
+    }
+    
+    func notifyDelegateMonthChange() {
+        let controller = pageViewController.currentViewController as! CalendarViewController
+        let date = controller.date
+        delegate?.calendarView(self, didChangeToMonth: date)
     }
     
     func goToPreviousMonth() {
-        
+        let controller = pageViewController.currentViewController as! CalendarViewController
+        let nextController = CalendarViewController(type: type, date: controller.previousDate)
+        nextController.view.frame = CGRect(x: 0, y: 0, width: UIScreen.width - 26, height: 0)
+        pageViewController.setViewControllers([nextController], direction: .backward, animated: true) { _ in
+            self.notifyDelegateMonthChange()
+        }
     }
     
+    func goToNextMonth() {
+        let controller = pageViewController.currentViewController as! CalendarViewController
+        let nextController = CalendarViewController(type: type, date: controller.nextDate)
+        nextController.view.frame = CGRect(x: 0, y: 0, width: UIScreen.width - 26, height: 0)
+        pageViewController.setViewControllers([nextController], direction: .forward, animated: true) { _ in
+            self.notifyDelegateMonthChange()
+        }
+    }
 }
 
 extension CalendarView: YLPageViewControllerDataSource {
     func pageViewController(_ pageViewController: YLPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let controller = viewController as! MonthViewController
-        let date = controller.month
-        var dateComponents = DateComponents()
-        dateComponents.month = 1
-        let nextMonth = date + dateComponents
-        return MonthViewController(month: nextMonth)
+        let controller = viewController as! CalendarViewController
+        return CalendarViewController(type: type, date: controller.previousDate)
     }
     
     func pageViewController(_ pageViewController: YLPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let controller = viewController as! MonthViewController
-        let date = controller.month
-        var dateComponents = DateComponents()
-        dateComponents.month = 1
-        let nextMonth = date - dateComponents
-        return MonthViewController(month: nextMonth)
+        let controller = viewController as! CalendarViewController
+        return CalendarViewController(type: type, date: controller.nextDate)
     }
 }
 
 extension CalendarView: YLPageViewControllerDelegate {
     func pageViewController(_ pageViewController: YLPageViewController, willTransitionTo viewControllers: [UIViewController]) {
-        let controller = viewControllers.first as! MonthViewController
+        let controller = viewControllers.first as! CalendarViewController
         height = controller.size.height
         invalidateIntrinsicContentSize()
         UIView.animate(withDuration: 0.25) {
@@ -101,7 +120,7 @@ extension CalendarView: YLPageViewControllerDelegate {
     }
     
     func pageViewController(_ pageViewController: YLPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
+        notifyDelegateMonthChange()
     }
 
 }

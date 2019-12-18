@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDate
 
 class MonthCalendarView: UIView {
     
@@ -19,7 +20,7 @@ class MonthCalendarView: UIView {
     lazy var nextButton = UIButton(image: UIImage(named: "icon_date_right"), target: self, selector: #selector(onNextButtonPressed(sender:)))
     
     lazy var calendarView: CalendarView = {
-        let calendarView = CalendarView()
+        let calendarView = CalendarView(frame: .zero, type: .month)
         calendarView.delegate = self
         return calendarView
     }()
@@ -67,17 +68,21 @@ class MonthCalendarView: UIView {
             make.top.equalTo(self).offset(60)
             make.leading.equalTo(self).offset(13)
             make.trailing.equalTo(self).offset(-13).priority(.high)
-        }        
+        }
+        calendarView.backgroundColor = .fff7e9
+        calendarView.layer.cornerRadius = 10
+        calendarView.layer.masksToBounds = true
         frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: 60 + calendarView.height)
     }
     
     // MARK: - Actions
     
     @objc func onPreviousButtonPressed(sender: AnyObject?) {
-//        calendarView.goToPreviousMonth()
+        calendarView.goToPreviousMonth()
     }
     
     @objc func onNextButtonPressed(sender: AnyObject?) {
+        calendarView.goToNextMonth()
     }
     
 }
@@ -88,6 +93,10 @@ extension MonthCalendarView: CalendarViewDelegate {
         if let heightChangeHandler = heightChangeHandler {
             heightChangeHandler()
         }
+    }
+    
+    func calendarView(_ calendarView: CalendarView, didChangeToMonth month: Date) {
+        monthLabel.text = "\(month.year)年\(month.month)月"
     }
 }
 

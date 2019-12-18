@@ -10,9 +10,14 @@ import UIKit
 
 class CourseSectionHeaderView: UITableViewHeaderFooterView {
     lazy var courseCountLable = UILabel(font: .systemFont(ofSize: 13), textColor: .darkTextColor)
-    lazy var titleLabel = UILabel(font: .systemFont(ofSize: 15, weight: .bold), textColor: .e64919).then {
-        $0.text = "本周课程"
-    }
+    lazy var changeButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("本周课程", for: .normal)
+        button.setTitleColor(UIColor(red: 231, green: 73, blue: 24), for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .heavy)
+        return button
+    }()
+    
     lazy var indicatorImageView = UIImageView(image: UIImage(named: "icon_more_home"))
     
     var courseCount = 12 {
@@ -37,7 +42,7 @@ class CourseSectionHeaderView: UITableViewHeaderFooterView {
     
     func commonInit() {
         contentView.addSubview(courseCountLable)
-        contentView.addSubview(titleLabel)
+        contentView.addSubview(changeButton)
         contentView.addSubview(indicatorImageView)
         
         courseCountLable.snp.makeConstraints { (make) in
@@ -50,7 +55,7 @@ class CourseSectionHeaderView: UITableViewHeaderFooterView {
             make.centerY.equalTo(courseCountLable)
         }
         
-        titleLabel.snp.makeConstraints { (make) in
+        changeButton.snp.makeConstraints { (make) in
             make.trailing.equalTo(indicatorImageView.snp.leading).offset(-8)
             make.centerY.equalTo(courseCountLable)
         }

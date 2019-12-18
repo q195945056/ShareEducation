@@ -20,6 +20,10 @@ class BaseRootViewController: UIViewController {
         $0.contentInset = UIEdgeInsets(top: 0, left: 13, bottom: 0, right: 13)
         $0.showIndicator = false
         $0.widthOption = .flexible
+        $0.defaltSegmentTintColor = .darkTextColor
+        $0.selectedSegmentTintColor = .e64919
+        $0.defaultSegmentFont = .systemFont(ofSize: 13, weight: .medium)
+        $0.selectedSegmentFont = .systemFont(ofSize: 18, weight: .heavy)
     }
     
     lazy var pageViewController: UIPageViewController = {
@@ -60,6 +64,7 @@ class BaseRootViewController: UIViewController {
     
     func setupUI() -> Void {
         customNavigationBar.gradeLabel.text = ShareSetting.shared.grade.name
+
 
         view.addSubview(customNavigationBar)
         view.addSubview(segmentedControl)

@@ -94,6 +94,9 @@ class YLPageViewController: UIViewController {
     
     func setViewControllers(_ viewControllers: [UIViewController]?, direction: NavigationDirection, animated: Bool, completion: ((Bool) -> Void)?) {
         currentViewController = viewControllers?.first
+        if let viewControllers = viewControllers {
+            delegate?.pageViewController(self, willTransitionTo: viewControllers)
+        }
         if self.viewControllers.count == 0 || !animated {
             updateContentViewControllers()
             if let completion = completion {
@@ -105,12 +108,14 @@ class YLPageViewController: UIViewController {
             addChild(currentViewController!)
             scrollView.addSubview(currentViewController!.view)
             currentViewController!.didMove(toParent: self)
-            var index: CGFloat = 0
+            var index: Int = 0
             if direction == .forward {
                 index = 2
             }
-            currentViewController?.view.frame = CGRect(x: scrollView.frame.width * index, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-            scrollView.setContentOffset(CGPoint(x: scrollView.frame.width * index, y: 0), animated: animated)
+            let controller = self.viewControllers[index]
+            controller.view.isHidden = true
+            currentViewController?.view.frame = CGRect(x: scrollView.frame.width * CGFloat(index), y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+            scrollView.setContentOffset(CGPoint(x: scrollView.frame.width * CGFloat(index), y: 0), animated: animated)
         }
     }
     

@@ -25,6 +25,26 @@ class YLSegmentedTitleCell: UICollectionViewCell {
         return view
     }()
     
+    lazy var rightIndicatorImageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
+    
+    var rightIndicatorImage: UIImage? {
+        didSet {
+            if let rightIndicatorImage = rightIndicatorImage {
+                rightIndicatorImageView.image = rightIndicatorImage
+                contentView.addSubview(rightIndicatorImageView)
+                rightIndicatorImageView.snp.makeConstraints { (make) in
+                    make.leading.equalTo(titleLabel.snp.trailing).offset(5)
+                    make.centerY.equalTo(titleLabel)
+                }
+            } else {
+                rightIndicatorImageView.removeFromSuperview()
+            }
+        }
+    }
+    
     var aligment: YLSegmentedControl.VerticalAligment = .custom(bottomInset: 13) {
         didSet {
             switch aligment {
@@ -55,25 +75,29 @@ class YLSegmentedTitleCell: UICollectionViewCell {
         }
     }
     
-    var selectedSegmentTintColor: UIColor = .e64919 {
+    var defaltSegmentTintColor: UIColor!
+    
+    var defaultSegmentFont: UIFont!
+    
+    var selectedSegmentFont: UIFont!
+    
+    var selectedSegmentTintColor: UIColor!
+        
+    override var isSelected: Bool {
         didSet {
-            if isSelected {
-                titleLabel.textColor = selectedSegmentTintColor
-            }
+            updateUI()
         }
     }
     
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                titleLabel.font = .systemFont(ofSize: 18, weight: .medium)
-                titleLabel.textColor = selectedSegmentTintColor
-                indicatorView.isHidden = !showIndicator
-            } else {
-                titleLabel.font = .systemFont(ofSize: 13, weight: .medium)
-                titleLabel.textColor = .darkTextColor
-                indicatorView.isHidden = true
-            }
+    func updateUI() {
+        if isSelected {
+            titleLabel.font = selectedSegmentFont
+            titleLabel.textColor = selectedSegmentTintColor
+            indicatorView.isHidden = !showIndicator
+        } else {
+            titleLabel.font = defaultSegmentFont
+            titleLabel.textColor = defaltSegmentTintColor
+            indicatorView.isHidden = true
         }
     }
     
@@ -96,7 +120,8 @@ class YLSegmentedTitleCell: UICollectionViewCell {
         
         contentView.addSubview(indicatorView)
         indicatorView.snp.makeConstraints { (make) in
-            make.leading.trailing.bottom.equalTo(contentView)
+            make.leading.trailing.equalTo(titleLabel)
+            make.bottom.equalTo(contentView)
             make.height.equalTo(2)
         }
     }
@@ -126,7 +151,15 @@ class YLSegmentedTitleCell: UICollectionViewCell {
         }
     }
     
+    @IBInspectable var defaltSegmentTintColor: UIColor = .darkTextColor
+    
     @IBInspectable var selectedSegmentTintColor: UIColor = .e64919
+    
+    @IBInspectable var defaultSegmentFont: UIFont = .systemFont(ofSize: 12, weight: .medium)
+    
+    @IBInspectable var selectedSegmentFont: UIFont = .systemFont(ofSize: 12, weight: .medium)
+    
+    var rightIndicatorImage: UIImage?
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -212,10 +245,15 @@ extension YLSegmentedControl: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YLSegmentedTitleCell.reuseIdentifier, for: indexPath) as! YLSegmentedTitleCell
+        cell.showIndicator = showIndicator
+        cell.defaltSegmentTintColor = defaltSegmentTintColor
         cell.selectedSegmentTintColor = selectedSegmentTintColor
+        cell.defaultSegmentFont = defaultSegmentFont
+        cell.selectedSegmentFont = selectedSegmentFont
         cell.titleLabel.text = items?[indexPath.item]
         cell.aligment = aligment
-        cell.showIndicator = showIndicator
+        cell.rightIndicatorImage = rightIndicatorImage
+        cell.updateUI()
         return cell
     }
     
