@@ -26,6 +26,14 @@ class MonthCalendarView: UIView {
     }()
     
     var heightChangeHandler: (() -> Void)?
+    
+    var didChangeToMonth: ((_ month: Date) -> Void)?
+    
+    var month: Date {
+        get {
+            calendarView.date
+        }
+    }
 
     // MARK: - Life Cycle
     
@@ -43,7 +51,6 @@ class MonthCalendarView: UIView {
     // MARK: - Private
     
     func commonInit() {
-        monthLabel.text = "2019年10月"
         addSubview(monthLabel)
         addSubview(previousButton)
         addSubview(nextButton)
@@ -73,6 +80,7 @@ class MonthCalendarView: UIView {
         calendarView.layer.cornerRadius = 10
         calendarView.layer.masksToBounds = true
         frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: 60 + calendarView.height)
+        monthLabel.text = "\(month.year)年\(month.month)月"
     }
     
     // MARK: - Actions
@@ -97,6 +105,9 @@ extension MonthCalendarView: CalendarViewDelegate {
     
     func calendarView(_ calendarView: CalendarView, didChangeToMonth month: Date) {
         monthLabel.text = "\(month.year)年\(month.month)月"
+        if let didChangeToMonth = didChangeToMonth {
+            didChangeToMonth(month)
+        }
     }
 }
 

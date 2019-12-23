@@ -31,6 +31,13 @@ class CalendarView: UIView {
         }
     }
     
+    var date: Date {
+        get {
+            let controller = pageViewController.currentViewController as! CalendarViewController
+            return controller.date
+        }
+    }
+    
     var height: CGFloat = 0
     
     lazy var pageViewController: YLPageViewController = {

@@ -165,7 +165,7 @@ extension HomeContentViewController: TYCyclePagerViewDelegate, TYCyclePagerViewD
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: HomeBannerCell.reuseIdentifier, for: index) as! HomeBannerCell
         
         let resource = ShareData.shared.bannerResources![index]
-        cell.imageView.kf.setImage(with: URL(string: resource.img.fullURLString))
+//        cell.imageView.kf.setImage(with: URL(string: resource.img.fullURLString))
         return cell
     }
     
@@ -195,11 +195,19 @@ extension HomeContentViewController: TYCyclePagerViewDelegate, TYCyclePagerViewD
 extension HomeContentViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        var count = 0
+        if teacherListCell.teachers.count > 0 {
+            count += 1
+        }
+        if courseList.count > 0 {
+            count += 1
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        
+        if teacherListCell.teachers.count > 0 && section == 0 {
             return 1
         } else {
             return courseList.count
@@ -207,7 +215,7 @@ extension HomeContentViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if teacherListCell.teachers.count > 0 && indexPath.section == 0 {
             tableView.dequeueReusableCell(withIdentifier: HomeTeacherTableCell.reuseIdentifier)
             return teacherListCell
         } else {
@@ -243,7 +251,11 @@ extension HomeContentViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeSetionTitleView.reuseIdentifier) as! HomeSetionTitleView
-        sectionHeaderView.titleLabel.text = "明星老师"
+        if teacherListCell.teachers.count > 0 && section == 0 {
+            sectionHeaderView.titleLabel.text = "明星老师"
+        } else {
+            sectionHeaderView.titleLabel.text = "推荐课程"
+        }
         return sectionHeaderView
     }
 }

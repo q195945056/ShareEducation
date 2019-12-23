@@ -34,7 +34,7 @@ enum SEService {
 extension SEService: TargetType {
     
     var baseURL: URL {
-        return URL(string: "http://xudp.cn:8181")!
+        return URL(string: "http://v.doututuan.com:8080")!
     }
     
     var path: String {
@@ -87,18 +87,6 @@ extension SEService: TargetType {
             return .requestParameters(parameters: ["m.phone": phone], encoding: URLEncoding.queryString)
         case .getCourseList(let type, let dateType, let date, let name, let token, let offset, let rows, let areaid, let courseid, let gradeid):
             var parameters = [String : Any]()
-            #if DEBUG
-            parameters["c.type"] = "1"
-            parameters["c.datetype"] = "1"
-            parameters["c.date"] = "2019-10"
-            parameters["m.name"] = "wtongxue"
-            parameters["m.token"] = "umzzVZ"
-            parameters["offset"] = "0"
-            parameters["rows"] = "3"
-            parameters["m.areaid"] = "0"
-            parameters["m.courseid"] = "0"
-            parameters["m.gradeid"] = "0"
-            #else
             parameters["c.type"] = type.rawValue
             parameters["c.datetype"] = dateType
             parameters["c.date"] = date
@@ -106,10 +94,9 @@ extension SEService: TargetType {
             parameters["m.token"] = token
             parameters["offset"] = offset
             parameters["rows"] = rows
-            parameters["m.areaid"] = areaid ?? "0"
-            parameters["m.courseid"] = courseid ?? "0"
-            parameters["m.gradeid"] = gradeid ?? "0"
-            #endif
+            parameters["m.areaid"] = areaid
+            parameters["m.courseid"] = courseid
+            parameters["m.gradeid"] = gradeid
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getCourseDetail(let name, let token, let id):
             var parameters = [String : Any]()
