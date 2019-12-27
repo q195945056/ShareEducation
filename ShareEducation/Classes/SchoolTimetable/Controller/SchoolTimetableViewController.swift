@@ -28,12 +28,17 @@ class SchoolTimetableViewController: BaseRootViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        naviBar.segmentedControl.addTarget(self, action: #selector(onPlaybackSegmentedValueChange(_:)), for: .valueChanged)
     }
     
     override func contentViewController(course: Course = .default) -> BaseContentViewController? {
         return CourseContentViewController(course: course)
     }
     
+    @objc func onPlaybackSegmentedValueChange(_ sender: BetterSegmentedControl) {
+        let controller = contentController as! CourseContentViewController
+        controller.playType = CoursePlayType(rawValue: sender.index + 1)!
+    }
 
     /*
     // MARK: - Navigation

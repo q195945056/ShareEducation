@@ -224,21 +224,26 @@ extension HomeContentViewController: UITableViewDataSource {
             let course = courseList[indexPath.row]
             cell.course = course
             cell.buyHandler = { course in
-                let controller = CourseSbscribeAlertViewController()
+                
+                let controller = CoursePlayViewController()
                 controller.course = course
-                controller.confirmHandler = {
-                    let vc = SelectCourseViewController()
-                    vc.course = course
-                    mainNavigationController.pushViewController(vc, animated: true)
-                }
-                let size = PresentationSize(width: .fullscreen, height: .custom(value: 365))
-                let marginGuards = UIEdgeInsets(top: 0, left: 47 + onePixelWidth, bottom: 0, right: 47 + onePixelWidth)
-                let uiConfiguration = PresentationUIConfiguration(cornerRadius: 10, backgroundStyle: .dimmed(alpha: 0.8))
-                let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
-                let animator = Animator(presentation: presentation)
-                animator.prepare(presentedViewController: controller)
-                self.animator = animator
-                mainNavigationController.present(controller, animated: true)
+                mainNavigationController.pushViewController(controller, animated: true)
+                
+//                let controller = CourseSbscribeAlertViewController()
+//                controller.course = course
+//                controller.confirmHandler = {
+//                    let vc = SelectCourseViewController()
+//                    vc.course = course
+//                    mainNavigationController.pushViewController(vc, animated: true)
+//                }
+//                let size = PresentationSize(width: .fullscreen, height: .custom(value: 365))
+//                let marginGuards = UIEdgeInsets(top: 0, left: 47 + onePixelWidth, bottom: 0, right: 47 + onePixelWidth)
+//                let uiConfiguration = PresentationUIConfiguration(cornerRadius: 10, backgroundStyle: .dimmed(alpha: 0.8))
+//                let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
+//                let animator = Animator(presentation: presentation)
+//                animator.prepare(presentedViewController: controller)
+//                self.animator = animator
+//                mainNavigationController.present(controller, animated: true)
             }
             
             return cell
@@ -263,7 +268,8 @@ extension HomeContentViewController: UITableViewDataSource {
 extension HomeContentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 1 {
+        if teacherListCell.teachers.count > 0 && indexPath.section == 0 {
+        } else {
             let course = courseList[indexPath.row]
             let controller = CourseDetailViewController()
             controller.course = course

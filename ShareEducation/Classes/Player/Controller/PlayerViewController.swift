@@ -34,7 +34,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet var slider: UISlider!
     
     @IBOutlet var orientationButton: UIButton!
-    
+        
     var urlString = "http://220.161.87.62:8800/hls/0/index.m3u8"
     
     lazy var coursePlayer = IJKAVMoviePlayerController(contentURLString: urlString).then {

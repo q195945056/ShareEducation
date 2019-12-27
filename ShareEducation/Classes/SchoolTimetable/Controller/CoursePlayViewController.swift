@@ -12,10 +12,12 @@ import Jelly
 class CoursePlayViewController: UIViewController {
     
     @IBOutlet var playerContainerView: UIView!
-    
-    @IBOutlet var tableView: UITableView!
+        
+    @IBOutlet var segmentedControl: YLSegmentedControl!
     
     lazy var playerController = PlayerViewController()
+    
+    var course: CourseItem!
     
     lazy var commentItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "icon_share2")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action:#selector(onCommentButtonPressed(_:)))
@@ -27,6 +29,12 @@ class CoursePlayViewController: UIViewController {
         return barButtonItem
     }()
     
+    lazy var pageViewController: UIPageViewController = {
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        pageViewController.scrollView?.isScrollEnabled = false
+        return pageViewController
+    }()
+    
     var animator: Animator?
 
     override func viewDidLoad() {
@@ -35,17 +43,83 @@ class CoursePlayViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setupUI()
+        loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func setupUI() {
+        navigationItem.rightBarButtonItems = [shareItem, commentItem]
         addChild(playerController)
         playerContainerView.addSubview(playerController.view)
         playerController.didMove(toParent: self)
         playerController.view.snp.makeConstraints { (make) in
             make.edges.equalTo(playerContainerView)
         }
-        navigationItem.rightBarButtonItems = [shareItem, commentItem]
+        segmentedControl.items = ["课程简介", "问答", "讲义"]
+        segmentedControl.defaultSegmentFont = .systemFont(ofSize: 13, weight: .medium)
+        segmentedControl.selectedSegmentFont = .systemFont(ofSize: 13, weight: .medium)
+        segmentedControl.aligment = .center
+        segmentedControl.widthOption = .custom(value: 50)
+        segmentedControl.contentInset = UIEdgeInsets(top: 0, left: 36, bottom: 0, right: 36)
+        segmentedControl.showIndicator = true
+        segmentedControl.snp.makeConstraints { (make) in
+            make.top.equalTo(playerController.view.snp.bottom)
+            make.leading.trailing.equalTo(view)
+            make.height.equalTo(46)
+        }
+        
+        addChild(pageViewController)
+        view.addSubview(pageViewController.view)
+        pageViewController.didMove(toParent: self)
+        pageViewController.view.snp.makeConstraints { (make) in
+            make.top.equalTo(segmentedControl.snp.bottom)
+            make.leading.trailing.bottom.equalTo(view)
+        }
+
+        let viewController = CourseDescriptionViewController()
+        pageViewController.setViewControllers([viewController], direction: .forward, animated: false)
+    }
+    
+    func loadData() {
+        
+        serviceProvider.request(.playCourse(name: User.shared.name, token: User.shared.token, id: course.id)) {  result in
+            let json = try? result.get().mapJSON()
+            print(json)
+        }
+    }
+    
+    var selectedIndex: NSInteger = -1
+    
+    @IBAction func onSegmentedControlValueChanged(_ sender: YLSegmentedControl) {
+        guard sender.selectedSegmentIndex != selectedIndex else {
+            return
+        }
+        
+        let controller = contentController(at: sender.selectedSegmentIndex)
+        var direction = UIPageViewController.NavigationDirection.reverse
+        if sender.selectedSegmentIndex > selectedIndex {
+            direction = .forward
+        }
+        pageViewController.setViewControllers([controller], direction: direction, animated: true)
+        selectedIndex = sender.selectedSegmentIndex
+    }
+    
+    func contentController(at index: Int) -> UIViewController {
+        if index == 0 {
+            let controller = CourseDescriptionViewController()
+            return controller
+        } else if index == 1 {
+            let controller = AskAnswerViewController()
+            return controller
+        } else {
+            let controller = LectureNoteViewController()
+            return controller
+        }
     }
 
     @objc func onShareButtonPressed(_ sender: Any) {
@@ -84,14 +158,14 @@ extension CoursePlayViewController {
                 playerContainerView.snp.remakeConstraints { (make) in
                     make.edges.equalTo(view)
                 }
-                tableView.isHidden = true
+//                tableView.isHidden = true
                 navigationController?.setNavigationBarHidden(true, animated: true)
             } else {
                 playerContainerView.snp.remakeConstraints { (make) in
                     make.top.leading.trailing.equalTo(view)
                     make.height.equalTo(211)
                 }
-                tableView.isHidden = true
+//                tableView.isHidden = true
                 navigationController?.setNavigationBarHidden(false, animated: true)
             }
         }

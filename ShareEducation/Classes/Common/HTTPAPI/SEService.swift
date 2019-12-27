@@ -27,7 +27,7 @@ enum SEService {
     case getTeacherList(name: String?, token: String?, offset: Int, rows: Int, areaid: Int, courseid: Int, gradeid: Int, sort: Int = 0)
     case getTeacherDetail(name: String?, token: String?, id: Int)
     case collectTeacher(name: String?, token: String?, id: Int, oper: Bool)
-    case playCourse(name: String?, token: String?, id: String)
+    case playCourse(name: String?, token: String?, id: Int)
     case collectCourse(name: String?, token: String?, id: Int, star: Bool, oper: Bool)
 }
 

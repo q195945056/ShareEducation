@@ -62,12 +62,14 @@ class CourseBaseCell: UITableViewCell {
             }
             headImageView.kf.setImage(with: URL(string: course.pic ?? ""))
             countLabel.text = String(course.buyCount ?? 0) + "人已预约"
-            switch course.buystate {
-            case .free, .notBuy:
-                subscribeButton.isEnabled = true
-            case .buy:
-                subscribeButton.isEnabled = false
-            default:
+            switch course.state {
+            case .notLiving:
+                subscribeButton.setTitle("未直播", for: .normal)
+            case .living:
+                subscribeButton.setTitle("正在直播", for: .normal)
+            case .record:
+                subscribeButton.setTitle("录制成功", for: .normal)
+            case .none:
                 break
             }
         }

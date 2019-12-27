@@ -19,19 +19,6 @@
 		CC07D2A323A76E1E00C86B5E /* WeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07D29F23A76E1E00C86B5E /* WeekHeaderView.swift */; };
 		CC0DC490236EF586000D9B80 /* YLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0DC48F236EF586000D9B80 /* YLSegmentedControl.swift */; };
 		CC1F87592394AE7D003F9D7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F87582394AE7D003F9D7F /* User.swift */; };
-		CC1F87732394D498003F9D7F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87722394D498003F9D7F /* AudioToolbox.framework */; };
-		CC1F87752394D49E003F9D7F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87742394D49E003F9D7F /* AVFoundation.framework */; };
-		CC1F87772394D4A5003F9D7F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87762394D4A5003F9D7F /* CoreGraphics.framework */; };
-		CC1F87792394D4AB003F9D7F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87782394D4AB003F9D7F /* CoreMedia.framework */; };
-		CC1F877B2394D4B2003F9D7F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F877A2394D4B2003F9D7F /* CoreVideo.framework */; };
-		CC1F877D2394D4BB003F9D7F /* libbz2.1.0.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F877C2394D4BB003F9D7F /* libbz2.1.0.5.tbd */; };
-		CC1F877F2394D4C4003F9D7F /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F877E2394D4C4003F9D7F /* libz.1.2.8.tbd */; };
-		CC1F87812394D4CC003F9D7F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87802394D4CC003F9D7F /* MediaPlayer.framework */; };
-		CC1F87832394D4D3003F9D7F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87822394D4D3003F9D7F /* MobileCoreServices.framework */; };
-		CC1F87852394D4DB003F9D7F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87842394D4DB003F9D7F /* OpenGLES.framework */; };
-		CC1F87872394D4E1003F9D7F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87862394D4E1003F9D7F /* QuartzCore.framework */; };
-		CC1F87892394D4E7003F9D7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F87882394D4E7003F9D7F /* UIKit.framework */; };
-		CC1F878B2394D4EF003F9D7F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F878A2394D4EF003F9D7F /* VideoToolbox.framework */; };
 		CC2B9F2923A392D5006C815E /* AutoEquatable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = CC2B9F2523A392D5006C815E /* AutoEquatable.stencil */; };
 		CC2B9F2A23A392D5006C815E /* AutoMappable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = CC2B9F2623A392D5006C815E /* AutoMappable.stencil */; };
 		CC2B9F2C23A392DE006C815E /* config.sourcery.yml in Resources */ = {isa = PBXBuildFile; fileRef = CC2B9F2B23A392DD006C815E /* config.sourcery.yml */; };
@@ -164,6 +151,16 @@
 		CCE4FCA52382886C00E21139 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA42382886C00E21139 /* CommonData.swift */; };
 		CCE4FCA72382969A00E21139 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA62382969A00E21139 /* ShareData.swift */; };
 		CCE4FCAA23829D0100E21139 /* ShareSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4FCA923829D0100E21139 /* ShareSetting.swift */; };
+		CCEF8F4223B3052A0078561D /* CourseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF8F4023B3052A0078561D /* CourseDescriptionViewController.swift */; };
+		CCEF8F4323B3052A0078561D /* CourseDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEF8F4123B3052A0078561D /* CourseDescriptionViewController.xib */; };
+		CCEF8F4923B32DB80078561D /* AskAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF8F4723B32DB80078561D /* AskAnswerViewController.swift */; };
+		CCEF8F4A23B32DB80078561D /* AskAnswerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEF8F4823B32DB80078561D /* AskAnswerViewController.xib */; };
+		CCEF8F4D23B32FD70078561D /* UserMessasgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF8F4B23B32FD70078561D /* UserMessasgeCell.swift */; };
+		CCEF8F4E23B32FD70078561D /* UserMessasgeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEF8F4C23B32FD70078561D /* UserMessasgeCell.xib */; };
+		CCEF8F5123B332700078561D /* LectureNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF8F4F23B332700078561D /* LectureNoteViewController.swift */; };
+		CCEF8F5223B332700078561D /* LectureNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEF8F5023B332700078561D /* LectureNoteViewController.xib */; };
+		CCEF8F5523B333010078561D /* LectureNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF8F5323B333010078561D /* LectureNoteCell.swift */; };
+		CCEF8F5623B333010078561D /* LectureNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEF8F5423B333010078561D /* LectureNoteCell.xib */; };
 		CCF38993238A4FDD00F84678 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF38991238A4FDD00F84678 /* RegisterViewController.swift */; };
 		CCF38994238A4FDD00F84678 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF38992238A4FDD00F84678 /* RegisterViewController.xib */; };
 		CCF38997238A778400F84678 /* AreaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF38995238A778400F84678 /* AreaSettingViewController.swift */; };
@@ -360,6 +357,16 @@
 		CCE4FCA42382886C00E21139 /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		CCE4FCA62382969A00E21139 /* ShareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
 		CCE4FCA923829D0100E21139 /* ShareSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSetting.swift; sourceTree = "<group>"; };
+		CCEF8F4023B3052A0078561D /* CourseDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDescriptionViewController.swift; sourceTree = "<group>"; };
+		CCEF8F4123B3052A0078561D /* CourseDescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDescriptionViewController.xib; sourceTree = "<group>"; };
+		CCEF8F4723B32DB80078561D /* AskAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskAnswerViewController.swift; sourceTree = "<group>"; };
+		CCEF8F4823B32DB80078561D /* AskAnswerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskAnswerViewController.xib; sourceTree = "<group>"; };
+		CCEF8F4B23B32FD70078561D /* UserMessasgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessasgeCell.swift; sourceTree = "<group>"; };
+		CCEF8F4C23B32FD70078561D /* UserMessasgeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserMessasgeCell.xib; sourceTree = "<group>"; };
+		CCEF8F4F23B332700078561D /* LectureNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureNoteViewController.swift; sourceTree = "<group>"; };
+		CCEF8F5023B332700078561D /* LectureNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LectureNoteViewController.xib; sourceTree = "<group>"; };
+		CCEF8F5323B333010078561D /* LectureNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureNoteCell.swift; sourceTree = "<group>"; };
+		CCEF8F5423B333010078561D /* LectureNoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LectureNoteCell.xib; sourceTree = "<group>"; };
 		CCF38991238A4FDD00F84678 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CCF38992238A4FDD00F84678 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		CCF38995238A778400F84678 /* AreaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaSettingViewController.swift; sourceTree = "<group>"; };
@@ -408,19 +415,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC1F878B2394D4EF003F9D7F /* VideoToolbox.framework in Frameworks */,
-				CC1F87892394D4E7003F9D7F /* UIKit.framework in Frameworks */,
-				CC1F87872394D4E1003F9D7F /* QuartzCore.framework in Frameworks */,
-				CC1F87852394D4DB003F9D7F /* OpenGLES.framework in Frameworks */,
-				CC1F87832394D4D3003F9D7F /* MobileCoreServices.framework in Frameworks */,
-				CC1F87812394D4CC003F9D7F /* MediaPlayer.framework in Frameworks */,
-				CC1F877F2394D4C4003F9D7F /* libz.1.2.8.tbd in Frameworks */,
-				CC1F877D2394D4BB003F9D7F /* libbz2.1.0.5.tbd in Frameworks */,
-				CC1F877B2394D4B2003F9D7F /* CoreVideo.framework in Frameworks */,
-				CC1F87792394D4AB003F9D7F /* CoreMedia.framework in Frameworks */,
-				CC1F87772394D4A5003F9D7F /* CoreGraphics.framework in Frameworks */,
-				CC1F87752394D49E003F9D7F /* AVFoundation.framework in Frameworks */,
-				CC1F87732394D498003F9D7F /* AudioToolbox.framework in Frameworks */,
 				55D15AAF20EE9A762F62D938 /* Pods_ShareEducation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +560,10 @@
 				CCDDA1E6238FAF2300C28497 /* CourseUnitFooterView.swift */,
 				CCDDA1E8238FB06400C28497 /* CourseDetailUnitDescriptionCell.swift */,
 				CCDDA1E9238FB06400C28497 /* CourseDetailUnitDescriptionCell.xib */,
+				CCEF8F4B23B32FD70078561D /* UserMessasgeCell.swift */,
+				CCEF8F4C23B32FD70078561D /* UserMessasgeCell.xib */,
+				CCEF8F5323B333010078561D /* LectureNoteCell.swift */,
+				CCEF8F5423B333010078561D /* LectureNoteCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -866,6 +864,12 @@
 				CCFFF28E23964FC400E1E4B0 /* CoursePlayViewController.xib */,
 				CC30AD1F239CFA3600A0DF20 /* CommentViewController.swift */,
 				CC30AD20239CFA3600A0DF20 /* CommentViewController.xib */,
+				CCEF8F4023B3052A0078561D /* CourseDescriptionViewController.swift */,
+				CCEF8F4123B3052A0078561D /* CourseDescriptionViewController.xib */,
+				CCEF8F4723B32DB80078561D /* AskAnswerViewController.swift */,
+				CCEF8F4823B32DB80078561D /* AskAnswerViewController.xib */,
+				CCEF8F4F23B332700078561D /* LectureNoteViewController.swift */,
+				CCEF8F5023B332700078561D /* LectureNoteViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1021,10 +1025,13 @@
 				CCF95B7F235EFDCB00FACFAD /* Main.storyboard in Resources */,
 				CCAC6B402398FE5500D26A2C /* MessageCell.xib in Resources */,
 				CC568D992397AF5E0016115B /* SearchHeaderView.xib in Resources */,
+				CCEF8F5223B332700078561D /* LectureNoteViewController.xib in Resources */,
 				CC30AD11239CE87900A0DF20 /* AccountSafeViewController.xib in Resources */,
 				CCF9B1632390EB2E0065E420 /* PaymentViewController.xib in Resources */,
 				CCAC6B482399024B00D26A2C /* CustomerServiceViewController.xib in Resources */,
+				CCEF8F4323B3052A0078561D /* CourseDescriptionViewController.xib in Resources */,
 				CCF3899C238A8A0D00F84678 /* FindPwdViewController.xib in Resources */,
+				CCEF8F5623B333010078561D /* LectureNoteCell.xib in Resources */,
 				CCDDA1D3238FA26600C28497 /* CourseDetailViewController.xib in Resources */,
 				CC8AA8C8238D32E8009F94D6 /* TeacherDetailSegmentedCell.xib in Resources */,
 				CC2B9F2A23A392D5006C815E /* AutoMappable.stencil in Resources */,
@@ -1041,12 +1048,14 @@
 				CCE1EF65239B891600DA98EA /* FeedbackViewController.xib in Resources */,
 				CC97B3C62386870A00F1BFE9 /* ValidateCodeLoginViewController.xib in Resources */,
 				CC34105E2393D4CC00ABA7A5 /* TeacherHomeCell.xib in Resources */,
+				CCEF8F4E23B32FD70078561D /* UserMessasgeCell.xib in Resources */,
 				CCF9B15B2390B32A0065E420 /* SelectCourseViewController.xib in Resources */,
 				CCF38994238A4FDD00F84678 /* RegisterViewController.xib in Resources */,
 				CCFFF29023964FC400E1E4B0 /* CoursePlayViewController.xib in Resources */,
 				CC30AD1E239CF92400A0DF20 /* MyCollectionViewController.xib in Resources */,
 				CC2B9F2C23A392DE006C815E /* config.sourcery.yml in Resources */,
 				CCF38998238A778400F84678 /* AreaSettingViewController.xib in Resources */,
+				CCEF8F4A23B32DB80078561D /* AskAnswerViewController.xib in Resources */,
 				CC993FF7238E78180036F8EA /* TeacherDetailCommentCell.xib in Resources */,
 				CC568D7323977B4C0016115B /* SearchViewController.xib in Resources */,
 				CC30AD0D239CE47700A0DF20 /* AboutViewController.xib in Resources */,
@@ -1141,6 +1150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCEF8F4223B3052A0078561D /* CourseDescriptionViewController.swift in Sources */,
 				CCDDA1D6238FA34000C28497 /* CourseDetailCoverCell.swift in Sources */,
 				CC2B9F3123A39427006C815E /* AutoEquatable.generated.swift in Sources */,
 				CC49AC2A23AA07E100E900B5 /* WeekCalendarView.swift in Sources */,
@@ -1156,6 +1166,7 @@
 				CCBF46CA237FC20A0030AFC1 /* CustomNavigationBar.swift in Sources */,
 				CC2D7AE0238528C500D9FD92 /* ListResult.swift in Sources */,
 				CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */,
+				CCEF8F5123B332700078561D /* LectureNoteViewController.swift in Sources */,
 				CCDDA1F1238FD24300C28497 /* CourseSbscribeAlertViewController.swift in Sources */,
 				CCE4FCA72382969A00E21139 /* ShareData.swift in Sources */,
 				CCC4F0FB237BF1FE00FD11D9 /* UIScreen+Bounds.swift in Sources */,
@@ -1212,6 +1223,7 @@
 				CCF95B99235F02E700FACFAD /* MineViewController.swift in Sources */,
 				CC8AA8B6238CD247009F94D6 /* String+URLPrefix.swift in Sources */,
 				CC07D2A323A76E1E00C86B5E /* WeekHeaderView.swift in Sources */,
+				CCEF8F4D23B32FD70078561D /* UserMessasgeCell.swift in Sources */,
 				CCF9B16A2390F9AE0065E420 /* PaymentPriceDetailCell.swift in Sources */,
 				CC017DE32377B1A600BF22DC /* Cell+ReuseIdentifier.swift in Sources */,
 				CC993FFE238E808A0036F8EA /* TeacherDetailDescriptionCell.swift in Sources */,
@@ -1242,6 +1254,7 @@
 				CCF3899B238A8A0D00F84678 /* FindPwdViewController.swift in Sources */,
 				CCB3D9D0235FEF90008E31AE /* MyFavoriteViewController.swift in Sources */,
 				CC30AD14239CEAD900A0DF20 /* EditUserinfoViewController.swift in Sources */,
+				CCEF8F4923B32DB80078561D /* AskAnswerViewController.swift in Sources */,
 				CC017DE52377BCDD00BF22DC /* HomeTeacherCollectionCell.swift in Sources */,
 				CC30AD0C239CE47700A0DF20 /* AboutViewController.swift in Sources */,
 				CCDDA1DA238FA69300C28497 /* CourseDetailDescptionCell.swift in Sources */,
@@ -1249,6 +1262,7 @@
 				CCD1BC67237C195800F52069 /* Bundle+Info.swift in Sources */,
 				CCDDA1DE238FA98E00C28497 /* CourseDetailTeacherCell.swift in Sources */,
 				CCBF46DF237FFC700030AFC1 /* BaseRootViewController.swift in Sources */,
+				CCEF8F5523B333010078561D /* LectureNoteCell.swift in Sources */,
 				CC30AD06239CDAFB00A0DF20 /* SettingCell.swift in Sources */,
 				CC43610A23811F1600AF796C /* CourseClassCell.swift in Sources */,
 				CC8AA8B8238CD63F009F94D6 /* WebViewController.swift in Sources */,

@@ -77,6 +77,8 @@ class CourseClassCell: CourseBaseCell {
         subscribeButton.snp.makeConstraints { (make) in
             make.centerY.equalTo(countLabel)
             make.trailing.equalTo(contentBgView).offset(-11)
+            make.width.equalTo(79)
+            make.height.equalTo(28)
         }
     }
 }

@@ -32,15 +32,11 @@ class User: Codable {
     var userInfo: UserInfo?
     
     var name: String? {
-        "wtongxue"
+        "13811111111"
     }
     
     var token: String? {
-        #if DEBUG
-        return "umzzVZ"
-        #else
         return userInfo?.token
-        #endif
     }
     
     func setup(json: JSON) {

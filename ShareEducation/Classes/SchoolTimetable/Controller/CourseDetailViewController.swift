@@ -101,6 +101,7 @@ class CourseDetailViewController: UIViewController {
     
     @objc func onWatchButtonPressed(_ sender: UIButton) {
         let controller = CoursePlayViewController()
+        controller.course = course!
         navigationController?.pushViewController(controller, animated: true)
     }
     

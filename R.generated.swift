@@ -160,7 +160,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 104 images.
+  /// This `R.image` struct is generated, and contains static references to 105 images.
   struct image {
     /// Image `bg_class2`.
     static let bg_class2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "bg_class2")
@@ -248,6 +248,8 @@ struct R: Rswift.Validatable {
     static let icon_menu03 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_menu03")
     /// Image `icon_menu04`.
     static let icon_menu04 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_menu04")
+    /// Image `icon_message`.
+    static let icon_message = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_message")
     /// Image `icon_more_home`.
     static let icon_more_home = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_more_home")
     /// Image `icon_more_my`.
@@ -669,6 +671,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "icon_menu04", bundle: ..., traitCollection: ...)`
     static func icon_menu04(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_menu04, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "icon_message", bundle: ..., traitCollection: ...)`
+    static func icon_message(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_message, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1102,7 +1111,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 46 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 51 nibs.
   struct nib {
     /// Nib `AboutViewController`.
     static let aboutViewController = _R.nib._AboutViewController()
@@ -1114,12 +1123,16 @@ struct R: Rswift.Validatable {
     static let activityListViewController = _R.nib._ActivityListViewController()
     /// Nib `AreaSettingViewController`.
     static let areaSettingViewController = _R.nib._AreaSettingViewController()
+    /// Nib `AskAnswerViewController`.
+    static let askAnswerViewController = _R.nib._AskAnswerViewController()
     /// Nib `CommentViewController`.
     static let commentViewController = _R.nib._CommentViewController()
     /// Nib `CouponCell`.
     static let couponCell = _R.nib._CouponCell()
     /// Nib `CouponListViewController`.
     static let couponListViewController = _R.nib._CouponListViewController()
+    /// Nib `CourseDescriptionViewController`.
+    static let courseDescriptionViewController = _R.nib._CourseDescriptionViewController()
     /// Nib `CourseDetailCoverCell`.
     static let courseDetailCoverCell = _R.nib._CourseDetailCoverCell()
     /// Nib `CourseDetailDescptionCell`.
@@ -1146,6 +1159,10 @@ struct R: Rswift.Validatable {
     static let feedbackViewController = _R.nib._FeedbackViewController()
     /// Nib `FindPwdViewController`.
     static let findPwdViewController = _R.nib._FindPwdViewController()
+    /// Nib `LectureNoteCell`.
+    static let lectureNoteCell = _R.nib._LectureNoteCell()
+    /// Nib `LectureNoteViewController`.
+    static let lectureNoteViewController = _R.nib._LectureNoteViewController()
     /// Nib `MessageCell`.
     static let messageCell = _R.nib._MessageCell()
     /// Nib `MessageListViewController`.
@@ -1194,6 +1211,8 @@ struct R: Rswift.Validatable {
     static let teacherHomeCell = _R.nib._TeacherHomeCell()
     /// Nib `UserInfoCell`.
     static let userInfoCell = _R.nib._UserInfoCell()
+    /// Nib `UserMessasgeCell`.
+    static let userMessasgeCell = _R.nib._UserMessasgeCell()
     /// Nib `ValidateCodeLoginViewController`.
     static let validateCodeLoginViewController = _R.nib._ValidateCodeLoginViewController()
 
@@ -1238,6 +1257,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "AskAnswerViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.askAnswerViewController) instead")
+    static func askAnswerViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.askAnswerViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "CommentViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.commentViewController) instead")
     static func commentViewController(_: Void = ()) -> UIKit.UINib {
@@ -1258,6 +1285,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.couponListViewController) instead")
     static func couponListViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.couponListViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "CourseDescriptionViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.courseDescriptionViewController) instead")
+    static func courseDescriptionViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.courseDescriptionViewController)
     }
     #endif
 
@@ -1362,6 +1397,22 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.findPwdViewController) instead")
     static func findPwdViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.findPwdViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "LectureNoteCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.lectureNoteCell) instead")
+    static func lectureNoteCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.lectureNoteCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "LectureNoteViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.lectureNoteViewController) instead")
+    static func lectureNoteViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.lectureNoteViewController)
     }
     #endif
 
@@ -1558,6 +1609,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "UserMessasgeCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.userMessasgeCell) instead")
+    static func userMessasgeCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.userMessasgeCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "ValidateCodeLoginViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.validateCodeLoginViewController) instead")
     static func validateCodeLoginViewController(_: Void = ()) -> UIKit.UINib {
@@ -1585,6 +1644,10 @@ struct R: Rswift.Validatable {
       return R.nib.areaSettingViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func askAnswerViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.askAnswerViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func commentViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.commentViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -1595,6 +1658,10 @@ struct R: Rswift.Validatable {
 
     static func couponListViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.couponListViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func courseDescriptionViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.courseDescriptionViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func courseDetailCoverCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CourseDetailCoverCell? {
@@ -1647,6 +1714,14 @@ struct R: Rswift.Validatable {
 
     static func findPwdViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.findPwdViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func lectureNoteCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LectureNoteCell? {
+      return R.nib.lectureNoteCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LectureNoteCell
+    }
+
+    static func lectureNoteViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.lectureNoteViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func messageCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MessageCell? {
@@ -1745,6 +1820,10 @@ struct R: Rswift.Validatable {
       return R.nib.userInfoCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UserInfoCell
     }
 
+    static func userMessasgeCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UserMessasgeCell? {
+      return R.nib.userMessasgeCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UserMessasgeCell
+    }
+
     static func validateCodeLoginViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.validateCodeLoginViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -1752,7 +1831,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 24 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 26 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `ActivityCell`.
     static let activityCell: Rswift.ReuseIdentifier<ActivityCell> = Rswift.ReuseIdentifier(identifier: "ActivityCell")
@@ -1772,6 +1851,8 @@ struct R: Rswift.Validatable {
     static let homeTeacherCollectionCell: Rswift.ReuseIdentifier<HomeTeacherCollectionCell> = Rswift.ReuseIdentifier(identifier: "HomeTeacherCollectionCell")
     /// Reuse identifier `HomeTeacherTableCell`.
     static let homeTeacherTableCell: Rswift.ReuseIdentifier<HomeTeacherTableCell> = Rswift.ReuseIdentifier(identifier: "HomeTeacherTableCell")
+    /// Reuse identifier `LectureNoteCell`.
+    static let lectureNoteCell: Rswift.ReuseIdentifier<LectureNoteCell> = Rswift.ReuseIdentifier(identifier: "LectureNoteCell")
     /// Reuse identifier `MessageCell`.
     static let messageCell: Rswift.ReuseIdentifier<MessageCell> = Rswift.ReuseIdentifier(identifier: "MessageCell")
     /// Reuse identifier `MineTableCell`.
@@ -1802,6 +1883,8 @@ struct R: Rswift.Validatable {
     static let teacherHomeCell: Rswift.ReuseIdentifier<TeacherHomeCell> = Rswift.ReuseIdentifier(identifier: "TeacherHomeCell")
     /// Reuse identifier `UserInfoCell`.
     static let userInfoCell: Rswift.ReuseIdentifier<UserInfoCell> = Rswift.ReuseIdentifier(identifier: "UserInfoCell")
+    /// Reuse identifier `UserMessasgeCell`.
+    static let userMessasgeCell: Rswift.ReuseIdentifier<UserMessasgeCell> = Rswift.ReuseIdentifier(identifier: "UserMessasgeCell")
 
     fileprivate init() {}
   }
@@ -1833,8 +1916,10 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _AboutViewController.validate()
+      try _AskAnswerViewController.validate()
       try _CommentViewController.validate()
       try _CouponCell.validate()
+      try _CourseDescriptionViewController.validate()
       try _CourseDetailCoverCell.validate()
       try _CourseDetailDescptionCell.validate()
       try _CourseDetailTeacherCell.validate()
@@ -1924,6 +2009,24 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _AskAnswerViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "AskAnswerViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "button01", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'button01' is used in nib 'AskAnswerViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon_message", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_message' is used in nib 'AskAnswerViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _CommentViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "CommentViewController"
@@ -1971,6 +2074,23 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _CourseDescriptionViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "CourseDescriptionViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "start1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start1' is used in nib 'CourseDescriptionViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
@@ -2181,6 +2301,31 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "icon_paixu3", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_paixu3' is used in nib 'FindPwdViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _LectureNoteCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = LectureNoteCell
+
+      let bundle = R.hostingBundle
+      let identifier = "LectureNoteCell"
+      let name = "LectureNoteCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LectureNoteCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LectureNoteCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _LectureNoteViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "LectureNoteViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}
@@ -2614,6 +2759,20 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "icon_more_my", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_more_my' is used in nib 'UserInfoCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _UserMessasgeCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = UserMessasgeCell
+
+      let bundle = R.hostingBundle
+      let identifier = "UserMessasgeCell"
+      let name = "UserMessasgeCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UserMessasgeCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UserMessasgeCell
       }
 
       fileprivate init() {}

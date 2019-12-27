@@ -15,12 +15,21 @@ class CourseContentViewController: BaseContentViewController {
     
     var animator: Animator?
     
-    var playType: CoursePlayType = .living
+    var playType: CoursePlayType = .living {
+        didSet {
+            refreshData()
+        }
+    }
     
     var calendarType: CalendarViewController.CalendarType = .month
     
     var courseList = [CourseItem]()
     
+    override var course: Course {
+        didSet {
+            refreshData()
+        }
+    }
     
     // MARK: - Property
     
@@ -138,7 +147,7 @@ class CourseContentViewController: BaseContentViewController {
             calendarType = .month
         }
         refreshCalendarUI()
-        tableView.reloadData()
+        refreshData()
     }
 }
 
@@ -153,21 +162,25 @@ extension CourseContentViewController: UITableViewDataSource {
         let course = courseList[indexPath.row]
         cell.course = course
         cell.buyHandler = { course in
-            let controller = CourseSbscribeAlertViewController()
+            let controller = CoursePlayViewController()
             controller.course = course
-            controller.confirmHandler = {
-                let vc = SelectCourseViewController()
-                vc.course = course
-                mainNavigationController.pushViewController(vc, animated: true)
-            }
-            let size = PresentationSize(width: .fullscreen, height: .custom(value: 365))
-            let marginGuards = UIEdgeInsets(top: 0, left: 47 + onePixelWidth, bottom: 0, right: 47 + onePixelWidth)
-            let uiConfiguration = PresentationUIConfiguration(cornerRadius: 10, backgroundStyle: .dimmed(alpha: 0.8))
-            let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
-            let animator = Animator(presentation: presentation)
-            animator.prepare(presentedViewController: controller)
-            self.animator = animator
-            mainNavigationController.present(controller, animated: true)
+            mainNavigationController.pushViewController(controller, animated: true)
+            
+//            let controller = CourseSbscribeAlertViewController()
+//            controller.course = course
+//            controller.confirmHandler = {
+//                let vc = SelectCourseViewController()
+//                vc.course = course
+//                mainNavigationController.pushViewController(vc, animated: true)
+//            }
+//            let size = PresentationSize(width: .fullscreen, height: .custom(value: 365))
+//            let marginGuards = UIEdgeInsets(top: 0, left: 47 + onePixelWidth, bottom: 0, right: 47 + onePixelWidth)
+//            let uiConfiguration = PresentationUIConfiguration(cornerRadius: 10, backgroundStyle: .dimmed(alpha: 0.8))
+//            let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
+//            let animator = Animator(presentation: presentation)
+//            animator.prepare(presentedViewController: controller)
+//            self.animator = animator
+//            mainNavigationController.present(controller, animated: true)
         }
         return cell
     }
@@ -178,7 +191,7 @@ extension CourseContentViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CourseSectionHeaderView.reuseIdentifier) as! CourseSectionHeaderView
-        headerView.courseCount = 12
+        headerView.courseCount = courseList.count
         headerView.changeButton.addTarget(self, action: #selector(onChangeCalendarTypeButtonPressed(_:)), for: .touchUpInside)
         switch calendarType {
         case .month:
@@ -193,5 +206,11 @@ extension CourseContentViewController: UITableViewDataSource {
 }
 
 extension CourseContentViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let course = courseList[indexPath.row]
+        let controller = CourseDetailViewController()
+        controller.course = course
+        mainNavigationController.pushViewController(controller, animated: true)
+    }
 }
