@@ -15,6 +15,8 @@ class HomeCourseCell: CourseBaseCell {
         timeImageView.isHidden = true
         backgroundImageView.image = UIImage(named: "bg_class")
         timeLabel.textColor = .black
+        headImageView.layer.cornerRadius = 15
+        headImageView.layer.masksToBounds = true
     }
     
     override func setupConstraints() {

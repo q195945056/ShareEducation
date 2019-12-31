@@ -38,7 +38,7 @@ extension Teacher {
         guard user.isLogin else {
             return
         }
-        serviceProvider.request(.collectTeacher(name: user.name!, token: user.token!, id: mid, oper: oper)) { result in
+        serviceProvider.request(.collectTeacher(name: user.account!, token: user.token!, id: mid, oper: oper)) { result in
             let json = try? JSON(data: result.get().data)
             let status = json!["result"].int
             if let status = status, status == 1 {

@@ -13,6 +13,8 @@ class CourseClassCell: CourseBaseCell {
     override func commonInit() {
         super.commonInit()
         backgroundImageView.image = UIImage(named: "bg_class2")
+        headImageView.layer.cornerRadius = 15
+        headImageView.layer.masksToBounds = true
     }
     
     override func setupConstraints() {

@@ -23,6 +23,7 @@ class CourseUnitViewController: UIViewController {
 
     func setupUI() {
         tableView.register(UINib(nibName: "CourseDetailUnitCell", bundle: nil), forCellReuseIdentifier: CourseDetailUnitCell.reuseIdentifier)
+        navigationItem.title = "单元课程"
     }
 
     /*

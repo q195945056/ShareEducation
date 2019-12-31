@@ -24,7 +24,7 @@ class PasswordLoginViewController: BaseLoginViewController {
         textField.borderStyle = .none
         textField.textColor = UIColor(red:158, green: 166, blue: 178)
         textField.placeholder = "请输入用户名"
-        textField.text = "wtongxue"
+        textField.text = "13811111111"
         textField.font = .systemFont(ofSize: 13)
         return textField
     }()
@@ -116,6 +116,7 @@ class PasswordLoginViewController: BaseLoginViewController {
                 let json = try JSON(data: result.get().data)
                 let status = json["result"].int
                 if let status = status, status == 1 {
+                    User.shared.account = self.accountField.text
                     User.shared.setup(json: json)
                     HUD.flash(.success, delay: 1)
                     self.dismiss(animated: true, completion: nil)

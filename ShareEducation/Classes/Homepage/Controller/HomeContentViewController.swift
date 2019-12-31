@@ -25,6 +25,8 @@ class HomeContentViewController: BaseContentViewController {
             refreshData()
         }
     }
+    
+    lazy var pageControl = UIPageControl()
         
     lazy var pagerView: TYCyclePagerView = TYCyclePagerView().then { pagerView in
         let bannerCellWidth = UIScreen.main.bounds.width - 26
@@ -35,6 +37,13 @@ class HomeContentViewController: BaseContentViewController {
         pagerView.dataSource = self
         pagerView.delegate = self
         pagerView.register(HomeBannerCell.classForCoder(), forCellWithReuseIdentifier: HomeBannerCell.reuseIdentifier)
+        
+        pagerView.addSubview(pageControl)
+        
+        pageControl.snp.makeConstraints { (make) in
+            make.centerX.equalTo(pagerView)
+            make.bottom.equalTo(pagerView).offset(-10)
+        }
     }
     
     var courseList = [CourseItem]()
@@ -91,9 +100,10 @@ class HomeContentViewController: BaseContentViewController {
     
     @objc func reloadBannerUI() {
         let bannerResouces = ShareData.shared.bannerResources
-        if let _ = bannerResouces {
+        if let bannerResouces = bannerResouces {
             tableView.tableHeaderView = pagerView
             pagerView.reloadData()
+            pageControl.numberOfPages = bannerResouces.count
         } else {
             tableView.tableHeaderView = nil
         }
@@ -104,7 +114,7 @@ class HomeContentViewController: BaseContentViewController {
         let area = ShareSetting.shared.area
         let user = User.shared
         
-        let name = user.name
+        let name = user.account
         let token = user.userInfo?.token
         
         serviceProvider.request(.getCourseList(type: .living, dateType: "3", date: Date().toFormat("yyyy-MM-dd"), name: name, token: token, offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id)) { (result) in
@@ -165,7 +175,7 @@ extension HomeContentViewController: TYCyclePagerViewDelegate, TYCyclePagerViewD
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: HomeBannerCell.reuseIdentifier, for: index) as! HomeBannerCell
         
         let resource = ShareData.shared.bannerResources![index]
-//        cell.imageView.kf.setImage(with: URL(string: resource.img.fullURLString))
+        cell.imageView.kf.setImage(with: URL(string: resource.img.fullURLString))
         return cell
     }
     
@@ -189,6 +199,7 @@ extension HomeContentViewController: TYCyclePagerViewDelegate, TYCyclePagerViewD
     
     func pagerView(_ pageView: TYCyclePagerView, didScrollFrom fromIndex: Int, to toIndex: Int) {
 //        self.pageControl.currentPage = toIndex;
+        pageControl.currentPage = toIndex
     }
 }
 

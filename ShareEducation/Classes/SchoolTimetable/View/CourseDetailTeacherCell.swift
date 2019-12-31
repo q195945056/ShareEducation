@@ -23,7 +23,7 @@ class CourseDetailTeacherCell: UITableViewCell {
     func updateUI() {
         if let course = course {
             if let pic = course.teacherPic {
-                headImageView.kf.setImage(with: URL(string: pic))
+                headImageView.kf.setImage(with: URL(string: pic.fullURLString))
             }
             nameLabel.text = course.teacherName
         }

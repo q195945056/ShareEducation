@@ -26,7 +26,7 @@ class CourseDetailCoverCell: UITableViewCell {
     func updateUI() {
         if let course = course {
             if let pic = course.pic {
-                coverImageView.kf.setImage(with: URL(string: pic))
+                coverImageView.kf.setImage(with: URL(string: pic.fullURLString))
             }
             titleLabel.text = course.name
             let startTime = course.startTime?.toFormat("MM月dd日 EE HH:mm", locale: Locales.chinese)

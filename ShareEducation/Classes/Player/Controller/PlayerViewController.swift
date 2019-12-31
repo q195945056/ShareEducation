@@ -35,7 +35,7 @@ class PlayerViewController: UIViewController {
     
     @IBOutlet var orientationButton: UIButton!
         
-    var urlString = "http://220.161.87.62:8800/hls/0/index.m3u8"
+    var urlString: String?
     
     lazy var coursePlayer = IJKAVMoviePlayerController(contentURLString: urlString).then {
         $0.scalingMode = .aspectFit
@@ -51,14 +51,18 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    }
+    
+    func prepareToPlay() {
         setupUI()
+        installMovieNotificationObservers()
+        coursePlayer.prepareToPlay()
+        teacherPlayer.prepareToPlay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        installMovieNotificationObservers()
-        coursePlayer.prepareToPlay()
-        teacherPlayer.prepareToPlay()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

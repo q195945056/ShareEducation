@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Kingfisher
 
 class CourseDescriptionViewController: UIViewController {
     
@@ -25,6 +27,14 @@ class CourseDescriptionViewController: UIViewController {
     @IBOutlet var playCountLabel: UILabel!
     
     @IBOutlet var descriptionLabel: UILabel!
+    
+    var course: CourseItem!
+    
+    var data: JSON? {
+        didSet {
+            updateUI()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +42,17 @@ class CourseDescriptionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func updateUI() {
+        if let data = data {
+            titleLabel.text = course.name
+            let teacher = data["teacher"]
+            let url = URL(string: teacher["pic"].string!)!
+            headImageView.kf.setImage(with: url)
+            teacherInfoLabel.text = "\(teacher["truename"].string ?? "") \(teacher["title"].string ?? "")"
+            courseLabel.text = "学科：\(data[""])"
+            descriptionLabel.text = data["depict"].stringValue
+        }
+    }
 
     /*
     // MARK: - Navigation

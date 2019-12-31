@@ -17,6 +17,6 @@ extension String {
     }
     
     var fullURLString: String {
-        return "\(baseURL)\(self)"
+        return "http://v.doututuan.com:8080/education\(self)"
     }
 }

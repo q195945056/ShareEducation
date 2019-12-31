@@ -16,7 +16,10 @@ class CourseBaseCell: UITableViewCell {
     lazy var courseBackgroundImageView = UIImageView(image: UIImage(named: "tag_class"))
     lazy var courseLabel = UILabel(font: .systemFont(ofSize: 9), textColor: .fefefe)
     lazy var classNameLabel = UILabel(font: .systemFont(ofSize: 15, weight: .bold), textColor: .darkTextColor)
-    lazy var headImageView = UIImageView()
+    lazy var headImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.layer.masksToBounds = true
+    }
     lazy var teacherInfoLabel = UILabel(font: .systemFont(ofSize: 12), textColor: .normalTextColor)
     lazy var countLabel = UILabel(font: .systemFont(ofSize: 12), textColor: .lightTextColor)
     lazy var subscribeButton = UIButton(backgroundImage: UIImage(named: "button01"), title: "立即预约", target: self, selector: #selector(onSubscribeButtonPressed(sender:))).then {
@@ -60,7 +63,9 @@ class CourseBaseCell: UITableViewCell {
             } else {
                 teacherInfoLabel.text = nil
             }
-            headImageView.kf.setImage(with: URL(string: course.pic ?? ""))
+            let teacherPic = course.teacherPic ?? ""
+            let url = URL(string: teacherPic.fullURLString)
+            headImageView.kf.setImage(with: url)
             countLabel.text = String(course.buyCount ?? 0) + "人已预约"
             switch course.state {
             case .notLiving:

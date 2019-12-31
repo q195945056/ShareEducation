@@ -8,6 +8,7 @@
 
 import UIKit
 import Jelly
+import SwiftyJSON
 
 class CoursePlayViewController: UIViewController {
     
@@ -16,6 +17,17 @@ class CoursePlayViewController: UIViewController {
     @IBOutlet var segmentedControl: YLSegmentedControl!
     
     lazy var playerController = PlayerViewController()
+    
+    /// 课程详情控制器
+    lazy var courseDescriptionController = CourseDescriptionViewController().then {
+        $0.course = course
+    }
+    
+    /// 问答控制器
+    lazy var answerController = AskAnswerViewController()
+    
+    /// 讲义控制器
+    lazy var lectureController = LectureNoteViewController()
     
     var course: CourseItem!
     
@@ -81,15 +93,25 @@ class CoursePlayViewController: UIViewController {
             make.leading.trailing.bottom.equalTo(view)
         }
 
-        let viewController = CourseDescriptionViewController()
-        pageViewController.setViewControllers([viewController], direction: .forward, animated: false)
+        pageViewController.setViewControllers([courseDescriptionController], direction: .forward, animated: false)
     }
     
     func loadData() {
         
-        serviceProvider.request(.playCourse(name: User.shared.name, token: User.shared.token, id: course.id)) {  result in
+        serviceProvider.request(.playCourse(name: User.shared.account, token: User.shared.token, id: course.id)) {  result in
             let json = try? result.get().mapJSON()
-            print(json)
+            if let json = json {
+                let jsonData = JSON(json)
+                let status = jsonData["result"].numberValue
+                if status == 1 {
+                    let data = jsonData["data"]
+                    let playurl = data["playurl"].stringValue
+                    if !playurl.isEmpty {
+                        self.playerController.urlString = playurl
+                        self.playerController.prepareToPlay()
+                    }
+                }
+            }
         }
     }
     
@@ -111,14 +133,11 @@ class CoursePlayViewController: UIViewController {
     
     func contentController(at index: Int) -> UIViewController {
         if index == 0 {
-            let controller = CourseDescriptionViewController()
-            return controller
+            return courseDescriptionController
         } else if index == 1 {
-            let controller = AskAnswerViewController()
-            return controller
+            return answerController
         } else {
-            let controller = LectureNoteViewController()
-            return controller
+            return lectureController
         }
     }
 

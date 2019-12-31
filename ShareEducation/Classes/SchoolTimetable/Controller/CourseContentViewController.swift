@@ -102,7 +102,7 @@ class CourseContentViewController: BaseContentViewController {
         let area = ShareSetting.shared.area
         let user = User.shared
         
-        let name = user.name
+        let name = user.account
         let token = user.token
         
         var dateType: String = ""

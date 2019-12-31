@@ -9,6 +9,7 @@
 import UIKit
 import Jelly
 import SwiftyJSON
+import ObjectMapper
 
 class CourseDetailViewController: UIViewController {
     
@@ -66,6 +67,10 @@ class CourseDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "CourseDetailUnitDescriptionCell", bundle: nil), forCellReuseIdentifier: CourseDetailUnitDescriptionCell.reuseIdentifier)
         tableView.register(CourseUnitTitleView.self, forHeaderFooterViewReuseIdentifier: CourseUnitTitleView.reuseIdentifier)
         tableView.register(CourseUnitFooterView.self, forHeaderFooterViewReuseIdentifier: CourseUnitFooterView.reuseIdentifier)
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
     }
     
     // MARK: - Actions

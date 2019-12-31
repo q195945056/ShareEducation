@@ -49,7 +49,7 @@ class SelectCourseViewController: UIViewController {
     
     func loadData() {
         let user = User.shared
-        let name = user.name!
+        let name = user.account!
         let token = user.token!
         serviceProvider.request(.courseBuy(name: name, token: token, id: course.id)) { result in
             let response = try? result.get().mapObject(ListResult<CourseItem>.self)

@@ -31,9 +31,7 @@ class User: Codable {
     
     var userInfo: UserInfo?
     
-    var name: String? {
-        "13811111111"
-    }
+    var account: String?
     
     var token: String? {
         return userInfo?.token

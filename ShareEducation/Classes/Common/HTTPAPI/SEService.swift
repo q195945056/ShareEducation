@@ -147,7 +147,7 @@ extension SEService: TargetType {
             var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
-            parameters["t.id"] = id
+            parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .collectCourse(let name, let token, let id, let star, let oper):
             var parameters = [String : Any]()

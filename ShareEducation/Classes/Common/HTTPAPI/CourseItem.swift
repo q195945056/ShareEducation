@@ -37,6 +37,7 @@ class CourseItem: Mappable {
     var unitID: Int?
         
     required init?(map: Map) {
+    
     }
     
     func mapping(map: Map) {
@@ -101,6 +102,9 @@ extension CourseItem {
         if let value = data["state"].int {
             state = PlayState(rawValue: value)
         }
+        depict = data["depict"].string
+        pic = data["pic"].string
+        unitDepict = data["unitdepict"].string
     }
     
     
@@ -109,7 +113,7 @@ extension CourseItem {
         guard user.isLogin else {
             return
         }
-        serviceProvider.request(.collectCourse(name: user.name!, token: user.token, id: id, star: star, oper: oper)) { result in
+        serviceProvider.request(.collectCourse(name: user.account!, token: user.token, id: id, star: star, oper: oper)) { result in
             let json = try? JSON(data: result.get().data)
             let status = json!["result"].int
             if let status = status, status == 1 {

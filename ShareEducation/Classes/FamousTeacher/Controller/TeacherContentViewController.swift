@@ -85,7 +85,7 @@ class TeacherContentViewController: BaseContentViewController {
         let area = ShareSetting.shared.area
         let user = User.shared
         
-        let name = user.name
+        let name = user.account
         let token = user.userInfo?.token
         
         serviceProvider.request(.getTeacherList(name: name, token: token, offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id, sort: sortSegmentedControl.selectedSegmentIndex), completion: completion)
