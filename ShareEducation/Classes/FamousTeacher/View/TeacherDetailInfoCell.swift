@@ -12,7 +12,7 @@ class TeacherDetailInfoCell: UITableViewCell {
     
     @IBOutlet var headImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var starRateImageView: UIImageView!
+    @IBOutlet var starRateImageView: StarRatingView!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var attentionButton: UIButton!
     @IBOutlet var schoolNameLabel: UILabel!
@@ -23,7 +23,7 @@ class TeacherDetailInfoCell: UITableViewCell {
     @IBOutlet var teachTimeLabel: UILabel!
     @IBOutlet var playCountLabel: UILabel!
     
-    var teacher: Teacher? {
+    var teacher: Teacher! {
         didSet {
             updateUI()
         }
@@ -42,19 +42,27 @@ class TeacherDetailInfoCell: UITableViewCell {
     }
     
     func updateUI() {
-        let urlString = teacher?.pic?.fullURLString
+        let urlString = teacher.pic?.fullURLString
         if let urlString = urlString {
             headImageView.kf.setImage(with: URL(string: urlString))
         }
-        nameLabel.text = teacher?.truename
-        starRateImageView.image = UIImage(named: "start\(teacher?.score ?? 1)")
-        scoreLabel.text = String(teacher?.score ?? 1)
-        schoolNameLabel.text = teacher?.university
-        titleLabel.text = teacher?.title
-        teachAgeLabel.text = "\(teacher?.teachingage ?? 1)年教龄"
-        rankingLabel.text = "第\(12)位"
-        teachTimeLabel.text = String(teacher?.totletime ?? 0) + "分钟"
-        playCountLabel.text = String(teacher?.playcount ?? 0) + "次"
+        nameLabel.text = teacher.truename
+        starRateImageView.score = teacher.score ?? 0
+        scoreLabel.text = String(teacher.score ?? 0)
+        schoolNameLabel.text = teacher.university
+        titleLabel.text = teacher.title
+        
+        courseLabel.text = "\(teacher.grade ?? "")\(teacher.course ?? "")"
+        
+        teachAgeLabel.text = "\(teacher.teachingage ?? 1)年教龄"
+        rankingLabel.text = "第x位"
+        teachTimeLabel.text = String(teacher.totletime ?? 0) + "分钟"
+        playCountLabel.text = String(teacher.playcount ?? 0) + "次"
+        
+        attentionButton.isSelected = teacher.collect!
+        
     }
+    
+    
     
 }

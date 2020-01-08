@@ -153,6 +153,9 @@ extension Teacher: Mappable {
         city <- map["city"]
         schoolname <- map["schoolname"]
         totletime <- map["totletime"]
+        course <- map["course"]
+        grade <- map["grade"]
+        teacherid <- map["teacherid"]
     }
 }
 

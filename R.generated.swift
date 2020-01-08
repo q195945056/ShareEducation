@@ -2698,6 +2698,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "icon_guanzhu", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_guanzhu' is used in nib 'TeacherDetailInfoCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon_guanzhu2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_guanzhu2' is used in nib 'TeacherDetailInfoCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "icon_renzheng", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_renzheng' is used in nib 'TeacherDetailInfoCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start1' is used in nib 'TeacherDetailInfoCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {

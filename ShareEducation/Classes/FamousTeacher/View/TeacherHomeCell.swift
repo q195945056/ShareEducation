@@ -32,14 +32,14 @@ class TeacherHomeCell: UITableViewCell {
     func updateUI() {
         if let teacher = teacher {
             if let pic = teacher.pic {
-                headImageView.kf.setImage(with: URL(string: pic))
+                headImageView.kf.setImage(with: URL(string: pic.fullURLString))
             }
             nameLabel.text = teacher.truename
             starRateView.score = teacher.score ?? 5
             scoreLabel.text = String(teacher.score!)
             schoolNameLabel.text = teacher.schoolname
             titleLabel.text = teacher.title
-            courseLabel.text = ""
+            courseLabel.text = "\(teacher.grade ?? "")\(teacher.course ?? "")"
             teachAgeLabel.text = "\(teacher.teachingage!)年教龄"
             rankingLabel.text = "排名第\(12)位"
             videoPlayCountLabel.text = "视频播放10次"
@@ -59,9 +59,9 @@ class TeacherHomeCell: UITableViewCell {
             make.trailing.equalTo(contentBgView).offset(13)
             make.bottom.equalTo(contentBgView).offset(14 + onePixelWidth)
         }
-            
-            
-        
+                  
+        headImageView.layer.cornerRadius = 33.5
+        headImageView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -165,22 +165,6 @@ extension CourseContentViewController: UITableViewDataSource {
             let controller = CoursePlayViewController()
             controller.course = course
             mainNavigationController.pushViewController(controller, animated: true)
-            
-//            let controller = CourseSbscribeAlertViewController()
-//            controller.course = course
-//            controller.confirmHandler = {
-//                let vc = SelectCourseViewController()
-//                vc.course = course
-//                mainNavigationController.pushViewController(vc, animated: true)
-//            }
-//            let size = PresentationSize(width: .fullscreen, height: .custom(value: 365))
-//            let marginGuards = UIEdgeInsets(top: 0, left: 47 + onePixelWidth, bottom: 0, right: 47 + onePixelWidth)
-//            let uiConfiguration = PresentationUIConfiguration(cornerRadius: 10, backgroundStyle: .dimmed(alpha: 0.8))
-//            let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
-//            let animator = Animator(presentation: presentation)
-//            animator.prepare(presentedViewController: controller)
-//            self.animator = animator
-//            mainNavigationController.present(controller, animated: true)
         }
         return cell
     }

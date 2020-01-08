@@ -51,6 +51,7 @@ class TeacherDetailViewController: UIViewController {
     
     lazy var infoCell: TeacherDetailInfoCell = {
         let cell = tableView.dequeueReusableCell(withIdentifier: TeacherDetailInfoCell.reuseIdentifier) as! TeacherDetailInfoCell
+        cell.attentionButton.addTarget(self, action: #selector(onAttentionButtonPressed(_:)), for: .touchUpInside)
         return cell
     }()
     
@@ -108,6 +109,12 @@ class TeacherDetailViewController: UIViewController {
     @objc func onSegmentedValueChanged(sender: YLSegmentedControl) {
         tableView.reloadData()
     }
+    
+    @objc func onAttentionButtonPressed(_ sender: UIButton) {
+        teacher.collect(oper: !teacher.collect!) { [weak teacher] (result) in
+            sender.isSelected = teacher!.collect!
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -155,6 +162,11 @@ extension TeacherDetailViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: HomeCourseCell.reuseIdentifier, for: indexPath) as! HomeCourseCell
                 let course = courses![indexPath.row]
                 cell.course = course
+                cell.buyHandler = { course in
+                    let controller = CoursePlayViewController()
+                    controller.course = course
+                    mainNavigationController.pushViewController(controller, animated: true)
+                }
                 return cell
             } else if selectedSegmentIndex == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: TeacherDetailDescriptionCell.reuseIdentifier, for: indexPath) as! TeacherDetailDescriptionCell
@@ -169,5 +181,18 @@ extension TeacherDetailViewController: UITableViewDataSource {
 }
 
 extension TeacherDetailViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedSegmentIndex = segmentCell.segmentedControl.selectedSegmentIndex
+        
+        if selectedSegmentIndex == 0 {
+             let course = courses![indexPath.row]
+             let controller = CourseDetailViewController()
+             controller.course = course
+             mainNavigationController.pushViewController(controller, animated: true)
+        } else if selectedSegmentIndex == 1 {
+            
+        } else {
+            
+        }
+    }
 }

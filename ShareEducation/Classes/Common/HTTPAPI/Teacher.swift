@@ -24,12 +24,29 @@ final class Teacher {
     var city: String?
     var schoolname: String?
     var totletime: Int?
+    var course: String?
+    var grade: String?
+    var teacherid: Int!
 }
 
 extension Teacher: AutoMappable {}
 
 extension Teacher {
     func setup(extraData: JSON) {
+        grade = extraData["grade"].string
+        teachingage = extraData["teachingage"].int
+        title = extraData["title"].string
+        score = extraData["score"].int
+        teacherid = extraData["teacherid"].int
+        truename = extraData["truename"].string
+        pic = extraData["pic"].string
+        course = extraData["course"].string
+        city = extraData["city"].string
+        collect = extraData["collect"].boolValue
+        university = extraData["university"].string
+        playcount = extraData["playcount"].int
+        mid = extraData["mid"].int
+        schoolname = extraData["schoolname"].string
         totletime = extraData["totletime"].int
     }
     
@@ -38,10 +55,10 @@ extension Teacher {
         guard user.isLogin else {
             return
         }
-        serviceProvider.request(.collectTeacher(name: user.account!, token: user.token!, id: mid, oper: oper)) { result in
+        serviceProvider.request(.collectTeacher(name: user.account!, token: user.token!, id: teacherid, oper: oper)) { result in
             let json = try? JSON(data: result.get().data)
             let status = json!["result"].int
-            if let status = status, status == 1 {
+            if status == 1 {
                 self.collect = oper
                 completion(true)
             } else {
