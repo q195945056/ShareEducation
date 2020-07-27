@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         let navigationBar = UINavigationBar.appearance()
         navigationBar.setBackgroundImage(UIImage(), for: .default)

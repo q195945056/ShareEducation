@@ -33,6 +33,10 @@ class User: Codable {
     
     var account: String?
     
+    var name: String? {
+        return userInfo?.name
+    }
+    
     var token: String? {
         return userInfo?.token
     }

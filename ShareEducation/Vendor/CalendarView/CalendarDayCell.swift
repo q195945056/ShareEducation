@@ -86,7 +86,4 @@ class CalendarDayCell: UICollectionViewCell {
             make.width.height.equalTo(5)
         }
     }
-    
-    
-    
 }

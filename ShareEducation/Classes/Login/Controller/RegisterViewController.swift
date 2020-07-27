@@ -9,6 +9,7 @@
 import UIKit
 import Jelly
 
+
 class RegisterViewController: UIViewController {
         
     @IBOutlet var typeView: TypeView?
@@ -24,6 +25,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet var phoneField: UITextField?
     @IBOutlet var validateCodeField: UITextField?
     
+    @IBOutlet var reSendButton: UIButton!
+    
     @IBOutlet var agreeImageView: UIImageView?
     
     var animator: Animator?
@@ -33,6 +36,12 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopTimer()
     }
     
     // MARK: - Actions
@@ -45,7 +54,54 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    var timer: Timer?
+    
+    var secondLeft = 60
+    
+    func startTimer() {
+        secondLeft = 60
+        let title = String(secondLeft)
+        reSendButton.setTitle(title, for: .disabled)
+        reSendButton.isEnabled = false
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimerTick(_:)), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer!, forMode: .common)
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        reSendButton.isEnabled = true
+    }
+    
+    @objc func onTimerTick(_ timer: Timer) {
+        secondLeft = secondLeft - 1
+        if secondLeft > 0 {
+            let title = String(secondLeft)
+            reSendButton.setTitle(title, for: .disabled)
+        } else {
+            reSendButton.isEnabled = true
+            timer.invalidate()
+        }
+    }
+    
     @IBAction func onValidateCodeButtonPressed(sender: Any) {
+        guard let phone = phoneField?.text else {
+            Utilities.toast("请输入手机号")
+            return
+        }
+        
+        guard Utilities.isTelNumber(num: phone) else {
+            Utilities.toast("请输入正确的手机号")
+            return
+        }
+        
+        User.sendSmsCode(to: phone) { result in
+            switch result {
+            case .success:
+                self.startTimer()
+            case let .failure(error):
+                Utilities.toast(error.errorDescription)
+            }
+        }
         
     }
     

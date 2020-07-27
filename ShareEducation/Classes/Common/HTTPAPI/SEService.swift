@@ -11,6 +11,30 @@ import Moya
 
 let serviceProvider = MoyaProvider<SEService>()
 
+enum SEError: Error {
+    case invalideResponse
+    case invalideStatusCode(statusCode: Int, message: String)
+    case userCanceled
+    case systemError(error: Error)
+    case platformError(error: Error)
+    case moyaError(error: MoyaError)
+    
+    var errorDescription: String {
+        switch self {
+        case .invalideResponse:
+            return "数据格式错误"
+        case let .invalideStatusCode(_, message):
+            return message
+        case .userCanceled:
+            return "用户主动取消"
+        case let .platformError(error), let .systemError(error):
+            return error.localizedDescription
+        case let .moyaError(error):
+            return error.errorDescription ?? "网络错误"
+        }
+    }
+}
+
 enum CoursePlayType: Int {
     case living = 1
     case record = 2
@@ -19,6 +43,7 @@ enum CoursePlayType: Int {
 enum SEService {
     case initData
     case login(name: String?, password: String?, type: String?, phone: String?, msgCode: String?)
+    case memberRegister(id: String?, name: String?, password: String, memberTypeID: String, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String)
     case sendSMS(phone: String)
     case getCourseList(type: CoursePlayType, dateType: String, date: String, name: String?, token: String?, offset: Int, rows:Int, areaid: Int, courseid: Int, gradeid: Int)
     case getCourseDetail(name: String?, token: String?, id: Int)
@@ -29,12 +54,24 @@ enum SEService {
     case collectTeacher(name: String?, token: String?, id: Int, oper: Bool)
     case playCourse(name: String?, token: String?, id: Int)
     case collectCourse(name: String?, token: String?, id: Int, star: Bool, oper: Bool)
+    case courseScore(cid: String, tid: String, score: String, depict: String)
+    case coursePlayLog(cid: String, tid: String)
+    case teacherMyCollect
+    case courseMyList
+    case courseOrder(ids: String, terminal: String)
+    case courseSearchOrder(orderID: String)
+    case sysFaqList
+    case sysMyMsgList
+    case courseQaList(courseID: String)
+    case courseQa(img: [UIImage]?, cid: String, parentID: String, content: String)
+    case memberSendSmsReg(phone: String)
+    case sysOpinion(content: String, contacts: String?, img: UIImage?)
 }
 
 extension SEService: TargetType {
     
     var baseURL: URL {
-        return URL(string: "http://v.doututuan.com:8080")!
+        return URL(string: "http://www.netcoclass.com:8080")!
     }
     
     var path: String {
@@ -43,6 +80,8 @@ extension SEService: TargetType {
             return "/education/resource/sysdata/initdata.json"
         case .login:
             return "/education/api/member_login.action"
+        case .memberRegister:
+            return "/education/api/member_register.action"
         case .sendSMS:
             return "/education/api/member_sendsms.action"
         case .getCourseList:
@@ -63,6 +102,30 @@ extension SEService: TargetType {
             return "/education/api/course_play.action"
         case .collectCourse:
             return "/education/api/course_collectc.action"
+        case .courseScore:
+            return "/education/api/course_score.action"
+        case .coursePlayLog:
+            return "/education/api/course_playlog.action"
+        case .teacherMyCollect:
+            return "/education/api/teacher_mycollect.action"
+        case .courseMyList:
+            return "/education/api/course_mylist.action"
+        case .courseOrder:
+            return "/education/api/course_order.action"
+        case .courseSearchOrder:
+            return "/education/api/course_searchorder.action"
+        case .sysFaqList:
+            return "/education/api/sys_faqlist.action"
+        case .sysMyMsgList:
+            return "/education/api/sys_mymsglist.action"
+        case .courseQaList:
+            return "/education/api/course_qalist.action"
+        case .courseQa:
+            return "/education/api/course_qa.action"
+        case .memberSendSmsReg:
+            return "/education/api/member_sendsmsreg.action"
+        case .sysOpinion:
+            return "/education/api/sys_opinion.action"
         }
     }
     
@@ -71,11 +134,12 @@ extension SEService: TargetType {
     }
     
     var task: Task {
+        var parameters = [String : Any]()
+
         switch self {
         case .initData:
             return .requestPlain
         case .login(let name, let password, let type, let phone, let msgCode):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.password"] = password
             parameters["m.type"] = type
@@ -83,10 +147,17 @@ extension SEService: TargetType {
             parameters["m.msgCode"] = msgCode
             parameters["m.appver"] = Bundle.appVersion
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .memberRegister(let id, let name, let password, let memberTypeID, let areaID, let area, let phone, let code, let schoolName, let gradeID, let schoolNum, let trueName):
+            parameters["m.id"] = id
+            parameters["m.name"] = User.shared.name
+            parameters["m.password"] = password
+            parameters["m.membertypeid"] = memberTypeID
+            parameters["m.areaid"] = areaID
+            parameters["m.area"] = area
+//            parameters[""]
         case .sendSMS(let phone):
             return .requestParameters(parameters: ["m.phone": phone], encoding: URLEncoding.queryString)
         case .getCourseList(let type, let dateType, let date, let name, let token, let offset, let rows, let areaid, let courseid, let gradeid):
-            var parameters = [String : Any]()
             parameters["c.type"] = type.rawValue
             parameters["c.datetype"] = dateType
             parameters["c.date"] = date
@@ -99,19 +170,16 @@ extension SEService: TargetType {
             parameters["m.gradeid"] = gradeid
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getCourseDetail(let name, let token, let id):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .courseBuy(let name, let token, let id):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getTeacherTopList(let name, let token, let rows, let areaid, let courseid, let gradeid):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["rows"] = rows
@@ -120,7 +188,6 @@ extension SEService: TargetType {
             parameters["m.gradeid"] = gradeid
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getTeacherList(let name, let token, let offset, let rows, let areaid, let courseid, let gradeid, let sort):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["offset"] = offset
@@ -131,31 +198,88 @@ extension SEService: TargetType {
             parameters["m.sort"] = sort
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getTeacherDetail(let name, let token, let id):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["t.mid"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .collectTeacher(let name, let token, let id, let oper):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["t.id"] = id
             parameters["t.oper"] = oper ? 1 : 0
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .playCourse(let name, let token, let id):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .collectCourse(let name, let token, let id, let star, let oper):
-            var parameters = [String : Any]()
             parameters["m.name"] = name
             parameters["m.token"] = token
             parameters["t.id"] = id
             parameters["c.star"] = star ? 1 : 0
             parameters["t.oper"] = oper ? 1 : 0
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .courseScore(let cid, let tid, let score, let depict):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            parameters["s.cid"] = cid
+            parameters["s.tid"] = tid
+            parameters["s.score"] = score
+            parameters["s.depict"] = depict
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case.coursePlayLog(let cid, let tid):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            parameters["p.cid"] = cid
+            parameters["p.tid"] = tid
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .teacherMyCollect:
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            return .requestPlain
+        case .courseMyList:
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            return .requestPlain
+        case .courseOrder(let ids, let terminal):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            parameters["c.ids"] = ids
+            parameters["c.terminal"] = terminal
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .courseSearchOrder(let orderID):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            parameters["c.orderid"] = orderID
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .sysFaqList:
+            return .requestPlain
+        case .sysMyMsgList:
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .courseQaList(let courseID):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            parameters["c.id"] = courseID
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .courseQa(let img,let cid, let parentID, let content):
+            parameters["img"] = img
+            parameters["name"] = User.shared.name
+            parameters["token"] = User.shared.token
+            parameters["cid"] = cid
+            parameters["parentID"] = parentID
+            parameters["content"] = content
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .memberSendSmsReg(let phone):
+            parameters["m.phone"] = phone
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .sysOpinion(let content, let contacts, let img):
+            parameters["name"] = User.shared.name
+            parameters["content"] = content
+            parameters["contacts"] = contacts
+            parameters["img"] = img
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }

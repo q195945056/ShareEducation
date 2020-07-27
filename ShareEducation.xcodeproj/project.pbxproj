@@ -97,6 +97,8 @@
 		CC993FFB238E7CD10036F8EA /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC993FFA238E7CD10036F8EA /* Comment.swift */; };
 		CC993FFE238E808A0036F8EA /* TeacherDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC993FFC238E808A0036F8EA /* TeacherDetailDescriptionCell.swift */; };
 		CC993FFF238E808A0036F8EA /* TeacherDetailDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC993FFD238E808A0036F8EA /* TeacherDetailDescriptionCell.xib */; };
+		CCA57E8824CEDCBB00830C2A /* User+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA57E8724CEDCBB00830C2A /* User+Action.swift */; };
+		CCA57E8B24CEDF5700830C2A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA57E8A24CEDF5700830C2A /* Utilities.swift */; };
 		CCAC6B372398FA0300D26A2C /* CouponListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC6B362398FA0300D26A2C /* CouponListViewController.swift */; };
 		CCAC6B3A2398FB2D00D26A2C /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC6B382398FB2D00D26A2C /* ActivityListViewController.swift */; };
 		CCAC6B3B2398FB2D00D26A2C /* ActivityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCAC6B392398FB2D00D26A2C /* ActivityListViewController.xib */; };
@@ -303,6 +305,8 @@
 		CC993FFA238E7CD10036F8EA /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		CC993FFC238E808A0036F8EA /* TeacherDetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherDetailDescriptionCell.swift; sourceTree = "<group>"; };
 		CC993FFD238E808A0036F8EA /* TeacherDetailDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherDetailDescriptionCell.xib; sourceTree = "<group>"; };
+		CCA57E8724CEDCBB00830C2A /* User+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Action.swift"; sourceTree = "<group>"; };
+		CCA57E8A24CEDF5700830C2A /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CCAC6B332398FA0300D26A2C /* CouponListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CouponListViewController.xib; path = /Users/yanmingjun/Documents/Github/ShareEducation/ShareEducation/Classes/Mine/Controller/CouponListViewController.xib; sourceTree = "<absolute>"; };
 		CCAC6B362398FA0300D26A2C /* CouponListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CouponListViewController.swift; path = /Users/yanmingjun/Documents/Github/ShareEducation/ShareEducation/Classes/Mine/Controller/CouponListViewController.swift; sourceTree = "<absolute>"; };
 		CCAC6B382398FB2D00D26A2C /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
@@ -455,6 +459,7 @@
 		CC017DE82377D38500BF22DC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CCA57E8924CEDF4D00830C2A /* Tool */,
 				CC39234823A6389200483240 /* YLPageViewController */,
 				CCBF46CB237FFAAF0030AFC1 /* CalendarView */,
 			);
@@ -492,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				CC1F87582394AE7D003F9D7F /* User.swift */,
+				CCA57E8724CEDCBB00830C2A /* User+Action.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -676,6 +682,14 @@
 				CC017DF523781B9A00BF22DC /* HomeCourseCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CCA57E8924CEDF4D00830C2A /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				CCA57E8A24CEDF5700830C2A /* Utilities.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		CCAC6B4D2399111600D26A2C /* Model */ = {
@@ -1236,9 +1250,11 @@
 				CCF9B16E2390F9DD0065E420 /* PaymentPayTypeCell.swift in Sources */,
 				CCBF46E1237FFFCC0030AFC1 /* BaseContentViewController.swift in Sources */,
 				CC9878272376EBC9004F8F8E /* HomeSectionTitleView.swift in Sources */,
+				CCA57E8824CEDCBB00830C2A /* User+Action.swift in Sources */,
 				CCF38993238A4FDD00F84678 /* RegisterViewController.swift in Sources */,
 				CCE1EF64239B891600DA98EA /* FeedbackViewController.swift in Sources */,
 				CC39234A23A638C000483240 /* YLPageViewController.swift in Sources */,
+				CCA57E8B24CEDF5700830C2A /* Utilities.swift in Sources */,
 				CCF95B95235F02B800FACFAD /* SchoolTimetableViewController.swift in Sources */,
 				CC30AD21239CFA3600A0DF20 /* CommentViewController.swift in Sources */,
 				CC8AA8C3238D14A1009F94D6 /* TeacherDetailInfoCell.swift in Sources */,

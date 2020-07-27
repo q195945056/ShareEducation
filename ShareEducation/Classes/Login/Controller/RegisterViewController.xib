@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +16,7 @@
                 <outlet property="phoneField" destination="IM4-gg-EeO" id="Zdv-zz-A0p"/>
                 <outlet property="pinyinField" destination="DPZ-Rp-6vY" id="5jp-S6-nMj"/>
                 <outlet property="pwdField" destination="elJ-X4-RIB" id="shi-jY-wyQ"/>
+                <outlet property="reSendButton" destination="Zk3-jn-ahN" id="vit-fs-aoj"/>
                 <outlet property="repeatPwdField" destination="DNp-K0-7ig" id="axM-Bh-3i6"/>
                 <outlet property="schoolNameField" destination="VbU-Jx-hV0" id="soo-W3-trw"/>
                 <outlet property="typeView" destination="3Rf-89-xjd" id="qTT-GP-tQe"/>
@@ -476,14 +477,12 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="BT9-LS-C5h" firstAttribute="top" secondItem="JKG-yL-aNg" secondAttribute="top" id="3do-Mr-wqJ"/>
-                        <constraint firstItem="BT9-LS-C5h" firstAttribute="bottom" secondItem="JKG-yL-aNg" secondAttribute="bottom" id="5yl-gK-E7C"/>
-                        <constraint firstItem="BT9-LS-C5h" firstAttribute="leading" secondItem="JKG-yL-aNg" secondAttribute="leading" id="Oa0-2s-uOq"/>
-                        <constraint firstItem="BT9-LS-C5h" firstAttribute="trailing" secondItem="JKG-yL-aNg" secondAttribute="trailing" id="a6S-eZ-gPb"/>
-                        <constraint firstItem="BT9-LS-C5h" firstAttribute="width" secondItem="twa-74-bR7" secondAttribute="width" id="n5D-XJ-TLI"/>
+                        <constraint firstItem="BT9-LS-C5h" firstAttribute="top" secondItem="hY7-jR-G5v" secondAttribute="top" id="3do-Mr-wqJ"/>
+                        <constraint firstItem="BT9-LS-C5h" firstAttribute="bottom" secondItem="hY7-jR-G5v" secondAttribute="bottom" id="5yl-gK-E7C"/>
+                        <constraint firstItem="BT9-LS-C5h" firstAttribute="leading" secondItem="hY7-jR-G5v" secondAttribute="leading" id="Oa0-2s-uOq"/>
+                        <constraint firstItem="BT9-LS-C5h" firstAttribute="trailing" secondItem="hY7-jR-G5v" secondAttribute="trailing" id="a6S-eZ-gPb"/>
+                        <constraint firstItem="BT9-LS-C5h" firstAttribute="width" secondItem="hY7-jR-G5v" secondAttribute="width" id="n5D-XJ-TLI"/>
                     </constraints>
-                    <viewLayoutGuide key="contentLayoutGuide" id="JKG-yL-aNg"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="twa-74-bR7"/>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
