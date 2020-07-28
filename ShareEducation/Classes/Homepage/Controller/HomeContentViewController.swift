@@ -66,7 +66,7 @@ class HomeContentViewController: BaseContentViewController {
         super.viewDidLoad()
         
         setupUI()
-        refreshData()
+//        refreshData()
     }
     
     deinit {
@@ -143,12 +143,8 @@ class HomeContentViewController: BaseContentViewController {
     private func refreshData() {
         let grade = ShareSetting.shared.grade
         let area = ShareSetting.shared.area
-        let user = User.shared
         
-        let name: String? = nil
-        let token = user.userInfo?.token
-        
-        serviceProvider.request(.getTeacherTopList(name: name, token: token, rows: 10, areaid: area.id, courseid: course.id, gradeid: grade.id)) { result in
+        serviceProvider.request(.getTeacherTopList(rows: 10, areaid: area.id, courseid: course.id, gradeid: grade.id)) { result in
             do {
                 let response = try result.get().mapObject(ListResult<Teacher>.self)
                 self.teacherListCell.teachers = response.data

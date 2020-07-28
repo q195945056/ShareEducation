@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import PKHUD
+import MBProgressHUD
 
 class Utilities {
     static func isTelNumber(num: String) -> Bool {
@@ -30,8 +30,53 @@ class Utilities {
         }
     }
     
-    static func toast(_ text: String, time: TimeInterval = 2) {
-        HUD.flash(.label(text), delay: time)
+    static func toast(_ text: String, in view: UIView? = nil, offset: Float = 0, hideAfter delay: TimeInterval = 2) {
+        guard !text.isEmpty else {
+            return
+        }
+        
+        var superView = view
+        if superView == nil {
+            superView = UIApplication.shared.keyWindow!
+        }
+        
+        let hud = MBProgressHUD.showAdded(to: superView!, animated: true)
+        hud.mode = .text
+        hud.isUserInteractionEnabled = false
+        hud.margin = 15.0
+        hud.label.text = text
+        hud.removeFromSuperViewOnHide = true
+        hud.hide(animated: true, afterDelay: delay)
+    }
+    
+    static func showLoading(to view: UIView, animated: Bool = true) {
+        MBProgressHUD.showAdded(to: view, animated: animated)
+    }
+    
+    static func showSuccess(_ message: String? = nil, to view: UIView, animated: Bool = true) {
+        var hud = MBProgressHUD.forView(view)
+        if hud == nil {
+            hud = MBProgressHUD.showAdded(to: view, animated: animated)
+        }
+        hud?.mode = .customView
+        let image = UIImage(named: "Checkmark")?.withRenderingMode(.alwaysTemplate)
+        hud?.customView = UIImageView(image: image)
+        hud?.isSquare = true
+        hud?.label.text = message ?? "成功"
+        hud?.hide(animated: animated, afterDelay: 2)
+    }
+    
+    static func showError(_ message: String? = nil, to view: UIView, animated: Bool = true) {
+        var hud = MBProgressHUD.forView(view)
+        if hud == nil {
+            hud = MBProgressHUD.showAdded(to: view, animated: animated)
+        }
+        hud?.mode = .customView
+        let image = UIImage(named: "Checkmark")?.withRenderingMode(.alwaysTemplate)
+        hud?.customView = UIImageView(image: image)
+        hud?.isSquare = true
+        hud?.label.text = message ?? "失败"
+        hud?.hide(animated: animated, afterDelay: 2)
     }
     
 }

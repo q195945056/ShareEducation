@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-import PKHUD
+import MBProgressHUD
 
 class PasswordLoginViewController: BaseLoginViewController {
     
@@ -110,7 +110,7 @@ class PasswordLoginViewController: BaseLoginViewController {
     // MARK: - Actions
     
     override func login() {
-        HUD.show(.progress)
+        Utilities.showLoading(to: self.view!)
         serviceProvider.request(.login(name: accountField.text, password: passwordField.text?.md5String, type: "1", phone: nil, msgCode: nil)) { (result) in
             do {
                 let json = try JSON(data: result.get().data)
@@ -118,13 +118,13 @@ class PasswordLoginViewController: BaseLoginViewController {
                 if let status = status, status == 1 {
                     User.shared.account = self.accountField.text
                     User.shared.setup(json: json)
-                    HUD.flash(.success, delay: 1)
+                    Utilities.showSuccess("登录成功", to: self.view)
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    HUD.flash(.error, delay: 1)
+                    Utilities.showError("登录失败", to: self.view, animated: true)
                 }
             } catch {
-                HUD.flash(.labeledError(title: "错误", subtitle: error.localizedDescription), delay: 1)
+                Utilities.showError("登录失败", to: self.view, animated: true)
             }
         }
     }

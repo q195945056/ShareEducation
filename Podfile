@@ -22,7 +22,7 @@ target 'ShareEducation' do
   pod 'MJRefresh'
   pod 'Cache'
   pod 'SwiftyJSON'
-  pod 'PKHUD'
+  pod 'MBProgressHUD'
   pod 'RSKPlaceholderTextView'
   pod 'R.swift'
   pod 'ijkplayer'

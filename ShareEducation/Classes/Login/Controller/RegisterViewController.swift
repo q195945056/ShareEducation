@@ -12,7 +12,7 @@ import Jelly
 
 class RegisterViewController: UIViewController {
         
-    @IBOutlet var typeView: TypeView?
+    @IBOutlet var typeView: TypeView!
     
     @IBOutlet var areaField: UITextField?
     @IBOutlet var schoolNameField: UITextField?
@@ -26,8 +26,12 @@ class RegisterViewController: UIViewController {
     @IBOutlet var validateCodeField: UITextField?
     
     @IBOutlet var reSendButton: UIButton!
+        
+    @IBOutlet var agreeView: AgreeView!
     
-    @IBOutlet var agreeImageView: UIImageView?
+    var areaID: Int?
+    
+    var gradeID: Int?
     
     var animator: Animator?
 
@@ -51,6 +55,11 @@ class RegisterViewController: UIViewController {
             typeView?.isSelected = false
             sender.isSelected = true
             typeView = sender
+            if typeView.type == 1 {
+                valueField?.placeholder = "*教师资格证号"
+            } else {
+                valueField?.placeholder = "*学籍号"
+            }
         }
     }
     
@@ -110,7 +119,75 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func onRegisterButtonPressed(sender: Any) {
+        guard let area = areaField?.text, !area.isEmpty else {
+            Utilities.toast("请选择所在学校地区")
+            return
+        }
+        guard let schoolName = schoolNameField?.text, !schoolName.isEmpty else {
+            Utilities.toast("请填写学校名称")
+            return
+        }
+        guard let grade = gradeField?.text, !grade.isEmpty else {
+            Utilities.toast("请选择年级")
+            return
+        }
+        guard let value = valueField?.text, !value.isEmpty else {
+            if typeView?.type == 2 {
+                Utilities.toast("请填写学籍号")
+            } else {
+                Utilities.toast("请填写教师资格证号")
+            }
+            return
+        }
+        guard let trueName = nameField?.text, !trueName.isEmpty else {
+            Utilities.toast("请输入真实姓名")
+            return
+        }
+        guard let pinyin = pinyinField?.text, !pinyin.isEmpty else {
+            Utilities.toast("请输入姓名拼音全拼")
+            return
+        }
+        guard let password = pwdField?.text, !password.isEmpty else {
+            Utilities.toast("请输入密码")
+            return
+        }
+        guard let repeatPassword = repeatPwdField?.text, !repeatPassword.isEmpty else {
+            Utilities.toast("请重复输入密码")
+            return
+        }
+        guard repeatPassword == password else {
+            Utilities.toast("两次输入的密码不相同")
+            return
+        }
+        guard let phone = phoneField?.text, !phone.isEmpty else {
+            Utilities.toast("请输入手机号")
+            return
+        }
         
+        guard Utilities.isTelNumber(num: phone) else {
+            Utilities.toast("请输入正确的手机号")
+            return
+        }
+        
+        guard let code = validateCodeField?.text, !code.isEmpty else {
+            Utilities.toast("请输入验证码")
+            return
+        }
+        guard agreeView.isSelected else {
+            Utilities.toast("您还未同意注册条款")
+            return
+        }
+        
+        
+        User.register(userName: nil, password: password, memberType: String(typeView.type), areaID: String(areaID!), area: area, phone: phone, code: code, schoolName: schoolName, gradeID: String(gradeID!), schoolNum: value, trueName: trueName) { result in
+            switch result {
+            case .success:
+                self.navigationController?.popViewController(animated: true)
+                break
+            case let .failure(error):
+                Utilities.toast(error.errorDescription)
+            }
+        }
     }
     
     @IBAction func onPrivacyButtonPressed(sender: Any) {
@@ -119,6 +196,7 @@ class RegisterViewController: UIViewController {
 
     func onAreaButtonPressed() {
         let controller = AreaSettingViewController()
+        controller.isRegister = true
         controller.didSelectArea = { area in
             self.areaField?.text = area.name
         }

@@ -55,7 +55,6 @@ class AreaSettingViewController: UIViewController {
         
         initData()
         
-        pickerView(pickerView, didSelectRow: 0, inComponent: 0)
     }
     
     func initData() {
@@ -64,10 +63,36 @@ class AreaSettingViewController: UIViewController {
             let provinceDic = provinceList.first
             let provinceCode = provinceDic!["id"]
             cities = (cityMap[provinceCode!])!.map{ $0["name"]! }
+            pickerView(pickerView, didSelectRow: 0, inComponent: 0)
         } else {
             provinces = (ShareData.shared.areas?.keys.sorted())!
-            let key = provinces.first!
+            
+            
+            let area = ShareSetting.shared.area
+            var provinceIndex = 0
+            var cityIndex = 0
+            for i in 0..<provinces.count {
+                let province = provinces[i]
+                let cities = ShareData.shared.areas![province]!
+                for j in 0..<cities.count {
+                    let city = cities[j]
+                    if area == city {
+                        provinceIndex = i
+                        cityIndex = j
+                        break
+                    }
+                }
+            }
+            
+            let key = provinces[provinceIndex]
             cities = ((ShareData.shared.areas?[key])?.map{ $0.name })!
+            
+            pickerView.reloadAllComponents()
+            
+            pickerView.selectRow(provinceIndex, inComponent: 0, animated: false)
+            pickerView.selectRow(cityIndex, inComponent: 1, animated: false)
+            
+            
         }
     }
     
@@ -77,7 +102,8 @@ class AreaSettingViewController: UIViewController {
         let index = pickerView.selectedRow(inComponent: 1)
         let cityName = cities[index]
     
-        let area = ShareData.shared.findArea(by: cityName)
+        var area = ShareData.shared.findArea(by: cityName)
+        area.name = cityName
         if isRegister {
             self.didSelectArea?(area)
         } else {

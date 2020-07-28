@@ -43,12 +43,12 @@ enum CoursePlayType: Int {
 enum SEService {
     case initData
     case login(name: String?, password: String?, type: String?, phone: String?, msgCode: String?)
-    case memberRegister(id: String?, name: String?, password: String, memberTypeID: String, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String)
+    case memberRegister(id: String?, password: String, memberTypeID: String, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String)
     case sendSMS(phone: String)
     case getCourseList(type: CoursePlayType, dateType: String, date: String, name: String?, token: String?, offset: Int, rows:Int, areaid: Int, courseid: Int, gradeid: Int)
     case getCourseDetail(name: String?, token: String?, id: Int)
     case courseBuy(name: String, token: String, id: Int)
-    case getTeacherTopList(name: String? = nil, token: String? = nil, rows: Int, areaid: Int, courseid: Int, gradeid: Int)
+    case getTeacherTopList(rows: Int, areaid: Int, courseid: Int, gradeid: Int)
     case getTeacherList(name: String?, token: String?, offset: Int, rows: Int, areaid: Int, courseid: Int, gradeid: Int, sort: Int = 0)
     case getTeacherDetail(name: String?, token: String?, id: Int)
     case collectTeacher(name: String?, token: String?, id: Int, oper: Bool)
@@ -147,14 +147,20 @@ extension SEService: TargetType {
             parameters["m.msgCode"] = msgCode
             parameters["m.appver"] = Bundle.appVersion
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .memberRegister(let id, let name, let password, let memberTypeID, let areaID, let area, let phone, let code, let schoolName, let gradeID, let schoolNum, let trueName):
+        case .memberRegister(let id, let password, let memberTypeID, let areaID, let area, let phone, let code, let schoolName, let gradeID, let schoolNum, let trueName):
             parameters["m.id"] = id
             parameters["m.name"] = User.shared.name
             parameters["m.password"] = password
             parameters["m.membertypeid"] = memberTypeID
             parameters["m.areaid"] = areaID
             parameters["m.area"] = area
-//            parameters[""]
+            parameters["m.phone"] = phone
+            parameters["m.code"] = code
+            parameters["m.schoolname"] = schoolName
+            parameters["m.gradeid"] = gradeID
+            parameters["m.schoolnum"] = schoolNum
+            parameters["m.truename"] = trueName
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .sendSMS(let phone):
             return .requestParameters(parameters: ["m.phone": phone], encoding: URLEncoding.queryString)
         case .getCourseList(let type, let dateType, let date, let name, let token, let offset, let rows, let areaid, let courseid, let gradeid):
@@ -179,9 +185,9 @@ extension SEService: TargetType {
             parameters["m.token"] = token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .getTeacherTopList(let name, let token, let rows, let areaid, let courseid, let gradeid):
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+        case .getTeacherTopList(let rows, let areaid, let courseid, let gradeid):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["rows"] = rows
             parameters["m.areaid"] = areaid
             parameters["m.courseid"] = courseid

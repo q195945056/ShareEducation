@@ -13,10 +13,10 @@ import Foundation
 extension String {
     
     var baseURL: String {
-        "http://xudp.cn:8181"
+        "http://www.netcoclass.com:8080"
     }
     
     var fullURLString: String {
-        return "http://v.doututuan.com:8080/education\(self)"
+        return "http://www.netcoclass.com:8080/education\(self)"
     }
 }

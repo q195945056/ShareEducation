@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="ShareEducation" customModuleProvider="target">
             <connections>
+                <outlet property="agreeView" destination="h5l-Sp-iQL" id="iG6-vN-VlU"/>
                 <outlet property="areaField" destination="sxx-95-AEj" id="eJg-BS-0Gu"/>
                 <outlet property="gradeField" destination="2mZ-Kk-0bl" id="phh-Wr-TFg"/>
                 <outlet property="nameField" destination="wOq-bL-7Nx" id="Rr1-qD-9ry"/>
@@ -77,7 +78,7 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="type">
-                                            <integer key="value" value="1"/>
+                                            <integer key="value" value="2"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -115,7 +116,7 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="type">
-                                            <integer key="value" value="2"/>
+                                            <integer key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -200,7 +201,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bb4-gw-f4O" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
                                     <rect key="frame" x="26" y="403.5" width="362" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*教师资格证号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydw-CC-4hr">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*学籍号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydw-CC-4hr">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>

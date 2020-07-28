@@ -18,6 +18,10 @@ struct Area: Codable {
     static let `default` = Area(id: 0, name: "不限")
 }
 
+extension Area: Equatable {
+    
+}
+
 extension Area: AutoMappable {}
 
 struct Course: Codable {
