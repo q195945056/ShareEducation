@@ -7,10 +7,19 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Question {
-    var question: String
-    var answer: String
+class Question: Mappable  {
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        question <- map["title"]
+        answer <- map["faqContent"]
+    }
+    
+    var question: String!
+    var answer: String!
     var expand: Bool = false
     
     init(question: String, answer: String) {

@@ -12,11 +12,7 @@ import IJKMediaFramework
 class PlayerViewController: UIViewController {
     
     @IBOutlet var courseView: UIView!
-    
-    @IBOutlet var teacherView: UIView!
-    
-    @IBOutlet var commentView: UIView!
-    
+            
     @IBOutlet var navigationView: UIView!
     
     @IBOutlet var playControlView: UIView!
@@ -37,13 +33,8 @@ class PlayerViewController: UIViewController {
         
     var urlString: String?
     
-    lazy var coursePlayer = IJKAVMoviePlayerController(contentURLString: urlString).then {
+    lazy var coursePlayer = IJKFFMoviePlayerController(contentURLString: urlString, with: nil).then {
         $0.scalingMode = .aspectFit
-        $0.shouldAutoplay = true
-    }
-    
-    lazy var teacherPlayer = IJKAVMoviePlayerController(contentURLString: urlString).then {
-        $0.scalingMode = .aspectFill
         $0.shouldAutoplay = true
     }
 
@@ -51,14 +42,12 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
     }
     
     func prepareToPlay() {
         setupUI()
         installMovieNotificationObservers()
         coursePlayer.prepareToPlay()
-        teacherPlayer.prepareToPlay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +57,9 @@ class PlayerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        coursePlayer.shutdown()
+        if urlString != nil {
+            coursePlayer.shutdown()
+        }
         removeMovieNotificationObservers()
     }
     
@@ -79,10 +70,6 @@ class PlayerViewController: UIViewController {
             make.edges.equalTo(courseView)
         }
         
-        teacherView.addSubview(teacherPlayer.view)
-        teacherPlayer.view.snp.makeConstraints { (make) in
-            make.edges.equalTo(teacherView)
-        }
     }
     
     func installMovieNotificationObservers() {

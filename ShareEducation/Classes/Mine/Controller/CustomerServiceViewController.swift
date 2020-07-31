@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import SwiftyJSON
+import ObjectMapper
 
 class CustomerServiceViewController: UIViewController {
+    
+    @IBOutlet var telLabel: UILabel!
+    
+    @IBOutlet var timeLabel: UILabel!
     
     @IBOutlet var headerView: UIView!
     
@@ -16,28 +22,65 @@ class CustomerServiceViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    lazy var qustions: [Question] = {
-        var array = [Question]()
-        var answer1 = Question(question: "问题1", answer: "答案1")
-        var answer2 = Question(question: "问题2", answer: "答案2")
-        var answer3 = Question(question: "问题3", answer: "答案3")
-
-        array.append(answer1)
-        array.append(answer2)
-        array.append(answer3)
-        return array
-    }()
+    lazy var qustions: [Question] = [Question]()
+//        {
+//        var array = [Question]()
+//        var answer1 = Question(question: "问题1", answer: "答案1")
+//        var answer2 = Question(question: "问题2", answer: "答案2")
+//        var answer3 = Question(question: "问题3", answer: "答案3")
+//
+//        array.append(answer1)
+//        array.append(answer2)
+//        array.append(answer3)
+//        return array
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        requestData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func requestData() {
+        serviceProvider.request(.sysFaqList) { (result) in
+            switch result {
+            case let .success(response):
+                guard let responseData = try? JSON(data: response.data) else {
+                    return
+                }
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    return
+                }
+                
+                let data1 = responseData["data1"]
+                let phone = data1["servicephone"].stringValue
+                let time = data1["servicetime"].stringValue
+                self.telLabel.text = "客服电话：" + phone
+                self.timeLabel.text = "拨打时间：" + time
+                
+                let data = responseData["data"]
+                let mapper = Mapper<Question>()
+                guard let array = mapper.mapArray(JSONObject: data.arrayObject) else {
+                    return
+                }
+                
+                self.qustions = array
+                self.tableView.reloadData()
+                
+                break
+            case .failure:
+                Utilities.toast("请求数据失败")
+            }
+        }
     }
 
     func setupUI() {

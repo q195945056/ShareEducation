@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerViewController" customModule="ShareEducation" customModuleProvider="target">
             <connections>
                 <outlet property="backwardButton" destination="tNf-3D-ddD" id="PgT-zg-zFX"/>
-                <outlet property="commentView" destination="pMP-eJ-cME" id="dkj-cq-70X"/>
                 <outlet property="courseView" destination="CSr-zP-1zi" id="fTs-g2-OHx"/>
                 <outlet property="currentTimeLabel" destination="h83-qW-1Fz" id="VJD-qa-qvz"/>
                 <outlet property="forwardButton" destination="cOk-u0-Z1x" id="dFp-b7-PzH"/>
@@ -20,7 +19,6 @@
                 <outlet property="playButton" destination="Hth-wJ-QFa" id="2YD-By-ito"/>
                 <outlet property="playControlView" destination="hpZ-aC-fSZ" id="MOR-vT-9k8"/>
                 <outlet property="slider" destination="zFW-RJ-6c2" id="wtg-ru-Mjw"/>
-                <outlet property="teacherView" destination="Whu-jP-jwv" id="pS1-rI-PR6"/>
                 <outlet property="totalTimeLabel" destination="00a-hN-tzG" id="lhn-9k-r2c"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,34 +29,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSr-zP-1zi">
-                    <rect key="frame" x="0.0" y="0.0" width="499" height="375"/>
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="CSr-zP-1zi" secondAttribute="height" multiplier="499:375" id="mLB-G8-PSe"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whu-jP-jwv">
-                    <rect key="frame" x="499" y="0.0" width="168" height="125"/>
-                    <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="Whu-jP-jwv" secondAttribute="height" multiplier="168:125" id="6Bz-aS-clW"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMP-eJ-cME">
-                    <rect key="frame" x="499" y="125" width="168" height="250"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBt-ih-WMo">
-                            <rect key="frame" x="0.0" y="210" width="168" height="40"/>
-                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="IBt-ih-WMo" secondAttribute="trailing" id="ZzG-pb-pf4"/>
-                        <constraint firstItem="IBt-ih-WMo" firstAttribute="height" secondItem="pMP-eJ-cME" secondAttribute="height" multiplier="0.16" id="dK9-oF-fLh"/>
-                        <constraint firstItem="IBt-ih-WMo" firstAttribute="leading" secondItem="pMP-eJ-cME" secondAttribute="leading" id="eQh-vl-9aa"/>
-                        <constraint firstAttribute="bottom" secondItem="IBt-ih-WMo" secondAttribute="bottom" id="rhJ-6O-VmJ"/>
-                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0c-Ik-4dy">
                     <rect key="frame" x="0.0" y="0.0" width="667" height="94"/>
@@ -185,19 +157,13 @@
                 <constraint firstItem="u0c-Ik-4dy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="17f-bC-ifU"/>
                 <constraint firstItem="hpZ-aC-fSZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6ay-Dd-YWI"/>
                 <constraint firstAttribute="trailing" secondItem="hpZ-aC-fSZ" secondAttribute="trailing" id="7qv-6k-NnI"/>
-                <constraint firstItem="pMP-eJ-cME" firstAttribute="top" secondItem="Whu-jP-jwv" secondAttribute="bottom" id="9Tz-gu-7Ix"/>
                 <constraint firstAttribute="trailing" secondItem="u0c-Ik-4dy" secondAttribute="trailing" id="B7b-YG-DzI"/>
-                <constraint firstItem="pMP-eJ-cME" firstAttribute="leading" secondItem="CSr-zP-1zi" secondAttribute="trailing" id="Brn-MT-4hs"/>
                 <constraint firstItem="u0c-Ik-4dy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BuW-Pe-PNd"/>
-                <constraint firstAttribute="trailing" secondItem="Whu-jP-jwv" secondAttribute="trailing" id="Cgw-vH-cwt"/>
-                <constraint firstItem="Whu-jP-jwv" firstAttribute="leading" secondItem="CSr-zP-1zi" secondAttribute="trailing" id="Kzl-N9-ggU"/>
-                <constraint firstAttribute="bottom" secondItem="pMP-eJ-cME" secondAttribute="bottom" id="Roo-a0-yNq"/>
                 <constraint firstItem="CSr-zP-1zi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WYC-kt-N3L"/>
-                <constraint firstItem="Whu-jP-jwv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZYM-dM-g5V"/>
                 <constraint firstAttribute="bottom" secondItem="CSr-zP-1zi" secondAttribute="bottom" id="a62-SK-L66"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CSr-zP-1zi" secondAttribute="trailing" id="cAV-YY-KEf"/>
                 <constraint firstAttribute="bottom" secondItem="hpZ-aC-fSZ" secondAttribute="bottom" id="m69-oU-ENL"/>
                 <constraint firstItem="CSr-zP-1zi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qnN-Uh-QiT"/>
-                <constraint firstAttribute="trailing" secondItem="pMP-eJ-cME" secondAttribute="trailing" id="vlm-UL-QO8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
