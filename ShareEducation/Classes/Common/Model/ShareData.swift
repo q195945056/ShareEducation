@@ -32,6 +32,8 @@ class ShareData: Codable {
     
     var bannerResources: [Resource]?
     
+    var userResources: [Resource]?
+    
     var resourcetypes: [Resourcetype]! {
         didSet {
             for resourceType in resourcetypes {
@@ -40,6 +42,8 @@ class ShareData: Codable {
                     splashResources = resourceType.resources
                 case .banner:
                     bannerResources = resourceType.resources
+                case .user:
+                    userResources = resourceType.resources
                 default:
                     break
                 }

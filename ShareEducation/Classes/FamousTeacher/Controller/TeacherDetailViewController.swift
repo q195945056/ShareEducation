@@ -84,7 +84,7 @@ class TeacherDetailViewController: UIViewController {
     }
     
     func loadData() {
-        serviceProvider.request(.getTeacherDetail(name: nil, token: nil, id: teacher.mid)) { (result) in
+        serviceProvider.request(.getTeacherDetail(id: teacher.mid)) { (result) in
             let json = try? JSON(data: result.get().data)
             if let json = json {
                 let data = json["data"]
@@ -119,6 +119,7 @@ class TeacherDetailViewController: UIViewController {
         
         Utilities.showLoading(to: self.view)
         teacher.collect(oper: !teacher.collect!) { [weak teacher] (result) in
+            Utilities.hideHUD(for: self.view)
             sender.isSelected = teacher!.collect!
             if teacher!.collect! {
                 Utilities.toast("关注成功")

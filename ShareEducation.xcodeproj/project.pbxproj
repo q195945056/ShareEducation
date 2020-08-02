@@ -65,6 +65,7 @@
 		CC5074C424D6898800CEA100 /* MyCoursesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5074C224D6898800CEA100 /* MyCoursesViewController.xib */; };
 		CC5074C724D68B3B00CEA100 /* MyCourseListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5074C524D68B3B00CEA100 /* MyCourseListCell.swift */; };
 		CC5074C824D68B3B00CEA100 /* MyCourseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5074C624D68B3B00CEA100 /* MyCourseListCell.xib */; };
+		CC5074CB24D6AF4B00CEA100 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5074CA24D6AF4B00CEA100 /* Message.swift */; };
 		CC568D7223977B4C0016115B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC568D7023977B4C0016115B /* SearchViewController.swift */; };
 		CC568D7323977B4C0016115B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC568D7123977B4C0016115B /* SearchViewController.xib */; };
 		CC568D982397AF5E0016115B /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC568D962397AF5E0016115B /* SearchHeaderView.swift */; };
@@ -277,6 +278,7 @@
 		CC5074C224D6898800CEA100 /* MyCoursesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCoursesViewController.xib; sourceTree = "<group>"; };
 		CC5074C524D68B3B00CEA100 /* MyCourseListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCourseListCell.swift; sourceTree = "<group>"; };
 		CC5074C624D68B3B00CEA100 /* MyCourseListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCourseListCell.xib; sourceTree = "<group>"; };
+		CC5074CA24D6AF4B00CEA100 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CC568D7023977B4C0016115B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CC568D7123977B4C0016115B /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		CC568D962397AF5E0016115B /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				CCAC6B4E2399112200D26A2C /* Question.swift */,
+				CC5074CA24D6AF4B00CEA100 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1300,6 +1303,7 @@
 				CC43610A23811F1600AF796C /* CourseClassCell.swift in Sources */,
 				CC8AA8B8238CD63F009F94D6 /* WebViewController.swift in Sources */,
 				CCFFF29423966FD500E1E4B0 /* CourseUnitViewController.swift in Sources */,
+				CC5074CB24D6AF4B00CEA100 /* Message.swift in Sources */,
 				CC3410612393DC4C00ABA7A5 /* MineTableCell.swift in Sources */,
 				CC017DE72377D23700BF22DC /* TeacherScoreView.swift in Sources */,
 				CCC154E6238BA449005F29CC /* String+Size.swift in Sources */,

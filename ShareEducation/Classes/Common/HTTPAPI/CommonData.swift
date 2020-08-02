@@ -67,6 +67,7 @@ struct Resourcetype: Codable {
     enum RType: Int, Codable {
         case splash = 1
         case banner = 2
+        case user = 3
     }
 }
 

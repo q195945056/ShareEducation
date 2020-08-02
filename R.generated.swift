@@ -160,7 +160,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 114 images.
+  /// This `R.image` struct is generated, and contains static references to 116 images.
   struct image {
     /// Image `Checkmark`.
     static let checkmark = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checkmark")
@@ -268,6 +268,8 @@ struct R: Rswift.Validatable {
     static let icon_menu04 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_menu04")
     /// Image `icon_message`.
     static let icon_message = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_message")
+    /// Image `icon_messages2`.
+    static let icon_messages2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_messages2")
     /// Image `icon_more_home`.
     static let icon_more_home = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_more_home")
     /// Image `icon_more_my`.
@@ -356,6 +358,8 @@ struct R: Rswift.Validatable {
     static let logo_sign = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo_sign")
     /// Image `logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
+    /// Image `start0`.
+    static let start0 = Rswift.ImageResource(bundle: R.hostingBundle, name: "start0")
     /// Image `start1`.
     static let start1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "start1")
     /// Image `start2`.
@@ -763,6 +767,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "icon_messages2", bundle: ..., traitCollection: ...)`
+    static func icon_messages2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_messages2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "icon_more_home", bundle: ..., traitCollection: ...)`
     static func icon_more_home(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_more_home, compatibleWith: traitCollection)
@@ -1067,6 +1078,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "logo_sign", bundle: ..., traitCollection: ...)`
     static func logo_sign(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.logo_sign, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "start0", bundle: ..., traitCollection: ...)`
+    static func start0(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.start0, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2051,6 +2069,7 @@ struct _R: Rswift.Validatable {
       try _CustomerServiceViewController.validate()
       try _FeedbackViewController.validate()
       try _FindPwdViewController.validate()
+      try _MessageCell.validate()
       try _MineTableCell.validate()
       try _MyCourseListCell.validate()
       try _PaymentCouponCell.validate()
@@ -2462,7 +2481,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _MessageCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _MessageCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = MessageCell
 
       let bundle = R.hostingBundle
@@ -2471,6 +2490,12 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MessageCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MessageCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "icon_messages2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_messages2' is used in nib 'MessageCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
@@ -2874,7 +2899,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "icon_guanzhu", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_guanzhu' is used in nib 'TeacherDetailInfoCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "icon_guanzhu2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_guanzhu2' is used in nib 'TeacherDetailInfoCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "icon_renzheng", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_renzheng' is used in nib 'TeacherDetailInfoCell', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "start1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start1' is used in nib 'TeacherDetailInfoCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

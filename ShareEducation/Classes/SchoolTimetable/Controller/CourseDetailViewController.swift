@@ -94,12 +94,15 @@ class CourseDetailViewController: UIViewController {
     }
     
     @IBAction func onCollectButtonPressed(_ sender: Any) {
-        let user = User.shared
-        if user.isLogin {
-            course.collect(star: false, oper: !course.isCollect!) { result in
-                if result {
-                    self.collectButton.isSelected = self.course.isCollect!
-                }
+        guard User.shared.isLogin else {
+            LoginViewController.show(from: self)
+            return
+        }
+        
+        
+        course.collect(star: false, oper: !course.isCollect!) { result in
+            if result {
+                self.collectButton.isSelected = self.course.isCollect!
             }
         }
     }

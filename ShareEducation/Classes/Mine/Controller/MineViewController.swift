@@ -86,6 +86,11 @@ class MineViewController: UIViewController {
     
     @objc func onInviteButtonPressed(_ sender: Any) {
         
+        if let resource = ShareData.shared.userResources?.first {
+            let urlString = resource.linkUrl
+            let controller = WebViewController(url: urlString!)
+            mainNavigationController.pushViewController(controller, animated: true)
+        }
     }
     
     /*

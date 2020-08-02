@@ -27,6 +27,7 @@ target 'ShareEducation' do
   pod 'R.swift'
   pod 'ijkplayer'
   pod 'Sourcery'
+  pod 'HCSStarRatingView'
   
 end
 
