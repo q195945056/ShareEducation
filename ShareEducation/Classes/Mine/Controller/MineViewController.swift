@@ -70,7 +70,8 @@ class MineViewController: UIViewController {
     }
     
     @objc func onMyCourseButtonPressed(_ sender: Any) {
-        
+        let controller = MyCoursesViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
     }
     
     @objc func onMyCollectionButtonPressed(_ sender: Any) {

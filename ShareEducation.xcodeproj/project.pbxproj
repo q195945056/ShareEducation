@@ -61,6 +61,10 @@
 		CC49AC2A23AA07E100E900B5 /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC49AC2923AA07E100E900B5 /* WeekCalendarView.swift */; };
 		CC49AC2C23AA244000E900B5 /* UIButton+Hiitest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC49AC2B23AA244000E900B5 /* UIButton+Hiitest.swift */; };
 		CC4FD27B2376742C00FC803D /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FD27A2376742C00FC803D /* MainTabbarController.swift */; };
+		CC5074C324D6898800CEA100 /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5074C124D6898800CEA100 /* MyCoursesViewController.swift */; };
+		CC5074C424D6898800CEA100 /* MyCoursesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5074C224D6898800CEA100 /* MyCoursesViewController.xib */; };
+		CC5074C724D68B3B00CEA100 /* MyCourseListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5074C524D68B3B00CEA100 /* MyCourseListCell.swift */; };
+		CC5074C824D68B3B00CEA100 /* MyCourseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5074C624D68B3B00CEA100 /* MyCourseListCell.xib */; };
 		CC568D7223977B4C0016115B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC568D7023977B4C0016115B /* SearchViewController.swift */; };
 		CC568D7323977B4C0016115B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC568D7123977B4C0016115B /* SearchViewController.xib */; };
 		CC568D982397AF5E0016115B /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC568D962397AF5E0016115B /* SearchHeaderView.swift */; };
@@ -116,7 +120,6 @@
 		CCAC6B4F2399112200D26A2C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC6B4E2399112200D26A2C /* Question.swift */; };
 		CCB3D9C6235FEE67008E31AE /* TeacherSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C5235FEE67008E31AE /* TeacherSearchViewController.swift */; };
 		CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */; };
-		CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CD235FEF7B008E31AE /* MyCoursesViewController.swift */; };
 		CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */; };
 		CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */; };
 		CCBF46C8237FAD670030AFC1 /* GradeCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */; };
@@ -270,6 +273,10 @@
 		CC49AC2923AA07E100E900B5 /* WeekCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
 		CC49AC2B23AA244000E900B5 /* UIButton+Hiitest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Hiitest.swift"; sourceTree = "<group>"; };
 		CC4FD27A2376742C00FC803D /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		CC5074C124D6898800CEA100 /* MyCoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController.swift; sourceTree = "<group>"; };
+		CC5074C224D6898800CEA100 /* MyCoursesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCoursesViewController.xib; sourceTree = "<group>"; };
+		CC5074C524D68B3B00CEA100 /* MyCourseListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCourseListCell.swift; sourceTree = "<group>"; };
+		CC5074C624D68B3B00CEA100 /* MyCourseListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCourseListCell.xib; sourceTree = "<group>"; };
 		CC568D7023977B4C0016115B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CC568D7123977B4C0016115B /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		CC568D962397AF5E0016115B /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
@@ -325,7 +332,6 @@
 		CCAC6B4E2399112200D26A2C /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		CCB3D9C5235FEE67008E31AE /* TeacherSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSearchViewController.swift; sourceTree = "<group>"; };
 		CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
-		CCB3D9CD235FEF7B008E31AE /* MyCoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController.swift; sourceTree = "<group>"; };
 		CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSettingViewController.swift; sourceTree = "<group>"; };
 		CCB3D9D8235FF052008E31AE /* ShoppingCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCarViewController.swift; sourceTree = "<group>"; };
 		CCBF46C7237FAD670030AFC1 /* GradeCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionHeader.swift; sourceTree = "<group>"; };
@@ -593,6 +599,8 @@
 				CC30AD04239CDAFB00A0DF20 /* SettingCell.swift */,
 				CC30AD05239CDAFB00A0DF20 /* SettingCell.xib */,
 				CC30AD08239CDC3600A0DF20 /* SeparatorLineFooterView.swift */,
+				CC5074C524D68B3B00CEA100 /* MyCourseListCell.swift */,
+				CC5074C624D68B3B00CEA100 /* MyCourseListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -907,7 +915,8 @@
 			children = (
 				CCF95B98235F02E700FACFAD /* MineViewController.swift */,
 				CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */,
-				CCB3D9CD235FEF7B008E31AE /* MyCoursesViewController.swift */,
+				CC5074C124D6898800CEA100 /* MyCoursesViewController.swift */,
+				CC5074C224D6898800CEA100 /* MyCoursesViewController.xib */,
 				CC3EABE024D66AF0002BFE25 /* MyFavoriteViewController.swift */,
 				CC3EABE124D66AF0002BFE25 /* MyFavoriteViewController.xib */,
 				CC3EABDD24D65775002BFE25 /* CouponListViewController.swift */,
@@ -1041,6 +1050,7 @@
 				CC30AD1A239CEB0600A0DF20 /* UserInfoCell.xib in Resources */,
 				CCAC6B3B2398FB2D00D26A2C /* ActivityListViewController.xib in Resources */,
 				CCF95B7F235EFDCB00FACFAD /* Main.storyboard in Resources */,
+				CC5074C824D68B3B00CEA100 /* MyCourseListCell.xib in Resources */,
 				CCAC6B402398FE5500D26A2C /* MessageCell.xib in Resources */,
 				CC568D992397AF5E0016115B /* SearchHeaderView.xib in Resources */,
 				CCEF8F5223B332700078561D /* LectureNoteViewController.xib in Resources */,
@@ -1052,6 +1062,7 @@
 				CC3EABE324D66AF0002BFE25 /* MyFavoriteViewController.xib in Resources */,
 				CCEF8F5623B333010078561D /* LectureNoteCell.xib in Resources */,
 				CCDDA1D3238FA26600C28497 /* CourseDetailViewController.xib in Resources */,
+				CC5074C424D6898800CEA100 /* MyCoursesViewController.xib in Resources */,
 				CC8AA8C8238D32E8009F94D6 /* TeacherDetailSegmentedCell.xib in Resources */,
 				CC2B9F2A23A392D5006C815E /* AutoMappable.stencil in Resources */,
 				CC34105A2393D2CE00ABA7A5 /* TeacherContentViewController.xib in Resources */,
@@ -1204,7 +1215,6 @@
 				CCBF46E9238018C40030AFC1 /* UIButton+QuickUI.swift in Sources */,
 				CCF9B15A2390B32A0065E420 /* SelectCourseViewController.swift in Sources */,
 				CCFFF28F23964FC400E1E4B0 /* CoursePlayViewController.swift in Sources */,
-				CCB3D9CE235FEF7B008E31AE /* MyCoursesViewController.swift in Sources */,
 				CC1F87592394AE7D003F9D7F /* User.swift in Sources */,
 				CC07D2A123A76E1E00C86B5E /* CalendarDayCell.swift in Sources */,
 				CCDDA1EA238FB06400C28497 /* CourseDetailUnitDescriptionCell.swift in Sources */,
@@ -1227,6 +1237,7 @@
 				CC07D2A023A76E1E00C86B5E /* CalendarView.swift in Sources */,
 				CCD1BC65237C06D800F52069 /* SEService.swift in Sources */,
 				CCDDA1E4238FACE800C28497 /* CourseDetailUnitCell.swift in Sources */,
+				CC5074C724D68B3B00CEA100 /* MyCourseListCell.swift in Sources */,
 				CCAC6B4F2399112200D26A2C /* Question.swift in Sources */,
 				CCB3D9C6235FEE67008E31AE /* TeacherSearchViewController.swift in Sources */,
 				CC34105D2393D4CC00ABA7A5 /* TeacherHomeCell.swift in Sources */,
@@ -1266,6 +1277,7 @@
 				CC8AA8C3238D14A1009F94D6 /* TeacherDetailInfoCell.swift in Sources */,
 				CCBF46E5238017190030AFC1 /* MonthCalendarView.swift in Sources */,
 				CCFFF280239608D600E1E4B0 /* CourseUnit.swift in Sources */,
+				CC5074C324D6898800CEA100 /* MyCoursesViewController.swift in Sources */,
 				CC568D982397AF5E0016115B /* SearchHeaderView.swift in Sources */,
 				CCF95B78235EFDCB00FACFAD /* AppDelegate.swift in Sources */,
 				CC568D9C2397AFEF0016115B /* SearchHotCell.swift in Sources */,

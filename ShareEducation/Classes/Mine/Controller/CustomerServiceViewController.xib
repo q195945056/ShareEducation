@@ -49,7 +49,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fu-oT-Zhz">
                     <rect key="frame" x="13" y="20" width="349" height="55"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1fO-32-gzl">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_kefu" translatesAutoresizingMaskIntoConstraints="NO" id="1fO-32-gzl">
                             <rect key="frame" x="13.5" y="8.5" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="8EQ-j1-gAP"/>
@@ -105,4 +105,7 @@
             <point key="canvasLocation" x="38" y="-309"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_kefu" width="35" height="35"/>
+    </resources>
 </document>

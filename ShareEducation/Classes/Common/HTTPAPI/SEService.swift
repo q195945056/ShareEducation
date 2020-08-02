@@ -243,11 +243,11 @@ extension SEService: TargetType {
         case .teacherMyCollect:
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
-            return .requestPlain
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .courseMyList:
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
-            return .requestPlain
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .courseOrder(let ids, let terminal):
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
