@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 
 class MineViewController: UIViewController {
     
@@ -198,7 +198,8 @@ extension MineViewController {
     }
     
     func enterActivityListPage() {
-        let controller = ActivityListViewController()
+        let controller = WebViewController(url: "http://www.netcoclass.com/newaction/index.html")
+        controller.navigationItem.title = "最新活动"
         mainNavigationController.pushViewController(controller, animated: true)
     }
     

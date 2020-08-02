@@ -19,9 +19,9 @@ class WebViewController: UIViewController {
         return webView
     }()
     
-    var urlString: URLConvertible?
+    var urlString: String?
     
-    init(url: URLConvertible) {
+    init(url: String) {
         urlString = url
         super.init(nibName: nil, bundle: nil)
     }
@@ -61,13 +61,10 @@ class WebViewController: UIViewController {
     
     func refresh() {
         var url: URL?
-        do {
-            url = try urlString?.asURL()
-            if let url = url {
-                let request = URLRequest(url: url)
-                webView.load(request)
-            }
-        } catch {
+        url = URL(string: urlString ?? "")
+        if let url = url {
+            let request = URLRequest(url: url)
+            webView.load(request)
         }
     }
 
