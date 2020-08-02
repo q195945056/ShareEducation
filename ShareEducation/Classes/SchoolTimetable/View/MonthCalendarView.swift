@@ -22,12 +22,15 @@ class MonthCalendarView: UIView {
     lazy var calendarView: CalendarView = {
         let calendarView = CalendarView(frame: .zero, type: .month)
         calendarView.delegate = self
+        calendarView.dataSource = self
         return calendarView
     }()
     
     var heightChangeHandler: (() -> Void)?
     
     var didChangeToMonth: ((_ month: Date) -> Void)?
+    
+    var eventProvider: ((Date) -> Bool)?
     
     var month: Date {
         get {
@@ -85,6 +88,10 @@ class MonthCalendarView: UIView {
     
     // MARK: - Actions
     
+    func reloadData() {
+        calendarView.reloadData()
+    }
+    
     @objc func onPreviousButtonPressed(sender: AnyObject?) {
         calendarView.goToPreviousMonth()
     }
@@ -93,6 +100,12 @@ class MonthCalendarView: UIView {
         calendarView.goToNextMonth()
     }
     
+}
+
+extension MonthCalendarView: CalendarViewDataSource {
+    func calendarView(_ calendarView: CalendarView, haveEventAt date: Date) -> Bool {
+        eventProvider?(date) ?? false
+    }
 }
 
 extension MonthCalendarView: CalendarViewDelegate {

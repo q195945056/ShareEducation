@@ -47,11 +47,14 @@ class CourseContentViewController: BaseContentViewController {
     lazy var monthHeaderView: MonthCalendarView = {
         let monthHeaderView = MonthCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 0))
         monthHeaderView.clipsToBounds = true
-        monthHeaderView.heightChangeHandler = {
+        monthHeaderView.heightChangeHandler = { [unowned self] in
             self.tableView.tableHeaderView = monthHeaderView
         }
-        monthHeaderView.didChangeToMonth = { month in
+        monthHeaderView.didChangeToMonth = { [unowned self](month) in
             self.refreshData()
+        }
+        monthHeaderView.eventProvider = { [unowned self](date) in
+            self.hasCourse(at: date)
         }
         return monthHeaderView
     }()
@@ -89,6 +92,15 @@ class CourseContentViewController: BaseContentViewController {
     
     // MARK: - Private
     
+    private func hasCourse(at date: Date) -> Bool {
+        for course in courseList {
+            if course.startTime!.compare(.isSameDay(date)) {
+                return true
+            }
+        }
+        return false
+    }
+    
     private func refreshData() {
         loadCourseData(offset: 0)
     }
@@ -123,6 +135,8 @@ class CourseContentViewController: BaseContentViewController {
                 } else {
                     self.courseList.append(contentsOf: response.data)
                 }
+                self.monthHeaderView.reloadData()
+
                 self.tableView.reloadData()
                 if self.tableView.mj_header!.isRefreshing {
                     self.tableView.mj_header?.endRefreshing()

@@ -72,6 +72,7 @@ class CalendarDayCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         titleLabel.layer.cornerRadius = contentView.frame.width * 0.5
+        dotView.layer.cornerRadius = 2.5
     }
     
     func commonInit() {

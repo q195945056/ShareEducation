@@ -7,7 +7,10 @@
 //
 
 import UIKit
+#if DEBUG
+#else
 import IJKMediaFramework
+#endif
 
 class PlayerViewController: UIViewController {
     
@@ -33,10 +36,13 @@ class PlayerViewController: UIViewController {
         
     var urlString: String?
     
+    #if DEBUG
+    #else
     lazy var coursePlayer = IJKFFMoviePlayerController(contentURLString: urlString, with: nil).then {
         $0.scalingMode = .aspectFit
         $0.shouldAutoplay = true
     }
+    #endif
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +53,10 @@ class PlayerViewController: UIViewController {
     func prepareToPlay() {
         setupUI()
         installMovieNotificationObservers()
+        #if DEBUG
+        #else
         coursePlayer.prepareToPlay()
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,35 +67,49 @@ class PlayerViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         if urlString != nil {
+            #if DEBUG
+            #else
             coursePlayer.shutdown()
+            #endif
         }
         removeMovieNotificationObservers()
     }
     
     func setupUI() {
         traitCollectionDidChange(nil)
+        #if DEBUG
+        #else
         courseView.addSubview(coursePlayer.view)
         coursePlayer.view.snp.makeConstraints { (make) in
             make.edges.equalTo(courseView)
         }
+        #endif
         
     }
     
     func installMovieNotificationObservers() {
+        #if DEBUG
+        #else
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(mediaIsPreparedToPlayDidChange(_:)), name: NSNotification.Name.IJKMPMediaPlaybackIsPreparedToPlayDidChange, object: coursePlayer)
         notificationCenter.addObserver(self, selector: #selector(mediaPlaybackStateDidChange(_:)), name: NSNotification.Name.IJKMPMoviePlayerPlaybackStateDidChange, object: coursePlayer)
+        #endif
     }
     
     func removeMovieNotificationObservers() {
+        #if DEBUG
+        #else
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self, name: NSNotification.Name.IJKMPMediaPlaybackIsPreparedToPlayDidChange, object: coursePlayer)
+        #endif
     }
 
     
     // MARK: - Actions
     
     @objc func mediaIsPreparedToPlayDidChange(_ notification: Notification) {
+        #if DEBUG
+        #else
         let duration = coursePlayer.duration
         if duration.isNaN {
             currentTimeLabel.text = "00:00:00"
@@ -101,15 +124,20 @@ class PlayerViewController: UIViewController {
             forwardButton.isEnabled = true
             slider.isEnabled = true
         }
+        #endif
+        
     }
     
     @objc func mediaPlaybackStateDidChange(_ notification: Notification) {
+        #if DEBUG
+        #else
         switch coursePlayer.playbackState {
         case .playing:
             playButton.setImage(UIImage(named: "icon_play"), for: .normal)
         default:
             playButton.setImage(UIImage(named: "icon_play2"), for: .normal)
         }
+        #endif
     }
     
     @IBAction func onBackGroundTapped(_ sender: UITapGestureRecognizer) {
@@ -118,19 +146,28 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func backWard(_ sender: UIButton) {
+        #if DEBUG
+        #else
         coursePlayer.currentPlaybackTime -= 5
+        #endif
     }
     
     @IBAction func forwad(_ sender: UIButton) {
+        #if DEBUG
+        #else
         coursePlayer.currentPlaybackTime += 5
+        #endif
     }
     
     @IBAction func play(_ sender: UIButton) {
+        #if DEBUG
+        #else
         if coursePlayer.playbackState == .playing {
             coursePlayer.pause()
         } else {
             coursePlayer.play()
         }
+        #endif
     }
 
     /*

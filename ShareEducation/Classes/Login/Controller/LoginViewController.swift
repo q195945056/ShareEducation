@@ -18,6 +18,11 @@ class LoginViewController: UIViewController {
         return navigationController
     }()
     
+    static func show(from viewController: UIViewController) {
+        let loginViewController = LoginViewController.defalt
+        viewController.present(loginViewController, animated: true, completion: nil)
+    }
+    
     lazy var logoImageView = UIImageView(image: UIImage(named: "logo_sign"))
     
     enum LoginType: Int {

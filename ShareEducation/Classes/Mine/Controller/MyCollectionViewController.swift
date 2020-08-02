@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MJRefresh
+import Moya
 
 class MyCollectionViewController: UIViewController {
     
@@ -19,6 +21,7 @@ class MyCollectionViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupUI()
+        refreshData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +33,24 @@ class MyCollectionViewController: UIViewController {
     func setupUI() {
         navigationItem.title = "我的关注"
         tableView.register(UINib(nibName: "TeacherHomeCell", bundle: nil), forCellReuseIdentifier: TeacherHomeCell.reuseIdentifier)
+        tableView.mj_header = MJRefreshHeader(refreshingTarget: self, refreshingAction: #selector(self.refreshData))
+    }
+    
+    @objc func refreshData() {
+        loadDatas { result in
+            let response = try? result.get().mapObject(ListResult<Teacher>.self)
+            if let response = response {
+                self.teachers = response.data
+                self.tableView.reloadData()
+                if self.tableView.mj_header!.isRefreshing {
+                    self.tableView.mj_header!.endRefreshing()
+                }
+            }
+        }
+    }
+    
+    func loadDatas(completion: @escaping Moya.Completion) {
+        serviceProvider.request(.teacherMyCollect, completion: completion)
     }
 
 

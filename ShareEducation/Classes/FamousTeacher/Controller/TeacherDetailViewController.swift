@@ -111,8 +111,18 @@ class TeacherDetailViewController: UIViewController {
     }
     
     @objc func onAttentionButtonPressed(_ sender: UIButton) {
+        
+        guard User.shared.isLogin else {
+            LoginViewController.show(from: self)
+            return
+        }
+        
+        Utilities.showLoading(to: self.view)
         teacher.collect(oper: !teacher.collect!) { [weak teacher] (result) in
             sender.isSelected = teacher!.collect!
+            if teacher!.collect! {
+                Utilities.toast("关注成功")
+            }
         }
     }
 

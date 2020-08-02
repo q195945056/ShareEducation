@@ -53,6 +53,11 @@ class Utilities {
         MBProgressHUD.showAdded(to: view, animated: animated)
     }
     
+    static func hideHUD(for view: UIView, animated: Bool = true) {
+        var hud = MBProgressHUD.forView(view)
+        hud?.hide(animated: animated)
+    }
+    
     static func showSuccess(_ message: String? = nil, to view: UIView, animated: Bool = true) {
         var hud = MBProgressHUD.forView(view)
         if hud == nil {

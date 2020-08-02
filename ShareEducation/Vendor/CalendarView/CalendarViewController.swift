@@ -9,7 +9,13 @@
 import UIKit
 import SwiftDate
 
+protocol CalendarViewControllerDataSource: NSObjectProtocol {
+    func calendarViewController(_ calendarViewController: CalendarViewController, haveEventAt date: Date) -> Bool
+}
+
 class CalendarViewController: UIViewController {
+    
+    weak var dataSource: CalendarViewControllerDataSource?
     
     enum CalendarType {
         case month
@@ -65,13 +71,13 @@ class CalendarViewController: UIViewController {
         self.type = type
         self.date = date
         super.init(nibName: nil, bundle: nil)
-        updateData()
+//        updateData()
     }
     
     required init?(coder: NSCoder) {
         date = Date()
         super.init(coder: coder)
-        updateData()
+//        updateData()
     }
     
     lazy var headerView: WeekHeaderView = {
@@ -97,6 +103,7 @@ class CalendarViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupUI()
+        updateData()
     }
     
     func updateData() {
@@ -142,6 +149,10 @@ class CalendarViewController: UIViewController {
             make.height.equalTo(500)
         }
     }
+    
+    func reloadData() {
+        collectionView.reloadData()
+    }
 
     /*
     // MARK: - Navigation
@@ -167,6 +178,8 @@ extension CalendarViewController: UICollectionViewDataSource {
         if type == .month {
             cell.isHidden = date.month != date.month
         }
+        let hasEvent = dataSource?.calendarViewController(self, haveEventAt: date) ?? false
+        cell.dotView.isHidden = !hasEvent
         return cell
     }
 }

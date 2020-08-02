@@ -9,8 +9,8 @@
 import UIKit
 import SwiftDate
 
-protocol CalendarViewDataSource {
-    
+protocol CalendarViewDataSource: NSObjectProtocol {
+    func calendarView(_ calendarView: CalendarView, haveEventAt date: Date) -> Bool
 }
 
 protocol CalendarViewDelegate: AnyObject {
@@ -51,6 +51,8 @@ class CalendarView: UIView {
     
     weak var delegate: CalendarViewDelegate?
     
+    weak var dataSource: CalendarViewDataSource?
+    
     init(frame: CGRect, type: CalendarViewController.CalendarType = .month) {
         self.type = type
         super.init(frame: frame)
@@ -70,6 +72,7 @@ class CalendarView: UIView {
             make.height.equalTo(500)
         }
         let controller = CalendarViewController(type: type, date: Date())
+        controller.dataSource = self
         controller.view.frame = CGRect(x: 0, y: 0, width: UIScreen.width - 26, height: 0)
         height = controller.size.height
         invalidateIntrinsicContentSize()
@@ -84,9 +87,15 @@ class CalendarView: UIView {
         delegate?.calendarView(self, didChangeToMonth: date)
     }
     
+    func reloadData() {
+        let controller = pageViewController.currentViewController as! CalendarViewController
+        controller.reloadData()
+    }
+    
     func goToPreviousMonth() {
         let controller = pageViewController.currentViewController as! CalendarViewController
         let nextController = CalendarViewController(type: type, date: controller.previousDate)
+        nextController.dataSource = self
         nextController.view.frame = CGRect(x: 0, y: 0, width: UIScreen.width - 26, height: 0)
         pageViewController.setViewControllers([nextController], direction: .backward, animated: true) { _ in
             self.notifyDelegateMonthChange()
@@ -96,6 +105,7 @@ class CalendarView: UIView {
     func goToNextMonth() {
         let controller = pageViewController.currentViewController as! CalendarViewController
         let nextController = CalendarViewController(type: type, date: controller.nextDate)
+        nextController.dataSource = self
         nextController.view.frame = CGRect(x: 0, y: 0, width: UIScreen.width - 26, height: 0)
         pageViewController.setViewControllers([nextController], direction: .forward, animated: true) { _ in
             self.notifyDelegateMonthChange()
@@ -103,15 +113,25 @@ class CalendarView: UIView {
     }
 }
 
+extension CalendarView: CalendarViewControllerDataSource {
+    func calendarViewController(_ calendarViewController: CalendarViewController, haveEventAt date: Date) -> Bool {
+        dataSource?.calendarView(self, haveEventAt: date) ?? false
+    }
+}
+
 extension CalendarView: YLPageViewControllerDataSource {
     func pageViewController(_ pageViewController: YLPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let controller = viewController as! CalendarViewController
-        return CalendarViewController(type: type, date: controller.previousDate)
+        let previousController = CalendarViewController(type: type, date: controller.previousDate)
+        previousController.dataSource = self
+        return previousController
     }
     
     func pageViewController(_ pageViewController: YLPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let controller = viewController as! CalendarViewController
-        return CalendarViewController(type: type, date: controller.nextDate)
+        let nextController = CalendarViewController(type: type, date: controller.nextDate)
+        nextController.dataSource = self
+        return nextController
     }
 }
 

@@ -61,8 +61,7 @@ class MineViewController: UIViewController {
     // MARK: - Actions
     
     @objc func onLoginButtonPressed(_ sender: Any) {
-        let loginViewController = LoginViewController.defalt
-        self.present(loginViewController, animated: true, completion: nil)
+        LoginViewController.show(from: self)
     }
     
     @objc func onSettingButtonPressed(_ sender: Any) {

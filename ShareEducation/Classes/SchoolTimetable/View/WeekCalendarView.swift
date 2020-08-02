@@ -33,6 +33,10 @@ class WeekCalendarView: UIView {
         commonInit()
     }
     
+    func reloadData() {
+        calendarView.reloadData()
+    }
+    
     // MARK: - Private
     
     func commonInit() {

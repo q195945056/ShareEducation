@@ -1120,7 +1120,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 51 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 52 nibs.
   struct nib {
     /// Nib `AboutViewController`.
     static let aboutViewController = _R.nib._AboutViewController()
@@ -1180,6 +1180,8 @@ struct R: Rswift.Validatable {
     static let mineTableCell = _R.nib._MineTableCell()
     /// Nib `MyCollectionViewController`.
     static let myCollectionViewController = _R.nib._MyCollectionViewController()
+    /// Nib `MyFavoriteViewController`.
+    static let myFavoriteViewController = _R.nib._MyFavoriteViewController()
     /// Nib `PaymentCouponCell`.
     static let paymentCouponCell = _R.nib._PaymentCouponCell()
     /// Nib `PaymentPayTypeCell`.
@@ -1454,6 +1456,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.myCollectionViewController) instead")
     static func myCollectionViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.myCollectionViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MyFavoriteViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.myFavoriteViewController) instead")
+    static func myFavoriteViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.myFavoriteViewController)
     }
     #endif
 
@@ -1747,6 +1757,10 @@ struct R: Rswift.Validatable {
 
     static func myCollectionViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.myCollectionViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func myFavoriteViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.myFavoriteViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func paymentCouponCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PaymentCouponCell? {
@@ -2389,6 +2403,17 @@ struct _R: Rswift.Validatable {
     struct _MyCollectionViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "MyCollectionViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MyFavoriteViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "MyFavoriteViewController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
