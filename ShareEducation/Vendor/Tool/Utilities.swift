@@ -54,7 +54,7 @@ class Utilities {
     }
     
     static func hideHUD(for view: UIView, animated: Bool = true) {
-        var hud = MBProgressHUD.forView(view)
+        let hud = MBProgressHUD.forView(view)
         hud?.hide(animated: animated)
     }
     

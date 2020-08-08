@@ -238,7 +238,6 @@ class MineTableHeaderView: UIView {
         userInfoView.isHidden = !User.shared.isLogin
         if User.shared.isLogin {
             let userInfo = User.shared.userInfo!
-//            headImageView.kf.setImage(with: <#T##Source?#>)
             nameLabel.text = userInfo.name
             phoneLabel.text = "1234567892"
             switch userInfo.memberType {

@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import HCSStarRatingView
 
 class TeacherDetailInfoCell: UITableViewCell {
     
     @IBOutlet var headImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var starRateImageView: StarRatingView!
+    @IBOutlet var starRateImageView: HCSStarRatingView!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var attentionButton: UIButton!
     @IBOutlet var schoolNameLabel: UILabel!
@@ -47,7 +48,7 @@ class TeacherDetailInfoCell: UITableViewCell {
             headImageView.kf.setImage(with: URL(string: urlString))
         }
         nameLabel.text = teacher.truename
-        starRateImageView.score = teacher.score ?? 0
+        starRateImageView.value = CGFloat(teacher.score ?? 0) / 2
         scoreLabel.text = String(teacher.score ?? 0)
         schoolNameLabel.text = teacher.university
         titleLabel.text = teacher.title

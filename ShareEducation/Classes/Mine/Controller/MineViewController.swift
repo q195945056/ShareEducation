@@ -70,7 +70,8 @@ class MineViewController: UIViewController {
     }
     
     @objc func onMyCourseButtonPressed(_ sender: Any) {
-        
+        let controller = MyCoursesViewController()
+        mainNavigationController.pushViewController(controller, animated: true)
     }
     
     @objc func onMyCollectionButtonPressed(_ sender: Any) {
@@ -85,6 +86,11 @@ class MineViewController: UIViewController {
     
     @objc func onInviteButtonPressed(_ sender: Any) {
         
+        if let resource = ShareData.shared.userResources?.first {
+            let urlString = resource.linkUrl
+            let controller = WebViewController(url: urlString!)
+            mainNavigationController.pushViewController(controller, animated: true)
+        }
     }
     
     /*

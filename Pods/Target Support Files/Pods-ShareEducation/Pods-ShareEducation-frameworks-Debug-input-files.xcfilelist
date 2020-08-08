@@ -2,6 +2,7 @@ ${PODS_ROOT}/Target Support Files/Pods-ShareEducation/Pods-ShareEducation-framew
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework
 ${BUILT_PRODUCTS_DIR}/Cache/Cache.framework
+${BUILT_PRODUCTS_DIR}/HCSStarRatingView/HCSStarRatingView.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/Jelly/Jelly.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework

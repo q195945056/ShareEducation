@@ -40,8 +40,13 @@ class MyCollectionViewController: UIViewController {
         loadDatas { result in
             let response = try? result.get().mapObject(ListResult<Teacher>.self)
             if let response = response {
-                self.teachers = response.data
-                self.tableView.reloadData()
+                if let data = response.data {
+                    for teacher in data {
+                        teacher.collect = true
+                    }
+                    self.teachers = response.data
+                    self.tableView.reloadData()
+                }
                 if self.tableView.mj_header!.isRefreshing {
                     self.tableView.mj_header!.endRefreshing()
                 }

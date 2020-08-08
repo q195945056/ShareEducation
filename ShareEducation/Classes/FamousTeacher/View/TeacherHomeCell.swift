@@ -42,7 +42,7 @@ class TeacherHomeCell: UITableViewCell {
             courseLabel.text = "\(teacher.grade ?? "")\(teacher.course ?? "")"
             teachAgeLabel.text = "\(teacher.teachingage!)年教龄"
             rankingLabel.text = "排名第\(12)位"
-            videoPlayCountLabel.text = "视频播放10次"
+            videoPlayCountLabel.text = "视频播放\(teacher.playcount ?? 0)次"
             collectButton.isSelected = teacher.collect ?? false
         }
     }

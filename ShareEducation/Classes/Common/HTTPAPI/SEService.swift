@@ -50,7 +50,7 @@ enum SEService {
     case courseBuy(name: String, token: String, id: Int)
     case getTeacherTopList(rows: Int, areaid: Int, courseid: Int, gradeid: Int)
     case getTeacherList(name: String?, token: String?, offset: Int, rows: Int, areaid: Int, courseid: Int, gradeid: Int, sort: Int = 0)
-    case getTeacherDetail(name: String?, token: String?, id: Int)
+    case getTeacherDetail(id: Int)
     case collectTeacher(name: String?, token: String?, id: Int, oper: Bool)
     case playCourse(name: String?, token: String?, id: Int)
     case collectCourse(name: String?, token: String?, id: Int, star: Bool, oper: Bool)
@@ -203,9 +203,9 @@ extension SEService: TargetType {
             parameters["m.gradeid"] = gradeid
             parameters["m.sort"] = sort
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .getTeacherDetail(let name, let token, let id):
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+        case .getTeacherDetail(let id):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["t.mid"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .collectTeacher(let name, let token, let id, let oper):
@@ -243,11 +243,11 @@ extension SEService: TargetType {
         case .teacherMyCollect:
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
-            return .requestPlain
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .courseMyList:
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
-            return .requestPlain
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .courseOrder(let ids, let terminal):
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
