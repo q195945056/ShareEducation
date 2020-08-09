@@ -64,6 +64,20 @@ class ShareData: Codable {
         try! diskStorage.setObject(self, forKey: "ShareData")
     }
     
+    func findGrade(by gradeName: String) -> Grade {
+        if let gradeTypes = gradetypes {
+            for gradeType in gradeTypes {
+                for grade in gradeType.grades {
+                    if grade.name == gradeName {
+                        return grade
+                    }
+                }
+            }
+        }
+        
+        return Grade.default
+    }
+    
     func findGrade(by gradeID: Int) -> Grade {
         if let gradeTypes = gradetypes {
             for gradeType in gradeTypes {

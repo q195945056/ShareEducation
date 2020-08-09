@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,6 +21,7 @@
                 <outlet property="repeatPwdField" destination="DNp-K0-7ig" id="axM-Bh-3i6"/>
                 <outlet property="schoolNameField" destination="VbU-Jx-hV0" id="soo-W3-trw"/>
                 <outlet property="typeView" destination="3Rf-89-xjd" id="qTT-GP-tQe"/>
+                <outlet property="userNameField" destination="Pa6-TL-CuL" id="jlk-VB-WOc"/>
                 <outlet property="validateCodeField" destination="Mwv-ge-eyr" id="Ave-s5-5eZ"/>
                 <outlet property="valueField" destination="Ydw-CC-4hr" id="otr-jG-KhI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,7 +36,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="1086"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BT9-LS-C5h">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="964.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1021.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuT-SW-r00">
                                     <rect key="frame" x="55" y="40" width="73" height="43"/>
@@ -125,8 +126,30 @@
                                         <outlet property="titleLabel" destination="Znx-cu-Ynl" id="iEY-hB-U93"/>
                                     </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVL-zq-eoS" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mE-eL-cOV" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
                                     <rect key="frame" x="26" y="232.5" width="362" height="40"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="q195945056" placeholder="登录用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pa6-TL-CuL">
+                                            <rect key="frame" x="12" y="3" width="338" height="34"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="m09-8k-EwA"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Pa6-TL-CuL" secondAttribute="trailing" constant="12" id="CBW-8S-7TN"/>
+                                        <constraint firstAttribute="bottom" secondItem="Pa6-TL-CuL" secondAttribute="bottom" constant="3" id="DWW-kd-qwy"/>
+                                        <constraint firstItem="Pa6-TL-CuL" firstAttribute="leading" secondItem="8mE-eL-cOV" secondAttribute="leading" constant="12" id="f2W-SB-qVD"/>
+                                        <constraint firstAttribute="height" constant="40" id="isx-ja-OIx"/>
+                                        <constraint firstItem="Pa6-TL-CuL" firstAttribute="top" secondItem="8mE-eL-cOV" secondAttribute="top" constant="3" id="q9e-Zv-oMD"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVL-zq-eoS" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
+                                    <rect key="frame" x="26" y="289.5" width="362" height="40"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="所在学校地区" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxx-95-AEj">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
@@ -153,9 +176,9 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-eb-NYG" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="289.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="346.5" width="362" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="学校名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VbU-Jx-hV0">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="谢家湾小学" placeholder="学校名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VbU-Jx-hV0">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -172,7 +195,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vba-K6-zwU" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="346.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="403.5" width="362" height="40"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择年级" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2mZ-Kk-0bl">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
@@ -199,9 +222,9 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bb4-gw-f4O" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="403.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="460.5" width="362" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*学籍号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydw-CC-4hr">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678" placeholder="*学籍号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydw-CC-4hr">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -218,9 +241,9 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlB-2A-hP9" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="460.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="517.5" width="362" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*请输入真实姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wOq-bL-7Nx">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="严明俊" placeholder="*请输入真实姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wOq-bL-7Nx">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -237,9 +260,9 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Sh-qA-cpc" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="517.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="574.5" width="362" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*请输入姓名拼音全拼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPZ-Rp-6vY">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="YanMingJun" placeholder="*请输入姓名拼音全拼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPZ-Rp-6vY">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -256,13 +279,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyA-DY-fGc" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="574.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="631.5" width="362" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码（6~20位英文或数字）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="elJ-X4-RIB">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="请输入密码（6~20位英文或数字）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="elJ-X4-RIB">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -275,13 +298,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beG-AS-Ydy" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="631.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="688.5" width="362" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请重复输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DNp-K0-7ig">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="请重复输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DNp-K0-7ig">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -294,9 +317,9 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5q-ZS-EtN" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="688.5" width="265" height="40"/>
+                                    <rect key="frame" x="26" y="745.5" width="265" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IM4-gg-EeO">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="15330501673" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IM4-gg-EeO">
                                             <rect key="frame" x="80" y="3" width="173" height="34"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -326,7 +349,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zk3-jn-ahN">
-                                    <rect key="frame" x="302" y="688.5" width="86" height="40"/>
+                                    <rect key="frame" x="302" y="745.5" width="86" height="40"/>
                                     <color key="backgroundColor" red="0.90196078431372551" green="0.28627450980392155" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="X4M-sr-LC9"/>
@@ -347,7 +370,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7d-28-W3y" customClass="BorderView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="745.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="802.5" width="362" height="40"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mwv-ge-eyr">
                                             <rect key="frame" x="12" y="3" width="338" height="34"/>
@@ -366,7 +389,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5l-Sp-iQL" customClass="AgreeView" customModule="ShareEducation" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="807.5" width="47" height="16"/>
+                                    <rect key="frame" x="26" y="864.5" width="47" height="16"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_signsel" translatesAutoresizingMaskIntoConstraints="NO" id="qq1-eg-gNs">
                                             <rect key="frame" x="0.0" y="2" width="12" height="12"/>
@@ -393,7 +416,7 @@
                                     </connections>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d2-GX-NHH">
-                                    <rect key="frame" x="81" y="801.5" width="54" height="28"/>
+                                    <rect key="frame" x="81" y="858.5" width="54" height="28"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                     <state key="normal" title="注册条款">
                                         <color key="titleColor" red="0.90196078430000004" green="0.28627450980000002" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -403,14 +426,14 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JuY-V0-ljX">
-                                    <rect key="frame" x="81" y="823.5" width="54" height="1"/>
+                                    <rect key="frame" x="81" y="880.5" width="54" height="1"/>
                                     <color key="backgroundColor" red="0.90196078430000004" green="0.28627450980000002" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="sAR-iB-ggk"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4O6-zS-dqI">
-                                    <rect key="frame" x="26" y="874.5" width="362" height="40"/>
+                                    <rect key="frame" x="26" y="931.5" width="362" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="jWz-XF-y26"/>
                                     </constraints>
@@ -442,7 +465,9 @@
                                 <constraint firstItem="JuY-V0-ljX" firstAttribute="trailing" secondItem="6d2-GX-NHH" secondAttribute="trailing" id="GsQ-Za-959"/>
                                 <constraint firstItem="JuY-V0-ljX" firstAttribute="leading" secondItem="6d2-GX-NHH" secondAttribute="leading" id="Gya-jR-0ol"/>
                                 <constraint firstAttribute="trailing" secondItem="zVL-zq-eoS" secondAttribute="trailing" constant="26" id="J3U-7a-ZO8"/>
-                                <constraint firstItem="zVL-zq-eoS" firstAttribute="top" secondItem="3Rf-89-xjd" secondAttribute="bottom" constant="33" id="NyU-48-q6O"/>
+                                <constraint firstAttribute="trailing" secondItem="8mE-eL-cOV" secondAttribute="trailing" constant="26" id="Jcn-wt-FaF"/>
+                                <constraint firstItem="zVL-zq-eoS" firstAttribute="top" secondItem="8mE-eL-cOV" secondAttribute="bottom" constant="17" id="MyQ-Jv-q9k"/>
+                                <constraint firstItem="8mE-eL-cOV" firstAttribute="top" secondItem="3Rf-89-xjd" secondAttribute="bottom" constant="33" id="O9H-cz-m2f"/>
                                 <constraint firstItem="beG-AS-Ydy" firstAttribute="leading" secondItem="BT9-LS-C5h" secondAttribute="leading" constant="26" id="Oxa-bk-F1R"/>
                                 <constraint firstItem="ZlB-2A-hP9" firstAttribute="leading" secondItem="BT9-LS-C5h" secondAttribute="leading" constant="26" id="P3L-cn-DGq"/>
                                 <constraint firstItem="E7d-28-W3y" firstAttribute="leading" secondItem="BT9-LS-C5h" secondAttribute="leading" constant="26" id="QTx-Ji-Xc7"/>
@@ -454,6 +479,7 @@
                                 <constraint firstItem="beG-AS-Ydy" firstAttribute="top" secondItem="hyA-DY-fGc" secondAttribute="bottom" constant="17" id="czF-qS-oc7"/>
                                 <constraint firstItem="yHF-pZ-M1P" firstAttribute="top" secondItem="3Rf-89-xjd" secondAttribute="top" id="dgn-lO-0S9"/>
                                 <constraint firstItem="6Sh-qA-cpc" firstAttribute="top" secondItem="ZlB-2A-hP9" secondAttribute="bottom" constant="17" id="dqP-1T-bcY"/>
+                                <constraint firstItem="8mE-eL-cOV" firstAttribute="leading" secondItem="BT9-LS-C5h" secondAttribute="leading" constant="26" id="fOO-PT-4gg"/>
                                 <constraint firstAttribute="trailing" secondItem="yHF-pZ-M1P" secondAttribute="trailing" constant="75" id="feE-Ql-EyX"/>
                                 <constraint firstItem="hyA-DY-fGc" firstAttribute="top" secondItem="6Sh-qA-cpc" secondAttribute="bottom" constant="17" id="hrP-AF-wW1"/>
                                 <constraint firstItem="ZlB-2A-hP9" firstAttribute="top" secondItem="bb4-gw-f4O" secondAttribute="bottom" constant="17" id="iuN-zE-DiH"/>

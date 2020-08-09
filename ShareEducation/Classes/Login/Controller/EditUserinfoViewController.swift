@@ -8,20 +8,83 @@
 
 import UIKit
 import Kingfisher
+import SwiftyJSON
+import IQKeyboardManagerSwift
 
 class EditUserinfoViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var titles: [String] = ["头像", "用户昵称", "真实姓名", "性别", "身份证号", "学籍号", "地区", "所在学校", "年级", "联系邮箱", "手机号码"]
+    var image: UIImage?
     
-    var values: [String] = ["https://www.baidu.com", "NANA", "张庆", "女", "14754778844145598", "110133131443113223", "四川省 成都市", "成都泡桐树小学", "二年级", "1475748@qq.com", "14787454778"]
-
+    var originData: JSON?
+    
+    var titles: [String] = ["头像", "用户昵称", "真实姓名", "性别", "学籍号", "地区", "所在学校", "年级", "联系邮箱", "手机号码"]
+    
+    
+    var originalValues = [Int : String]()
+    
+    var values = [Int : String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        requestData()
+    }
+    
+    func requestData() {
+        serviceProvider.request(.memberInfo) { (result) in
+            switch result {
+            case let .success(response):
+                guard let responseData = try? JSON(data: response.data) else {
+                    return
+                }
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    return
+                }
+                self.update(responseData["data"])
+                print(response)
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
+    
+    func update(_ data: JSON) {
+        values[0] = data["pic"].stringValue
+        values[1] = data["nickname"].stringValue
+        values[2] = data["truename"].stringValue
+        let sex = data["sex"].intValue
+        if sex == 0 {
+            values[3] = "男"
+        } else {
+            values[3] = "女"
+        }
+        values[4] = data["schoolnum"].stringValue
+        let area = ShareData.shared.findArea(by: data["areaid"].intValue)
+        if area == .default {
+            values[5] = data["area"].stringValue
+        } else {
+            values[5] = area.name
+        }
+        values[6] = data["area"].stringValue
+        
+        let grade = ShareData.shared.findGrade(by: data["gradeid"].intValue)
+        if grade == .default {
+            values[7] = "未设置"
+        } else {
+            values[7] = grade.name
+        }
+        values[8] = data["email"].stringValue
+        values[9] = data["phone"].stringValue
+        
+        originalValues = values
+        
+        tableView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +96,125 @@ class EditUserinfoViewController: UIViewController {
     func setupUI() {
         navigationItem.title = "个人资料"
         tableView.register(UINib(nibName: "UserInfoCell", bundle: nil), forCellReuseIdentifier: UserInfoCell.reuseIdentifier)
+    }
+    
+    @objc func onEditChange(_ textFiled: UITextField) {
+        var cell: UITableViewCell?
+        var superView = textFiled.superview
+        while superView != nil {
+            if let view = superView as? UITableViewCell {
+                cell = view
+                break
+            }
+            superView = superView?.superview
+        }
+        
+        if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
+            values[indexPath.row] = textFiled.text
+        }
+        
+        checkEdingState()
+    }
+    
+    func checkEdingState() {
+        for (key, value) in values {
+            let originalValue = originalValues[key]
+            if originalValue != value {
+                isEditing = true
+                break
+            }
+        }
+    }
+    
+    override var isEditing: Bool {
+        set {
+            super.isEditing = newValue
+            
+            if newValue {
+                let doneItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(self.onDoneButtonPressed(_:)))
+                navigationItem.rightBarButtonItem = doneItem
+                
+                let cancelItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(self.onCancelButtonPressed(_:)))
+                navigationItem.leftBarButtonItem = cancelItem
+            }
+        }
+        get {
+            super.isEditing
+        }
+    }
+    
+    @objc func onDoneButtonPressed(_ sender: Any) {
+        var nickName: String?
+        var trueName: String?
+        var sex: Int?
+        var schoolNum: String?
+        var areaID: Int?
+        var areaString: String?
+        var schoolName: String?
+        var gradeID: Int?
+        var email: String?
+        
+        for (key, value) in values {
+            let originalValue = originalValues[key]
+            if originalValue != value {
+                switch key {
+                case 0:
+                    break
+                case 1:
+                    nickName = value
+                case 2:
+                    trueName = value
+                case 3:
+                    sex = value == "男" ? 0:1
+                case 4:
+                    schoolNum = value
+                case 5:
+                    let area = ShareData.shared.findArea(by: value)
+                    if area == .default {
+                        areaID = area.id
+                        areaString = value
+                    } else {
+                        areaID = area.id
+                    }
+                case 6:
+                    schoolName = value
+                case 7:
+                    let grade = ShareData.shared.findGrade(by: value)
+                    gradeID = grade.id
+                case 8:
+                    email = value
+                default:
+                    break
+                }
+            }
+        }
+        
+        
+        serviceProvider.request(.memberModify(img: image, nickName: nickName, trueName: trueName, sex: sex, schoolNum: schoolNum, areaID: areaID, schoolName: schoolName, gradeID: gradeID, email: email)) { (result) in
+            switch result {
+            case let .success(response):
+                guard let responseData = try? JSON(data: response.data) else {
+                    Utilities.toast("保存失败")
+                    return
+                }
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    Utilities.toast("保存失败")
+                    return
+                }
+                
+                Utilities.toast("保存成功")
+                print(response)
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
+    
+    @objc func onCancelButtonPressed(_ sender: Any) {
+        values = originalValues
+        image = nil
+        tableView.reloadData()
     }
 
     /*
@@ -62,14 +244,24 @@ extension EditUserinfoViewController: UITableViewDataSource {
         let value = values[indexPath.row]
         if indexPath.row == 0 {
             cell.headImageView.isHidden = false
-            cell.descriptionLabel.isHidden = true
-            cell.headImageView.kf.setImage(with: URL(string: value))
+            cell.textField.isHidden = true
+            if let image = self.image {
+                cell.headImageView.image = image
+            } else {
+                cell.headImageView.kf.setImage(with: URL(string: value ?? ""), placeholder: UIImage(named: "head_student_man"))
+            }
         } else {
             cell.headImageView.isHidden = true
-            cell.descriptionLabel.isHidden = false
-            cell.descriptionLabel.text = value
+            cell.textField.isHidden = false
+            cell.textField.text = value
+            
+            if indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 4 || indexPath.row == 6 || indexPath.row == 8 {
+                cell.textField.isUserInteractionEnabled = true
+                cell.textField.addTarget(self, action: #selector(self.onEditChange(_:)), for: .editingChanged)
+            } else {
+                cell.textField.isUserInteractionEnabled = false
+            }
         }
-        
         return cell
     }
     
@@ -84,9 +276,35 @@ extension EditUserinfoViewController: UITableViewDataSource {
 }
 
 extension EditUserinfoViewController: UITableViewDelegate {
+    func showImageMenu() {
+        let alertController = UIAlertController(title: "选择照片", message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "拍照", style: .default) { (action) in
+            self.showImagePicker(.camera)
+        }
+        let albumAction = UIAlertAction(title: "手机相册", style: .default) { (action) in
+            self.showImagePicker(.photoLibrary)
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+        
+        alertController.addAction(cameraAction)
+        alertController.addAction(albumAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showImagePicker(_ sourceType: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            
+            showImageMenu()
         } else if indexPath.row == 1 {
             
         } else {
@@ -94,4 +312,20 @@ extension EditUserinfoViewController: UITableViewDelegate {
         }
     }
 
+}
+
+extension EditUserinfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        image = info[.editedImage] as? UIImage
+        isEditing = true
+        tableView.reloadData()
+        
+        picker.dismiss(animated: true) {
+             
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
 }

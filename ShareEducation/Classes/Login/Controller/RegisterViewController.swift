@@ -14,6 +14,7 @@ class RegisterViewController: UIViewController {
         
     @IBOutlet var typeView: TypeView!
     
+    @IBOutlet var userNameField: UITextField!
     @IBOutlet var areaField: UITextField?
     @IBOutlet var schoolNameField: UITextField?
     @IBOutlet var gradeField: UITextField?
@@ -119,6 +120,12 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func onRegisterButtonPressed(sender: Any) {
+        
+        guard let username = userNameField.text, !username.isEmpty else {
+            Utilities.toast("请填写登录用户名")
+            return
+        }
+        
         guard let area = areaField?.text, !area.isEmpty else {
             Utilities.toast("请选择所在学校地区")
             return
@@ -178,8 +185,9 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        view.resignFirstResponder()
         
-        User.register(userName: nil, password: password, memberType: String(typeView.type), areaID: String(areaID!), area: area, phone: phone, code: code, schoolName: schoolName, gradeID: String(gradeID!), schoolNum: value, trueName: trueName) { result in
+        User.register(userName: username, password: password, memberType: String(typeView.type), areaID: String(areaID!), area: area, phone: phone, code: code, schoolName: schoolName, gradeID: String(gradeID!), schoolNum: value, trueName: trueName) { result in
             switch result {
             case .success:
                 self.navigationController?.popViewController(animated: true)
@@ -191,7 +199,8 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func onPrivacyButtonPressed(sender: Any) {
-        
+        let controller = WebViewController(url: "http://www.netcoclass.com/logoclause.html")
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     func onAreaButtonPressed() {
@@ -199,6 +208,7 @@ class RegisterViewController: UIViewController {
         controller.isRegister = true
         controller.didSelectArea = { area in
             self.areaField?.text = area.name
+            self.areaID = area.id
         }
         let size = PresentationSize(width: .fullscreen, height: .custom(value: 260))
         let aligment = PresentationAlignment(vertical: .bottom, horizontal: .center)
@@ -214,6 +224,7 @@ class RegisterViewController: UIViewController {
         let controller = GradeSettingViewController()
         controller.didSelectGrade = { grade in
             self.gradeField?.text = grade.name
+            self.gradeID = grade.id
         }
         let size = PresentationSize(width: .fullscreen, height: .custom(value: 370))
         let marginGuards = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 35)

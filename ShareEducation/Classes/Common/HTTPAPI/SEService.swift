@@ -43,7 +43,7 @@ enum CoursePlayType: Int {
 enum SEService {
     case initData
     case login(name: String?, password: String?, type: String?, phone: String?, msgCode: String?)
-    case memberRegister(id: String?, password: String, memberTypeID: String, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String)
+    case memberRegister(id: String?, name: String, password: String, memberTypeID: String, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String)
     case sendSMS(phone: String)
     case getCourseList(type: CoursePlayType, dateType: String, date: String, name: String?, token: String?, offset: Int, rows:Int, areaid: Int, courseid: Int, gradeid: Int)
     case getCourseDetail(name: String?, token: String?, id: Int)
@@ -66,6 +66,12 @@ enum SEService {
     case courseQa(img: [UIImage]?, cid: String, parentID: String, content: String)
     case memberSendSmsReg(phone: String)
     case sysOpinion(content: String, contacts: String?, img: UIImage?)
+    case courseSearchList(keyword: String)
+    case memberModifyPassword(code: String, password: String, type: Int, phone: String?)//0 修改密码，1找回密码
+    case memberModifyPhone(phone: String, code: String, newPhone: String)
+    case sysSearchTags
+    case memberModify(img: UIImage?, nickName: String?, trueName: String?, sex: Int?, schoolNum: String?, areaID: Int?, schoolName: String?, gradeID: Int?, email: String?)
+    case memberInfo
 }
 
 extension SEService: TargetType {
@@ -126,11 +132,28 @@ extension SEService: TargetType {
             return "/education/api/member_sendsmsreg.action"
         case .sysOpinion:
             return "/education/api/sys_opinion.action"
+        case .courseSearchList:
+            return "/education/api/course_searchlist.action"
+        case .memberModifyPassword:
+            return "/education/api/member_modifypwd.action"
+        case .memberModifyPhone:
+            return "/education/api/member_modifyphone.action"
+        case .sysSearchTags:
+            return "/education/api/sys_searchtags.action"
+        case .memberModify:
+            return "/education/api/member_modify.action"
+        case .memberInfo:
+            return "/education/api/member_info.action"
         }
     }
     
     var method: Moya.Method {
-        return .get
+        switch self {
+        case .memberModify:
+            return .post
+        default:
+            return .get
+        }
     }
     
     var task: Task {
@@ -147,9 +170,9 @@ extension SEService: TargetType {
             parameters["m.msgCode"] = msgCode
             parameters["m.appver"] = Bundle.appVersion
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .memberRegister(let id, let password, let memberTypeID, let areaID, let area, let phone, let code, let schoolName, let gradeID, let schoolNum, let trueName):
+        case .memberRegister(let id, let name, let password, let memberTypeID, let areaID, let area, let phone, let code, let schoolName, let gradeID, let schoolNum, let trueName):
             parameters["m.id"] = id
-            parameters["m.name"] = User.shared.name
+            parameters["m.name"] = name
             parameters["m.password"] = password
             parameters["m.membertypeid"] = memberTypeID
             parameters["m.areaid"] = areaID
@@ -286,6 +309,69 @@ extension SEService: TargetType {
             parameters["content"] = content
             parameters["contacts"] = contacts
             parameters["img"] = img
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .courseSearchList(let keyword):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            parameters["c.keyword"] = keyword
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .memberModifyPassword(let code, let password, let type, let phone):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            parameters["m.code"] = code
+            parameters["m.password"] = password
+            parameters["m.type"] = type
+            parameters["m.phone"] = phone
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .memberModifyPhone(let phone, let code, let newPhone):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
+            parameters["m.phone"] = phone
+            parameters["m.code"] = code
+            parameters["m.newphone"] = newPhone
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .sysSearchTags:
+            return .requestPlain
+        case .memberModify(let img, let nickName, let trueName, let sex, let schoolNum, let areaID, let schoolName, let gradeID, let email):
+            parameters["img"] = img
+            parameters["areaid"] = areaID
+            parameters["schoolname"] = schoolName
+            var multipartDatas = [MultipartFormData]()
+            if let name = User.shared.name {
+                multipartDatas.append(MultipartFormData(provider: .data(name.data(using: .utf8)!), name: "name"))
+            }
+            if let token = User.shared.token {
+                multipartDatas.append(MultipartFormData(provider: .data(token.data(using: .utf8)!), name: "token"))
+            }
+            if let trueName = trueName {
+                multipartDatas.append(MultipartFormData(provider: .data(trueName.data(using: .utf8)!), name: "truename"))
+            }
+            if let sex = sex {
+                let sexString = String(sex)
+                multipartDatas.append(MultipartFormData(provider: .data(sexString.data(using: .utf8)!), name: "sex"))
+            }
+            if let email = email {
+                multipartDatas.append(MultipartFormData(provider: .data(email.data(using: .utf8)!), name: "email"))
+            }
+            if let schoolNum = schoolNum {
+                multipartDatas.append(MultipartFormData(provider: .data(schoolNum.data(using: .utf8)!), name: "schoolnum"))
+            }
+            if let gradeID = gradeID {
+                let string = String(gradeID)
+                multipartDatas.append(MultipartFormData(provider: .data(string.data(using: .utf8)!), name: "gradeid"))
+            }
+            if let areaID = areaID {
+                let string = String(areaID)
+                multipartDatas.append(MultipartFormData(provider: .data(string.data(using: .utf8)!), name: "areaid"))
+            }
+            if let img = img {
+                let data = img.jpegData(compressionQuality: 0.1)
+                multipartDatas.append(MultipartFormData(provider: .data(data!), name: "img"))
+            }
+            return .uploadMultipart(multipartDatas)
+        case .memberInfo:
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }

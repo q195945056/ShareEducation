@@ -14,6 +14,8 @@ class UserInfoCell: UITableViewCell {
     
     @IBOutlet var descriptionLabel: UILabel!
     
+    @IBOutlet var textField: UITextField!
+    
     @IBOutlet var headImageView: UIImageView!
 
     override func awakeFromNib() {
