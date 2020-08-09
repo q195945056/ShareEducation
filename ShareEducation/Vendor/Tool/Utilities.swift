@@ -40,13 +40,16 @@ class Utilities {
             superView = UIApplication.shared.keyWindow!
         }
         
-        let hud = MBProgressHUD.showAdded(to: superView!, animated: true)
-        hud.mode = .text
-        hud.isUserInteractionEnabled = false
-        hud.margin = 15.0
-        hud.label.text = text
-        hud.removeFromSuperViewOnHide = true
-        hud.hide(animated: true, afterDelay: delay)
+        var hud = MBProgressHUD.forView(superView!)
+        if hud == nil {
+            hud = MBProgressHUD.showAdded(to: superView!, animated: true)
+        }
+        hud!.mode = .text
+        hud!.isUserInteractionEnabled = false
+        hud!.margin = 15.0
+        hud!.label.text = text
+        hud!.removeFromSuperViewOnHide = true
+        hud!.hide(animated: true, afterDelay: delay)
     }
     
     static func showLoading(to view: UIView? = nil, animated: Bool = true) {

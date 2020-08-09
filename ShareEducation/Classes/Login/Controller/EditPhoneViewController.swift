@@ -1,57 +1,46 @@
 //
-//  FindPwdViewController.swift
+//  EditPhoneViewController.swift
 //  ShareEducation
 //
-//  Created by yanmingjun on 2019/11/24.
-//  Copyright © 2019 严明俊. All rights reserved.
+//  Created by yanmingjun on 2020/8/9.
+//  Copyright © 2020 严明俊. All rights reserved.
 //
 
 import UIKit
 
-class FindPwdViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        if type == .modify {
-            navigationItem.title = "修改密码"
-        } else {
-            navigationItem.title = "找回密码"
-        }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+class EditPhoneViewController: UIViewController {
     
-    var type: User.ModifyPasswordType = .modify
+    @IBOutlet var phoneLabel: UILabel!
     
     @IBOutlet var phoneField: UITextField!
     
     @IBOutlet var codeField: UITextField!
     
-    @IBOutlet var passwordField: UITextField!
+    @IBOutlet var newPhoneField: UITextField!
     
     @IBOutlet var reSendButton: UIButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
     
     @IBAction func onConfirmButtonPressed(_ sender: Any) {
-        guard let phone = phoneField?.text else {
+        guard let phone = phoneField?.text, !phone.isEmpty else {
             Utilities.toast("请输入手机号")
             return
         }
-        guard let code = codeField?.text else {
+        guard let code = codeField?.text, !code.isEmpty else {
             Utilities.toast("请输验证码")
             return
         }
-        guard let password = passwordField?.text else {
+        guard let newPhone = newPhoneField?.text, !newPhone.isEmpty else {
             Utilities.toast("请输入新密码")
             return
         }
         
-        User.modifyPassword(type: type, phone: phone, code: code, password: password) { (result) in
+        User.modifyPhone(phone: phone, code: code, newPhone: newPhone) { (result) in
             switch result {
             case .success:
                 Utilities.toast("修改成功")
@@ -59,8 +48,7 @@ class FindPwdViewController: UIViewController {
             case let .failure(error):
                 Utilities.toast(error.errorDescription)
             }
-        }
-        
+        }        
     }
     
     @IBAction func onValidateCodeButtonPressed(sender: Any) {
@@ -113,6 +101,7 @@ class FindPwdViewController: UIViewController {
             timer.invalidate()
         }
     }
+
 
     /*
     // MARK: - Navigation

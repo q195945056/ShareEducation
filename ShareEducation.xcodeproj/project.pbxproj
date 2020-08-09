@@ -170,6 +170,8 @@
 		CCEF8F5223B332700078561D /* LectureNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEF8F5023B332700078561D /* LectureNoteViewController.xib */; };
 		CCEF8F5523B333010078561D /* LectureNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF8F5323B333010078561D /* LectureNoteCell.swift */; };
 		CCEF8F5623B333010078561D /* LectureNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEF8F5423B333010078561D /* LectureNoteCell.xib */; };
+		CCF22B9E24E01BAA008D3FC5 /* EditPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF22B9C24E01BAA008D3FC5 /* EditPhoneViewController.swift */; };
+		CCF22B9F24E01BAA008D3FC5 /* EditPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF22B9D24E01BAA008D3FC5 /* EditPhoneViewController.xib */; };
 		CCF38993238A4FDD00F84678 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF38991238A4FDD00F84678 /* RegisterViewController.swift */; };
 		CCF38994238A4FDD00F84678 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF38992238A4FDD00F84678 /* RegisterViewController.xib */; };
 		CCF38997238A778400F84678 /* AreaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF38995238A778400F84678 /* AreaSettingViewController.swift */; };
@@ -385,6 +387,8 @@
 		CCEF8F5023B332700078561D /* LectureNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LectureNoteViewController.xib; sourceTree = "<group>"; };
 		CCEF8F5323B333010078561D /* LectureNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureNoteCell.swift; sourceTree = "<group>"; };
 		CCEF8F5423B333010078561D /* LectureNoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LectureNoteCell.xib; sourceTree = "<group>"; };
+		CCF22B9C24E01BAA008D3FC5 /* EditPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhoneViewController.swift; sourceTree = "<group>"; };
+		CCF22B9D24E01BAA008D3FC5 /* EditPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPhoneViewController.xib; sourceTree = "<group>"; };
 		CCF38991238A4FDD00F84678 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CCF38992238A4FDD00F84678 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		CCF38995238A778400F84678 /* AreaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaSettingViewController.swift; sourceTree = "<group>"; };
@@ -661,6 +665,8 @@
 				CCF38992238A4FDD00F84678 /* RegisterViewController.xib */,
 				CCF38999238A8A0D00F84678 /* FindPwdViewController.swift */,
 				CCF3899A238A8A0D00F84678 /* FindPwdViewController.xib */,
+				CCF22B9C24E01BAA008D3FC5 /* EditPhoneViewController.swift */,
+				CCF22B9D24E01BAA008D3FC5 /* EditPhoneViewController.xib */,
 				CC30AD12239CEAD900A0DF20 /* EditUserinfoViewController.swift */,
 				CC30AD13239CEAD900A0DF20 /* EditUserinfoViewController.xib */,
 				CCAF4DB124DFEC9400B224B2 /* SexSettingViewController.swift */,
@@ -1048,6 +1054,7 @@
 				CC30AD01239CD99C00A0DF20 /* SettingViewController.xib in Resources */,
 				CCF95B81235EFDCE00FACFAD /* Assets.xcassets in Resources */,
 				CC568DA12397BB580016115B /* ActivityCell.xib in Resources */,
+				CCF22B9F24E01BAA008D3FC5 /* EditPhoneViewController.xib in Resources */,
 				CCDDA1DF238FA98E00C28497 /* CourseDetailTeacherCell.xib in Resources */,
 				CCF9B16F2390F9DD0065E420 /* PaymentPayTypeCell.xib in Resources */,
 				CCF9B16B2390F9AE0065E420 /* PaymentPriceDetailCell.xib in Resources */,
@@ -1244,6 +1251,7 @@
 				CCB3D9D9235FF052008E31AE /* ShoppingCarViewController.swift in Sources */,
 				CCE4FCAA23829D0100E21139 /* ShareSetting.swift in Sources */,
 				CC9878212376CA4F004F8F8E /* HomeBannerCell.swift in Sources */,
+				CCF22B9E24E01BAA008D3FC5 /* EditPhoneViewController.swift in Sources */,
 				CC07D2A023A76E1E00C86B5E /* CalendarView.swift in Sources */,
 				CCD1BC65237C06D800F52069 /* SEService.swift in Sources */,
 				CCDDA1E4238FACE800C28497 /* CourseDetailUnitCell.swift in Sources */,

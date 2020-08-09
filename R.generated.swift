@@ -1210,7 +1210,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 55 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 56 nibs.
   struct nib {
     /// Nib `AboutViewController`.
     static let aboutViewController = _R.nib._AboutViewController()
@@ -1252,6 +1252,8 @@ struct R: Rswift.Validatable {
     static let courseUnitViewController = _R.nib._CourseUnitViewController()
     /// Nib `CustomerServiceViewController`.
     static let customerServiceViewController = _R.nib._CustomerServiceViewController()
+    /// Nib `EditPhoneViewController`.
+    static let editPhoneViewController = _R.nib._EditPhoneViewController()
     /// Nib `EditUserinfoViewController`.
     static let editUserinfoViewController = _R.nib._EditUserinfoViewController()
     /// Nib `FeedbackViewController`.
@@ -1480,6 +1482,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.customerServiceViewController) instead")
     static func customerServiceViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.customerServiceViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EditPhoneViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.editPhoneViewController) instead")
+    static func editPhoneViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.editPhoneViewController)
     }
     #endif
 
@@ -1843,6 +1853,10 @@ struct R: Rswift.Validatable {
       return R.nib.customerServiceViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func editPhoneViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.editPhoneViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func editUserinfoViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.editUserinfoViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -2081,6 +2095,7 @@ struct _R: Rswift.Validatable {
       try _CourseDetailViewController.validate()
       try _CourseSbscribeAlertViewController.validate()
       try _CustomerServiceViewController.validate()
+      try _EditPhoneViewController.validate()
       try _FeedbackViewController.validate()
       try _FindPwdViewController.validate()
       try _MessageCell.validate()
@@ -2417,6 +2432,24 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "icon_kefu", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_kefu' is used in nib 'CustomerServiceViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EditPhoneViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "EditPhoneViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "button_01", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'button_01' is used in nib 'EditPhoneViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon_paixu3", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_paixu3' is used in nib 'EditPhoneViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

@@ -11,6 +11,39 @@ import SwiftyJSON
 
 extension User {
     
+    static func modifyPhone(phone: String, code: String, newPhone: String, completion: @escaping (Result<Bool, SEError>) -> Void) {
+        serviceProvider.request(.memberModifyPhone(phone: phone, code: code, newPhone: newPhone)) { (result) in
+            switch result {
+            case let .success(response):
+                guard let responseData = try? JSON(data: response.data) else {
+                    completion(.failure(.invalideResponse))
+                    return
+                }
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    let message: String
+                    switch result {
+                    case 0:
+                        message = "未登录"
+                    case 2:
+                        message = "修改失败"
+                    case 3:
+                        message = "旧号码不存在"
+                    case 4:
+                        message = "新号码已经存在"
+                    default:
+                        message = "登录失败"
+                    }
+                    completion(.failure(.invalideStatusCode(statusCode: result, message: message)))
+                    return
+                }
+                completion(.success(true))
+            case let .failure(error):
+                completion(.failure(.moyaError(error: error)))
+            }
+        }
+    }
+    
     static func modifyUserInfo(image: UIImage?, nickName: String, trueName: String, sex: Int, schoolNum: String, areaID: Int, schoolName: String, gradeID: Int, email: String, phone: String, completion: @escaping (Result<String?, SEError>) -> Void) {
         serviceProvider.request(.memberModify(img: image, trueName: trueName, nickName: nickName, sex: sex, email: email, schoolNum: schoolNum, gradeID: gradeID, areaID: areaID, schoolName: schoolName, phone: phone)) { (result) in
             switch result {

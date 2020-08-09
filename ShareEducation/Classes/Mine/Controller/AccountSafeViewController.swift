@@ -68,9 +68,12 @@ extension AccountSafeViewController: UITableViewDataSource {
 extension AccountSafeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            
+            let controller = EditPhoneViewController()
+            navigationController?.pushViewController(controller, animated: true)
         } else if indexPath.row == 1 {
-            
+            let controller = FindPwdViewController()
+            controller.type = .modify
+            navigationController?.pushViewController(controller, animated: true)
         } else {
             
         }

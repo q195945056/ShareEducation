@@ -149,7 +149,7 @@ extension SEService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .memberModify:
+        case .memberModify, .sysOpinion:
             return .post
         default:
             return .get
@@ -305,11 +305,20 @@ extension SEService: TargetType {
             parameters["m.phone"] = phone
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .sysOpinion(let content, let contacts, let img):
-            parameters["name"] = User.shared.name
-            parameters["content"] = content
-            parameters["contacts"] = contacts
-            parameters["img"] = img
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+            var multipartDatas = [MultipartFormData]()
+            multipartDatas.append(MultipartFormData(provider: .data(content.data(using: .utf8)!), name: "content"))
+            if let name = User.shared.name {
+                multipartDatas.append(MultipartFormData(provider: .data(name.data(using: .utf8)!), name: "name"))
+            }
+            if let contacts = contacts {
+                multipartDatas.append(MultipartFormData(provider: .data(contacts.data(using: .utf8)!), name: "contacts"))
+            }
+            
+            if let img = img {
+                let data = img.jpegData(compressionQuality: 0.1)
+                multipartDatas.append(MultipartFormData(provider: .data(data!), name: "img", fileName: "image.jpg", mimeType: "image/jpeg"))
+            }
+            return .uploadMultipart(multipartDatas)
         case .courseSearchList(let keyword):
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
