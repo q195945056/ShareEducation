@@ -34,7 +34,11 @@ class User: Codable {
     var account: String?
     
     var name: String? {
-        return userInfo?.name
+        set {
+            userInfo?.name = newValue
+        } get {
+            return userInfo?.name
+        }
     }
     
     var token: String? {
@@ -43,7 +47,7 @@ class User: Codable {
     
     func setup(json: JSON) {
         let mapper = Mapper<UserInfo>()
-        userInfo = mapper.map(JSONObject: json["data"].object)
+        userInfo = mapper.map(JSONObject: json.object)
         isLogin = true
         if let userInfo = userInfo {
             let grade = ShareData.shared.findGrade(by: userInfo.gradeID)
@@ -72,6 +76,11 @@ class User: Codable {
 
 extension User {
     static let loginStatusDidChangeNotification = Notification.Name(rawValue: "loginStatusDidChangeNotification")
+}
+
+@objc enum MemberType: Int, Codable {
+    case teacher = 1
+    case student = 2
 }
 
 extension User {
@@ -110,8 +119,5 @@ extension User {
         }
     }
     
-    enum MemberType: Int, Codable {
-        case teacher = 1
-        case student = 2
-    }
+
 }

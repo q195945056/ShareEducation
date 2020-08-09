@@ -17,6 +17,8 @@ class EditUserinfoViewController: UIViewController {
     
     var image: UIImage?
     
+    var placeholderImage: UIImage? = UIImage(named: "head_student_man")
+    
     var originData: JSON?
     
     var titles: [String] = ["头像", "用户昵称", "真实姓名", "性别", "学籍号", "地区", "所在学校", "年级", "联系邮箱", "手机号码"]
@@ -70,15 +72,15 @@ class EditUserinfoViewController: UIViewController {
         } else {
             values[5] = area.name
         }
-        values[6] = data["area"].stringValue
+        values[6] = data["schoolname"].stringValue
         
         let grade = ShareData.shared.findGrade(by: data["gradeid"].intValue)
         if grade == .default {
-            values[7] = "未设置"
+            values[7] = data["grade"].stringValue
         } else {
             values[7] = grade.name
         }
-        values[8] = data["email"].stringValue
+        values[8] = data["emaill"].stringValue
         values[9] = data["phone"].stringValue
         
         originalValues = values
@@ -136,6 +138,9 @@ class EditUserinfoViewController: UIViewController {
                 
                 let cancelItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(self.onCancelButtonPressed(_:)))
                 navigationItem.leftBarButtonItem = cancelItem
+            } else {
+                navigationItem.leftBarButtonItem = nil
+                navigationItem.rightBarButtonItem = nil
             }
         }
         get {
@@ -153,65 +158,63 @@ class EditUserinfoViewController: UIViewController {
         var schoolName: String?
         var gradeID: Int?
         var email: String?
+        var phone: String?
         
         for (key, value) in values {
-            let originalValue = originalValues[key]
-            if originalValue != value {
-                switch key {
-                case 0:
-                    break
-                case 1:
-                    nickName = value
-                case 2:
-                    trueName = value
-                case 3:
-                    sex = value == "男" ? 0:1
-                case 4:
-                    schoolNum = value
-                case 5:
-                    let area = ShareData.shared.findArea(by: value)
-                    if area == .default {
-                        areaID = area.id
-                        areaString = value
-                    } else {
-                        areaID = area.id
-                    }
-                case 6:
-                    schoolName = value
-                case 7:
-                    let grade = ShareData.shared.findGrade(by: value)
-                    gradeID = grade.id
-                case 8:
-                    email = value
-                default:
-                    break
+            switch key {
+            case 0:
+                break
+            case 1:
+                nickName = value
+            case 2:
+                trueName = value
+            case 3:
+                sex = value == "男" ? 0:1
+            case 4:
+                schoolNum = value
+            case 5:
+                let area = ShareData.shared.findArea(by: value)
+                if area == .default {
+                    areaID = area.id
+                    areaString = value
+                } else {
+                    areaID = area.id
                 }
+            case 6:
+                schoolName = value
+            case 7:
+                let grade = ShareData.shared.findGrade(by: value)
+                gradeID = grade.id
+            case 8:
+                email = value
+            case 9:
+                phone = value
+            default:
+                break
             }
         }
         
+        view.endEditing(true)
         
-        serviceProvider.request(.memberModify(img: image, nickName: nickName, trueName: trueName, sex: sex, schoolNum: schoolNum, areaID: areaID, schoolName: schoolName, gradeID: gradeID, email: email)) { (result) in
+        User.modifyUserInfo(image: image, nickName: nickName ?? "", trueName: trueName ?? "", sex: sex ?? 0, schoolNum: schoolNum ?? "", areaID: areaID ?? 0, schoolName: schoolName ?? "", gradeID: gradeID ?? 0, email: email ?? "", phone: phone ?? "") { (result) in
             switch result {
-            case let .success(response):
-                guard let responseData = try? JSON(data: response.data) else {
-                    Utilities.toast("保存失败")
-                    return
+            case let .success(imageURLString):
+                if let imageURLString = imageURLString {
+                    self.values[0] = imageURLString.fullURLString
+                    self.image = nil
                 }
-                let result = responseData["result"].intValue
-                guard result == 1 else {
-                    Utilities.toast("保存失败")
-                    return
-                }
-                
-                Utilities.toast("保存成功")
-                print(response)
+                self.isEditing = false
+                self.originalValues = self.values
+                Utilities.toast("修改成功")
+
             case let .failure(error):
-                print(error)
+                Utilities.toast(error.errorDescription)
             }
         }
     }
     
     @objc func onCancelButtonPressed(_ sender: Any) {
+        isEditing = false
         values = originalValues
         image = nil
         tableView.reloadData()
@@ -248,7 +251,7 @@ extension EditUserinfoViewController: UITableViewDataSource {
             if let image = self.image {
                 cell.headImageView.image = image
             } else {
-                cell.headImageView.kf.setImage(with: URL(string: value ?? ""), placeholder: UIImage(named: "head_student_man"))
+                cell.headImageView.kf.setImage(with: URL(string: value?.fullURLString ?? ""), placeholder: placeholderImage)
             }
         } else {
             cell.headImageView.isHidden = true
@@ -303,12 +306,32 @@ extension EditUserinfoViewController: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        if indexPath.row == 0 {//修改头像
             showImageMenu()
-        } else if indexPath.row == 1 {
-            
-        } else {
-            
+        } else if indexPath.row == 3 {//修改性别
+            let sex = values[indexPath.row]
+            SexSettingViewController.show(in: self, sex: sex) { (index) in
+                
+                if index == 0 {
+                    self.values[indexPath.row] = "男"
+                } else {
+                    self.values[indexPath.row] = "女"
+                }
+                self.checkEdingState()
+                self.tableView.reloadData()
+            }
+        } else if indexPath.row == 5 {//修改地区
+            AreaSettingViewController.show(in: self, isRegister: true) { (area) in
+                self.values[indexPath.row] = area.name
+                self.checkEdingState()
+                self.tableView.reloadData()
+            }
+        } else if indexPath.row == 7 {//修改年级
+            GradeSettingViewController.show(in: self) { (grade) in
+                self.values[indexPath.row] = grade.name
+                self.checkEdingState()
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -317,6 +340,7 @@ extension EditUserinfoViewController: UITableViewDelegate {
 extension EditUserinfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         image = info[.editedImage] as? UIImage
+        placeholderImage = image
         isEditing = true
         tableView.reloadData()
         

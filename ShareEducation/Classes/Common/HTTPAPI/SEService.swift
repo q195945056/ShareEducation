@@ -43,7 +43,7 @@ enum CoursePlayType: Int {
 enum SEService {
     case initData
     case login(name: String?, password: String?, type: String?, phone: String?, msgCode: String?)
-    case memberRegister(id: String?, name: String, password: String, memberTypeID: String, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String)
+    case memberRegister(id: String?, name: String, password: String, memberTypeID: MemberType, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String)
     case sendSMS(phone: String)
     case getCourseList(type: CoursePlayType, dateType: String, date: String, name: String?, token: String?, offset: Int, rows:Int, areaid: Int, courseid: Int, gradeid: Int)
     case getCourseDetail(name: String?, token: String?, id: Int)
@@ -70,7 +70,7 @@ enum SEService {
     case memberModifyPassword(code: String, password: String, type: Int, phone: String?)//0 修改密码，1找回密码
     case memberModifyPhone(phone: String, code: String, newPhone: String)
     case sysSearchTags
-    case memberModify(img: UIImage?, nickName: String?, trueName: String?, sex: Int?, schoolNum: String?, areaID: Int?, schoolName: String?, gradeID: Int?, email: String?)
+    case memberModify(img: UIImage?, trueName: String, nickName: String, sex: Int, email: String, schoolNum: String, gradeID: Int, areaID: Int, schoolName: String, phone: String)
     case memberInfo
 }
 
@@ -174,7 +174,7 @@ extension SEService: TargetType {
             parameters["m.id"] = id
             parameters["m.name"] = name
             parameters["m.password"] = password
-            parameters["m.membertypeid"] = memberTypeID
+            parameters["m.membertypeid"] = memberTypeID.rawValue
             parameters["m.areaid"] = areaID
             parameters["m.area"] = area
             parameters["m.phone"] = phone
@@ -332,10 +332,7 @@ extension SEService: TargetType {
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .sysSearchTags:
             return .requestPlain
-        case .memberModify(let img, let nickName, let trueName, let sex, let schoolNum, let areaID, let schoolName, let gradeID, let email):
-            parameters["img"] = img
-            parameters["areaid"] = areaID
-            parameters["schoolname"] = schoolName
+        case .memberModify(let img, let trueName, let nickName, let sex, let email, let schoolNum, let gradeID, let areaID, let schoolName, let phone):
             var multipartDatas = [MultipartFormData]()
             if let name = User.shared.name {
                 multipartDatas.append(MultipartFormData(provider: .data(name.data(using: .utf8)!), name: "name"))
@@ -343,30 +340,25 @@ extension SEService: TargetType {
             if let token = User.shared.token {
                 multipartDatas.append(MultipartFormData(provider: .data(token.data(using: .utf8)!), name: "token"))
             }
-            if let trueName = trueName {
-                multipartDatas.append(MultipartFormData(provider: .data(trueName.data(using: .utf8)!), name: "truename"))
-            }
-            if let sex = sex {
-                let sexString = String(sex)
-                multipartDatas.append(MultipartFormData(provider: .data(sexString.data(using: .utf8)!), name: "sex"))
-            }
-            if let email = email {
-                multipartDatas.append(MultipartFormData(provider: .data(email.data(using: .utf8)!), name: "email"))
-            }
-            if let schoolNum = schoolNum {
-                multipartDatas.append(MultipartFormData(provider: .data(schoolNum.data(using: .utf8)!), name: "schoolnum"))
-            }
-            if let gradeID = gradeID {
-                let string = String(gradeID)
-                multipartDatas.append(MultipartFormData(provider: .data(string.data(using: .utf8)!), name: "gradeid"))
-            }
-            if let areaID = areaID {
-                let string = String(areaID)
-                multipartDatas.append(MultipartFormData(provider: .data(string.data(using: .utf8)!), name: "areaid"))
-            }
+            multipartDatas.append(MultipartFormData(provider: .data(trueName.data(using: .utf8)!), name: "truename"))
+            multipartDatas.append(MultipartFormData(provider: .data(nickName.data(using: .utf8)!), name: "nickname"))
+
+            let sexString = String(sex)
+            multipartDatas.append(MultipartFormData(provider: .data(sexString.data(using: .utf8)!), name: "sex"))
+        
+            multipartDatas.append(MultipartFormData(provider: .data(email.data(using: .utf8)!), name: "email"))
+            
+            multipartDatas.append(MultipartFormData(provider: .data(schoolNum.data(using: .utf8)!), name: "schoolnum"))
+                
+            multipartDatas.append(MultipartFormData(provider: .data(String(gradeID).data(using: .utf8)!), name: "gradeid"))
+            
+            multipartDatas.append(MultipartFormData(provider: .data(String(areaID).data(using: .utf8)!), name: "areaid"))
+            
+//            multipartDatas.append(MultipartFormData(provider: .data(schoolName.data(using: .utf8)!), name: "schoolname"))
+
             if let img = img {
                 let data = img.jpegData(compressionQuality: 0.1)
-                multipartDatas.append(MultipartFormData(provider: .data(data!), name: "img"))
+                multipartDatas.append(MultipartFormData(provider: .data(data!), name: "img", fileName: "image.jpg", mimeType: "image/jpeg"))
             }
             return .uploadMultipart(multipartDatas)
         case .memberInfo:

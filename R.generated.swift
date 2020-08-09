@@ -1210,7 +1210,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 54 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 55 nibs.
   struct nib {
     /// Nib `AboutViewController`.
     static let aboutViewController = _R.nib._AboutViewController()
@@ -1302,6 +1302,8 @@ struct R: Rswift.Validatable {
     static let settingCell = _R.nib._SettingCell()
     /// Nib `SettingViewController`.
     static let settingViewController = _R.nib._SettingViewController()
+    /// Nib `SexSettingViewController`.
+    static let sexSettingViewController = _R.nib._SexSettingViewController()
     /// Nib `TeacherContentViewController`.
     static let teacherContentViewController = _R.nib._TeacherContentViewController()
     /// Nib `TeacherDetailCommentCell`.
@@ -1682,6 +1684,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SexSettingViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.sexSettingViewController) instead")
+    static func sexSettingViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.sexSettingViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "TeacherContentViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.teacherContentViewController) instead")
     static func teacherContentViewController(_: Void = ()) -> UIKit.UINib {
@@ -1931,6 +1941,10 @@ struct R: Rswift.Validatable {
 
     static func settingViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.settingViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func sexSettingViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.sexSettingViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func teacherContentViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -2834,6 +2848,17 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "button_01", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'button_01' is used in nib 'SettingViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SexSettingViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SexSettingViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}

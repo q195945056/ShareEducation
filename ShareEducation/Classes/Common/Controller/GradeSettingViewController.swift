@@ -8,8 +8,24 @@
 
 import UIKit
 import SnapKit
+import Jelly
 
 class GradeSettingViewController: UIViewController {
+    
+    static var animator: Animator?
+    
+    static func show(in viewController: UIViewController, selectionHandler: ((Grade) -> Void)? = nil) {
+        let controller = GradeSettingViewController()
+        controller.didSelectGrade = selectionHandler
+        let size = PresentationSize(width: .fullscreen, height: .custom(value: 370))
+        let marginGuards = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 35)
+        let uiConfiguration = PresentationUIConfiguration(cornerRadius: 15, backgroundStyle: .dimmed(alpha: 0.8))
+        let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
+        let animator = Animator(presentation: presentation)
+        animator.prepare(presentedViewController: controller)
+        self.animator = animator
+        viewController.present(controller, animated: true)
+    }    
     
     var isRegister = false
     

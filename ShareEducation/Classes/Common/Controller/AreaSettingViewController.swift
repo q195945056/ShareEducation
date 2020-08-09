@@ -7,8 +7,28 @@
 //
 
 import UIKit
+import Jelly
 
 class AreaSettingViewController: UIViewController {
+    
+    static var animator: Animator?
+    
+    static func show(in viewController: UIViewController, isRegister: Bool = false, selectionHandler: ((Area) -> Void)? = nil) {
+        let controller = AreaSettingViewController()
+        controller.isRegister = isRegister
+        controller.didSelectArea = selectionHandler
+        let size = PresentationSize(width: .fullscreen, height: .custom(value: 260))
+        let aligment = PresentationAlignment(vertical: .bottom, horizontal: .center)
+        let uiConfiguration = PresentationUIConfiguration( backgroundStyle: .dimmed(alpha: 0.8))
+        let presentation = CoverPresentation(directionShow: .bottom, directionDismiss: .bottom, uiConfiguration: uiConfiguration, size: size, alignment: aligment, marginGuards: .zero)
+        let animator = Animator(presentation: presentation)
+        animator.prepare(presentedViewController: controller)
+        self.animator = animator
+        viewController.present(controller, animated: true)
+    }
+    
+    
+
     
     var isRegister = false
     

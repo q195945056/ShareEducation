@@ -24,7 +24,7 @@ class PasswordLoginViewController: BaseLoginViewController {
         textField.borderStyle = .none
         textField.textColor = UIColor(red:158, green: 166, blue: 178)
         textField.placeholder = "请输入用户名"
-        textField.text = "13811111111"
+        textField.text = "q195945056"
         textField.font = .systemFont(ofSize: 13)
         return textField
     }()
@@ -110,21 +110,18 @@ class PasswordLoginViewController: BaseLoginViewController {
     // MARK: - Actions
     
     override func login() {
-        Utilities.showLoading(to: self.view!)
-        serviceProvider.request(.login(name: accountField.text, password: passwordField.text?.md5String, type: "1", phone: nil, msgCode: nil)) { (result) in
-            do {
-                let json = try JSON(data: result.get().data)
-                let status = json["result"].int
-                if let status = status, status == 1 {
-                    User.shared.account = self.accountField.text
-                    User.shared.setup(json: json)
-                    Utilities.showSuccess("登录成功", to: self.view)
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    Utilities.showError("登录失败", to: self.view, animated: true)
-                }
-            } catch {
-                Utilities.showError("登录失败", to: self.view, animated: true)
+        Utilities.showLoading()
+        
+        let name = accountField.text
+        let password = passwordField.text
+        
+        User.login(type: .password, name: name!, password: password!) { (result) in
+            switch result {
+            case .success:
+                Utilities.showSuccess("登录成功")
+                self.dismiss(animated: true, completion: nil)
+            case let .failure(error):
+                Utilities.showError(error.errorDescription)
             }
         }
     }

@@ -119,6 +119,8 @@
 		CCAC6B4B239904A500D26A2C /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC6B49239904A500D26A2C /* QuestionCell.swift */; };
 		CCAC6B4C239904A500D26A2C /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCAC6B4A239904A500D26A2C /* QuestionCell.xib */; };
 		CCAC6B4F2399112200D26A2C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC6B4E2399112200D26A2C /* Question.swift */; };
+		CCAF4DB324DFEC9400B224B2 /* SexSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF4DB124DFEC9400B224B2 /* SexSettingViewController.swift */; };
+		CCAF4DB424DFEC9400B224B2 /* SexSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCAF4DB224DFEC9400B224B2 /* SexSettingViewController.xib */; };
 		CCB3D9C6235FEE67008E31AE /* TeacherSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9C5235FEE67008E31AE /* TeacherSearchViewController.swift */; };
 		CCB3D9CC235FEF5E008E31AE /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */; };
 		CCB3D9D7235FF039008E31AE /* GradeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */; };
@@ -332,6 +334,8 @@
 		CCAC6B49239904A500D26A2C /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		CCAC6B4A239904A500D26A2C /* QuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCell.xib; sourceTree = "<group>"; };
 		CCAC6B4E2399112200D26A2C /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		CCAF4DB124DFEC9400B224B2 /* SexSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexSettingViewController.swift; sourceTree = "<group>"; };
+		CCAF4DB224DFEC9400B224B2 /* SexSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SexSettingViewController.xib; sourceTree = "<group>"; };
 		CCB3D9C5235FEE67008E31AE /* TeacherSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSearchViewController.swift; sourceTree = "<group>"; };
 		CCB3D9CB235FEF5E008E31AE /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		CCB3D9D6235FF039008E31AE /* GradeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSettingViewController.swift; sourceTree = "<group>"; };
@@ -659,6 +663,8 @@
 				CCF3899A238A8A0D00F84678 /* FindPwdViewController.xib */,
 				CC30AD12239CEAD900A0DF20 /* EditUserinfoViewController.swift */,
 				CC30AD13239CEAD900A0DF20 /* EditUserinfoViewController.xib */,
+				CCAF4DB124DFEC9400B224B2 /* SexSettingViewController.swift */,
+				CCAF4DB224DFEC9400B224B2 /* SexSettingViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1049,6 +1055,7 @@
 				CC993FFF238E808A0036F8EA /* TeacherDetailDescriptionCell.xib in Resources */,
 				CC3EABDE24D65776002BFE25 /* CouponListViewController.xib in Resources */,
 				CC30AD15239CEAD900A0DF20 /* EditUserinfoViewController.xib in Resources */,
+				CCAF4DB424DFEC9400B224B2 /* SexSettingViewController.xib in Resources */,
 				CCF9B1672390F9880065E420 /* PaymentCouponCell.xib in Resources */,
 				CC30AD1A239CEB0600A0DF20 /* UserInfoCell.xib in Resources */,
 				CCAC6B3B2398FB2D00D26A2C /* ActivityListViewController.xib in Resources */,
@@ -1313,6 +1320,7 @@
 				CCDDA1E7238FAF2300C28497 /* CourseUnitFooterView.swift in Sources */,
 				CC97B3B623865CD300F1BFE9 /* LoginViewController.swift in Sources */,
 				CC8AA8B2238CC08D009F94D6 /* Cache+Shared.swift in Sources */,
+				CCAF4DB324DFEC9400B224B2 /* SexSettingViewController.swift in Sources */,
 				CCDDA1D2238FA26600C28497 /* CourseDetailViewController.swift in Sources */,
 				CCC4F0FD237BF4BA00FD11D9 /* GradeCollectionCell.swift in Sources */,
 				CCF9B1622390EB2E0065E420 /* PaymentViewController.swift in Sources */,

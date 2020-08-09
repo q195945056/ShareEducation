@@ -49,19 +49,31 @@ class Utilities {
         hud.hide(animated: true, afterDelay: delay)
     }
     
-    static func showLoading(to view: UIView, animated: Bool = true) {
-        MBProgressHUD.showAdded(to: view, animated: animated)
+    static func showLoading(to view: UIView? = nil, animated: Bool = true) {
+        var superView = view
+        if superView == nil {
+            superView = UIApplication.shared.keyWindow
+        }
+        MBProgressHUD.showAdded(to: superView!, animated: animated)
     }
     
-    static func hideHUD(for view: UIView, animated: Bool = true) {
-        let hud = MBProgressHUD.forView(view)
+    static func hideHUD(for view: UIView? = nil, animated: Bool = true) {
+        var superView = view
+        if superView == nil {
+            superView = UIApplication.shared.keyWindow
+        }
+        let hud = MBProgressHUD.forView(superView!)
         hud?.hide(animated: animated)
     }
     
-    static func showSuccess(_ message: String? = nil, to view: UIView, animated: Bool = true) {
-        var hud = MBProgressHUD.forView(view)
+    static func showSuccess(_ message: String? = nil, to view: UIView? = nil, animated: Bool = true) {
+        var superView = view
+        if superView == nil {
+            superView = UIApplication.shared.keyWindow
+        }
+        var hud = MBProgressHUD.forView(superView!)
         if hud == nil {
-            hud = MBProgressHUD.showAdded(to: view, animated: animated)
+            hud = MBProgressHUD.showAdded(to: superView!, animated: animated)
         }
         hud?.mode = .customView
         let image = UIImage(named: "Checkmark")?.withRenderingMode(.alwaysTemplate)
@@ -71,10 +83,14 @@ class Utilities {
         hud?.hide(animated: animated, afterDelay: 2)
     }
     
-    static func showError(_ message: String? = nil, to view: UIView, animated: Bool = true) {
-        var hud = MBProgressHUD.forView(view)
+    static func showError(_ message: String? = nil, to view: UIView? = nil, animated: Bool = true) {
+        var superView = view
+        if superView == nil {
+            superView = UIApplication.shared.keyWindow
+        }
+        var hud = MBProgressHUD.forView(superView!)
         if hud == nil {
-            hud = MBProgressHUD.showAdded(to: view, animated: animated)
+            hud = MBProgressHUD.showAdded(to: superView!, animated: animated)
         }
         hud?.mode = .customView
         let image = UIImage(named: "Checkmark")?.withRenderingMode(.alwaysTemplate)

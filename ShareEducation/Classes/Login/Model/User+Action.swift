@@ -11,13 +11,85 @@ import SwiftyJSON
 
 extension User {
     
+    static func modifyUserInfo(image: UIImage?, nickName: String, trueName: String, sex: Int, schoolNum: String, areaID: Int, schoolName: String, gradeID: Int, email: String, phone: String, completion: @escaping (Result<String?, SEError>) -> Void) {
+        serviceProvider.request(.memberModify(img: image, trueName: trueName, nickName: nickName, sex: sex, email: email, schoolNum: schoolNum, gradeID: gradeID, areaID: areaID, schoolName: schoolName, phone: phone)) { (result) in
+            switch result {
+            case let .success(response):
+                guard let responseData = try? JSON(data: response.data) else {
+                    completion(.failure(.invalideResponse))
+                    return
+                }
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    completion(.failure(.invalideStatusCode(statusCode: result, message: "保存失败")))
+                    Utilities.toast("保存失败")
+                    return
+                }
+                
+                let img = responseData["data"]["pic"].string
+                completion(.success(img))
+            case let .failure(error):
+                completion(.failure(.moyaError(error: error)))
+            }
+        }
+    }
+    
+    
+    enum LoginType: String {
+        case password = "1"
+        case phone = "2"
+    }
+    
+    static func login(type: LoginType, name: String? = nil, password: String? = nil, phone: String? = nil, msgCode: String? = nil, completion: @escaping (Result<Bool, SEError>) -> Void) {
+        
+        serviceProvider.request(.login(name: name, password: password?.md5String, type: type.rawValue, phone: phone, msgCode: msgCode)) { (result) in
+            
+            switch result {
+            case let .success(response):
+                guard let responseData = try? JSON(data: response.data) else {
+                    completion(.failure(.invalideResponse))
+                    return
+                }
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    let message: String
+                    switch result {
+                    case 2:
+                        message = "登录失败账号不存在"
+                    case 3:
+                        message = "参数错误"
+                    case 4:
+                        message = "地区限制"
+                    case 5:
+                        message = "用户已经导入没添加相关信息 弹出相关信息框给用户添加"
+                    case 6:
+                        message = "用户停用"
+                    default:
+                        message = "登录失败"
+                    }
+                    completion(.failure(.invalideStatusCode(statusCode: result, message: message)))
+                    return
+                }
+                
+                let data = responseData["data"]
+                if let name = name {
+                    User.shared.name = name
+                }
+                User.shared.setup(json: data)
+                completion(.success(true))
+            case let .failure(error):
+                completion(.failure(.moyaError(error: error)))
+            }
+        }
+    }
+    
     enum ModifyPasswordType: Int {
         case modify
         case find
     }
     
     static func modifyPassword(type: ModifyPasswordType = .modify, phone: String?, code: String, password: String, completion: @escaping (Result<Bool, SEError>) -> Void) {
-        serviceProvider.request(.memberModifyPassword(code: code, password: password, type: type.rawValue, phone: phone)) { (result) in
+        serviceProvider.request(.memberModifyPassword(code: code, password: password.md5String, type: type.rawValue, phone: phone)) { (result) in
             switch result {
             case let .success(response):
                 guard let responseData = try? JSON(data: response.data) else {
@@ -102,7 +174,7 @@ extension User {
         
     }
     
-    static func register(userID: String? = nil, userName: String, password: String, memberType: String, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String, completion: @escaping (Result<Bool, SEError>) -> Void) {
+    static func register(userID: String? = nil, userName: String, password: String, memberType: MemberType, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String, completion: @escaping (Result<Bool, SEError>) -> Void) {
         serviceProvider.request(.memberRegister(id: userID, name: userName, password: password, memberTypeID: memberType, areaID: areaID, area: area, phone: phone, code: code, schoolName: schoolName, gradeID: gradeID, schoolNum: schoolNum, trueName: trueName)) { result in
             switch result {
             case let .success(response):

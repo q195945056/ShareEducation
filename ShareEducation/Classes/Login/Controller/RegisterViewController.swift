@@ -56,7 +56,7 @@ class RegisterViewController: UIViewController {
             typeView?.isSelected = false
             sender.isSelected = true
             typeView = sender
-            if typeView.type == 1 {
+            if typeView.type == .teacher {
                 valueField?.placeholder = "*教师资格证号"
             } else {
                 valueField?.placeholder = "*学籍号"
@@ -139,7 +139,7 @@ class RegisterViewController: UIViewController {
             return
         }
         guard let value = valueField?.text, !value.isEmpty else {
-            if typeView?.type == 2 {
+            if typeView?.type == .student {
                 Utilities.toast("请填写学籍号")
             } else {
                 Utilities.toast("请填写教师资格证号")
@@ -187,9 +187,10 @@ class RegisterViewController: UIViewController {
         
         view.resignFirstResponder()
         
-        User.register(userName: username, password: password, memberType: String(typeView.type), areaID: String(areaID!), area: area, phone: phone, code: code, schoolName: schoolName, gradeID: String(gradeID!), schoolNum: value, trueName: trueName) { result in
+        User.register(userName: username, password: password, memberType: typeView.type, areaID: String(areaID!), area: area, phone: phone, code: code, schoolName: schoolName, gradeID: String(gradeID!), schoolNum: value, trueName: trueName) { result in
             switch result {
             case .success:
+                Utilities.toast("注册成功")
                 self.navigationController?.popViewController(animated: true)
                 break
             case let .failure(error):
@@ -221,19 +222,10 @@ class RegisterViewController: UIViewController {
     }
     
     func onGradeButtonPressed() {
-        let controller = GradeSettingViewController()
-        controller.didSelectGrade = { grade in
+        GradeSettingViewController.show(in: self) { grade in
             self.gradeField?.text = grade.name
             self.gradeID = grade.id
         }
-        let size = PresentationSize(width: .fullscreen, height: .custom(value: 370))
-        let marginGuards = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 35)
-        let uiConfiguration = PresentationUIConfiguration(cornerRadius: 15, backgroundStyle: .dimmed(alpha: 0.8))
-        let presentation = FadePresentation(size: size, marginGuards: marginGuards, ui: uiConfiguration)
-        let animator = Animator(presentation: presentation)
-        animator.prepare(presentedViewController: controller)
-        self.animator = animator
-        present(controller, animated: true)
     }
     
 
@@ -274,7 +266,7 @@ class BorderView: UIView {
 @IBDesignable class TypeView: UIControl {
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var markImageView: UIImageView?
-    @IBInspectable var type: Int = 1
+    @IBInspectable var type: MemberType = .teacher
     
     override var isSelected: Bool {
         didSet {
