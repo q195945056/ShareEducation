@@ -21,7 +21,7 @@ class CourseItem: Mappable {
     var grade: String!
     var course: String!
     var schoolName: String?
-    var price: Int?
+    var price: Float?
     var buystate: BuyState!
     var buyCount: Int?
     var unitIds: Int?
@@ -70,6 +70,12 @@ class CourseItem: Mappable {
     }
 }
 
+extension CourseItem: Equatable {
+    static func == (lhs: CourseItem, rhs: CourseItem) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 extension CourseItem {
     enum BuyState: Int {
         case free = 1
@@ -96,7 +102,7 @@ extension CourseItem {
         if let value = data["buystate"].int {
             buystate = BuyState(rawValue: value)
         }
-        if let value = data["price"].int {
+        if let value = data["price"].float {
             price = value
         }
         if let value = data["state"].int {

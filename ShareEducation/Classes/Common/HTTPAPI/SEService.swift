@@ -40,6 +40,38 @@ enum CoursePlayType: Int {
     case record = 2
 }
 
+enum PaymentType: Int {
+    case wechat
+    case alipay
+    case patriarch
+    
+    var icon: UIImage? {
+        switch self {
+        case .wechat:
+            return R.image.icon_pay1()
+        case .alipay:
+            return R.image.icon_pay2()
+        case .patriarch:
+            return R.image.icon_pay3()
+        default:
+            return R.image.icon_pay1()
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .wechat:
+            return "微信支付"
+        case .alipay:
+            return "支付宝支付"
+        case .patriarch:
+            return "家长支付（扫码支付）"
+        default:
+            return "微信支付"
+        }
+    }
+}
+
 enum SEService {
     case initData
     case login(name: String?, password: String?, type: String?, phone: String?, msgCode: String?)
@@ -47,7 +79,7 @@ enum SEService {
     case sendSMS(phone: String)
     case getCourseList(type: CoursePlayType, dateType: String, date: String, name: String?, token: String?, offset: Int, rows:Int, areaid: Int, courseid: Int, gradeid: Int)
     case getCourseDetail(name: String?, token: String?, id: Int)
-    case courseBuy(name: String, token: String, id: Int)
+    case courseBuy(id: Int)
     case getTeacherTopList(rows: Int, areaid: Int, courseid: Int, gradeid: Int)
     case getTeacherList(name: String?, token: String?, offset: Int, rows: Int, areaid: Int, courseid: Int, gradeid: Int, sort: Int = 0)
     case getTeacherDetail(id: Int)
@@ -203,9 +235,9 @@ extension SEService: TargetType {
             parameters["m.token"] = token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .courseBuy(let name, let token, let id):
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+        case .courseBuy(let id):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getTeacherTopList(let rows, let areaid, let courseid, let gradeid):

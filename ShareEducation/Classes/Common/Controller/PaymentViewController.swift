@@ -19,6 +19,10 @@ class PaymentViewController: UIViewController {
     @IBOutlet var bottomView: UIView!
     
     @IBOutlet var tableView: UITableView!
+    
+    var selectedCourses: [CourseItem]!
+    
+    var totalPrice: Float = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,18 @@ class PaymentViewController: UIViewController {
         tableView.register(UINib(nibName: "PaymentPriceDetailCell", bundle: nil), forCellReuseIdentifier: PaymentPriceDetailCell.reuseIdentifier)
         tableView.register(UINib(nibName: "PaymentPayTypeCell", bundle: nil), forCellReuseIdentifier: PaymentPayTypeCell.reuseIdentifier)
         tableView.register(PaymentSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: PaymentSectionHeaderView.reuseIdentifier)
+        
+        countLabel.text = "共\(selectedCourses.count)项，实付款："
+        
+        totalPriceLabel.text = String(format: "￥%.2f", totalPrice)
+        
+        tableView.selectRow(at: IndexPath(row: 0, section: 3), animated: false, scrollPosition: .none)
+    }
+    
+    @IBAction func onPayButtonPressed(_ sender: Any) {
+        let indexPath = tableView.indexPathForSelectedRow ?? IndexPath(row: 0, section: 3)
+        let type = PaymentType(rawValue: indexPath.row)!
+        
     }
 
     /*
@@ -61,7 +77,7 @@ extension PaymentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 2
+            return selectedCourses.count
         case 1, 2:
             return 1
         case 3:
@@ -75,6 +91,8 @@ extension PaymentViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCourseCell.reuseIdentifier, for: indexPath) as! PaymentCourseCell
+            let course = selectedCourses[indexPath.row]
+            cell.course = course
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCouponCell.reuseIdentifier, for: indexPath) as! PaymentCouponCell
@@ -84,6 +102,9 @@ extension PaymentViewController: UITableViewDataSource {
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: PaymentPayTypeCell.reuseIdentifier, for: indexPath) as! PaymentPayTypeCell
+            let type = PaymentType(rawValue: indexPath.row)!
+            cell.iconImageView.image = type.icon
+            cell.titleLabel.text = type.title
             return cell
         default:
             return UITableViewCell()
@@ -118,5 +139,11 @@ extension PaymentViewController: UITableViewDataSource {
 }
 
 extension PaymentViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 3 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
 }

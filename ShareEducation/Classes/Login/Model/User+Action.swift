@@ -11,6 +11,28 @@ import SwiftyJSON
 
 extension User {
     
+    static func buyCourse(course: CourseItem, completion: @escaping (Result<[CourseItem], SEError>) -> Void) {
+        serviceProvider.request(.courseBuy(id: course.id)) { (result) in
+            switch result {
+            case let .success(response):
+
+                guard let listResult = try? response.mapObject(ListResult<CourseItem>.self) else {
+                    completion(.failure(.invalideResponse))
+                    return
+                }
+                
+                guard !listResult.data.isEmpty else {
+                    completion(.failure(.invalideStatusCode(statusCode: -1, message: "加入到购物车失败")))
+                    return
+                }
+                
+                completion(.success(listResult.data))
+            case let .failure(error):
+                completion(.failure(.moyaError(error: error)))
+            }
+        }
+    }
+    
     static func modifyPhone(phone: String, code: String, newPhone: String, completion: @escaping (Result<Bool, SEError>) -> Void) {
         serviceProvider.request(.memberModifyPhone(phone: phone, code: code, newPhone: newPhone)) { (result) in
             switch result {

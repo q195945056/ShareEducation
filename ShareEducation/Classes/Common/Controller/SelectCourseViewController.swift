@@ -22,7 +22,9 @@ class SelectCourseViewController: UIViewController {
     
     @IBOutlet var bottomView: UIView!
     
-    var courses: [CourseItem]?
+    var courses = [CourseItem]()
+    
+    var totalPrice: Float = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,20 +50,47 @@ class SelectCourseViewController: UIViewController {
     }
     
     func loadData() {
-        let user = User.shared
-        let name = user.account!
-        let token = user.token!
-        serviceProvider.request(.courseBuy(name: name, token: token, id: course.id)) { result in
-            let response = try? result.get().mapObject(ListResult<CourseItem>.self)
-            self.courses = response?.data
-            self.tableView.reloadData()
+        
+        User.buyCourse(course: course) { (result) in
+            switch result {
+            case let .success(datas):
+                self.courses = datas
+                self.tableView.reloadData()
+                self.selectDefaultCourse()
+            case let .failure(error):
+                Utilities.toast(error.errorDescription)
+            }
         }
     }
     
+    func selectDefaultCourse() {
+        var index = -1
+        for i in 0..<courses.count {
+            let c = courses[i]
+            if c == course {
+                index = i
+                break
+            }
+        }
+        if index >= 0 {
+            let indexPath: IndexPath = IndexPath(row: index, section: 0)
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
+            tableView(tableView, didSelectRowAt: indexPath)
+        }
+    }
     
     @IBAction func onPayButtonPressed(_ sender: Any) {
-        let controller = PaymentViewController()
-        navigationController?.pushViewController(controller, animated: true)
+        if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
+            var selectedCourses = [CourseItem]()
+            for path in selectedIndexPaths {
+                let course = courses[path.row]
+                selectedCourses.append(course)
+            }
+            let controller = PaymentViewController()
+            controller.totalPrice = totalPrice
+            controller.selectedCourses = selectedCourses
+            navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     /*
@@ -78,21 +107,27 @@ class SelectCourseViewController: UIViewController {
 
 extension SelectCourseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses?.count ?? 0
+        return courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CourseSelectCell.reuseIdentifier, for: indexPath) as! CourseSelectCell
-        let course = courses![indexPath.row]
+        let course = courses[indexPath.row]
         cell.course = course
         return cell
     }
-    
-    
 }
 
 extension SelectCourseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
+            var total: Float = 0
+            for path in selectedIndexPaths {
+                let course = courses[path.row]
+                total += course.price ?? 0
+            }
+            totalPrice = total
+            totalPriceLabel.text = String(format: "￥%.2f", total)
+        }
     }
 }

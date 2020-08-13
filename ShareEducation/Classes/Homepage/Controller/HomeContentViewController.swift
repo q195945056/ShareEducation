@@ -194,7 +194,6 @@ extension HomeContentViewController: TYCyclePagerViewDelegate, TYCyclePagerViewD
     }
     
     func pagerView(_ pageView: TYCyclePagerView, didScrollFrom fromIndex: Int, to toIndex: Int) {
-//        self.pageControl.currentPage = toIndex;
         pageControl.currentPage = toIndex
     }
 }
