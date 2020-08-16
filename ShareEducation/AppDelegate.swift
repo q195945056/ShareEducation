@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         barButtonItem.title = ""
         
         window?.makeKeyAndVisible()
+        
+//        WXApi.registerApp("wxd930ea5d5a258f4f", universalLink: "http://www.netcoclass.com:8080/")
+        WXApi.registerApp("wx42d5e6c490be185b", enableMTA: true)
 //        showSplashIfNeeded()
         
         return true
@@ -72,6 +75,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             splashView.show(in: window!)
         }
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.host == "safepay" {
+            AlipaySDK.defaultService()?.processOrder(withPaymentResult: url, standbyCallback: { (resultDic) in
+                print(resultDic!)
+            })
+        } else {
+            WXApi.handleOpen(url, delegate: WXApiManager.default)
+        }
+        return true
+    }
+    
+    
+
 
 //    // MARK: UISceneSession Lifecycle
 //    @available(iOS 13, *)

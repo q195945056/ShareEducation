@@ -9,6 +9,14 @@
 import UIKit
 
 class PaymentCouponCell: UITableViewCell {
+    
+    @IBOutlet var couponNumberLabel: UILabel!
+    
+    var couponNumber: Int = 0 {
+        didSet {
+            couponNumberLabel.text = String(format: "-￥%.2f", Float(couponNumber) / 100)
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

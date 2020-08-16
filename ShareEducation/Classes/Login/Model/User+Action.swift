@@ -11,6 +11,27 @@ import SwiftyJSON
 
 extension User {
     
+    static func courseOrder(ids: String, terminal: Int, payType: Int, completion: @escaping (Result<JSON, SEError>) -> Void) {
+        serviceProvider.request(.courseOrder(ids: ids, terminal: terminal, payType: payType)) { (result) in
+            switch result {
+            case let .success(response):
+                guard let responseData = try? JSON(data: response.data) else {
+                    completion(.failure(.invalideResponse))
+                    return
+                }
+                
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    return
+                }
+                
+                completion(.success(responseData))
+            case let .failure(error):
+                completion(.failure(.moyaError(error: error)))
+            }
+        }
+    }
+    
     static func buyCourse(course: CourseItem, completion: @escaping (Result<[CourseItem], SEError>) -> Void) {
         serviceProvider.request(.courseBuy(id: course.id)) { (result) in
             switch result {
@@ -21,7 +42,7 @@ extension User {
                     return
                 }
                 
-                guard !listResult.data.isEmpty else {
+                guard let data = listResult.data, !data.isEmpty else {
                     completion(.failure(.invalideStatusCode(statusCode: -1, message: "加入到购物车失败")))
                     return
                 }

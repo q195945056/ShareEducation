@@ -10,17 +10,56 @@ import UIKit
 
 class AskAnswerViewController: UIViewController {
     
+    var courseID: Int!
+    
+    var datas = [QaListItem]()
+    
     @IBOutlet var tableView: UITableView!
+    
+    @IBOutlet var textField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        loadData()
+    }
+    
+    func loadData() {
+        serviceProvider.request(.courseQaList(courseID: courseID)) { result in
+            switch result {
+            case let .success(response):
+                guard let listResult = try? response.mapObject(ListResult<QaListItem>.self) else {
+                    return
+                }
+                
+                guard let data = listResult.data, !data.isEmpty else {
+                    return
+                }
+                
+                self.datas = data
+                self.tableView.reloadData()
+                
+            case let .failure(error):
+                print(error.errorDescription)
+            }
+        }
     }
 
     func setupUI() {
         tableView.register(R.nib.userMessasgeCell)
+    }
+    
+    @IBAction func onSendButtonPressed(_ sender: Any) {
+        serviceProvider.request(.courseQa(img: nil, cid: courseID, parentID: 0, content: textField.text ?? "")) { (result) in
+            switch result {
+            case let .success(response):
+                print(response)
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
 
     /*
@@ -38,18 +77,15 @@ class AskAnswerViewController: UIViewController {
 extension AskAnswerViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return datas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserMessasgeCell.reuseIdentifier, for: indexPath) as! UserMessasgeCell
-        if indexPath.row == 0 {
-            cell.messageLabel.text = "糯米不是米：起立"
-        } else if indexPath.row == 1 {
-            cell.messageLabel.text = "莫非：老师你的明信片写好没？"
-        } else {
-            cell.messageLabel.text = "[老师]王学军：课程开始了我们一起加油"
-        }
+        
+        let data = datas[indexPath.row]
+        let string = data.memberName + "：" + data.content
+        cell.messageLabel.text = string
         return cell
     }
 }

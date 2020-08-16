@@ -10,6 +10,8 @@ import UIKit
 
 class LectureNoteViewController: UIViewController {
     
+    var courseID: Int!
+    
     @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {

@@ -24,7 +24,7 @@ class SelectCourseViewController: UIViewController {
     
     var courses = [CourseItem]()
     
-    var totalPrice: Float = 0
+    var totalPrice: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,13 +121,13 @@ extension SelectCourseViewController: UITableViewDataSource {
 extension SelectCourseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
-            var total: Float = 0
+            var total: Int = 0
             for path in selectedIndexPaths {
                 let course = courses[path.row]
                 total += course.price ?? 0
             }
             totalPrice = total
-            totalPriceLabel.text = String(format: "￥%.2f", total)
+            totalPriceLabel.text = String(format: "￥%.2f", Float(total) / 100)
         }
     }
 }

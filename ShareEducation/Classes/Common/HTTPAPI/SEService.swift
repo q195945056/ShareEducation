@@ -84,18 +84,18 @@ enum SEService {
     case getTeacherList(name: String?, token: String?, offset: Int, rows: Int, areaid: Int, courseid: Int, gradeid: Int, sort: Int = 0)
     case getTeacherDetail(id: Int)
     case collectTeacher(name: String?, token: String?, id: Int, oper: Bool)
-    case playCourse(name: String?, token: String?, id: Int)
+    case playCourse(id: Int)
     case collectCourse(name: String?, token: String?, id: Int, star: Bool, oper: Bool)
     case courseScore(cid: String, tid: String, score: String, depict: String)
     case coursePlayLog(cid: String, tid: String)
     case teacherMyCollect
     case courseMyList
-    case courseOrder(ids: String, terminal: String)
+    case courseOrder(ids: String, terminal: Int, payType: Int)
     case courseSearchOrder(orderID: String)
     case sysFaqList
     case sysMyMsgList
-    case courseQaList(courseID: String)
-    case courseQa(img: [UIImage]?, cid: String, parentID: String, content: String)
+    case courseQaList(courseID: Int)
+    case courseQa(img: [UIImage]?, cid: Int, parentID: Int, content: String)
     case memberSendSmsReg(phone: String)
     case sysOpinion(content: String, contacts: String?, img: UIImage?)
     case courseSearchList(keyword: String)
@@ -181,7 +181,7 @@ extension SEService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .memberModify, .sysOpinion:
+        case .memberModify, .sysOpinion, .courseQa:
             return .post
         default:
             return .get
@@ -269,9 +269,9 @@ extension SEService: TargetType {
             parameters["t.id"] = id
             parameters["t.oper"] = oper ? 1 : 0
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .playCourse(let name, let token, let id):
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+        case .playCourse(let id):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .collectCourse(let name, let token, let id, let star, let oper):
@@ -303,11 +303,12 @@ extension SEService: TargetType {
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .courseOrder(let ids, let terminal):
+        case .courseOrder(let ids, let terminal, let payType):
             parameters["m.name"] = User.shared.name
             parameters["m.token"] = User.shared.token
             parameters["c.ids"] = ids
             parameters["c.terminal"] = terminal
+            parameters["c.paytype"] = payType
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .courseSearchOrder(let orderID):
             parameters["m.name"] = User.shared.name
@@ -325,14 +326,26 @@ extension SEService: TargetType {
             parameters["m.token"] = User.shared.token
             parameters["c.id"] = courseID
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .courseQa(let img,let cid, let parentID, let content):
-            parameters["img"] = img
-            parameters["name"] = User.shared.name
-            parameters["token"] = User.shared.token
-            parameters["cid"] = cid
-            parameters["parentID"] = parentID
-            parameters["content"] = content
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .courseQa(let imgs,let cid, let parentID, let content):
+            var multipartDatas = [MultipartFormData]()
+            if let name = User.shared.name {
+                multipartDatas.append(MultipartFormData(provider: .data(name.data(using: .utf8)!), name: "name"))
+            }
+            if let token = User.shared.token {
+                multipartDatas.append(MultipartFormData(provider: .data(token.data(using: .utf8)!), name: "token"))
+            }
+            multipartDatas.append(MultipartFormData(provider: .data(String(cid).data(using: .utf8)!), name: "cid"))
+            multipartDatas.append(MultipartFormData(provider: .data(String(parentID).data(using: .utf8)!), name: "parentID"))
+            multipartDatas.append(MultipartFormData(provider: .data(content.data(using: .utf8)!), name: "content"))
+
+            
+            if let imgs = imgs {
+                for img in imgs {
+                    let data = img.jpegData(compressionQuality: 0.1)
+                    multipartDatas.append(MultipartFormData(provider: .data(data!), name: "img", fileName: "image.jpg", mimeType: "image/jpeg"))
+                }
+            }
+            return .uploadMultipart(multipartDatas)
         case .memberSendSmsReg(let phone):
             parameters["m.phone"] = phone
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)

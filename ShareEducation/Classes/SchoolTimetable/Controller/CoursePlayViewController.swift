@@ -24,7 +24,7 @@ class CoursePlayViewController: UIViewController {
     }
     
     /// 问答控制器
-    lazy var answerController = AskAnswerViewController()
+    lazy var answerController = AskAnswerViewController().then{ $0.courseID = self.course.id }
     
     /// 讲义控制器
     lazy var lectureController = LectureNoteViewController()
@@ -98,7 +98,7 @@ class CoursePlayViewController: UIViewController {
     
     func loadData() {
         
-        serviceProvider.request(.playCourse(name: User.shared.account, token: User.shared.token, id: course.id)) {  result in
+        serviceProvider.request(.playCourse(id: course.id)) {  result in
             let json = try? result.get().mapJSON()
             if let json = json {
                 let jsonData = JSON(json)

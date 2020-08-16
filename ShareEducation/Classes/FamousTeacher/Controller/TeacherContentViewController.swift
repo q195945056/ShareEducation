@@ -37,7 +37,9 @@ class TeacherContentViewController: BaseContentViewController {
         headerView.backgroundColor = .clear
         tableView.tableHeaderView = headerView
         tableView.register(UINib(nibName: "TeacherHomeCell", bundle: nil), forCellReuseIdentifier: TeacherHomeCell.reuseIdentifier)
-        tableView.mj_header = MJRefreshStateHeader{ self.refreshData() }
+        tableView.mj_header = MJRefreshStateHeader{
+            self.refreshData()
+        }
         tableView.mj_footer = MJRefreshAutoFooter{ self.loadMore() }
         sortSegmentedControl.items = ["综合", "评分", "播放"]
         sortSegmentedControl.aligment = .center

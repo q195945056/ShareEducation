@@ -1210,7 +1210,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 56 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 58 nibs.
   struct nib {
     /// Nib `AboutViewController`.
     static let aboutViewController = _R.nib._AboutViewController()
@@ -1278,6 +1278,8 @@ struct R: Rswift.Validatable {
     static let myCoursesViewController = _R.nib._MyCoursesViewController()
     /// Nib `MyFavoriteViewController`.
     static let myFavoriteViewController = _R.nib._MyFavoriteViewController()
+    /// Nib `PayResultViewController`.
+    static let payResultViewController = _R.nib._PayResultViewController()
     /// Nib `PaymentCouponCell`.
     static let paymentCouponCell = _R.nib._PaymentCouponCell()
     /// Nib `PaymentPayTypeCell`.
@@ -1288,6 +1290,8 @@ struct R: Rswift.Validatable {
     static let paymentViewController = _R.nib._PaymentViewController()
     /// Nib `PlayerViewController`.
     static let playerViewController = _R.nib._PlayerViewController()
+    /// Nib `QrCodePayViewController`.
+    static let qrCodePayViewController = _R.nib._QrCodePayViewController()
     /// Nib `QuestionCell`.
     static let questionCell = _R.nib._QuestionCell()
     /// Nib `RegisterViewController`.
@@ -1590,6 +1594,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "PayResultViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.payResultViewController) instead")
+    static func payResultViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.payResultViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "PaymentCouponCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.paymentCouponCell) instead")
     static func paymentCouponCell(_: Void = ()) -> UIKit.UINib {
@@ -1626,6 +1638,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.playerViewController) instead")
     static func playerViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.playerViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QrCodePayViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.qrCodePayViewController) instead")
+    static func qrCodePayViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.qrCodePayViewController)
     }
     #endif
 
@@ -1905,6 +1925,10 @@ struct R: Rswift.Validatable {
       return R.nib.myFavoriteViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func payResultViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.payResultViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func paymentCouponCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PaymentCouponCell? {
       return R.nib.paymentCouponCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PaymentCouponCell
     }
@@ -1923,6 +1947,10 @@ struct R: Rswift.Validatable {
 
     static func playerViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.playerViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func qrCodePayViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.qrCodePayViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func questionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QuestionCell? {
@@ -2101,10 +2129,12 @@ struct _R: Rswift.Validatable {
       try _MessageCell.validate()
       try _MineTableCell.validate()
       try _MyCourseListCell.validate()
+      try _PayResultViewController.validate()
       try _PaymentCouponCell.validate()
       try _PaymentPayTypeCell.validate()
       try _PaymentViewController.validate()
       try _PlayerViewController.validate()
+      try _QrCodePayViewController.validate()
       try _QuestionCell.validate()
       try _RegisterViewController.validate()
       try _SearchViewController.validate()
@@ -2634,6 +2664,23 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _PayResultViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "PayResultViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "icon_class08", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_class08' is used in nib 'PayResultViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _PaymentCouponCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = PaymentCouponCell
 
@@ -2727,6 +2774,23 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "icon_small2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_small2' is used in nib 'PlayerViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "icon_tui", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_tui' is used in nib 'PlayerViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "icon_tui2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_tui2' is used in nib 'PlayerViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QrCodePayViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QrCodePayViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "icon_pay1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_pay1' is used in nib 'QrCodePayViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

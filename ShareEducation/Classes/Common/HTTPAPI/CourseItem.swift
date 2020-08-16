@@ -21,7 +21,7 @@ class CourseItem: Mappable {
     var grade: String!
     var course: String!
     var schoolName: String?
-    var price: Float?
+    var price: Int?
     var buystate: BuyState!
     var buyCount: Int?
     var unitIds: Int?
@@ -102,7 +102,7 @@ extension CourseItem {
         if let value = data["buystate"].int {
             buystate = BuyState(rawValue: value)
         }
-        if let value = data["price"].float {
+        if let value = data["price"].int {
             price = value
         }
         if let value = data["state"].int {

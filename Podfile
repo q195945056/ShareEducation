@@ -28,6 +28,12 @@ target 'ShareEducation' do
   pod 'ijkplayer'
   pod 'Sourcery'
   pod 'HCSStarRatingView'
+  pod 'UMCCommon'
+  pod 'UMCShare/UI'
+  pod 'UMCShare/Social/WeChat'
+  pod 'UMCShare/Social/Sina'
+  pod  'AlipaySDK-iOS'
+  pod 'EFQRCode'
   
 end
 

@@ -56,7 +56,7 @@ class PaymentCourseCell: CourseBaseCell {
         
         teacherInfoLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(contentBgView).offset(15)
-            make.top.equalTo(classNameLabel.snp.bottom).offset(15)
+            make.top.equalTo(timeLabel.snp.bottom).offset(15)
             make.trailing.lessThanOrEqualTo(contentBgView).offset(-15)
         }
         
@@ -75,16 +75,8 @@ class PaymentCourseCell: CourseBaseCell {
     override func updateUI() {
         super.updateUI()
         
-        teacherInfoLabel.text = course?.teacherName
-        priceLabel.text = String(course?.price ?? 0)
-        
-        #if DEBUG
-        classNameLabel.text = "【秋（下）】初一数学直播勤学班（全国北师）"
-        timeLabel.text = "10月07日-12月28日 每周六 18:20-20:30"
-        headImageView.backgroundColor = .red
-        teacherInfoLabel.text = "丽琴"
-        priceLabel.text = "799"
-        #endif
+        teacherInfoLabel.text = course?.teacherName        
+        priceLabel.text = String(format: "￥%.2f", Float(course?.price ?? 0) / 100)
     }
 
 }

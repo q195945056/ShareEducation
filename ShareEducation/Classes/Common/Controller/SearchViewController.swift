@@ -8,6 +8,7 @@
 
 import UIKit
 import Jelly
+import SwiftyJSON
 
 class SearchViewController: UIViewController {
     
@@ -31,12 +32,44 @@ class SearchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var results = [CourseItem]()
+    
+    var keywords = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        requestHotwords()
+    }
+    
+    func requestHotwords() {
+        serviceProvider.request(.sysSearchTags) { (result) in
+            switch result {
+            case let .success(response):
+                print(response)
+                guard let responseData = try? JSON(data: response.data) else {
+                    return
+                }
+                
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    return
+                }
+                
+                var array = [String]()
+                let jsonArray = responseData["data"].arrayValue
+                for json in jsonArray {
+                    array.append(json["name"].stringValue)
+                }
+                
+                self.keywords = array
+                self.collectionView.reloadData()
+                
+            case let .failure(error):
+                print(error.errorDescription)
+            }
+        }
     }
     
     func setupUI() {
@@ -81,10 +114,28 @@ class SearchViewController: UIViewController {
     // MARK: - Private
     
     func search(for text: String) {
-        if false {
-        } else {
-            showEmptyView()
+        
+        serviceProvider.request(.courseSearchList(keyword: text)) { (result) in
+            switch result {
+            case let .success(response):
+                guard let listResult = try? response.mapObject(ListResult<CourseItem>.self) else {
+                    self.showEmptyView()
+                    return
+                }
+                
+                guard let data = listResult.data, !data.isEmpty else {
+                    self.showEmptyView()
+                    return
+                }
+                self.results = data
+                self.tableView.reloadData()
+                self.showResult()
+            case let .failure(error):
+                self.showEmptyView()
+                Utilities.toast(error.errorDescription ?? "网络请求错误")
+            }
         }
+
     }
     
     func showEmptyView() {
@@ -119,12 +170,12 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return keywords.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchHotCell.reuseIdentifier, for: indexPath) as! SearchHotCell
-        cell.titleLabel.text = "高中英语"
+        cell.titleLabel.text = keywords[indexPath.item]
         return cell
     }
     
@@ -137,7 +188,7 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let text = "高中英语"
+        let text = keywords[indexPath.item]
         searchTextFiled.text = text
         searchTextFiled.resignFirstResponder()
         search(for: text)
@@ -146,7 +197,9 @@ extension SearchViewController: UICollectionViewDelegate {
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var size = "高中英语".size(font: .systemFont(ofSize: 11, weight: .medium))
+        let text = keywords[indexPath.item]
+
+        var size = text.size(font: .systemFont(ofSize: 11, weight: .medium))
         size.width += 40
         size.height = 30
         return size
@@ -185,19 +238,24 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return onePixelWidth
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeSetionTitleView.reuseIdentifier) as! HomeSetionTitleView
-        headerView.titleLabel.textColor = .black
-        headerView.titleLabel.font = .systemFont(ofSize: 13, weight: .medium)
-        headerView.indicatorImageView.isHidden = true
-        headerView.titleLabel.text = "明星老师"
-        return headerView
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeSetionTitleView.reuseIdentifier) as! HomeSetionTitleView
+//        headerView.titleLabel.textColor = .black
+//        headerView.titleLabel.font = .systemFont(ofSize: 13, weight: .medium)
+//        headerView.indicatorImageView.isHidden = true
+//        headerView.titleLabel.text = "明星老师"
+//        return headerView
+//    }
 }
 
 extension SearchViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let course = results[indexPath.row]
+        let controller = CourseDetailViewController()
+        controller.course = course
+        mainNavigationController.pushViewController(controller, animated: true)
+    }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PaymentViewController: UIViewController {
     
@@ -22,7 +23,9 @@ class PaymentViewController: UIViewController {
     
     var selectedCourses: [CourseItem]!
     
-    var totalPrice: Float = 0
+    var totalPrice: Int = 0
+    
+    var couponNumber: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,7 @@ class PaymentViewController: UIViewController {
         
         countLabel.text = "共\(selectedCourses.count)项，实付款："
         
-        totalPriceLabel.text = String(format: "￥%.2f", totalPrice)
+        totalPriceLabel.text = String(format: "￥%.2f", Float(totalPrice) / 100)
         
         tableView.selectRow(at: IndexPath(row: 0, section: 3), animated: false, scrollPosition: .none)
     }
@@ -53,6 +56,98 @@ class PaymentViewController: UIViewController {
     @IBAction func onPayButtonPressed(_ sender: Any) {
         let indexPath = tableView.indexPathForSelectedRow ?? IndexPath(row: 0, section: 3)
         let type = PaymentType(rawValue: indexPath.row)!
+        print(type)
+        
+        var ids = ""
+        for i in 0..<selectedCourses.count {
+            let course = selectedCourses[i]
+            ids.append(String(course.id))
+            if i != selectedCourses.count - 1 {
+                ids.append(",")
+            }
+        }
+        
+        var payType: Int = 2
+        var terminal: Int = 2
+        
+        if type == .wechat {
+            payType = 2
+            terminal = 2
+        } else if type == .alipay {
+            payType = 1
+            terminal = 2
+        } else if type == .patriarch {
+            terminal = 1
+            payType = 0
+        }
+        
+        User.courseOrder(ids: ids, terminal: terminal, payType: payType) { (result) in
+            switch result {
+            case let .success(response):
+                if type == .wechat {
+                    self.payWechat(response)
+                } else if type == .alipay {
+                    self.payAli(response)
+                } else if type == .patriarch {
+                    self.payQrCode(response)
+                }
+                print(response)
+            case let .failure(error):
+                Utilities.toast(error.errorDescription)
+            }
+        }
+        
+    }
+    
+    func payQrCode(_ json: JSON) {
+        let data = json["data"]
+        let price = data["price"].intValue
+        let code_url = data["code_url"].stringValue
+        QrCodePayViewController.show(in: self, price: price, urlString: code_url)
+    }
+    
+    func payAli(_ json: JSON) {
+        let data = json["data"]
+        print(data)
+        let alidata = data["alidata"].stringValue
+        AlipaySDK.defaultService()?.payOrder(alidata, fromScheme: "netcoclass", callback: { resultDic in
+            print(resultDic)
+        })
+    }
+    
+    func payWechat(_ json: JSON) {
+        let data = json["data"]
+        let appid = data["appid"].stringValue
+        let partnerid = data["partnerid"].stringValue
+        let prepay_id = data["prepay_id"].stringValue
+        let package = "Sign=WXPay"
+        let nonceStr = data["noncestr"].stringValue
+        let timeStamp = data["timestamp"].stringValue
+        let sign = data["sign"].stringValue
+
+        let request = PayReq()
+        request.partnerId = partnerid
+        request.prepayId = prepay_id
+        request.package = package
+        request.nonceStr = nonceStr
+        request.timeStamp = UInt32(timeStamp) ?? 0
+        request.sign = sign
+        WXApi.send(request)
+        
+        WXApiManager.default.pay(json) { (result) in
+            switch result {
+            case .success:
+                let controller = PayResultViewController()
+                self.navigationController?.pushViewController(controller, animated: true)
+            case let .failure(error):
+                switch error {
+                case .userCanceled:
+                    break
+                default:
+                    Utilities.toast(error.errorDescription)
+                }
+            }
+        }
         
     }
 
@@ -96,9 +191,13 @@ extension PaymentViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCouponCell.reuseIdentifier, for: indexPath) as! PaymentCouponCell
+            cell.couponNumber = 0
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: PaymentPriceDetailCell.reuseIdentifier, for: indexPath) as! PaymentPriceDetailCell
+            cell.totalPrice = totalPrice
+            cell.couponNumber = 0
+            cell.updateUI()
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: PaymentPayTypeCell.reuseIdentifier, for: indexPath) as! PaymentPayTypeCell
