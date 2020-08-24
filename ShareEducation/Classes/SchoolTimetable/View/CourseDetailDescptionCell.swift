@@ -28,12 +28,24 @@ class CourseDetailDescptionCell: UITableViewCell {
         if let course = course {
             descriptionLabel.text = course.depict
             priceLabel.text = String(course.price ?? 0)
+            
+            switch course.buystate {
+            case .free, .notBuy:
+                buyButton.isEnabled = true
+            case .buy:
+                buyButton.isEnabled = false
+            default:
+                break
+            }
+            
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+//        buyButton.setTitle("立即预约课程", for: .normal)
+//        buyButton.setTitle("已预约", for: .disabled)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

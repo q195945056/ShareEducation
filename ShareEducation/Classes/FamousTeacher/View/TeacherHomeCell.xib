@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17147" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17120"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -161,13 +161,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ccd-VS-XXR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4zy-ul-AjO"/>
-                    <constraint firstAttribute="trailing" secondItem="ccd-VS-XXR" secondAttribute="trailing" constant="12.5" id="CG2-mY-mjq"/>
+                    <constraint firstAttribute="trailing" secondItem="ccd-VS-XXR" secondAttribute="trailing" priority="750" constant="12.5" id="CG2-mY-mjq"/>
                     <constraint firstItem="ccd-VS-XXR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13.5" id="cpP-O7-PIY"/>
                     <constraint firstAttribute="bottom" secondItem="ccd-VS-XXR" secondAttribute="bottom" constant="15" id="fyc-st-PuV"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectButton" destination="kwv-D3-CWg" id="Xy7-sy-sg3"/>
                 <outlet property="contentBgView" destination="ccd-VS-XXR" id="T5p-fK-LgH"/>
@@ -182,9 +182,14 @@
                 <outlet property="titleLabel" destination="fSf-Jc-USm" id="KEx-BN-4cN"/>
                 <outlet property="videoPlayCountLabel" destination="GXo-2x-dCx" id="jbX-ET-buc"/>
             </connections>
-            <point key="canvasLocation" x="138.40579710144928" y="119.53125"/>
+            <point key="canvasLocation" x="-21" y="87"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="kWh-NH-tcK">
+            <size key="intrinsicContentSize" width="68.5" height="10"/>
+        </designable>
+    </designables>
     <resources>
         <image name="icon_guanzhu" width="59" height="24"/>
         <image name="icon_guanzhu2" width="59" height="24"/>

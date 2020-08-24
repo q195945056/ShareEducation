@@ -24,6 +24,9 @@ class EditPhoneViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var phone = User.shared.userInfo?.phone ?? ""
+//        phone.replaceSubrange(3...6, with: "****")
+//        phoneLabel.text =
     }
     
     @IBAction func onConfirmButtonPressed(_ sender: Any) {

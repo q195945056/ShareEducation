@@ -53,8 +53,6 @@ enum PaymentType: Int {
             return R.image.icon_pay2()
         case .patriarch:
             return R.image.icon_pay3()
-        default:
-            return R.image.icon_pay1()
         }
     }
     
@@ -66,8 +64,6 @@ enum PaymentType: Int {
             return "支付宝支付"
         case .patriarch:
             return "家长支付（扫码支付）"
-        default:
-            return "微信支付"
         }
     }
 }
@@ -77,15 +73,15 @@ enum SEService {
     case login(name: String?, password: String?, type: String?, phone: String?, msgCode: String?)
     case memberRegister(id: String?, name: String, password: String, memberTypeID: MemberType, areaID: String, area: String, phone: String, code: String, schoolName: String, gradeID: String, schoolNum: String, trueName: String)
     case sendSMS(phone: String)
-    case getCourseList(type: CoursePlayType, dateType: String, date: String, name: String?, token: String?, offset: Int, rows:Int, areaid: Int, courseid: Int, gradeid: Int)
-    case getCourseDetail(name: String?, token: String?, id: Int)
+    case getCourseList(type: CoursePlayType, dateType: String, date: String, offset: Int, rows:Int, areaid: Int, courseid: Int, gradeid: Int)
+    case getCourseDetail(id: Int)
     case courseBuy(id: Int)
     case getTeacherTopList(rows: Int, areaid: Int, courseid: Int, gradeid: Int)
-    case getTeacherList(name: String?, token: String?, offset: Int, rows: Int, areaid: Int, courseid: Int, gradeid: Int, sort: Int = 0)
+    case getTeacherList(offset: Int, rows: Int, areaid: Int, courseid: Int, gradeid: Int, sort: Int = 0)
     case getTeacherDetail(id: Int)
-    case collectTeacher(name: String?, token: String?, id: Int, oper: Bool)
+    case collectTeacher(id: Int, oper: Bool)
     case playCourse(id: Int)
-    case collectCourse(name: String?, token: String?, id: Int, star: Bool, oper: Bool)
+    case collectCourse(id: Int, star: Bool, oper: Bool)
     case courseScore(cid: String, tid: String, score: String, depict: String)
     case coursePlayLog(cid: String, tid: String)
     case teacherMyCollect
@@ -218,21 +214,21 @@ extension SEService: TargetType {
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .sendSMS(let phone):
             return .requestParameters(parameters: ["m.phone": phone], encoding: URLEncoding.queryString)
-        case .getCourseList(let type, let dateType, let date, let name, let token, let offset, let rows, let areaid, let courseid, let gradeid):
+        case .getCourseList(let type, let dateType, let date, let offset, let rows, let areaid, let courseid, let gradeid):
             parameters["c.type"] = type.rawValue
             parameters["c.datetype"] = dateType
             parameters["c.date"] = date
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["offset"] = offset
             parameters["rows"] = rows
             parameters["m.areaid"] = areaid
             parameters["m.courseid"] = courseid
             parameters["m.gradeid"] = gradeid
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .getCourseDetail(let name, let token, let id):
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+        case .getCourseDetail(let id):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .courseBuy(let id):
@@ -248,9 +244,9 @@ extension SEService: TargetType {
             parameters["m.courseid"] = courseid
             parameters["m.gradeid"] = gradeid
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .getTeacherList(let name, let token, let offset, let rows, let areaid, let courseid, let gradeid, let sort):
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+        case .getTeacherList(let offset, let rows, let areaid, let courseid, let gradeid, let sort):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["offset"] = offset
             parameters["rows"] = rows
             parameters["m.areaid"] = areaid
@@ -263,9 +259,9 @@ extension SEService: TargetType {
             parameters["m.token"] = User.shared.token
             parameters["t.mid"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .collectTeacher(let name, let token, let id, let oper):
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+        case .collectTeacher(let id, let oper):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["t.id"] = id
             parameters["t.oper"] = oper ? 1 : 0
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
@@ -274,9 +270,9 @@ extension SEService: TargetType {
             parameters["m.token"] = User.shared.token
             parameters["c.id"] = id
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .collectCourse(let name, let token, let id, let star, let oper):
-            parameters["m.name"] = name
-            parameters["m.token"] = token
+        case .collectCourse(let id, let star, let oper):
+            parameters["m.name"] = User.shared.name
+            parameters["m.token"] = User.shared.token
             parameters["t.id"] = id
             parameters["c.star"] = star ? 1 : 0
             parameters["t.oper"] = oper ? 1 : 0

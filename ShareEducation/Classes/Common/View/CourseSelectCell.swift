@@ -88,7 +88,7 @@ class CourseSelectCell: CourseBaseCell {
         super.updateUI()
         
         teacherInfoLabel.text = course?.teacherName
-        priceLabel.text = String(format: "￥%.2f", Float(course?.price ?? 0) / 100)
+        priceLabel.text = String(format: "￥%.2f", course?.price ?? 0)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

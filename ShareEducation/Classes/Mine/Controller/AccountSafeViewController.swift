@@ -23,6 +23,7 @@ class AccountSafeViewController: UIViewController {
         navigationItem.title = "设置"
         tableView.register(UINib(nibName: "SettingCell", bundle: nil), forCellReuseIdentifier: SettingCell.reuseIdentifier)
 
+        clearNextControllerBackButtonTitle()
     }
 
     /*
@@ -48,7 +49,7 @@ extension AccountSafeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.reuseIdentifier, for: indexPath) as! SettingCell
         if indexPath.row == 0 {
             cell.titleLabel.text = "修改手机号码"
-            cell.descriptionLabel.text = "14785471245"
+            cell.descriptionLabel.text = User.shared.userInfo?.phone
             cell.descriptionLabel.isHidden = false
             cell.switch.isHidden = true
         } else if indexPath.row == 1 {

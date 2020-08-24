@@ -81,6 +81,8 @@ class TeacherDetailViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
+        
+        clearNextControllerBackButtonTitle()
     }
     
     func loadData() {

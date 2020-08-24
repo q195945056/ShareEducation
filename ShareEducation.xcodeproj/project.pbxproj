@@ -27,6 +27,7 @@
 		CC2D7ADE238500D500D9FD92 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7ADD238500D500D9FD92 /* Teacher.swift */; };
 		CC2D7AE0238528C500D9FD92 /* ListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7ADF238528C500D9FD92 /* ListResult.swift */; };
 		CC2D7AE223852FB200D9FD92 /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D7AE123852FB200D9FD92 /* CourseItem.swift */; };
+		CC2F927324F215E40068327A /* UIViewController+BackButtonTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F927224F215E40068327A /* UIViewController+BackButtonTitle.swift */; };
 		CC30AD00239CD99C00A0DF20 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30ACFE239CD99C00A0DF20 /* SettingViewController.swift */; };
 		CC30AD01239CD99C00A0DF20 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC30ACFF239CD99C00A0DF20 /* SettingViewController.xib */; };
 		CC30AD06239CDAFB00A0DF20 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30AD04239CDAFB00A0DF20 /* SettingCell.swift */; };
@@ -144,7 +145,7 @@
 		CCD691A124E90BAA0057CB5B /* PayResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6919F24E90BAA0057CB5B /* PayResultViewController.swift */; };
 		CCD691A224E90BAA0057CB5B /* PayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD691A024E90BAA0057CB5B /* PayResultViewController.xib */; };
 		CCD691A424E9150A0057CB5B /* QaListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD691A324E9150A0057CB5B /* QaListItem.swift */; };
-		CCD691A624E9640F0057CB5B /* WXApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD691A524E9640F0057CB5B /* WXApiManager.swift */; };
+		CCD691A624E9640F0057CB5B /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD691A524E9640F0057CB5B /* PaymentManager.swift */; };
 		CCDDA1D2238FA26600C28497 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDDA1D0238FA26600C28497 /* CourseDetailViewController.swift */; };
 		CCDDA1D3238FA26600C28497 /* CourseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDDA1D1238FA26600C28497 /* CourseDetailViewController.xib */; };
 		CCDDA1D6238FA34000C28497 /* CourseDetailCoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDDA1D4238FA34000C28497 /* CourseDetailCoverCell.swift */; };
@@ -250,6 +251,7 @@
 		CC2D7ADD238500D500D9FD92 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		CC2D7ADF238528C500D9FD92 /* ListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResult.swift; sourceTree = "<group>"; };
 		CC2D7AE123852FB200D9FD92 /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
+		CC2F927224F215E40068327A /* UIViewController+BackButtonTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+BackButtonTitle.swift"; sourceTree = "<group>"; };
 		CC30ACFE239CD99C00A0DF20 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CC30ACFF239CD99C00A0DF20 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		CC30AD04239CDAFB00A0DF20 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		CCC154E5238BA449005F29CC /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
 		CCC4F0FA237BF1FE00FD11D9 /* UIScreen+Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Bounds.swift"; sourceTree = "<group>"; };
 		CCC4F0FC237BF4BA00FD11D9 /* GradeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCollectionCell.swift; sourceTree = "<group>"; };
+		CCC79AED24F117EE00265436 /* ShareEducation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareEducation.entitlements; sourceTree = "<group>"; };
 		CCD1BC64237C06D800F52069 /* SEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEService.swift; sourceTree = "<group>"; };
 		CCD1BC66237C195800F52069 /* Bundle+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Info.swift"; sourceTree = "<group>"; };
 		CCD6918D24E8E7440057CB5B /* ShareEducation-Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareEducation-Prefix.h"; sourceTree = "<group>"; };
@@ -368,7 +371,7 @@
 		CCD6919F24E90BAA0057CB5B /* PayResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayResultViewController.swift; sourceTree = "<group>"; };
 		CCD691A024E90BAA0057CB5B /* PayResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayResultViewController.xib; sourceTree = "<group>"; };
 		CCD691A324E9150A0057CB5B /* QaListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QaListItem.swift; sourceTree = "<group>"; };
-		CCD691A524E9640F0057CB5B /* WXApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXApiManager.swift; sourceTree = "<group>"; };
+		CCD691A524E9640F0057CB5B /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		CCDDA1D0238FA26600C28497 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		CCDDA1D1238FA26600C28497 /* CourseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailViewController.xib; sourceTree = "<group>"; };
 		CCDDA1D4238FA34000C28497 /* CourseDetailCoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailCoverCell.swift; sourceTree = "<group>"; };
@@ -705,6 +708,7 @@
 				CCC154E5238BA449005F29CC /* String+Size.swift */,
 				CC8AA8B1238CC08D009F94D6 /* Cache+Shared.swift */,
 				CC8AA8B5238CD247009F94D6 /* String+URLPrefix.swift */,
+				CC2F927224F215E40068327A /* UIViewController+BackButtonTitle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -753,7 +757,7 @@
 				CCF9B1592390B32A0065E420 /* SelectCourseViewController.xib */,
 				CCF9B1602390EB2E0065E420 /* PaymentViewController.swift */,
 				CCF9B1612390EB2E0065E420 /* PaymentViewController.xib */,
-				CCD691A524E9640F0057CB5B /* WXApiManager.swift */,
+				CCD691A524E9640F0057CB5B /* PaymentManager.swift */,
 				CCD6919F24E90BAA0057CB5B /* PayResultViewController.swift */,
 				CCD691A024E90BAA0057CB5B /* PayResultViewController.xib */,
 				CCD6919B24E904450057CB5B /* QrCodePayViewController.swift */,
@@ -820,6 +824,7 @@
 		CCF95B76235EFDCB00FACFAD /* ShareEducation */ = {
 			isa = PBXGroup;
 			children = (
+				CCC79AED24F117EE00265436 /* ShareEducation.entitlements */,
 				CC2B9F2023A392D5006C815E /* Sourcery */,
 				CC017DE82377D38500BF22DC /* Vendor */,
 				CCF95B8B235F00D800FACFAD /* Classes */,
@@ -1285,7 +1290,7 @@
 				CC3EABE224D66AF0002BFE25 /* MyFavoriteViewController.swift in Sources */,
 				CCF38997238A778400F84678 /* AreaSettingViewController.swift in Sources */,
 				CCF9B15F2390EB0D0065E420 /* PaymentCourseCell.swift in Sources */,
-				CCD691A624E9640F0057CB5B /* WXApiManager.swift in Sources */,
+				CCD691A624E9640F0057CB5B /* PaymentManager.swift in Sources */,
 				CCF95B7C235EFDCB00FACFAD /* ViewController.swift in Sources */,
 				CCAC6B432399007E00D26A2C /* MessageListViewController.swift in Sources */,
 				CCF9B15D2390B68D0065E420 /* CourseSelectCell.swift in Sources */,
@@ -1350,6 +1355,7 @@
 				CCF3899B238A8A0D00F84678 /* FindPwdViewController.swift in Sources */,
 				CC30AD14239CEAD900A0DF20 /* EditUserinfoViewController.swift in Sources */,
 				CCEF8F4923B32DB80078561D /* AskAnswerViewController.swift in Sources */,
+				CC2F927324F215E40068327A /* UIViewController+BackButtonTitle.swift in Sources */,
 				CC017DE52377BCDD00BF22DC /* HomeTeacherCollectionCell.swift in Sources */,
 				CC30AD0C239CE47700A0DF20 /* AboutViewController.swift in Sources */,
 				CCDDA1DA238FA69300C28497 /* CourseDetailDescptionCell.swift in Sources */,
@@ -1520,6 +1526,7 @@
 			baseConfigurationReference = F229B415CD46AC344FAB7417 /* Pods-ShareEducation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShareEducation/ShareEducation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMKZFTU3QH;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1545,6 +1552,7 @@
 			baseConfigurationReference = 65150237C841E146EE495BBB /* Pods-ShareEducation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShareEducation/ShareEducation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMKZFTU3QH;
 				FRAMEWORK_SEARCH_PATHS = (

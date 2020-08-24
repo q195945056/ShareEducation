@@ -29,6 +29,7 @@ target 'ShareEducation' do
   pod 'Sourcery'
   pod 'HCSStarRatingView'
   pod 'UMCCommon'
+  pod 'UMCPush'
   pod 'UMCShare/UI'
   pod 'UMCShare/Social/WeChat'
   pod 'UMCShare/Social/Sina'

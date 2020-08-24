@@ -44,14 +44,23 @@ class CourseDetailViewController: UIViewController {
     // MARK: - Private Methods
     
     func loadCourseDetailData() {
-        serviceProvider.request(.getCourseDetail(name: nil, token: nil, id: course.id)) { result in
+        serviceProvider.request(.getCourseDetail(id: course.id)) { result in
             let json = try? JSON(result.get().mapJSON())
             if let json = json {
                 self.course.setup(with: json)
-                self.collectButton.isSelected = self.course.isCollect!
-                self.tableView.reloadData()
+                self.updateUI()
             }
         }
+    }
+    
+    func updateUI() {
+        if course.buystate == .buy {
+            buyButton.isEnabled = false
+        } else {
+            buyButton.isEnabled = true
+        }
+        self.collectButton.isSelected = self.course.isCollect!
+        self.tableView.reloadData()
     }
     
     fileprivate func setupUI() {
@@ -68,9 +77,10 @@ class CourseDetailViewController: UIViewController {
         tableView.register(CourseUnitTitleView.self, forHeaderFooterViewReuseIdentifier: CourseUnitTitleView.reuseIdentifier)
         tableView.register(CourseUnitFooterView.self, forHeaderFooterViewReuseIdentifier: CourseUnitFooterView.reuseIdentifier)
         
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        navigationItem.backBarButtonItem = backItem
+        buyButton.setTitle("立即购买", for: .normal)
+        buyButton.setTitle("已购买", for: .disabled)
+        
+        clearNextControllerBackButtonTitle()
     }
     
     // MARK: - Actions
@@ -98,7 +108,6 @@ class CourseDetailViewController: UIViewController {
             LoginViewController.show(from: self)
             return
         }
-        
         
         course.collect(star: false, oper: !course.isCollect!) { result in
             if result {

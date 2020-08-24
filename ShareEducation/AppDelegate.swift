@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
 //        WXApi.registerApp("wxd930ea5d5a258f4f", universalLink: "http://www.netcoclass.com:8080/")
-        WXApi.registerApp("wx42d5e6c490be185b", enableMTA: true)
 //        showSplashIfNeeded()
+        configUmeng(launchOptions)
         
         return true
     }
@@ -76,13 +76,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func configUmeng(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        UMConfigure.initWithAppkey("5f3d1dc1fa5e894f08bd7569", channel: "AppStore")
+//        [UMConfigure initWithAppkey:@"Your appkey" channel:@"App Store"];
+
+        WXApi.registerApp("wx42d5e6c490be185b", enableMTA: true)
+        
+        
+        let entity = UMessageRegisterEntity()
+        entity.types = Int(UMessageAuthorizationOptions.badge.rawValue |  UMessageAuthorizationOptions.sound.rawValue | UMessageAuthorizationOptions.alert.rawValue)
+        UNUserNotificationCenter.current().delegate = self
+        UMessage.registerForRemoteNotifications(launchOptions: launchOptions, entity: entity) { (granted, error) in
+            if granted {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            } else {
+                
+            }
+        }
+
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        var token = ""
+        for byte in Array<UInt8>(deviceToken) {
+            token += String(format: "%02x", byte & 0x000000FF)
+        }
+        print(token)
+        UMessage.registerDeviceToken(deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error)
+    }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        
         if url.host == "safepay" {
             AlipaySDK.defaultService()?.processOrder(withPaymentResult: url, standbyCallback: { (resultDic) in
-                print(resultDic!)
+                PaymentManager.default.onAlipayResult(resultDic)
             })
         } else {
-            WXApi.handleOpen(url, delegate: WXApiManager.default)
+            WXApi.handleOpen(url, delegate: PaymentManager.default)
         }
         return true
     }
@@ -106,5 +143,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
 
 
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        if notification.request.trigger is UNPushNotificationTrigger {
+            UMessage.setAutoAlert(false)
+            UMessage.didReceiveRemoteNotification(userInfo)
+        } else {
+            
+        }
+        completionHandler([.sound, .badge, .alert])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        if response.notification.request.trigger is UNPushNotificationTrigger {
+            UMessage.didReceiveRemoteNotification(userInfo)
+        }
+    }
 }
 

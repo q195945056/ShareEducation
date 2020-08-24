@@ -7,14 +7,12 @@
 //
 
 import Foundation
-import Cache
 
 class ShareSetting: Codable {
     static let shared: ShareSetting = {
-        let config = DiskConfig(name: "Cache")
         var shared: ShareSetting?
         do {
-            let diskStorage = try DiskStorage<ShareSetting>(config: config, transformer: TransformerFactory.forCodable(ofType: ShareSetting.self))
+            let diskStorage = documentStorage.transformCodable(ofType: ShareSetting.self)
             shared = try diskStorage.object(forKey: "ShareSetting")
         } catch {
             shared = ShareSetting()
@@ -37,8 +35,7 @@ class ShareSetting: Codable {
     }
     
     func saveOnDisk() throws {
-        let config = DiskConfig(name: "Cache")
-        let diskStorage = try DiskStorage<ShareSetting>(config: config, transformer: TransformerFactory.forCodable(ofType: ShareSetting.self))
+        let diskStorage = documentStorage.transformCodable(ofType: ShareSetting.self)
         try! diskStorage.setObject(self, forKey: "ShareSetting")
     }
     

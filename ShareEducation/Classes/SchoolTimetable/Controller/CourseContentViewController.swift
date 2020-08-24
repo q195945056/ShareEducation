@@ -112,10 +112,6 @@ class CourseContentViewController: BaseContentViewController {
     func loadCourseData(offset: Int) {
         let grade = ShareSetting.shared.grade
         let area = ShareSetting.shared.area
-        let user = User.shared
-        
-        let name = user.account
-        let token = user.token
         
         var dateType: String = ""
         var dateString: String = ""
@@ -127,7 +123,7 @@ class CourseContentViewController: BaseContentViewController {
             dateString = Date().toFormat("yyyy-MM-dd")
         }
         
-        serviceProvider.request(.getCourseList(type: playType, dateType: dateType, date: dateString, name: name, token: token, offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id)) { (result) in
+        serviceProvider.request(.getCourseList(type: playType, dateType: dateType, date: dateString, offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id)) { (result) in
             do {
                 let response = try result.get().mapObject(ListResult<CourseItem>.self)
                 if offset == 0 {
@@ -147,6 +143,13 @@ class CourseContentViewController: BaseContentViewController {
                     self.tableView.mj_footer?.resetNoMoreData()
                 }
             } catch {
+                if self.tableView.mj_header!.isRefreshing {
+                    self.tableView.mj_header?.endRefreshing()
+                }
+                if self.tableView.mj_footer!.isRefreshing {
+                    self.tableView.mj_footer?.endRefreshing()
+                }
+                
                 print(error)
             }
         }

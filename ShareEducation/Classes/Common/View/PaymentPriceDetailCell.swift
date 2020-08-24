@@ -10,9 +10,9 @@ import UIKit
 
 class PaymentPriceDetailCell: UITableViewCell {
     
-    var totalPrice: Int = 0
+    var totalPrice: Float = 0
     
-    var couponNumber: Int = 0
+    var couponNumber: Float = 0
     
     @IBOutlet var totalPriceLabel: UILabel!
     
@@ -22,9 +22,9 @@ class PaymentPriceDetailCell: UITableViewCell {
     
     
     func updateUI() {
-        totalPriceLabel.text = String(format: "￥%.2f", Float(totalPrice) / 100)
-        couponNumberLabel.text = String(format: "￥-%.2f", Float(couponNumber) / 100)
-        finalPriceLabel.text = String(format: "￥%.2f", Float(totalPrice - couponNumber) / 100)
+        totalPriceLabel.text = String(format: "￥%.2f", totalPrice)
+        couponNumberLabel.text = String(format: "￥-%.2f", couponNumber)
+        finalPriceLabel.text = String(format: "￥%.2f", totalPrice - couponNumber)
     }
     
 

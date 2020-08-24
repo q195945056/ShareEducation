@@ -83,15 +83,17 @@ class HomeContentViewController: BaseContentViewController {
         refreshData()
     }
     
-    func setupUI() -> Void {
+    func setupUI() {
         tableView.register(HomeSetionTitleView.self, forHeaderFooterViewReuseIdentifier: HomeSetionTitleView.reuseIdentifier)
         tableView.register(HomeCourseCell.self, forCellReuseIdentifier: HomeCourseCell.reuseIdentifier)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
-        tableView.mj_header = MJRefreshStateHeader{ self.refreshData() }
-        tableView.mj_footer = MJRefreshAutoFooter{
+        tableView.mj_header = MJRefreshStateHeader {
+            self.refreshData()
+        }
+        tableView.mj_footer = MJRefreshAutoFooter {
             self.loadCourseData(offset: self.courseList.count)
         }
         reloadBannerUI()
@@ -112,12 +114,8 @@ class HomeContentViewController: BaseContentViewController {
     func loadCourseData(offset: Int) {
         let grade = ShareSetting.shared.grade
         let area = ShareSetting.shared.area
-        let user = User.shared
         
-        let name = user.account
-        let token = user.userInfo?.token
-        
-        serviceProvider.request(.getCourseList(type: .living, dateType: "3", date: Date().toFormat("yyyy-MM-dd"), name: name, token: token, offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id)) { (result) in
+        serviceProvider.request(.getCourseList(type: .living, dateType: "3", date: Date().toFormat("yyyy-MM-dd"), offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id)) { (result) in
             do {
                 let response = try result.get().mapObject(ListResult<CourseItem>.self)
                 if offset == 0 {
@@ -135,7 +133,12 @@ class HomeContentViewController: BaseContentViewController {
                     self.tableView.mj_footer?.resetNoMoreData()
                 }
             } catch {
-                            
+                if self.tableView.mj_header!.isRefreshing {
+                    self.tableView.mj_header?.endRefreshing()
+                }
+                if self.tableView.mj_footer!.isRefreshing {
+                    self.tableView.mj_footer?.endRefreshingWithNoMoreData()
+                }
             }
         }
     }

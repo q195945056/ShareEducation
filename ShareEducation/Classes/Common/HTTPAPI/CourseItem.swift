@@ -15,13 +15,14 @@ class CourseItem: Mappable {
     var name: String!
     var startTime: Date?
     var endTime: Date?
+    var teacherID: Int?
     var teacherName: String?
     var teacherPic: String?
     var teacherTitle: String?
     var grade: String!
     var course: String!
     var schoolName: String?
-    var price: Int?
+    var price: Float?
     var buystate: BuyState!
     var buyCount: Int?
     var unitIds: Int?
@@ -102,7 +103,7 @@ extension CourseItem {
         if let value = data["buystate"].int {
             buystate = BuyState(rawValue: value)
         }
-        if let value = data["price"].int {
+        if let value = data["price"].float {
             price = value
         }
         if let value = data["state"].int {
@@ -111,6 +112,10 @@ extension CourseItem {
         depict = data["depict"].string
         pic = data["pic"].string
         unitDepict = data["unitdepict"].string
+        
+        teacherID = data["teacher"]["id"].int
+        teacherTitle = data["teacher"]["title"].string
+        teacherPic = data["teacher"]["pic"].string
     }
     
     
@@ -119,7 +124,7 @@ extension CourseItem {
         guard user.isLogin else {
             return
         }
-        serviceProvider.request(.collectCourse(name: user.account!, token: user.token, id: id, star: star, oper: oper)) { result in
+        serviceProvider.request(.collectCourse(id: id, star: star, oper: oper)) { result in
             let json = try? JSON(data: result.get().data)
             let status = json!["result"].int
             if let status = status, status == 1 {

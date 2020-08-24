@@ -9,15 +9,18 @@
 import UIKit
 import EFQRCode
 import Jelly
+import SwiftyJSON
 
 class QrCodePayViewController: UIViewController {
     
     static var animator: Animator?
     
-    static func show(in viewController: UIViewController, price: Int, urlString: String) {
+    static func show(in viewController: UIViewController, price: Int, urlString: String, orderID: String, completion: (() -> Void)? = nil) {
         let controller = QrCodePayViewController()
         controller.price = price
         controller.qrcodeString = urlString
+        controller.orderID = orderID
+        controller.successHandler = completion
         let size = PresentationSize(width: .custom(value: 313), height: .custom(value: 413))
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 9, backgroundStyle: .dimmed(alpha: 0.6))
         let presentation = FadePresentation(size: size, ui: uiConfiguration)
@@ -31,9 +34,13 @@ class QrCodePayViewController: UIViewController {
     
     @IBOutlet var qrCodeImageView: UIImageView!
     
+    var successHandler: (() -> Void)?
+    
     var price: Int = 0
     
     var qrcodeString: String = ""
+    
+    var orderID: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +51,56 @@ class QrCodePayViewController: UIViewController {
         if let tryImage = EFQRCode.generate(content: qrcodeString) {
             let image = UIImage(cgImage: tryImage)
             qrCodeImageView.image = image
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopTimer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        startTimer()
+    }
+    
+    var timer: Timer?
+    
+    var secondLeft = 60
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.onTimerTick(_:)), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer!, forMode: .common)
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+    }
+    
+    @objc func onTimerTick(_ timer: Timer) {
+        checkPayStatus()
+    }
+    
+    func checkPayStatus() {
+        serviceProvider.request(.courseSearchOrder(orderID: orderID)) { (result) in
+            switch result {
+            case let .success(response):
+                guard let responseData = try? JSON(data: response.data) else {
+                    return
+                }
+                
+                let result = responseData["result"].intValue
+                guard result == 1 else {
+                    return
+                }
+                self.stopTimer()
+                
+                self.dismiss(animated: true, completion: self.successHandler)
+            case .failure:
+                break
+            }
         }
     }
 

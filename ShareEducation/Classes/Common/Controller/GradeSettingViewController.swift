@@ -74,7 +74,7 @@ class GradeSettingViewController: UIViewController {
         }
         
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(27)
+            make.top.equalTo(titleLabel.snp.bottom).offset(0)
             make.leading.trailing.equalTo(view)
             make.bottom.equalTo(view)
         }
@@ -82,11 +82,14 @@ class GradeSettingViewController: UIViewController {
         if !isRegister {
             
             var indexPath: IndexPath?
-            if let gradetypes = ShareData.shared.gradetypes {
+            
+            if ShareSetting.shared.grade == .default {
+                indexPath = IndexPath(item: 0, section: 0)
+            } else if let gradetypes = ShareData.shared.gradetypes {
                 for (section, gradeType) in gradetypes.enumerated() {
                     for (item, grade) in gradeType.grades.enumerated() {
                         if grade == ShareSetting.shared.grade {
-                            indexPath = IndexPath(item: item, section: section)
+                            indexPath = IndexPath(item: item, section: section + 1)
                         }
                     }
                 }
@@ -112,38 +115,61 @@ class GradeSettingViewController: UIViewController {
 
 extension GradeSettingViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return ShareData.shared.gradetypes?.count ?? 0
+        return (ShareData.shared.gradetypes?.count ?? 0) + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let gradeType = ShareData.shared.gradetypes?[section]
-        return gradeType?.grades.count ?? 0
+        if section == 0 {
+            return 1
+        } else {
+            let gradeType = ShareData.shared.gradetypes?[section - 1]
+            return gradeType?.grades.count ?? 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GradeCollectionCell.reuseIdentifier, for: indexPath) as! GradeCollectionCell
-        let gradeType = ShareData.shared.gradetypes?[indexPath.section]
-        let grade = gradeType?.grades[indexPath.row]
-        cell.titleLabel.text = grade?.name
+        if indexPath.section == 0 {
+            cell.titleLabel.text = "全部"
+        } else {
+            let gradeType = ShareData.shared.gradetypes?[indexPath.section - 1]
+            let grade = gradeType?.grades[indexPath.row]
+            cell.titleLabel.text = grade?.name
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GradeCollectionHeader.reuseIdentifier, for: indexPath) as! GradeCollectionHeader
-        let gradeType = ShareData.shared.gradetypes?[indexPath.section]
-        headerView.titleLabel.text = gradeType?.name
+        if indexPath.section == 0 {
+            headerView.titleLabel.text = ""
+        } else {
+            let gradeType = ShareData.shared.gradetypes?[indexPath.section - 1]
+            headerView.titleLabel.text = gradeType?.name
+        }
         return headerView
     }
 }
 
 extension GradeSettingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let gradeType = ShareData.shared.gradetypes?[indexPath.section]
-        let grade = gradeType?.grades[indexPath.row]
-        if let didSelectGrade = didSelectGrade {
-            didSelectGrade(grade!)
+        
+        let grade: Grade
+        if indexPath.section == 0 {
+            grade = Grade.default
+        } else {
+            let gradeType = ShareData.shared.gradetypes?[indexPath.section - 1]
+            grade = gradeType!.grades[indexPath.row]
         }
-        ShareSetting.shared.grade = grade!
+        
+        
+        if let didSelectGrade = didSelectGrade {
+            didSelectGrade(grade)
+        }
+        ShareSetting.shared.grade = grade
         
         dismiss(animated: true)
     }

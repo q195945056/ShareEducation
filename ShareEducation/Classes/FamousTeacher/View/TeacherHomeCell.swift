@@ -71,6 +71,11 @@ class TeacherHomeCell: UITableViewCell {
     }
     
     @IBAction func onCollectButtonPressed(_ sender: UIButton) {
+        guard User.shared.isLogin else {
+            LoginViewController.show(from: mainNavigationController)
+            return
+        }
+        
         teacher?.collect(oper: !teacher!.collect!) { result in
             if result {
                 self.collectButton.isSelected = self.teacher!.collect!

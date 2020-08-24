@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Kingfisher
+import Cache
 
 class SettingViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var footerView: UIView!
+    
+    var totalSize: UInt64 = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +39,38 @@ class SettingViewController: UIViewController {
         if User.shared.isLogin {
             tableView.tableFooterView = footerView
         }
+        
+        clearNextControllerBackButtonTitle()
+        
+        ImageCache.default.calculateDiskStorageSize { result in
+            switch result {
+            case let .success(size):
+                let storageSize = try? diskStorage.totalSize()
+                
+                self.totalSize = UInt64(size) + (storageSize ?? 0)
+                self.tableView.reloadData()
+
+            case .failure:
+                break
+            }
+        }
+        
+//        cacheStorage.
+
     }
     
     // MARK: - Actions
     @IBAction func onLogoutButtonPressed(_ sender: Any) {
-        User.shared.logout()
-        tableView.tableFooterView = nil
+        
+        let alertController = UIAlertController(title: "确定退出？", message: nil, preferredStyle: .alert)
+        let sureAction = UIAlertAction(title: "确定", style: .default) { (action) in
+            User.shared.logout()
+            self.tableView.tableFooterView = nil
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alertController.addAction(sureAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 
     /*
@@ -76,25 +106,32 @@ extension SettingViewController: UITableViewDataSource {
             cell.titleLabel.text = "账户与安全"
             cell.descriptionLabel.isHidden = true
             cell.switch.isHidden = true
+            cell.indicatorImageView.isHidden = false
         } else if indexPath.section == 1 {
             if indexPath.row == 0 {
                 cell.titleLabel.text = "消息通知"
                 cell.descriptionLabel.isHidden = true
                 cell.switch.isHidden = false
+                cell.indicatorImageView.isHidden = true
             } else if indexPath.row == 1 {
                 cell.titleLabel.text = "仅在Wi-Fi下播放视频"
                 cell.descriptionLabel.isHidden = true
                 cell.switch.isHidden = false
+                cell.indicatorImageView.isHidden = true
             } else {
                 cell.titleLabel.text = "清除缓存"
-                cell.descriptionLabel.text = "14.MB"
+                let numberKB = totalSize / 1024
+                let numberMB = Float(numberKB) / 1024.0
+                cell.descriptionLabel.text = String(format: "%.2fMB", numberMB)
                 cell.descriptionLabel.isHidden = false
                 cell.switch.isHidden = true
+                cell.indicatorImageView.isHidden = false
             }
         } else {
             cell.titleLabel.text = "关于名师来啦"
             cell.descriptionLabel.isHidden = true
             cell.switch.isHidden = true
+            cell.indicatorImageView.isHidden = false
         }
         return cell
     }
@@ -127,11 +164,25 @@ extension SettingViewController: UITableViewDelegate {
             } else if indexPath.row == 1 {
                 
             } else {
-                
+                let alertController = UIAlertController(title: "确定清除缓存？", message: nil, preferredStyle: .alert)
+                let sureAction = UIAlertAction(title: "确定", style: .default) { (action) in
+                    self.clearCache()
+                }
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                alertController.addAction(sureAction)
+                alertController.addAction(cancelAction)
+                present(alertController, animated: true, completion: nil)
             }
         } else {
             enterAboutPage()
         }
+    }
+    
+    func clearCache() {
+        try? diskStorage.removeAll()
+        ImageCache.default.clearDiskCache()
+        totalSize = 0
+        tableView.reloadData()
     }
     
     func enterAccountSafePage() {

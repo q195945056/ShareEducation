@@ -55,14 +55,19 @@ class TeacherContentViewController: BaseContentViewController {
             if let response = response {
                 self.teachers = response.data
                 self.tableView.reloadData()
-                if self.tableView.mj_header!.isRefreshing {
-                    self.tableView.mj_header!.endRefreshing()
-                }
                 if self.teachers.count >= response.total! {
                     self.tableView.mj_footer!.endRefreshingWithNoMoreData()
                 } else {
                     self.tableView.mj_footer!.resetNoMoreData()
                 }
+            } else {
+                if self.tableView.mj_footer!.isRefreshing {
+                    self.tableView.mj_footer?.endRefreshing()
+                }
+            }
+            
+            if self.tableView.mj_header!.isRefreshing {
+                self.tableView.mj_header!.endRefreshing()
             }
         }
     }
@@ -85,12 +90,7 @@ class TeacherContentViewController: BaseContentViewController {
     func loadDatas(offset: Int, completion: @escaping Moya.Completion) {
         let grade = ShareSetting.shared.grade
         let area = ShareSetting.shared.area
-        let user = User.shared
-        
-        let name = user.account
-        let token = user.userInfo?.token
-        
-        serviceProvider.request(.getTeacherList(name: name, token: token, offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id, sort: sortSegmentedControl.selectedSegmentIndex), completion: completion)
+        serviceProvider.request(.getTeacherList(offset: offset, rows: 20, areaid: area.id, courseid: course.id, gradeid: grade.id, sort: sortSegmentedControl.selectedSegmentIndex), completion: completion)
     }
     
     // MARK: - Actions

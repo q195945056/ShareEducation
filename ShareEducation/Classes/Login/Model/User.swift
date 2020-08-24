@@ -7,15 +7,12 @@
 //
 
 import Foundation
-import Cache
 import SwiftyJSON
 import ObjectMapper
 
 class User: Codable {
     static let shared: User = {
-        let config = DiskConfig(name: "Cache")
-        let diskStorage = try? DiskStorage<User>(config: config, transformer: TransformerFactory.forCodable(ofType: User.self))
-        var shared = try? diskStorage?.object(forKey: "User")
+        var shared = try? documentStorage.object(forKey: "User")
         if shared == nil {
             shared = User()
         }
@@ -59,12 +56,10 @@ class User: Codable {
     }
     
     func saveOnDisk() throws {
-        let config = DiskConfig(name: "Cache")
-        let diskStorage = try DiskStorage<User>(config: config, transformer: TransformerFactory.forCodable(ofType: User.self))
         if isLogin {
-            try diskStorage.setObject(self, forKey: "User")
+            try documentStorage.setObject(self, forKey: "User")
         } else {
-            try diskStorage.removeObject(forKey: "User")
+            try documentStorage.removeObject(forKey: "User")
         }
     }
     
@@ -97,6 +92,8 @@ extension User {
         var scheduling: String!
         var loginTime: Date!
         var name: String!
+        var pic: String!
+        var phone: String!
         
         init?(map: Map) {
             
@@ -116,6 +113,8 @@ extension User {
             scheduling <- map["scheduling"]
             loginTime <- (map["logintime"], dateTransform)
             name <- map["name"]
+            pic <- map["pic"]
+            phone <- map["phone"]
         }
     }
     

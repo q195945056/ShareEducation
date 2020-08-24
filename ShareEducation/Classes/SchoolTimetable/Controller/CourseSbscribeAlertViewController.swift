@@ -34,13 +34,17 @@ class CourseSbscribeAlertViewController: UIViewController {
         if let startTime = startTime, let endTime = endTime {
             timeLabel.text = "\(startTime)-\(endTime)"
         }
-        headImageView.kf.setImage(with: URL(string: course.pic ?? ""))
+        headImageView.kf.setImage(with: URL(string: course.teacherPic?.fullURLString ?? ""))
         teacherNameLabel.text = course.teacherName
         
     }
 
     @IBAction func onSubscribeButtonPressed(sender: Any) {
         dismiss(animated: true, completion: confirmHandler)
+    }
+    
+    @IBAction func onCancelButtonPressed(_ sender: Any) {
+        dismiss(animated: true)
     }
 
     /*

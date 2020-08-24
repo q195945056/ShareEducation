@@ -239,12 +239,13 @@ class MineTableHeaderView: UIView {
         if User.shared.isLogin {
             let userInfo = User.shared.userInfo!
             nameLabel.text = userInfo.name
-            phoneLabel.text = "1234567892"
+            phoneLabel.text = userInfo.phone
             switch userInfo.memberType {
             case .teacher:
                 infoLabel.text = "北京大学附属二小 特级教师"
                 infoButton.setBackgroundImage(UIImage(named: "tag_teacher"), for: .normal)
                 teacherLogoImageView.isHidden = false
+                headImageView.kf.setImage(with: URL(string: userInfo.pic.fullURLString), placeholder: UIImage(named: "head_teacher_man"))
             case .student:
                 let grade = ShareData.shared.findGrade(by: userInfo.gradeID)
                 if grade.id == 0 {
@@ -254,6 +255,7 @@ class MineTableHeaderView: UIView {
                 }
                 infoButton.setBackgroundImage(UIImage(named: "tag_student"), for: .normal)
                 teacherLogoImageView.isHidden = true
+                headImageView.kf.setImage(with: URL(string: userInfo.pic.fullURLString), placeholder: UIImage(named: "head_student_man"))
             case .none:
                 break
             }

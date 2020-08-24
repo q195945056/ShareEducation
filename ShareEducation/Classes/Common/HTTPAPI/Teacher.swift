@@ -51,11 +51,7 @@ extension Teacher {
     }
     
     func collect(oper: Bool, completion: @escaping (_ success: Bool) -> Void) {
-        let user = User.shared
-        guard user.isLogin else {
-            return
-        }
-        serviceProvider.request(.collectTeacher(name: user.account!, token: user.token!, id: teacherid, oper: oper)) { result in
+        serviceProvider.request(.collectTeacher(id: teacherid, oper: oper)) { result in
             let json = try? JSON(data: result.get().data)
             let status = json!["result"].int
             if status == 1 {

@@ -11,5 +11,8 @@
 
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import <UMCommon/UMCommon.h>
+#import <UShareUI/UShareUI.h>
+#import <UMPush/UMessage.h>
 
 #endif /* ShareEducation_Prefix_h */
